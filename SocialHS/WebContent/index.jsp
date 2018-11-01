@@ -29,7 +29,7 @@
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
 			<p class="lead">환영합니다</p>
-			<a class="btn btn-info btn-lg" href="#" role="button"><a href = ""></a>Hobby</a>
+			<a class="btn btn-info btn-lg" href="#" role="button">Hobby</a>
 		    <a class="btn btn-primary btn-lg" href="#" role="button">Study</a>
 		</div>
 	</div>
