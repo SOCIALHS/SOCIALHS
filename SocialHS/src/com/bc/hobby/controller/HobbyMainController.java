@@ -11,6 +11,7 @@ import com.bc.giyeon.command.HobbyMainCommand;
 import com.bc.share.command.Command;
 import com.bc.share.command.HobbyCommand;
 import com.bc.share.command.StudyCommand;
+import com.bc.swan.command.BaseballBoardCommand;
 
 
 
@@ -39,6 +40,8 @@ public class HobbyMainController extends HttpServlet {
 			comm = new HobbyMainCommand();
 		}else if(type.equals("board")) {
 			//원하는 위치로 넘길 command 생성
+		}else if(type.equals("base")) {
+			comm = new BaseballBoardCommand();
 		}
 		
 		path = comm.exec(request, response);

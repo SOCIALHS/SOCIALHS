@@ -4,21 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>야구 게시판</title>
+<title>Insert title here</title>
 </head>
 <body>
 	
-	<h2>야구 모임</h2>
-	<hr>
-	<div>
-		
-	
-	</div>
-	
-	
-	
-	
-	
+	<a href="HobbyController?type=base"><button>테스트</button></a>
 	
 </body>
 </html>
