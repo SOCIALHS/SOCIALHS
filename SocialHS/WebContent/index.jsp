@@ -14,7 +14,19 @@
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
 <style>
+#container{
+	position : absolute;
+	width : 100%;
+}
+#studyBtn{
+	position : relative;
+	left : 500px
+}
+#hobbyBtn{
+	position : relative;
 	
+}
+
 </style>
 <title>Hello, world!</title>
 </head>
@@ -27,10 +39,9 @@
 	</nav>
 	
 	<div class="jumbotron jumbotron-fluid">
-		<div class="container">
-			<p class="lead">환영합니다</p>
-			<a class="btn btn-info btn-lg" href="#" role="button"><a href = ""></a>Hobby</a>
-		    <a class="btn btn-primary btn-lg" href="#" role="button">Study</a>
+		<div class="container" id = "container">
+			<a class="btn btn-info btn-lg" id = "hobbyBtn" role="button" href = "MainController?type=hobby">Hobby</a>
+		    <a class="btn btn-primary btn-lg" href = "MainController?type=study" id = "studyBtn" role="button">Study</a>
 		</div>
 	</div>
 
