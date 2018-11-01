@@ -8,7 +8,8 @@
 </head>
 <body>
 	
-	<a href="HobbyController?type=base"><button>테스트</button></a>
+	<a href="../HobbyController?type=base"><button>테스트</button></a>
+	<a href="/error/error.jsp"><button>테스트2</button></a>
 	
 </body>
 </html>

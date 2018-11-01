@@ -6,8 +6,8 @@
 <!-- mapper 태그의 namespace 속성 필수 작성  -->  
 <mapper namespace="baseball">
 	
-	<select id="list" resultType="">
-	
+	<select id="list" resultType="com.bc.hobby.vo.BaseballBoardVO">
+		SELECT * FROM HB_BASEBALL ORDER BY BASE_IDX DESC
 	</select>
 	
 	
