@@ -8,7 +8,17 @@
 <title>Insert title here</title>
 </head>
 <body>
+<<<<<<< HEAD
 
 asdfasdfasdfasdf
+</body>
+>>>>>>> refs/remotes/origin/master
+=======
+fgfgfgfdgdfgfgd
+1111
+    2222
+3333
+asassa
+asdfasdf
 </body>
 >>>>>>> refs/remotes/origin/master
