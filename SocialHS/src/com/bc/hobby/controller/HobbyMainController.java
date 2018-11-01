@@ -1,4 +1,4 @@
-package com.bc.controller;
+package com.bc.hobby.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bc.giyeon.command.HobbyMainCommand;
 import com.bc.share.command.Command;
 import com.bc.share.command.HobbyCommand;
 import com.bc.share.command.StudyCommand;
@@ -14,8 +15,8 @@ import com.bc.share.command.StudyCommand;
 
 
 
-@WebServlet("/MainController")
-public class MainController extends HttpServlet {
+@WebServlet("/HobbyController")
+public class HobbyMainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,11 +35,10 @@ public class MainController extends HttpServlet {
 		System.out.println("type : "+type);
 		Command comm = null;
 		
-		if(type.equals("hobby")) {
-			comm = new HobbyCommand();
-		}
-			else if(type.equals("study")) {
-			comm = new StudyCommand();
+		if(type.equals("main")) {
+			comm = new HobbyMainCommand();
+		}else if(type.equals("board")) {
+			//원하는 위치로 넘길 command 생성
 		}
 		
 		path = comm.exec(request, response);
