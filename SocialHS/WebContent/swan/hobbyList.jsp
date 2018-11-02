@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<a href="../HobbyController?type=base&cPage=1&cntPerPage=3"><button>테스트</button></a>
-	
+
 </body>
 </html>
