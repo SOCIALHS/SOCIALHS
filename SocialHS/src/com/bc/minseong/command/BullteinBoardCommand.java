@@ -12,6 +12,7 @@ public class BullteinBoardCommand implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		List<BullteinBoardVO> list = BullteinBoardDAO.getBullteinList();
+		request.setAttribute("list", list);
 		return "minseong/bullteinBoard.jsp";
 	}
 

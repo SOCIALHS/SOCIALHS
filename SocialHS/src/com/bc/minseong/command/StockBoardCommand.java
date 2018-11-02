@@ -14,7 +14,7 @@ public class StockBoardCommand implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		List<StockBoardVO> list = StockDAO.getStockList();
-		
+		request.setAttribute("list", list);
 		return "minseong/stockBoard.jsp";
 	}
 

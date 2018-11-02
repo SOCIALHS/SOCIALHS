@@ -12,6 +12,7 @@ public class FreeBoardCommand implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		List<FreeBoardVO> list = FreeBoardDAO.getFreeList(); 
+		request.setAttribute("list", list);
 		return "minseong/freeBoard.jsp";
 	}
 
