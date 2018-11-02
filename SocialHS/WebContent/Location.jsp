@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -10,7 +10,7 @@
 %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 <style>
 	#body{
@@ -42,18 +42,18 @@
 	<table id = "body">
 		<tbody>
 			<tr>
-				<td><div class = 'area'><a href = "LocationController?location=1">¼­¿ï</a></div></td>
-				<td><div class = 'area'><a href = "LocationController?location=2">°æ±âµµ</a></div></td>
-				<td><div class = 'area'><a href = "LocationController?location=3">°­¿øµµ</a></div></td>
-				<td><div class = 'area'><a href = "LocationController?location=4">ÃæÃ»ºÏµµ</a></div></td>
-				<td><div class = 'area'><a href = "LocationController?location=5">ÃæÃ»³²µµ</a></div></td>
+				<td><div class = 'area'><a href = "LocationController?location=1">ï¿½ï¿½ï¿½ï¿½</a></div></td>
+				<td><div class = 'area'><a href = "LocationController?location=2">ï¿½ï¿½âµµ</a></div></td>
+				<td><div class = 'area'><a href = "LocationController?location=3">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</a></div></td>
+				<td><div class = 'area'><a href = "LocationController?location=4">ï¿½ï¿½Ã»ï¿½Ïµï¿½</a></div></td>
+				<td><div class = 'area'><a href = "LocationController?location=5">ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½</a></div></td>
 			</tr>
 			<tr>
-				<td><div class = 'area'><a href = "LocationController?location=8">°æ»óºÏµµ</a></div></td>
-				<td><div class = 'area'><a href = "LocationController?location=9">°æ»ó³²µµ</a></div></td>
-				<td><div class = 'area'><a href = "LocationController?location=6">Àü¶óºÏµµ</a></div></td>
-				<td><div class = 'area'><a href = "LocationController?location=7">Àü¶ó³²µµ</a></div></td>
-				<td><div class = 'area'><a href = "LocationController?location=10">Á¦ÁÖµµ</a></div></td>
+				<td><div class = 'area'><a href = "LocationController?location=8">ï¿½ï¿½ï¿½Ïµï¿½</a></div></td>
+				<td><div class = 'area'><a href = "LocationController?location=9">ï¿½ï¿½ó³²µï¿½</a></div></td>
+				<td><div class = 'area'><a href = "LocationController?location=6">ï¿½ï¿½ï¿½ï¿½Ïµï¿½</a></div></td>
+				<td><div class = 'area'><a href = "LocationController?location=7">ï¿½ï¿½ï¿½ó³²µï¿½</a></div></td>
+				<td><div class = 'area'><a href = "LocationController?location=10">ï¿½ï¿½ï¿½Öµï¿½</a></div></td>
 			</tr>
 		</tbody>
 	</table>
