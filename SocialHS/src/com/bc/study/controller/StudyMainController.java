@@ -44,19 +44,14 @@ public class StudyMainController extends HttpServlet {
 			//�썝�븯�뒗 �쐞移섎줈 �꽆湲� command �깮�꽦
 		}else if(type.equals("jap")) {
 			comm = new JapaneseCommand();
-<<<<<<< HEAD
 		}else if(type.equals("atte")) {
 			comm = new AttendanceBoardCommand();
-=======
-
 		}else if(type.equals("eng")) {
 			System.out.println(">> eng 체크");
 			comm = new EnglishBoardCommand();
 
 		}else if(type.equals("stoc")) {
 			comm = new StockBoardCommand();
-
->>>>>>> refs/remotes/origin/master
 		}
 		
 		path = comm.exec(request, response);
