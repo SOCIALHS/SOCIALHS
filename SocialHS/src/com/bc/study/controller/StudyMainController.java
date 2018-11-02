@@ -9,9 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bc.dongwu.command.JapaneseCommand;
+import com.bc.jieun.command.EnglishBoardCommand;
 import com.bc.main.command.StudyMainCommand;
+import com.bc.minseong.command.BullteinBoardCommand;
+import com.bc.minseong.command.FreeBoardCommand;
 import com.bc.minseong.command.StockBoardCommand;
 import com.bc.share.command.Command;
+import com.bc.wonho.command.AttendanceBoardCommand;
 
 
 
@@ -39,11 +43,20 @@ public class StudyMainController extends HttpServlet {
 		if(type.equals("main")) {
 			comm = new StudyMainCommand();
 		}else if(type.equals("board")) {
-			//원하는 위치로 넘길 command 생성
+			//�썝�븯�뒗 �쐞移섎줈 �꽆湲� command �깮�꽦
 		}else if(type.equals("jap")) {
 			comm = new JapaneseCommand();
+		}else if(type.equals("atte")) {
+			comm = new AttendanceBoardCommand();
+		}else if(type.equals("eng")) {
+			System.out.println(">> eng 체크");
+			comm = new EnglishBoardCommand();
 		}else if(type.equals("stoc")) {
 			comm = new StockBoardCommand();
+		}else if(type.equals("free")) {
+			comm = new FreeBoardCommand();
+		}else if(type.equals("bulltein")) {
+			comm = new BullteinBoardCommand();
 		}
 		
 		path = comm.exec(request, response);

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!doctype html>
-<html lang="en">
+<html>
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -20,7 +20,7 @@
 }
 #studyBtn{
 	position : relative;
-	left : 500px
+	left : 500px;
 }
 #hobbyBtn{
 	position : relative;

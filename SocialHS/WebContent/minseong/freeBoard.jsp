@@ -7,6 +7,9 @@
 <title>자유게시판</title>
 </head>
 <body>
-
+<h2>자유게시판</h2>
+	<div>
+		${list }
+	</div>
 </body>
 </html>
