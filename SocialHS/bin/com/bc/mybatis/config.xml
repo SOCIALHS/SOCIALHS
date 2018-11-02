@@ -22,6 +22,7 @@
     <mapper resource="com/bc/mybatis/photoMapper.xml"/>
     <mapper resource="com/bc/mybatis/AttendanceMapper.xml"/>
     <mapper resource="com/bc/mybatis/englishMapper.xml"/>
+    <mapper resource="com/bc/mybatis/SubLocationMapper.xml"/>
   </mappers>
 </configuration>
 

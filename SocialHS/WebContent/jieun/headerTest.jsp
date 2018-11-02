@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>타이틀</title>
 <style>
-	div{
+	#start{
 		margin-top: 45px;
 	}
 </style>
@@ -15,7 +15,7 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	
-	<div>
+	<div id = "start">
 	요정도부터 시작
 	<br><br><br><br><br><br><br><br><br><br>
 	<br><br><br><br><br><br><br><br><br><br>
