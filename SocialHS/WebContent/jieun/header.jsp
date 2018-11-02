@@ -22,6 +22,7 @@
 	 	background: black;
    		border: none;
    		border-bottom: 2px solid white;
+   		color:white;
 	}
 	input[type=button]{
 	  background:Black;
@@ -38,6 +39,9 @@
 	  background:gray;
 	  color:#fff;
 	}
+	#start{
+		margin-top: 45px;
+	}
 </style>
 </head>
 <body>
@@ -49,5 +53,6 @@
 			<input type="button" value="JOIN">
 		</nav>
 	</header>
+	<div id="start"></div>
 </body>
 </html>

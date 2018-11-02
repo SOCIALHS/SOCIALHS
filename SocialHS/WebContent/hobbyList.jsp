@@ -16,6 +16,16 @@ $(document).ready(function(){
 			dataType: "JSON",
 			success: function(data) {
 				alert("전달받은 결과값: " + data);
+				
+				var tbody = "";
+				var alist = data.list;
+				$.each(alist, function(member){
+					tbody += "<tr>";
+					tbody += "<td>" + this.h_idx+ "</td>";		// JSON객체.속성명
+					tbody += "<td>" + this.h_name+ "</td>";
+					tbody += "</tr>";
+				});
+				$("#tbody").html(tbody);
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
 				alert("실패: \n"
@@ -34,7 +44,11 @@ $(document).ready(function(){
 <body>
 	
 	
+	<table>
+	<tbody id="tbody">
 	
+	</tbody>
+	</table>
 	
 	
 	
