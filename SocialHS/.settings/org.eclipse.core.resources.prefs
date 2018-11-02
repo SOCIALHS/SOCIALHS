@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 eclipse.preferences.version=1
 encoding//src/com/bc/study/controller/StudyMainController.java=UTF-8
+=======
+eclipse.preferences.version=1
+encoding//src/com/bc/hobby/dao/BaseballDAO.java=UTF-8
+>>>>>>> refs/remotes/origin/master

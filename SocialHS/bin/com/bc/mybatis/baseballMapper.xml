@@ -4,12 +4,18 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- mapper 태그의 namespace 속성 필수 작성  -->  
-<mapper namespace="japanese">
+<mapper namespace="baseball">
 	
-	<select id="list" resultType="com.bc.study.vo.JapaneseBoardVO">
-		SELECT * FROM SB_JAPANESE ORDER BY JAP_IDX DESC
+	<select id="list" resultType="com.bc.hobby.vo.BaseballBoardVO">
+		SELECT * FROM HB_BASEBALL ORDER BY BASE_IDX DESC
 	</select>
 	
 	
 	
 </mapper>  
+
+
+
+
+
+
