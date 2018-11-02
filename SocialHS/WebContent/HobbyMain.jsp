@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,5 +13,11 @@
 	hobbyMain 페이지 입니다.
 	testeetses
 	testestestt
+	지역 id :  ${location }
+	<c:forEach var = "vo" items="${SubLocation }">
+		${vo.getSl_name() } , 
+	</c:forEach>
+	<a href = "HobbyController?type=basket">basketball</a>
+	
 </body>
 </html>

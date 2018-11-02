@@ -7,8 +7,9 @@ public class StudyCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return "StudyController?type=main";
+
+		request.setAttribute("hs_flag", "study");
+		return "Location.jsp";
 	}
 
 }

@@ -1,4 +1,9 @@
 <<<<<<< HEAD
+eclipse.preferences.version=1
+encoding//src/com/bc/hobby/dao/BaseballDAO.java=UTF-8
+encoding//src/com/bc/hobby/dao/BasketballDAO.java=UTF-8
+=======
+<<<<<<< HEAD
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
 >>>>>>>=refs/remotes/origin/master
@@ -18,6 +23,7 @@ encoding//src/com/bc/hobby/dao/BaseballDAO.java=UTF-8
 <<<<<<< HEAD
 encoding//src/com/bc/study/controller/StudyMainController.java=UTF-8
 =======
+>>>>>>> refs/remotes/origin/master
 >>>>>>> refs/remotes/origin/master
 >>>>>>> refs/remotes/origin/master
 >>>>>>> refs/remotes/origin/master
