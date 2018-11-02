@@ -1,4 +1,4 @@
-package com.bc.giyeon.command;
+package com.bc.main.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

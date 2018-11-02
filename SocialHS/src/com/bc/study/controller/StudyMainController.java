@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bc.giyeon.command.HobbyMainCommand;
+import com.bc.main.command.HobbyMainCommand;
+import com.bc.main.command.StudyMainCommand;
 import com.bc.share.command.Command;
 import com.bc.share.command.HobbyCommand;
 import com.bc.share.command.StudyCommand;
-import com.bc.wonho.command.StudyMainCommand;
 
 
 
