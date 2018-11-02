@@ -53,7 +53,7 @@
 				<td><div class = 'area'><a href = "LocationController?location=9">경상남도</a></div></td>
 				<td><div class = 'area'><a href = "LocationController?location=6">전라북도</a></div></td>
 				<td><div class = 'area'><a href = "LocationController?location=7">전라남도</a></div></td>
-				<td><div class = 'area'><a href = "LocationController?location=10">���ֵ�</a></div></td>
+				<td><div class = 'area'><a href = "LocationController?location=10">제주도</a></div></td>
 			</tr>
 		</tbody>
 	</table>
