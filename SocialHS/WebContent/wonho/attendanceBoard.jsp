@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>japaneseBoard</title>
+<title>attendanceBoard</title>
 </head>
 <body>
 	<h2>출석 스터디</h2>

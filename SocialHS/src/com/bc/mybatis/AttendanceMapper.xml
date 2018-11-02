@@ -9,7 +9,5 @@
 	<select id="list" resultType="com.bc.study.vo.AttendanceBoardVO">
 		SELECT * FROM SB_ATTENDANCE ORDER BY ATTE_IDX DESC
 	</select>
-	
-	
-	
+
 </mapper>  

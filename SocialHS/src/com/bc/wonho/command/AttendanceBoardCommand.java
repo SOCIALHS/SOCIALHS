@@ -15,6 +15,6 @@ public class AttendanceBoardCommand implements Command {
 
 		List<AttendanceBoardVO> list = AttendanceDAO.getAttendList();
 		request.setAttribute("list", list);
-		return "wonho/attendance.jsp";
+		return "wonho/attendanceBoard.jsp";
 	}
 }
