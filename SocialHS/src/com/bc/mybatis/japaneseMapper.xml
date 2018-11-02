@@ -7,9 +7,6 @@
 <mapper namespace="japanese">
 	
 	<select id="list" resultType="com.bc.study.vo.JapaneseBoardVO">
-		SELECT * FROM SB_JAPANESE ORDER BY JAP_IDX DESC
+		SELECT * FROM SB_STOCK ORDER BY JAP_IDX DESC
 	</select>
-	
-	
-	
 </mapper>  

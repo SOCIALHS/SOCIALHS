@@ -1,19 +1,19 @@
 package com.bc.study.vo;
 
 public class StockBoardVO {
-	private int stoc_idx, h_idx, l_idx, req_member, hit, good, bad; 
+	private int stoc_idx, s_idx, l_idx, req_member, hit, cur_member;
 	private String id, title, content, regdate, file_name, rp;
 	public int getStoc_idx() {
 		return stoc_idx;
-		
-		
-		
 	}
-	public int getH_idx() {
-		return h_idx;
+	public void setStoc_idx(int stoc_idx) {
+		this.stoc_idx = stoc_idx;
 	}
-	public void setH_idx(int h_idx) {
-		this.h_idx = h_idx;
+	public int getS_idx() {
+		return s_idx;
+	}
+	public void setS_idx(int s_idx) {
+		this.s_idx = s_idx;
 	}
 	public int getL_idx() {
 		return l_idx;
@@ -33,17 +33,11 @@ public class StockBoardVO {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
-	public int getGood() {
-		return good;
+	public int getCur_member() {
+		return cur_member;
 	}
-	public void setGood(int good) {
-		this.good = good;
-	}
-	public int getBad() {
-		return bad;
-	}
-	public void setBad(int bad) {
-		this.bad = bad;
+	public void setCur_member(int cur_member) {
+		this.cur_member = cur_member;
 	}
 	public String getId() {
 		return id;
@@ -81,15 +75,16 @@ public class StockBoardVO {
 	public void setRp(String rp) {
 		this.rp = rp;
 	}
-	public void setStoc_idx(int stoc_idx) {
-		this.stoc_idx = stoc_idx;
-	}
 	@Override
 	public String toString() {
-		return "StockBoardVO [stoc_idx=" + stoc_idx + ", h_idx=" + h_idx + ", l_idx=" + l_idx + ", req_member="
-				+ req_member + ", hit=" + hit + ", good=" + good + ", bad=" + bad + ", id=" + id + ", title=" + title
+		return "StockBoardVO [stoc_idx=" + stoc_idx + ", s_idx=" + s_idx + ", l_idx=" + l_idx + ", req_member="
+				+ req_member + ", hit=" + hit + ", cur_member=" + cur_member + ", id=" + id + ", title=" + title
 				+ ", content=" + content + ", regdate=" + regdate + ", file_name=" + file_name + ", rp=" + rp + "]";
 	}
+		
+		
+		
+	
 	
 	
 	
