@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bc.hobby.command.BasketballBoardCommand;
 import com.bc.main.command.HobbyMainCommand;
+import com.bc.mingyeong.command.PhotoBoardCommand;
 import com.bc.share.command.Command;
 import com.bc.share.command.HobbyCommand;
 import com.bc.share.command.StudyCommand;
@@ -43,9 +44,8 @@ public class HobbyMainController extends HttpServlet {
 			//�썝�븯�뒗 �쐞移섎줈 �꽆湲� command �깮�꽦
 		}else if(type.equals("base")) {
 			comm = new BaseballBoardCommand();
-		}else if(type.equals("basket")) {
-			System.out.println("check1");
-			comm = new BasketballBoardCommand();
+		}else if(type.equals("photo")) {
+			comm = new PhotoBoardCommand();
 		}
 		
 		path = comm.exec(request, response);

@@ -17,7 +17,7 @@ public class AttendanceDAO {
 	}
 	
 	public static List<AttendanceBoardVO> getAttendList() {
-		List<AttendanceBoardVO> list = getSql().selectList("list");
+		List<AttendanceBoardVO> list = getSql().selectList("attendance.list");
 		return list;
 	}
 }

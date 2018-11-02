@@ -6,6 +6,12 @@
 <!-- mapper 태그의 namespace 속성 필수 작성  -->  
 <mapper namespace="socialhs">
 	
+	<select id="hobbyList" resultType="com.bc.hobby.vo.HobbyVO">
+		SELECT * FROM HOBBY ORDER BY H_IDX
+	</select>
+	
+	
+	
 </mapper>  
 
 
