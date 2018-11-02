@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!doctype html>
+
 <html>
+
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -13,7 +15,13 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
+
+<title>소셜 하비 앤 스터디</title>
 <style>
+<<<<<<< HEAD
+.navbar_btn {
+	margin-right: 10px;
+=======
 #container{
 	position : absolute;
 	width : 100%;
@@ -25,25 +33,56 @@
 #hobbyBtn{
 	position : relative;
 	
+>>>>>>> refs/remotes/origin/master
 }
 
+#jumbo_title {
+	margin-top: 70px;
+	text-align: center;
+}
+
+#jumbo_subtitle {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.jumbo_btn {
+	margin: 20px 30px 100px 30px;
+	padding: 40px 80px 40px 80px;
+}
 </style>
-<title>Hello, world!</title>
 </head>
+
 <body>
-
-
-	<!-- As a heading -->
+	<jsp:include page="jieun/header.jsp"></jsp:include>
+	<jsp:include page="jieun/footer.jsp"></jsp:include>
+	<!-- Navbar -->
 	<nav class="navbar navbar-light bg-light">
-		<span class="navbar-brand mb-0 h1">Navbar</span>
+		<a class="navbar-brand">소셜 하비 앤 스터디</a>
+		<form class="form-inline">
+			<a class="navbar_btn" href="#">로그인</a> <a class="navbar_btn" href="#">회원가입</a>
+		</form>
 	</nav>
-	
+
+	<!-- Jumbotron -->
 	<div class="jumbotron jumbotron-fluid">
-		<div class="container" id = "container">
-			<a class="btn btn-info btn-lg" id = "hobbyBtn" role="button" href = "MainController?type=hobby">Hobby</a>
-		    <a class="btn btn-primary btn-lg" href = "MainController?type=study" id = "studyBtn" role="button">Study</a>
+		<div class="container">
+			<h1 class="display-4" id="jumbo_title">
+				소셜 하비 앤 스터디 <br> Welcome to<br> Social Hobby & Study
+			</h1>
+			<p class="lead" id="jumbo_subtitle">소셜 하비 앤 스터디에 오신 여러분들 환영합니다.</p>
+			<div class="text-center">
+				<a href="MainController?type=hobby"><button type="button"
+					class="btn btn-lg bg-warning text-dark jumbo_btn">취미(Hobby)</button></a>
+				<a href="MainController?type=study">
+				<button type="button"
+					class="btn btn-lg bg-success text-white jumbo_btn">스터디(Study)</button></a>
+			</div>
+
 		</div>
 	</div>
+
+
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -58,7 +97,6 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
-		
-	
 </body>
+
 </html>

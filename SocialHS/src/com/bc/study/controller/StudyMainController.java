@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.bc.dongwu.command.JapaneseCommand;
 import com.bc.jieun.command.EnglishBoardCommand;
 import com.bc.main.command.StudyMainCommand;
+import com.bc.minseong.command.BullteinBoardCommand;
+import com.bc.minseong.command.FreeBoardCommand;
 import com.bc.minseong.command.StockBoardCommand;
 import com.bc.share.command.Command;
 import com.bc.wonho.command.AttendanceBoardCommand;
@@ -37,7 +39,7 @@ public class StudyMainController extends HttpServlet {
 		String path = null;
 		System.out.println("type : "+type);
 		Command comm = null;
-		
+		 
 		if(type.equals("main")) {
 			comm = new StudyMainCommand();
 		}else if(type.equals("board")) {
@@ -51,6 +53,10 @@ public class StudyMainController extends HttpServlet {
 			comm = new EnglishBoardCommand();
 		}else if(type.equals("stoc")) {
 			comm = new StockBoardCommand();
+		}else if(type.equals("free")) {
+			comm = new FreeBoardCommand();
+		}else if(type.equals("bulltein")) {
+			comm = new BullteinBoardCommand();
 		}
 		
 		path = comm.exec(request, response);
