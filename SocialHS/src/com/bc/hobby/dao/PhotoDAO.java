@@ -23,4 +23,8 @@ public class PhotoDAO {
 		return list;
 	}
 	
+	//게시글 상세보기
+	public static PhotoBoardVO photoSelectOne(String phot_idx)  {
+		return getSql().selectOne("one", phot_idx);
+	}
 }

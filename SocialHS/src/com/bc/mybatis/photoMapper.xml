@@ -10,6 +10,12 @@
 		SELECT * FROM HB_PHOTO ORDER BY PHOT_IDX DESC
 	</select>
 	
+	<!-- 게시글 상세보기(1개) -->
+	<select id="one" resultType="com.bc.hobby.vo.PhotoBoardVO"
+					 parameterType="String">
+		SELECT * FROM HB_PHOTO WHERE PHOT_IDX = #{phot_idx}
+	</select>
+	
 	
 	
 </mapper>  
