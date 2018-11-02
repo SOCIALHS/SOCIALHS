@@ -35,7 +35,7 @@ public class StudyMainController extends HttpServlet {
 		String path = null;
 		System.out.println("type : "+type);
 		Command comm = null;
-		
+		 
 		if(type.equals("main")) {
 			comm = new StudyMainCommand();
 		}else if(type.equals("board")) {
