@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.bc.hobby.command.BasketballBoardCommand;
 import com.bc.main.command.HobbyMainCommand;
 import com.bc.mingyeong.command.PhotoBoardCommand;
+import com.bc.minseong.command.BullteinBoardCommand;
+import com.bc.minseong.command.FreeBoardCommand;
 import com.bc.share.command.Command;
 import com.bc.share.command.HobbyCommand;
 import com.bc.share.command.StudyCommand;

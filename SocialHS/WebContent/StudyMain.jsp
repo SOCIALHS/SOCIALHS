@@ -18,5 +18,5 @@
 		${vo.getSl_name() } , 
 	</c:forEach>
 	<a href = "HobbyController?type=basket">basketball</a>
-</body>
+</body> 
 </html>

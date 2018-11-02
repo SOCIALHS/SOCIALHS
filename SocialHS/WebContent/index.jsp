@@ -2,9 +2,6 @@
 	pageEncoding="UTF-8"%>
 <!doctype html>
 
-<html lang="en">
-
-
 <html>
 
 <head>
