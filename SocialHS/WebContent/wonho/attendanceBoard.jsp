@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +7,7 @@
 <title>attendanceBoard</title>
 </head>
 <body>
-	<h2>Ãâ¼® ½ºÅÍµğ</h2>
+	<h2>ì¶œì„ ìŠ¤í„°ë””</h2>
 	<hr>
 	<div>
 		${list }
