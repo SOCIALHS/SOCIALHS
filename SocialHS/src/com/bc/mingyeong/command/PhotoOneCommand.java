@@ -23,5 +23,5 @@ public class PhotoOneCommand implements Command {
 		return "mingyeong/photoOnelist.jsp"; 
 	}
 	
-
+ 
 }
