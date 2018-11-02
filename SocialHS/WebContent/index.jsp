@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!doctype html>
-<<<<<<< HEAD
-<html lang="en">
-
-=======
 <html>
->>>>>>> refs/remotes/origin/master
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -21,22 +16,22 @@
 
 <title>소셜 하비 앤 스터디</title>
 <style>
-<<<<<<< HEAD
 .navbar_btn {
 	margin-right: 10px;
-=======
-#container{
-	position : absolute;
-	width : 100%;
 }
-#studyBtn{
-	position : relative;
-	left : 500px;
+
+#container {
+	position: absolute;
+	width: 100%;
 }
-#hobbyBtn{
-	position : relative;
-	
->>>>>>> refs/remotes/origin/master
+
+#studyBtn {
+	position: relative;
+	left: 500px;
+}
+
+#hobbyBtn {
+	position: relative;
 }
 
 #jumbo_title {
@@ -74,10 +69,11 @@
 			<p class="lead" id="jumbo_subtitle">소셜 하비 앤 스터디에 오신 여러분들 환영합니다.</p>
 			<div class="text-center">
 				<a href="MainController?type=hobby"><button type="button"
-					class="btn btn-lg bg-warning text-dark jumbo_btn">취미(Hobby)</button></a>
+						class="btn btn-lg bg-warning text-dark jumbo_btn">취미(Hobby)</button></a>
 				<a href="MainController?type=study">
-				<button type="button"
-					class="btn btn-lg bg-success text-white jumbo_btn">스터디(Study)</button></a>
+					<button type="button"
+						class="btn btn-lg bg-success text-white jumbo_btn">스터디(Study)</button>
+				</a>
 			</div>
 
 		</div>
