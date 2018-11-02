@@ -1,5 +1,7 @@
 package com.bc.study.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.bc.mybatis.DBService;
