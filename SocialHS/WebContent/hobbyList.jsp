@@ -6,22 +6,16 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
-	$(function() {
-		
-		$.ajax("HobbyListController", {
+$(document).ready(function(){
+	
+		$.ajax({
+			url: "HobbyList",
 			type: "get",
 			dataType: "JSON",
 			success: function(data) {
 				alert("전달받은 결과값: " + data);
-				
-				$.each(alist, function(hobby){
-					
-				});
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
 				alert("실패: \n"
@@ -32,14 +26,10 @@
 		});
 		
 		
-		
-		
-		
-		
-	});
+});
 </script>
 
-
+<h1>취미 리스트</h1>
 </head>
 <body>
 	
