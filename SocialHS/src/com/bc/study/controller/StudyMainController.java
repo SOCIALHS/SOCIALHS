@@ -12,6 +12,7 @@ import com.bc.main.command.StudyMainCommand;
 import com.bc.share.command.Command;
 import com.bc.share.command.HobbyCommand;
 import com.bc.share.command.StudyCommand;
+import com.bc.swan.command.BaseballBoardCommand;
 
 
 
@@ -40,6 +41,8 @@ public class StudyMainController extends HttpServlet {
 			comm = new StudyMainCommand();
 		}else if(type.equals("board")) {
 			//원하는 위치로 넘길 command 생성
+		}else if(type.equals("jap")) {
+			comm = new JapaneseCommand();
 		}
 		
 		path = comm.exec(request, response);

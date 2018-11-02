@@ -18,6 +18,7 @@
   <mappers>
     <mapper resource="com/bc/mybatis/mapper.xml"/>
     <mapper resource="com/bc/mybatis/baseballMapper.xml"/>
+    <mapper resource="com/bc/mybatis/japaneseMapper.xml"/>
   </mappers>
 </configuration>
 
