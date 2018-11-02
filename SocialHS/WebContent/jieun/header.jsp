@@ -22,6 +22,7 @@
 	 	background: black;
    		border: none;
    		border-bottom: 2px solid white;
+   		color:white;
 	}
 	input[type=button]{
 	  background:Black;
