@@ -1,24 +1,28 @@
 package com.bc.study.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bc.main.command.HobbyMainCommand;
+import com.bc.dongwu.command.JapaneseCommand;
 import com.bc.main.command.StudyMainCommand;
 import com.bc.share.command.Command;
+<<<<<<< HEAD
 import com.bc.share.command.HobbyCommand;
 import com.bc.share.command.StudyCommand;
 import com.bc.swan.command.BaseballBoardCommand;
 import com.bc.wonho.command.AttendanceBoardCommand;
+=======
+>>>>>>> refs/remotes/origin/master
 
 
 
 
-@WebServlet("/StudyMainController")
+@WebServlet("/StudyController")
 public class StudyMainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
