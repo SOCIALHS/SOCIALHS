@@ -7,6 +7,11 @@
 <title>japaneseBoard</title>
 </head>
 <body>
-
+	<h2>일본어 스터디</h2>
+	<hr>
+	<div>
+		${list }
+	
+	</div>
 </body>
 </html>
