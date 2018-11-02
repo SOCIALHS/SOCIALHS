@@ -16,8 +16,11 @@ public class HobbyMainCommand implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
+		
 		String location = (String)session.getAttribute("location");
+		System.out.println("check!! Location2 : "+location);
 		List<SubLocationVO> list = SubLocationDAO.getSubLocation(location);
+		
 		System.out.println("list : "+ list);
 		session.setAttribute("SubLocation", list);
 		return "HobbyMain.jsp";

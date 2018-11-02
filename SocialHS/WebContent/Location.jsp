@@ -36,6 +36,8 @@
 </style>
 </head>
 <body>
+	<jsp:include page="jieun/header.jsp"></jsp:include>
+	<jsp:include page="jieun/footer.jsp"></jsp:include>
 	<div>${hs }</div>
 	<table id = "body">
 		<tbody>

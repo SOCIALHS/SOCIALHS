@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!doctype html>
-<<<<<<< HEAD
+
 <html lang="en">
 
-=======
+
 <html>
->>>>>>> refs/remotes/origin/master
+
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -57,6 +57,8 @@
 </head>
 
 <body>
+	<jsp:include page="jieun/header.jsp"></jsp:include>
+	<jsp:include page="jieun/footer.jsp"></jsp:include>
 	<!-- Navbar -->
 	<nav class="navbar navbar-light bg-light">
 		<a class="navbar-brand">소셜 하비 앤 스터디</a>
