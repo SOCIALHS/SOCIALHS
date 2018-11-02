@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bc.dongwu.command.JapaneseCommand;
 import com.bc.main.command.StudyMainCommand;
+import com.bc.minseong.command.StockBoardCommand;
 import com.bc.share.command.Command;
 
 
@@ -41,6 +42,8 @@ public class StudyMainController extends HttpServlet {
 			//원하는 위치로 넘길 command 생성
 		}else if(type.equals("jap")) {
 			comm = new JapaneseCommand();
+		}else if(type.equals("stoc")) {
+			comm = new StockBoardCommand();
 		}
 		
 		path = comm.exec(request, response);
