@@ -22,8 +22,6 @@ public class HobbyListController extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
-		System.out.println("여긴 들어옴");
-		
 		Command comm = new HobbyListCommand();
 		String result = comm.exec(request, response);
 		

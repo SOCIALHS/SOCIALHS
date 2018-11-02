@@ -16,10 +16,10 @@ public class HobbyListCommand implements Command {
 		
 		List<HobbyVO> list = HobbyDAO.getHobbyList();
 		
-		String result = "{\"h_list\":[";
+		String result = "{\"list\":[";
 		for (HobbyVO vo : list) {
 			result += "{";
-			result += "\"h_idx\" : \""+vo.getH_idx()+"\"";
+			result += "\"h_idx\" : \""+vo.getH_idx()+"\",";
 			result += "\"h_name\" : \""+vo.getH_name()+"\"";
 			result += "},";
 		}
