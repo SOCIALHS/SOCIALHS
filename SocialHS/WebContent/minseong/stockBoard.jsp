@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -7,7 +7,9 @@
 <title>주식 게시판</title>
 </head>
 <body>
-	<h1>주식 게시판 test</h1>
-	<h2>떡상 가즈아~~~!!</h2>
+	<h1>주식 게시판</h1>
+	<div>
+		${list }
+	</div>
 </body>
 </html>
