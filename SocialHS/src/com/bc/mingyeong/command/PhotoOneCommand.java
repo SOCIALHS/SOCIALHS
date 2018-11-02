@@ -20,7 +20,7 @@ public class PhotoOneCommand implements Command {
 		HttpSession session = request.getSession();
 		session.setAttribute("PhotoBoardVO", vo);
 		
-		return "mingyeong/photoOnelist.jsp";
+		return "mingyeong/photoOnelist.jsp"; 
 	}
 	
 
