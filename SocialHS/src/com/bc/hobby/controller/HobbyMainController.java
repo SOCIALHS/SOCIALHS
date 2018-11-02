@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bc.main.command.HobbyMainCommand;
+import com.bc.mingyeong.command.PhotoBoardCommand;
 import com.bc.share.command.Command;
 import com.bc.share.command.HobbyCommand;
 import com.bc.share.command.StudyCommand;
@@ -42,6 +43,8 @@ public class HobbyMainController extends HttpServlet {
 			//원하는 위치로 넘길 command 생성
 		}else if(type.equals("base")) {
 			comm = new BaseballBoardCommand();
+		}else if(type.equals("photo")) {
+			comm = new PhotoBoardCommand();
 		}
 		
 		path = comm.exec(request, response);

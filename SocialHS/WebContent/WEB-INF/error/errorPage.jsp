@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<a href="../HobbyController?type=base&cPage=1&cntPerPage=3"><button>테스트</button></a>
-	
+	<h3>404 에러 페이지</h3>
+	<img alt="보노보노" src="bonobono.jpg">
 </body>
 </html>

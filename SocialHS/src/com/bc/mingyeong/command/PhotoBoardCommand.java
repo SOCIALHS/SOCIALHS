@@ -1,4 +1,4 @@
-package com.bc.ming.command;
+package com.bc.mingyeong.command;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class PhotoBoardCommand implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		List<PhotoBoardVO> list = PhotoDAO.getPhotoList();
 		request.setAttribute("list", list);
-		return "ming/photoBoard.jsp";
+		return "mingyeong/photoBoard.jsp";
 	}
 	
 

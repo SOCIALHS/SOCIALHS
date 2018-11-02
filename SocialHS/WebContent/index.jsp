@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!doctype html>
+<<<<<<< HEAD
 <html lang="en">
 
+=======
+<html>
+>>>>>>> refs/remotes/origin/master
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -17,8 +21,22 @@
 
 <title>소셜 하비 앤 스터디</title>
 <style>
+<<<<<<< HEAD
 .navbar_btn {
 	margin-right: 10px;
+=======
+#container{
+	position : absolute;
+	width : 100%;
+}
+#studyBtn{
+	position : relative;
+	left : 500px;
+}
+#hobbyBtn{
+	position : relative;
+	
+>>>>>>> refs/remotes/origin/master
 }
 
 #jumbo_title {
