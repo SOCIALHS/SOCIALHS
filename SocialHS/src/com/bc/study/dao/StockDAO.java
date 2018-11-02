@@ -19,6 +19,4 @@ private static SqlSession ss;
 	}
 	
 	
-	
-	
 }
