@@ -4,15 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- mapper 태그의 namespace 속성 필수 작성  -->  
-<mapper namespace="socialhs">
+<mapper namespace="alarm">
 	
-	<select id="hobbyList" resultType="com.bc.hobby.vo.HobbyVO">
-		SELECT * FROM HOBBY ORDER BY H_NAME
+	<select id="MSNChk" resultType="String">
+		SELECT CHK FROM MESSENGER WHERE RECV_ID = #{id}
 	</select>
 	
 	
-	<select id="studyList" resultType="com.bc.hobby.vo.HobbyVO">
-		SELECT * FROM STUDY ORDER BY S_NAME
+	<select id="MEMChk" resultType="String">
+		SELECT CHK FROM MESSENGER WHERE RECV_ID = #{id}
 	</select>
 	
 	

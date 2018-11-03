@@ -18,10 +18,6 @@
 
 <title>소셜 하비 앤 스터디</title>
 <style>
-<<<<<<< HEAD
-.navbar_btn {
-	margin-right: 10px;
-=======
 #container{
 	position : absolute;
 	width : 100%;
@@ -33,7 +29,6 @@
 #hobbyBtn{
 	position : relative;
 	
->>>>>>> refs/remotes/origin/master
 }
 
 #jumbo_title {

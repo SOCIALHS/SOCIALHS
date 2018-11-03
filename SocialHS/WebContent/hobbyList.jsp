@@ -15,17 +15,25 @@ $(document).ready(function(){
 			type: "get",
 			dataType: "JSON",
 			success: function(data) {
-				alert("전달받은 결과값: " + data);
 				
 				var tbody = "";
 				var alist = data.list;
+				var cnt = 0;
+				var chk = true;
 				$.each(alist, function(member){
-					tbody += "<tr>";
-					tbody += "<td>" + this.h_idx+ "</td>";		// JSON객체.속성명
-					tbody += "<td>" + this.h_name+ "</td>";
-					tbody += "</tr>";
+					tbody += "<li class='h_list'>";
+					tbody += "<a href='#' class='h_list'>";
+					tbody += this.h_idx + this.h_name;
+					tbody += "&nbsp;";
+					tbody += "&nbsp;";
+					tbody += "&nbsp;";
+					tbody += "&nbsp;";
+					tbody += "&nbsp;";
+					tbody += "</a>";
+					tbody += "</li>";
+					
 				});
-				$("#tbody").html(tbody);
+				$("#hoList").html(tbody);
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
 				alert("실패: \n"
@@ -36,22 +44,38 @@ $(document).ready(function(){
 		});
 		
 		
+		
 });
 </script>
+<style>
+	li {
+		list-style-type: none;
+	}
+	.h_list {
+		float: left;
+		text-decoration: none;
+		color: gray;
+	}
+	#hoList>li:nth-child(4n+1) {
+		clear: left;
+		color: blue;
+	}
+	.h_list:hover{
+		color: black;
+	}
+	.point {
+	}
+</style>
 
 <h1>취미 리스트</h1>
 </head>
 <body>
 	
+	<hr>
+	<ul id="hoList">
 	
-	<table>
-	<tbody id="tbody">
-	
-	</tbody>
-	</table>
-	
-	
-	
+	</ul>
+	<hr>
 	
 		
 	

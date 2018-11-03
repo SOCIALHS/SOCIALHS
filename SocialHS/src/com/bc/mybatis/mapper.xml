@@ -7,7 +7,12 @@
 <mapper namespace="socialhs">
 	
 	<select id="hobbyList" resultType="com.bc.hobby.vo.HobbyVO">
-		SELECT * FROM HOBBY ORDER BY H_IDX
+		SELECT * FROM HOBBY ORDER BY H_NAME
+	</select>
+	
+	
+	<select id="studyList" resultType="com.bc.hobby.vo.HobbyVO">
+		SELECT * FROM STUDY ORDER BY S_NAME
 	</select>
 	
 	
