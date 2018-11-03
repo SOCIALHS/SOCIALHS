@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bc.main.command.HobbyListCommand;
+import com.bc.main.command.ListCommand;
 import com.bc.share.command.Command;
 
-@WebServlet("/HobbyList")
-public class HobbyListController extends HttpServlet {
+@WebServlet("/HSList")
+public class ListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,11 +22,12 @@ public class HobbyListController extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
-		Command comm = new HobbyListCommand();
+		
+		Command comm = new ListCommand();
+		
+		
 		String result = comm.exec(request, response);
-		
 		out.println(result);
-		
 		out.close();
 		
 	}

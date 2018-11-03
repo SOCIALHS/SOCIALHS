@@ -43,15 +43,12 @@ public class CommentVO {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "CommentVO [bbc_idx=" + bbc_idx + ", bbs_idx=" + bbs_idx + ", id=" + id + ", content=" + content
 				+ ", pw=" + pw + ", regdate=" + regdate + "]";
 	}
-	
-	
-	
-	
-	
 	
 }

@@ -5,13 +5,12 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
 $(document).ready(function(){
 	
 		$.ajax({
-			url: "HobbyList",
+			url: "HSList?type=study",
 			type: "get",
 			dataType: "JSON",
 			success: function(data) {
@@ -31,9 +30,8 @@ $(document).ready(function(){
 					tbody += "&nbsp;";
 					tbody += "</a>";
 					tbody += "</li>";
-					
 				});
-				$("#hoList").html(tbody);
+				$("#hoList").html(tbody).trigger("create");
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
 				alert("실패: \n"
@@ -47,7 +45,9 @@ $(document).ready(function(){
 		
 });
 </script>
-<style>
+<style>.
+
+	ul { list-style-type: none;}
 	li {
 		list-style-type: none;
 	}
@@ -56,14 +56,16 @@ $(document).ready(function(){
 		text-decoration: none;
 		color: gray;
 	}
-	#hoList>li:nth-child(4n+1) {
+/* 	#hoList>li:nth-child(4n+1) {
 		clear: left;
-		color: blue;
-	}
+	} */
 	.h_list:hover{
 		color: black;
 	}
-	.point {
+	#outBox {
+		width: 800px;
+		height: 200px;
+		border: 2px solid black;	
 	}
 </style>
 
@@ -72,9 +74,11 @@ $(document).ready(function(){
 <body>
 	
 	<hr>
+	<div id="outBox">
 	<ul id="hoList">
 	
 	</ul>
+	</div>
 	<hr>
 	
 		

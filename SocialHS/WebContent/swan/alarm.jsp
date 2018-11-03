@@ -10,14 +10,15 @@
 	$(document).ready(function() {
 		
 		setInterval(
-			function() {
+			function MSNAlm() {
 				
 				$.ajax({
-					url: "",
+					url: "../AlarmController",
 					type: "get",
-					dataType: "JSON",
+					dataType: "text",
 					success: function(data){
-						
+						/* alert("가져온 데이터: "+ data); */
+						$("#alarm").html(data);
 					},
 					error: function(jqXHR, textStatus, errorThrown){
   						alert("실패: \n"
@@ -39,8 +40,7 @@
 </head>
 <body>
 	
-	<div id="msn"></div>
-	<div id="mem"></div>
+	<div id="alarm"></div>
 	
 	
 </body>

@@ -6,14 +6,25 @@
 <!-- mapper 태그의 namespace 속성 필수 작성  -->  
 <mapper namespace="socialhs">
 	
-	<select id="hobbyList" resultType="com.bc.hobby.vo.HobbyVO">
-		SELECT * FROM HOBBY ORDER BY H_NAME
+	<select id="hobbyList" resultType="com.bc.main.vo.BbsCodeVO">
+		SELECT * FROM BBS_CODE WHERE BBS_IDX BETWEEN 300 AND 500 ORDER BY BBS_NAME
 	</select>
 	
 	
-	<select id="studyList" resultType="com.bc.hobby.vo.HobbyVO">
-		SELECT * FROM STUDY ORDER BY S_NAME
+	<select id="studyList" resultType="com.bc.main.vo.BbsCodeVO">
+		SELECT * FROM BBS_CODE WHERE BBS_IDX BETWEEN 700 AND 999 ORDER BY BBS_NAME
 	</select>
+	
+	
+	<select id="MSNChk" resultType="String" parameterType="String">
+		SELECT CHK FROM MESSENGER WHERE RECV_ID = #{id}
+	</select>
+	
+	
+	<select id="MEMChk" resultType="String" parameterType="String">
+		SELECT CHK FROM B_BOARD WHERE ID = #{id}
+	</select>
+	
 	
 	
 	

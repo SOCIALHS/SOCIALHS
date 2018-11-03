@@ -11,7 +11,6 @@
   </welcome-file-list>
   <error-page>
     <error-code>404</error-code>
-    <location>/WEB-INF/error/errorPage.jsp</location>
+    <location>/WEB-INF/error/errorPage.html</location>
   </error-page>
-
 </web-app>

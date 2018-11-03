@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>404 에러 페이지</h3>
-	<img alt="보노보노" src="bonobono.jpg">
+	${list }
 </body>
 </html>
