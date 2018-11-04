@@ -6,7 +6,7 @@
 <!-- mapper 태그의 namespace 속성 필수 작성  -->  
 <mapper namespace="stock">
 <select id="list" resultType="com.bc.study.vo.StockBoardVO">
-	SELECT * FROM SB_STOCK ORDER BY STOC_IDX
+	SELECT * FROM SB_STOCK ORDER BY STOC_IDX DESC
 </select>	
 </mapper>  
 

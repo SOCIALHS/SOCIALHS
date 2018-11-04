@@ -7,13 +7,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bc.share.command.Command;
 
-public class BullteinBoardCommand implements Command {
+public class BullteinBoardOneCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		List<BullteinBoardVO> list = BullteinBoardDAO.getBullteinList();
+		List<BullteinBoardVO> list = BullteinBoardDAO.getList();
 		request.setAttribute("list", list);
-		return "minseong/bullteinBoard.jsp";
+		return "minseong/bullteinBoardOne.jsp";
 	}
+
 
 }
