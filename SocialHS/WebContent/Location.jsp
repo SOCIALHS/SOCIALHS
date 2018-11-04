@@ -24,17 +24,16 @@
             <h1 class="display-4">지역을 선택해주세요.</h1>
             <p class="lead">해당 지역에 개설되어 있는 스터디 또는 취미 모임을 보실 수 있습니다.</p>
             <hr class="my-4">
-            <button type="button" class="btn btn-dark btn-lg btn-block">서울</button>
-            <button type="button" class="btn btn-dark btn-lg btn-block">인천</button>
-            <button type="button" class="btn btn-dark btn-lg btn-block">경기</button>
-            <button type="button" class="btn btn-dark btn-lg btn-block">경남</button>
-            <button type="button" class="btn btn-dark btn-lg btn-block">경북</button>
-            <button type="button" class="btn btn-dark btn-lg btn-block">충남</button>
-            <button type="button" class="btn btn-dark btn-lg btn-block">충북</button>
-            <button type="button" class="btn btn-dark btn-lg btn-block">전남</button>
-            <button type="button" class="btn btn-dark btn-lg btn-block">전북</button>
-            <button type="button" class="btn btn-dark btn-lg btn-block">강원</button>
-            <button type="button" class="btn btn-dark btn-lg btn-block">제주</button>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=01" role="button">서울</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=02" role="button">경기</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=03" role="button">경남</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=04" role="button">경북</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=05" role="button">충남</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=06" role="button">충북</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=07" role="button">전남</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=08" role="button">전북</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=09" role="button">강원</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=10" role="button">제주</a>
         </div>
     </div>
     
