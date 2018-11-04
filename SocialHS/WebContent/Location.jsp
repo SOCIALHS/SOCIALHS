@@ -21,6 +21,7 @@
     <!-- jumbotron -->
     <div class="jumbotron jumbotron-fluid">
         <div class="container text-center">
+        	<br><br><br>
             <h1 class="display-4">지역을 선택해주세요.</h1>
             <p class="lead">해당 지역에 개설되어 있는 스터디 또는 취미 모임을 보실 수 있습니다.</p>
             <hr class="my-4">
