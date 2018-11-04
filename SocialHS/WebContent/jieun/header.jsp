@@ -19,7 +19,7 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-dark bg-dark">
+	<nav class="navbar navbar-dark bg-dark fixed-top">
 		<a class="navbar-brand" style="color: aliceblue;">SHAS (Social
 			Hobby & Study)</a>
 		<form class="form-inline my-2">
