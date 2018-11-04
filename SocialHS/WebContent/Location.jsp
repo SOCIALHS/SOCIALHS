@@ -1,62 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-	String hs = (String)request.getAttribute("hs_flag");
-	System.out.println("hs : "+ hs);
-	session.setAttribute("hs", hs);
-	
-%>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<style>
-	#body{
-		margin : auto;
-		width : 80%;
-		text-align : center;
-	}
-	.area{
-		border : 1px solid black;
-		display : inline-block;
-		font-size : 1.2em;
-		padding : 10px 10px;
-		border-radius : 10%;
-		background-color : #444;
-	}
-	a{
-		text-decoration: none;
-		color : white;
-	}
-	.area:hover{
-		opacity: 0.3;
-	}
-</style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <title>Social Hobby & Study</title>
 </head>
+
 <body>
 	<jsp:include page="jieun/header.jsp"></jsp:include>
-	<jsp:include page="jieun/footer.jsp"></jsp:include>
-	<div>${hs }</div>
-	<table id = "body">
-		<tbody>
-			<tr>
-				<td><div class = 'area'><a href = "LocationController?location=1">서울</a></div></td>
-				<td><div class = 'area'><a href = "LocationController?location=2">경기도</a></div></td>
-				<td><div class = 'area'><a href = "LocationController?location=3">강원도</a></div></td>
-				<td><div class = 'area'><a href = "LocationController?location=4">충청북도</a></div></td>
-				<td><div class = 'area'><a href = "LocationController?location=5">충청남도</a></div></td>
-			</tr>
-			<tr>
-				<td><div class = 'area'><a href = "LocationController?location=8">경상북도</a></div></td>
-				<td><div class = 'area'><a href = "LocationController?location=9">경상남도</a></div></td>
-				<td><div class = 'area'><a href = "LocationController?location=6">전라북도</a></div></td>
-				<td><div class = 'area'><a href = "LocationController?location=7">전라남도</a></div></td>
-				<td><div class = 'area'><a href = "LocationController?location=10">제주도</a></div></td>
-			</tr>
-		</tbody>
-	</table>
 	
+    <!-- jumbotron -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <h1 class="display-4">지역을 선택해주세요.</h1>
+            <p class="lead">해당 지역에 개설되어 있는 스터디 또는 취미 모임을 보실 수 있습니다.</p>
+            <hr class="my-4">
+            <button type="button" class="btn btn-dark btn-lg btn-block">서울</button>
+            <button type="button" class="btn btn-dark btn-lg btn-block">인천</button>
+            <button type="button" class="btn btn-dark btn-lg btn-block">경기</button>
+            <button type="button" class="btn btn-dark btn-lg btn-block">경남</button>
+            <button type="button" class="btn btn-dark btn-lg btn-block">경북</button>
+            <button type="button" class="btn btn-dark btn-lg btn-block">충남</button>
+            <button type="button" class="btn btn-dark btn-lg btn-block">충북</button>
+            <button type="button" class="btn btn-dark btn-lg btn-block">전남</button>
+            <button type="button" class="btn btn-dark btn-lg btn-block">전북</button>
+            <button type="button" class="btn btn-dark btn-lg btn-block">강원</button>
+            <button type="button" class="btn btn-dark btn-lg btn-block">제주</button>
+        </div>
+    </div>
+    
+    <jsp:include page="jieun/footer.jsp"></jsp:include>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
