@@ -36,6 +36,7 @@ public class LocationController extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		String hs = (String)session.getAttribute("hs");
+		String type = request.getParameter("type");
 		String location = (String)request.getParameter("location");
 		session.setAttribute("location", location);
 		String path = null;

@@ -11,7 +11,6 @@
 	<hr>
 	<div>
 		${list }
-	
 	</div>
 </body>
 </html>

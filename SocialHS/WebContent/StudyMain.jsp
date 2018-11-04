@@ -9,7 +9,6 @@
 </head>
 <body>
 	<jsp:include page="jieun/header.jsp"></jsp:include>
-	<jsp:include page="jieun/footer.jsp"></jsp:include>
 	<h1>작업환경 UTF-8 확인 부탁드립니다</h1>
 	<h1>jsp, html 파일 생성시 DOCTYPE 확인 부탁드립니다</h1>
 	study main 페이집입니다.
@@ -18,5 +17,6 @@
 		${vo.getSl_name() } , 
 	</c:forEach>
 	<a href = "HobbyController?type=basket">basketball</a>
+	<jsp:include page="jieun/footer.jsp"></jsp:include>
 </body> 
 </html>

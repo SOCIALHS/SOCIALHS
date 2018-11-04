@@ -1,20 +1,19 @@
 package com.bc.hobby.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bc.hobby.command.BasketballBoardCommand;
 import com.bc.main.command.HobbyMainCommand;
 import com.bc.mingyeong.command.PhotoBoardCommand;
 import com.bc.minseong.command.BullteinBoardListCommand;
 import com.bc.minseong.command.FreeBoardCommand;
+
 import com.bc.share.command.Command;
-import com.bc.share.command.HobbyCommand;
-import com.bc.share.command.StudyCommand;
 import com.bc.swan.command.BaseballBoardCommand;
 
 
