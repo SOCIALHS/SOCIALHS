@@ -9,7 +9,7 @@ public class StudyCommand implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
-		request.setAttribute("hs", "study");
+		session.setAttribute("hs", "study");
 		return "Location.jsp";
 	}
 
