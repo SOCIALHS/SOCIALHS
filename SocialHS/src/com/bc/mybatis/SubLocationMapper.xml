@@ -6,7 +6,7 @@
 <!-- mapper 태그의 namespace 속성 필수 작성  -->  
 <mapper namespace="SubLocation">
 	
-	<select id="list" resultType="com.bc.hobby.vo.SubLocationVO"
+	<select id="list" resultType="com.bc.main.vo.SubLocationVO"
 		parameterType="String">
 		SELECT * FROM SUB_LOCATION WHERE L_IDX = #{L_IDX}
 	</select>

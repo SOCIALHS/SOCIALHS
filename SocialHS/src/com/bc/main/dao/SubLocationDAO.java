@@ -1,4 +1,4 @@
-package com.bc.hobby.dao;
+package com.bc.main.dao;
 
 
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.bc.hobby.vo.BaseballBoardVO;
-import com.bc.hobby.vo.SubLocationVO;
+import com.bc.main.vo.SubLocationVO;
 import com.bc.mybatis.*;
 
 public class SubLocationDAO {
