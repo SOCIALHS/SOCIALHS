@@ -26,6 +26,10 @@ public class LocationDAO {
 		return getSql().selectList("Location.list",location);
 	}
 	
+	public static List<LocationVO> getAll(){
+		return getSql().selectList("Location.all");
+	}
+	
 	
 	
 	
