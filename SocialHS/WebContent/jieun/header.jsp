@@ -3,17 +3,6 @@
 <!doctype html>
 <html lang="en">
 
-<<<<<<< HEAD
-	}
-	input[type=button]:hover{
-	  background:gray;
-	  color:#fff;
-	}
-	#start{
-		margin-top: 45px;
-	}
-</style>
-
 <script>
 	function login(frm) {
 		
@@ -39,7 +28,6 @@
 	}
 </script>
 
-=======
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -53,32 +41,13 @@
 	crossorigin="anonymous">
 
 <title>Social Hobby & Study</title>
->>>>>>> refs/remotes/origin/master
 </head>
 
 <body>
-<<<<<<< HEAD
-	<header>
-		<nav>
-		<form method="post" >
-			ID <input type="text" name="id">
-			&nbsp;&nbsp; PW <input type="password" name="pw"> 
-			<input type="button" value="LOGIN" onclick="login(this.form)">
-			<input type="button" value="JOIN" onclick="join(this.form)">
-			
-			<input type="hidden" name="loginchk" value="chk">
-		</form>
-		</nav>
-		<!-- 
-			<b>sss</b>님 이 로그인 하였습니다.
-		 -->
-	</header>
-	<div id="start"></div>
-=======
 	<nav class="navbar navbar-dark bg-dark fixed-top">
 		<a class="navbar-brand" style="color: aliceblue;">SHAS (Social
 			Hobby & Study)</a>
-		<form class="form-inline my-2">
+		<form class="form-inline my-2" method="post">
 			<div class="form-group mx-sm-3">
 				<label for="inputId" class="sr-only">Id</label> <input type="text"
 					class="form-control" id="inputId" name="id" placeholder="Id">
@@ -88,8 +57,8 @@
 					type="password" class="form-control" id="inputPassword" name="pw"
 					placeholder="Password">
 			</div>
-			<button type="submit" class="btn btn-light mr-3">로그인</button>
-			<button type="button" class="btn btn-light">회원가입</button>
+			<button type="button" class="btn btn-light mr-3" onclick="login(this.form)">로그인</button>
+			<button type="button" class="btn btn-light" onclick="join(this.form)">회원가입</button>
 		</form>
 	</nav>
 
@@ -106,7 +75,6 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
->>>>>>> refs/remotes/origin/master
 </body>
 
 </html>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.bc.main.vo.BoardVO;
 import com.bc.mybatis.DBService;
 
 public class memberDAO {
@@ -23,8 +24,8 @@ memberVO vo = new memberVO();
 		return list;
 	}
 	//내가쓴 글 조회
-	public static List<boardVO> getmyList(String id) {
-		List<boardVO> mylist = getSql().selectList("mylist", id);
+	public static List<BoardVO> getmyList(String id) {
+		List<BoardVO> mylist = getSql().selectList("mylist", id);
 		return mylist;
 	}
 	
