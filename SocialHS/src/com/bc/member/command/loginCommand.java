@@ -1,5 +1,6 @@
 package com.bc.member.command;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -19,7 +20,7 @@ public class loginCommand implements Command {
 		
 		HttpSession session = request.getSession();
 		memberDAO dao = new memberDAO();
-		memberVO vo = new memberVO();
+		memberVO vo = dao.selectId(id);
 		int chk = dao.loginCheck(id, pw);
 			
 		if (chk == 0) {
@@ -34,6 +35,7 @@ public class loginCommand implements Command {
 			//로그인 성공 -> 메인화면 이동
 			System.out.println("로그인 성공!");
 			session.setAttribute("memberid", id);
+			session.setAttribute("memberVO", vo);
 			path = "index.jsp";
 		}
 		
