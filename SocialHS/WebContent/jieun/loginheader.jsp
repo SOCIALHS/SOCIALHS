@@ -119,7 +119,6 @@
 </head>
 
 <body>
-<% session.getAttribute("memberVO"); %>
 
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" style="color:aliceblue;">SHAS (Social Hobby & Study)</a>

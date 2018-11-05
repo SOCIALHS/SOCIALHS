@@ -17,6 +17,9 @@
 	crossorigin="anonymous">
 
 <title>Social Hobby & Study</title>
+<script>
+
+</script>
 </head>
 
 <body>

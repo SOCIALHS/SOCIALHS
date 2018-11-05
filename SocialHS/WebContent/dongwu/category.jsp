@@ -1,5 +1,7 @@
+<%@page import="com.bc.study.command.CategoryCommand"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,88 +17,44 @@
 	crossorigin="anonymous">
 
 <title>Social Hobby & Study</title>
+<script>
+	$(function(){
+		url: "HSList?type=study",
+		type: "get",
+		dataType: "JSON",
+		success: function(data) {
+			
+			var tbody = "";
+			var alist = data.list;
+			var cnt = 0;
+			var chk = true;
+			$.each(alist, function(member){
+				tbody += "<li class='h_list'>";
+				tbody += "<a href='#' class='h_list'>";
+				tbody += this.h_idx + this.h_name;
+				tbody += "&nbsp;";
+				tbody += "&nbsp;";
+				tbody += "&nbsp;";
+				tbody += "&nbsp;";
+				tbody += "&nbsp;";
+				tbody += "</a>";
+				tbody += "</li>";
+			});
+			$("#hoList").html(tbody).trigger("create");
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+			alert("실패: \n"
+				+ "jqXHR.readyState: "+ jqXHR.readyState+ "\n"
+				+ "textStatus: "+ textStatus+ "\n"
+				+ "errorThrown: "+ errorThrown);
+		}
+	})
+	
+</script>
 </head>
 <body>
-	<div class="d-flex bd-highlight mx-2">
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-	</div>
-
-	<div class="d-flex bd-highlight mx-2">
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-	</div>
-
-	<div class="d-flex bd-highlight mx-2">
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-		<div class="p-2 flex-fill bd-highlight">
-			<a class="nav-link" href="#">Link</a>
-		</div>
-	</div>
+	<!--<jsp:include page="../hsList.jsp"></jsp:include> -->
+	
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
