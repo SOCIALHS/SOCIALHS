@@ -43,15 +43,48 @@
 		margin-top: 45px;
 	}
 </style>
+
+<script>
+	function login(frm) {
+		
+		if (!frm.id.value) {
+			alert("아이디를 입력하세요.");
+			frm.id.focus();
+			return false;
+		}
+		
+		if (!frm.pw.value) {
+			alert("비밀번호를 입력하세요.");
+			frm.pw.focus();
+			return false;
+		}
+		
+		frm.action = "memberController?type=login";
+		frm.submit();
+	}
+	
+	function join(frm) {
+		frm.action = "memberController?type=join";
+		frm.submit();
+	}
+</script>
+
 </head>
 <body>
 	<header>
-		<nav> 
+		<nav>
+		<form method="post" >
 			ID <input type="text" name="id">
 			&nbsp;&nbsp; PW <input type="password" name="pw"> 
-			<input type="button" value="LOGIN">
-			<input type="button" value="JOIN">
+			<input type="button" value="LOGIN" onclick="login(this.form)">
+			<input type="button" value="JOIN" onclick="join(this.form)">
+			
+			<input type="hidden" name="loginchk" value="chk">
+		</form>
 		</nav>
+		<!-- 
+			<b>sss</b>님 이 로그인 하였습니다.
+		 -->
 	</header>
 	<div id="start"></div>
 </body>

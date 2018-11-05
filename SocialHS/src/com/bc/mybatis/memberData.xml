@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper 태그의 namespace 속성 필수 작성  -->  
+<mapper namespace="memberdata">
+	
+	<!-- 멤버 전체 데이타 조회 -->
+	<select id="memberlist" resultType="com.bc.member.memberVO">
+		SELECT * FROM MEMBER ORDER BY U_IDX DESC
+	</select>
+	
+	<!-- 아이디조회 -->
+	<select id="idchk" resultType="com.bc.member.memberVO"
+			parameterType="String">
+		SELECT * FROM MEMBER WHERE ID = #{id}
+	</select>
+	
+	<!-- 회원가입 insert -->
+	<insert id="join" parameterType="com.bc.member.memberVO">
+		INSERT INTO MEMBER
+			(U_IDX, NAME, ID, PW, AGE, PHONE, EMAIL, ADDR, RANK, REGDATE, POINT)
+		VALUES (MEMBER_SEQ.NEXTVAL, #{name}, #{id}, #{pw}, 
+		TRUNC(MONTHS_BETWEEN(SYSDATE, TO_DATE(SUBSTR('19950112', 1, 4), 'YYYY'))/12)
+		, #{phone}, #{email}, #{addr}, '0', SYSDATE, 0)
+	</insert>
+	
+	<!-- 내 정보 수정 -->
+	<update id="updateMyinfo" parameterType="com.bc.member.memberVO">
+		UPDATE MEMBER
+			SET PW = #{pw},
+				PHONE =#{phone},
+				EMAIL = #{email},
+				ADDR = #{addr}
+				WHERE ID = #{id}
+	</update>
+	
+	
+	
+</mapper>  
