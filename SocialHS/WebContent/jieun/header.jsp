@@ -3,6 +3,31 @@
 <!doctype html>
 <html lang="en">
 
+<script>
+	function login(frm) {
+		
+		if (!frm.id.value) {
+			alert("아이디를 입력하세요.");
+			frm.id.focus();
+			return false;
+		}
+		
+		if (!frm.pw.value) {
+			alert("비밀번호를 입력하세요.");
+			frm.pw.focus();
+			return false;
+		}
+		
+		frm.action = "memberController?type=login";
+		frm.submit();
+	}
+	
+	function join(frm) {
+		frm.action = "memberController?type=join";
+		frm.submit();
+	}
+</script>
+
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -22,7 +47,7 @@
 	<nav class="navbar navbar-dark bg-dark fixed-top">
 		<a class="navbar-brand" style="color: aliceblue;">SHAS (Social
 			Hobby & Study)</a>
-		<form class="form-inline my-2">
+		<form class="form-inline my-2" method="post">
 			<div class="form-group mx-sm-3">
 				<label for="inputId" class="sr-only">Id</label> <input type="text"
 					class="form-control" id="inputId" name="id" placeholder="Id">
@@ -32,8 +57,8 @@
 					type="password" class="form-control" id="inputPassword" name="pw"
 					placeholder="Password">
 			</div>
-			<button type="submit" class="btn btn-light mr-3">로그인</button>
-			<button type="button" class="btn btn-light">회원가입</button>
+			<button type="button" class="btn btn-light mr-3" onclick="login(this.form)">로그인</button>
+			<button type="button" class="btn btn-light" onclick="join(this.form)">회원가입</button>
 		</form>
 	</nav>
 

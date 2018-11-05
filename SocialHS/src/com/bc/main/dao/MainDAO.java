@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.bc.main.vo.BbsCodeVO;
 import com.bc.main.vo.BoardVO;
+import com.bc.main.vo.CommentVO;
+import com.bc.main.vo.MessengerVO;
 import com.bc.mybatis.DBService;
 
 public class MainDAO {
@@ -30,20 +32,16 @@ public class MainDAO {
 		return getSql().selectList("socialhs.studyList");
 	}
 	
-	public static int getMsnAlm(String id) {
-		String result = getSql().selectOne("socialhs.MSNChk", id);
-		if (result == null) {
-			result = "0";
-		}
-		return Integer.parseInt(result);
+	public static List<MessengerVO> getMsnAlm(String id) {
+		return getSql().selectList("socialhs.msnAlm", id);
 	}
 	
-	public static int getMemAlm(String id) {
-		String result = getSql().selectOne("socialhs.MEMChk", id);
-		if (result == null) {
-			result = "0";
-		}
-		return Integer.parseInt(result);
+	public static List<BoardVO> getMemAlm(String id) {
+		return getSql().selectList("socialhs.memAlm", id);
+	}
+	
+	public static List<CommentVO> getComAlm(String id) {
+		return getSql().selectList("socialhs.comAlm", id);
 	}
 	
 }

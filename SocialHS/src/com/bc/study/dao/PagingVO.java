@@ -1,6 +1,6 @@
 package com.bc.study.dao;
 
-public class Paging {
+public class PagingVO {
 	private int nowPage = 1; 
 	private int nowBlock = 1;
 	private int numPerPage = 10;

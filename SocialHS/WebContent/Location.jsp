@@ -18,6 +18,10 @@
 <body>
 	<jsp:include page="jieun/header.jsp"></jsp:include>
 	
+	<%
+		String hs = (String)session.getAttribute("hs");
+	%>
+	
     <!-- jumbotron -->
     <div class="jumbotron jumbotron-fluid">
         <div class="container text-center">
@@ -25,16 +29,16 @@
             <h1 class="display-4">지역을 선택해주세요.</h1>
             <p class="lead">해당 지역에 개설되어 있는 스터디 또는 취미 모임을 보실 수 있습니다.</p>
             <hr class="my-4">
-            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=01" role="button">서울</a>
-            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=02" role="button">경기</a>
-            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=03" role="button">경남</a>
-            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=04" role="button">경북</a>
-            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=05" role="button">충남</a>
-            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=06" role="button">충북</a>
-            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=07" role="button">전남</a>
-            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=08" role="button">전북</a>
-            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=09" role="button">강원</a>
-            <a class="btn btn-dark btn-lg btn-block" href="LocationController?type=10" role="button">제주</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=01" role="button">서울</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=02" role="button">경기</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=03" role="button">경남</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=04" role="button">경북</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=05" role="button">충남</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=06" role="button">충북</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=07" role="button">전남</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=08" role="button">전북</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=09" role="button">강원</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=10" role="button">제주</a>
         </div>
     </div>
     

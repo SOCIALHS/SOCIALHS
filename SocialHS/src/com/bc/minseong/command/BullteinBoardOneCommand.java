@@ -11,9 +11,11 @@ public class BullteinBoardOneCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		List<BullteinBoardVO> list = BullteinBoardDAO.getList();
-		request.setAttribute("list", list);
-		return "minseong/bullteinBoardOne.jsp";
+		String bb_idx = request.getParameter("bb_idx");
+		BullteinBoardVO bbvo = BullteinBoardDAO.selectOne(bb_idx);
+		request.getSession().setAttribute("BullteinBoardVO", bbvo);
+		return "BullteinWrite.jsp";
+		
 	}
 
 

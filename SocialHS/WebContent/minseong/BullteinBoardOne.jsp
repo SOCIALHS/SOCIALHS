@@ -7,18 +7,17 @@
 <title>게시글 상세 페이지</title>
 <script>
 	function update_go(frm) {
-		frm.action = "StudyMainController?type=bullteinUpdate";
+		frm.action = "StudyController?type=bullteinUpdate";
 		frm.submit();
 	}
 	function delete_go(frm) {
-		frm.action = "StudyMainController?type=bullteinDelete";
+		frm.action = "StudyController?type=bullteinDelete";
 		frm.submit();
 	}
 </script>
 </head>
 <body>
 	<h2>상세화면</h2>
-	<a href="../StudyController?type=bullteinList">목록으로</a>
 	<table border="1">
 		<tr>
 			<th>글번호</th>
@@ -37,8 +36,12 @@
 			<td>${BullteinBoardVO.getContent() }</td>
 		</tr>
 		<tr>
-			<th>좋아요</th>
-			<td>${BullteinBoardVO.getPoint() }</td>
+			<th>good</th>
+			<td>${BullteinBoardVO.getGood() }</td>
+		</tr>
+		<tr>
+			<th>bad</th>
+			<td>${BullteinBoardVO.getBad() }</td>
 		</tr>
 		<tr>
 			<td colspan="2">

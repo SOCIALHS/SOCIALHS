@@ -1,5 +1,5 @@
 <%@page import="com.bc.minseong.command.BullteinBoardDAO"%>
-<%@page import="com.bc.study.dao.Paging"%>
+<%@page import="com.bc.study.dao.PagingVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -54,12 +54,13 @@
 		<c:if test="${not empty list }">
 			<c:forEach var="st" items="${list }">
 			<tr>
-				<td>${st.getB_idx() }</td>
-				<td><a href="StudyController?type=bullteinWrite&$b_idx=${st.b_idx }">${st.getTitle() }</a></td>
+				<td>${st.getBb_idx() }</td>
+				<td><a href="StudyController?type=bullteinWrite&$b_idx=${st.bb_idx }">${st.getTitle() }</a></td>
 				<td>${st.getId() }</td>
 				<td>${st.getRegdate }</td>
 				<td>${st.getHit() }</td>
-				<td>${st.Point() }</td>
+				<td>${st.Good() }</td>
+				<td>${st.bad() }</td>
 			</tr>
 		</c:forEach>
 		</c:if>

@@ -22,8 +22,8 @@ public class BullteinBoardDAO {
 	}
 
 	//게시글 상세페이지
-	public static int selectOne(String b_idx) {
-		int bbvo = getSql().selectOne("one", b_idx);
+	public static BullteinBoardVO selectOne(String bb_idx) {
+		BullteinBoardVO bbvo = getSql().selectOne("one", bb_idx);
 		return bbvo;
 	}
 	
@@ -44,8 +44,8 @@ public class BullteinBoardDAO {
 	}
 	
 	//게시글 삭제
-	public static int delete(String b_idx) {
-		int result = getSql().delete("delete", b_idx);
+	public static int delete(String bb_idx) {
+		int result = getSql().delete("delete", bb_idx);
 		getSql().commit();
 		return result;
 	}

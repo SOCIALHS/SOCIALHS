@@ -23,12 +23,12 @@ public class BullteinBoardWriteCommand implements Command {
 		} else {
 			System.out.println("널 아님");
 			BullteinBoardVO bbvo = new BullteinBoardVO();
-			bbvo.setId(request.getParameter("id"));
 			bbvo.setTitle(request.getParameter("title"));
 			bbvo.setContent(request.getParameter("content"));
 			BullteinBoardDAO.insert(bbvo);
 			
-			path = "StudyController?type=bulltein";
+			
+			path = "StudyController?type=bullteinList";
 			System.out.println(path);
 		}
 		return path;
