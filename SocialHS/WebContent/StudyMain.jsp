@@ -52,12 +52,16 @@
 	</div>
 
 	<div class="row">
-		<div class="col-3">
+		<div class="col-2">
 			<!-- aside -->
+<<<<<<< HEAD
 			
+=======
+			<jsp:include page="wonho/sidebar.jsp"></jsp:include>
+>>>>>>> refs/remotes/origin/master
 		</div>
 
-		<div class="col-9">
+		<div class="col-10">
 
 			<div class="row d-flex justify-content-center">
 				<!-- sub nav -->
