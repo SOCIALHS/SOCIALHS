@@ -19,8 +19,37 @@
 <title>Social Hobby & Study</title>
 <script>
 	$(function(){
-		alert("hi");
+		url: "HSList?type=study",
+		type: "get",
+		dataType: "JSON",
+		success: function(data) {
+			
+			var tbody = "";
+			var alist = data.list;
+			var cnt = 0;
+			var chk = true;
+			$.each(alist, function(member){
+				tbody += "<li class='h_list'>";
+				tbody += "<a href='#' class='h_list'>";
+				tbody += this.h_idx + this.h_name;
+				tbody += "&nbsp;";
+				tbody += "&nbsp;";
+				tbody += "&nbsp;";
+				tbody += "&nbsp;";
+				tbody += "&nbsp;";
+				tbody += "</a>";
+				tbody += "</li>";
+			});
+			$("#hoList").html(tbody).trigger("create");
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+			alert("실패: \n"
+				+ "jqXHR.readyState: "+ jqXHR.readyState+ "\n"
+				+ "textStatus: "+ textStatus+ "\n"
+				+ "errorThrown: "+ errorThrown);
+		}
 	})
+	
 </script>
 </head>
 <body>

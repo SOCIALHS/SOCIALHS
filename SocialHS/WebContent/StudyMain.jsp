@@ -16,6 +16,41 @@
 	crossorigin="anonymous">
 
 <title>Social Hobby & Study</title>
+<script>
+
+window.onload = function(){
+	alert("TEst");
+	var request = new XMLHttpRequest();
+	request.onreadystatechange = function(){
+		if(request.readyState == 4 && request.status == 200){
+			var json = JSON.parse(request.responseText);
+			alert("json check");
+			alert(json);
+			console.log(json);
+			var output = "";
+			console.log("asdfadsf");
+			var count = 0;
+			console.log(json["list"]);
+			var list = json["list"];
+			for(var i = 0; i < list.length; i++){
+				count++;
+				console.log("cnt : "+count);
+				output += "<p>";
+				for(var key in list[i]){
+					output += list[i][key] + ",";
+				}
+				output += "</p>";
+				console.log("output "+output);
+			}
+			var test = document.getElementById("test");
+			test.innerHTML = output;
+		}
+	};
+	request.open("GET","HSList?type=study",true);
+	request.send();
+}
+</script>
+
 </head>
 
 <body>
@@ -60,13 +95,13 @@
 
 			<div class="row d-flex justify-content-center">
 				<!-- sub nav -->
-				<jsp:include page="dongwu/category.jsp"></jsp:include>
+				<div id = "test">test</div>
 
 			</div>
 
 			<div class="row d-flex justify-content-center">
 				<!-- content -->
-				<jsp:include page="dongwu/content.jsp"></jsp:include>
+				<!-- <jsp:include page="dongwu/content.jsp"></jsp:include> -->
 			</div>
 
 		</div>
