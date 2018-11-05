@@ -19,18 +19,17 @@
 </head>
 <body>
 <%
-	session = request.getSession();
-	boolean log_check = (boolean)session.getAttribute("log_check");
-	if (log_check == false) {
-%>			
-		<jsp:include page="jieun/header.jsp"></jsp:include>
-<%	
-	} else {
+	if(session.getAttribute("memberid") == null) {
 %>
-		<jsp:include page="jieun/loginheader.jsp"></jsp:include>
+	<jsp:include page="jieun/header.jsp"></jsp:include>
+<%
+	}else{
+%>
+	<jsp:include page="jieun/loginheader.jsp"></jsp:include>
 <% 
 	}
 %>
+	
 
 	<!-- jumbotron -->
 	<div class="jumbotron jumbotron-fluid">
