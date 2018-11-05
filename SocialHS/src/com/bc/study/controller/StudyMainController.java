@@ -40,6 +40,8 @@ public class StudyMainController extends HttpServlet {
 	private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String type = request.getParameter("type");
+		String b_idx = request.getParameter("b_idx");
+		System.out.println("b_idx : "+b_idx);
 		String path = null;
 		System.out.println("type : "+type);
 		Command comm = null;
@@ -62,6 +64,7 @@ public class StudyMainController extends HttpServlet {
 		}else if(type.equals("bullteinOne")) {
 			comm = new BullteinBoardOneCommand();
 		}else if(type.equals("bullteinWrite")) {
+			System.out.println(">>StudymainController 까지 옴");
 			comm = new BullteinBoardWriteCommand();
 		}else if(type.equals("bullteinUpdate")) {
 			comm = new BullteinBoardUpdateCommand();

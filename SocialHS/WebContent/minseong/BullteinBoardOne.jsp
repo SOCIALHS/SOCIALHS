@@ -18,7 +18,7 @@
 </head>
 <body>
 	<h2>상세화면</h2>
-	<button><a href="StudyMainController?type=bullteinList">목록으로</a></button>
+	<a href="../StudyController?type=bullteinList">목록으로</a>
 	<table border="1">
 		<tr>
 			<th>글번호</th>

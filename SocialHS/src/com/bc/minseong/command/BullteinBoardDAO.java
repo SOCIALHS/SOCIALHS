@@ -50,5 +50,10 @@ public class BullteinBoardDAO {
 		return result;
 	}
 	
+	public static int getTotalCount() {
+		int totalCount = getSql().selectOne("totalCount");
+		return totalCount;
+	}
+	
 	
 }
