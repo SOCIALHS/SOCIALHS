@@ -54,11 +54,8 @@
 	<div class="row">
 		<div class="col-2">
 			<!-- aside -->
-<<<<<<< HEAD
-			
-=======
 			<jsp:include page="wonho/sidebar.jsp"></jsp:include>
->>>>>>> refs/remotes/origin/master
+
 		</div>
 
 		<div class="col-10">
