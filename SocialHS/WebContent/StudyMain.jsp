@@ -54,7 +54,7 @@
 	<div class="row">
 		<div class="col-3">
 			<!-- aside -->
-			<h1>여기에 aside 추가</h1>
+			
 		</div>
 
 		<div class="col-9">
