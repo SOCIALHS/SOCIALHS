@@ -10,6 +10,10 @@
 		parameterType="String">
 		SELECT * FROM LOCATION WHERE L_IDX = #{L_IDX}
 	</select>
+	
+	<select id = "all" resultType="com.bc.main.vo.LocationVO">
+		SELECT * FROM LOCATION ORDER BY L_IDX
+	</select>
 </mapper>  
 
 
