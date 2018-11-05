@@ -7,11 +7,11 @@
 <title>게시글 상세 페이지</title>
 <script>
 	function update_go(frm) {
-		frm.action = "StudyController?type=bullteinUpdate";
+		frm.action = "../BullteinController?type=bullteinUpdate";
 		frm.submit();
 	}
 	function delete_go(frm) {
-		frm.action = "StudyController?type=bullteinDelete";
+		frm.action = "../BullteinController?type=bullteinDelete";
 		frm.submit();
 	}
 </script>

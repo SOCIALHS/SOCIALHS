@@ -8,6 +8,6 @@
 </head>
 <body>
 	<h2>게시글 수정</h2>
-	<a href="BullteinBoad?type=list">목록으로</a>
+	<a href="../BullteinController?type=list">목록으로</a>
 </body>
 </html>

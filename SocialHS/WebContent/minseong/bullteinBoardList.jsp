@@ -3,8 +3,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-	Paging p = new Paging();
+<%
+	PagingVO p = new PagingVO();
 	p.setTotalRecord(BullteinBoardDAO.getTotalCount());
 	p.setTotalPage();
 	
@@ -26,7 +26,7 @@
 	
 	
 	
---%>
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +38,7 @@
 </style>
 <body>
 <h2>공지 게시판</h2>
-	<a href="../StudyController?type=bullteinWrite">공지 작성</a>
+	<a href="../BullteinController?type=bullteinWrite">공지 작성</a>
 	<table border="1">
 		<thead>
 			<tr>

@@ -7,7 +7,7 @@
 <title>공지 게시글 삭제</title>
 <script>
 	function del_go(frm) {
-		frm.action = "StudyController?type=bullteinDelete&bb_idx=${BullteinBoardVO.getBb-idx() }";
+		frm.action = "../BullteinController?type=bullteinDelete&bb_idx=${BullteinBoardVO.getBb_idx() }";
 		frm.submit();
 	}
 </script>

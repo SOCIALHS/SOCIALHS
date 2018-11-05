@@ -7,7 +7,7 @@
 <title>공지 작성페이지</title>
 <script>
 	function write_go(frm) {
-		frm.action = "StudyController?type=bullteinWrite";
+		frm.action = "../BullteinController?type=bullteinWrite";
 		frm.submit();
 	}
 </script>
