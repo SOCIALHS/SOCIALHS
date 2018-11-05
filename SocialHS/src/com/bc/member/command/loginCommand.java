@@ -34,7 +34,7 @@ public class loginCommand implements Command {
 		} else {
 			//로그인 성공 -> 메인화면 이동
 			System.out.println("로그인 성공!");
-			session.setAttribute("memberid", id);
+			//session.setAttribute("memberid", id);
 			session.setAttribute("log_check", true);
 			System.out.println(log_check);
 			path = "index.jsp";
