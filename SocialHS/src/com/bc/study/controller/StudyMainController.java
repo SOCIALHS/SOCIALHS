@@ -19,6 +19,7 @@ import com.bc.minseong.command.BullteinBoardWriteCommand;
 import com.bc.minseong.command.FreeBoardCommand;
 import com.bc.minseong.command.StockBoardCommand;
 import com.bc.share.command.Command;
+import com.bc.study.command.CategoryCommand;
 import com.bc.wonho.command.AttendanceBoardCommand;
 
 

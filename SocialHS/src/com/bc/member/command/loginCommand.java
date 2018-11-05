@@ -34,7 +34,7 @@ public class loginCommand implements Command {
 		} else {
 			//로그인 성공 -> 메인화면 이동
 			System.out.println("로그인 성공!");
-			session.setAttribute("memberid", id);
+			vo = dao.selectId(id);
 			session.setAttribute("memberVO", vo);
 			path = "index.jsp";
 		}

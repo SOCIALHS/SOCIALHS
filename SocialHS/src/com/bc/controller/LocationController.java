@@ -15,8 +15,7 @@ import com.bc.main.command.StudyMainCommand;
 import com.bc.main.dao.LocationDAO;
 import com.bc.main.vo.LocationVO;
 import com.bc.share.command.Command;
-import com.bc.share.command.HobbyCommand;
-import com.bc.share.command.StudyCommand;
+import com.bc.study.command.CategoryCommand;
 
 
 

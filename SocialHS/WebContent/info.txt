@@ -1,7 +1,7 @@
 	session 객체에 저장되어있는 키
 {hs : hobby, study}
 {location : 0 ~ }
-
+{MemberVO : 로그인 성공한 MemberVO객체}
 
 공유 VO
 com.bc.main.vo
