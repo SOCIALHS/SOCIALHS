@@ -25,7 +25,7 @@
     </div>
 
     <div class="row">
-        <div class="col-3">
+        <div>
             <!-- aside -->
             <div class="accordion" id="accordionExample">
                 <div class="card">
@@ -259,17 +259,6 @@
             </div>
         </div>
 
-        <div class="col-9">
-
-            <div class="row">
-                <!-- sub nav -->
-            </div>
-
-            <div class="row">
-                <!-- content -->
-            </div>
-
-        </div>
 
 
 

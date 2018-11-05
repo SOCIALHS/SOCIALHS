@@ -52,12 +52,12 @@
 	</div>
 
 	<div class="row">
-		<div class="col-3">
+		<div class="col-2">
 			<!-- aside -->
-			<h1>여기에 aside 추가</h1>
+			<jsp:include page="wonho/sidebar.jsp"></jsp:include>
 		</div>
 
-		<div class="col-9">
+		<div class="col-10">
 
 			<div class="row d-flex justify-content-center">
 				<!-- sub nav -->
