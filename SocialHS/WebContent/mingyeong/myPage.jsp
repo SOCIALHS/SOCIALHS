@@ -31,6 +31,11 @@
 	}
 </script>
 </head>
+<style>
+	
+
+
+</style>
 <body>
 <div id="mypage">
 	<form method="post">

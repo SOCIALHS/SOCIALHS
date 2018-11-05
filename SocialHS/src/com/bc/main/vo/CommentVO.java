@@ -3,10 +3,16 @@ package com.bc.main.vo;
 public class CommentVO {
 	
 	private int bbc_idx, bb_idx, chk;
-	private String id, content, pw, regdate;
+	private String id, content, pw, regdate, title;
 	
 	
 	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	public int getBbc_idx() {
 		return bbc_idx;
 	}
@@ -52,7 +58,7 @@ public class CommentVO {
 	@Override
 	public String toString() {
 		return "CommentVO [bbc_idx=" + bbc_idx + ", bb_idx=" + bb_idx + ", chk=" + chk + ", id=" + id + ", content="
-				+ content + ", pw=" + pw + ", regdate=" + regdate + "]";
+				+ content + ", pw=" + pw + ", regdate=" + regdate + ", title=" + title + "]";
 	}
 	
 	

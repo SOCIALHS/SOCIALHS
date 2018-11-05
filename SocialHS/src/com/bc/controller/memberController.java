@@ -1,5 +1,6 @@
 package com.bc.controller;
 
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -45,8 +46,6 @@ public class memberController extends HttpServlet {
 		} else if (type.equals("logout")) {
 			comm = new logoutCommand();
 		}
-		
-		
 		else if (type.equals("join")) {
 			comm = new joinCommand();
 		} else if (type.equals("joinOk")) {
@@ -57,6 +56,7 @@ public class memberController extends HttpServlet {
 			comm = new idchkCommand();
 		}
 		
+		//===================================
 		else if (type.equals("update")) {
 			comm = new updateCommand();
 		} else if (type.equals("")) {

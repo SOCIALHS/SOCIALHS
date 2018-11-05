@@ -14,11 +14,8 @@ $(document).ready(function(){
 			type: "get",
 			dataType: "JSON",
 			success: function(data) {
-				
 				var tbody = "";
 				var alist = data.list;
-				var cnt = 0;
-				var chk = true;
 				$.each(alist, function(member){
 					tbody += "<li class='h_list'>";
 					tbody += "<a href='#' class='h_list'>";

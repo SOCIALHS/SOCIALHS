@@ -1,3 +1,5 @@
+<%@page import="com.bc.member.memberVO"%>
+<%@page import="com.bc.member.memberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -26,6 +28,18 @@
 	}
 	
 	function idchk(frm) {
+		
+		if (!frm.id.value) {
+			alert("아이디를 입력하세요.");
+			frm.id.focus();
+			return false;
+		}
+		
+		
+		/* window.open("usingIdchk.html", "아이디 중복 확인",
+				"width=400, height=300, left=100, top=50"); */
+		
+		
 		frm.action = "memberController?type=idchk";
 		frm.submit();
 		
@@ -41,41 +55,47 @@
 	<table>
 		<tbody>
 			<tr>
-				<td id="titld">아이디</td>
+				<td id="title">아이디</td>
 				
 				<td>
 					<input type="text" name="id" maxlength="50">
 					<input type="button" value="중복확인" onclick="idchk(this.form)">
 				</td>
 			</tr>
-			
+		<!-- </tbody>
+	</table>
+</form>
+
+<form method="get"> -->
+	<table>
+		<tbody>
 			<tr>
-				<td id="titld">비밀번호</td>
+				<td id="title">비밀번호</td>
 				<td>
 					<input type="password" name="pw" maxlength="50">
 				</td>
 			</tr>
 			<tr>
-				<td id="titld">비밀번호 확인</td>
+				<td id="title">비밀번호 확인</td>
 				<td>
 					<input type="password" name="pwchk" maxlength="50">
 				</td>
 			</tr>
 			<tr>
-				<td id="titld">이름</td>
+				<td id="title">이름</td>
 				<td>
 					<input type="text" name="name" maxlength="50">
 				</td>
 			</tr>
 			<tr>
-				<td id="titld">성별</td>
+				<td id="title">성별</td>
 				<td>
 					<input type="radio" name="gender" value="남" checked>남
 					<input type="radio" name="gender" value="여">여
 				</td>
 			</tr>
 			<tr>
-				<td id="titld">생일</td>
+				<td id="title">생일</td>
 				<td>
 					<input type="text" name="birthday" maxlength="4"
 							placeholder="년(4자)" size="6">
@@ -99,7 +119,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td id="titld">이메일</td>
+				<td id="title">이메일</td>
 				<td>
 					<input type="text" name="email" maxlength="50">@
 					<select name="com">
@@ -111,13 +131,13 @@
 				</td>
 			</tr>
 			<tr>
-				<td id="titld">휴대전화</td>
+				<td id="title">휴대전화</td>
 				<td>
 					<input type="text" name="phone">
 				</td>
 			</tr>
 			<tr>
-				<td id="titld">주소</td>
+				<td id="title">주소</td>
 				<td>
 					<input type="text" name="address" size="50">
 				</td>
@@ -126,6 +146,7 @@
 	</table>
 	<br>
 	<input type="button" value="가입하기" onclick="joinOk(this.form)">
+	
 	<input type="hidden" name="joinchk" value="chk">
 </form>
 </div>
