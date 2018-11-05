@@ -54,18 +54,34 @@ memberVO vo = new memberVO();
 	}
 	
 	//회원가입시 아이디 중복체크 
-	public int idCheck(String id) {
+	public boolean idCheck(String id) {
 		vo = selectId(id);
-		int chk = -1;
-		System.out.println(vo);
+		boolean chk = false;
+		System.out.println("vo: " + vo);
 		
 		if (vo.getId().equals(id)) {
-			chk = 0; //아이디 중복일때(DB상에 아이디 있음)
+			//아이디 중복일때(DB상에 아이디 있음)
+			chk = false;
 		} else {
-			chk = 1;
+			chk = true;
 		}
 		return chk;
+		
 	}
+	
+//	public int idCheck(String id) {
+//		vo = selectId(id);
+//		//int chk;
+//		boolean chk = false;
+//		System.out.println(vo);
+//		
+//		if (vo.getId().equals(id)) {
+//			chk = 0; //아이디 중복일때(DB상에 아이디 있음)
+//		} else {
+//			chk = 1;
+//		}
+//		return chk;
+//	}
 	
 	//회원가입
 	public static int join(memberVO vo) {

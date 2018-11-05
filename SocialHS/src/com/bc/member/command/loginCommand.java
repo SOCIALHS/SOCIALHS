@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bc.member.memberDAO;
+import com.bc.member.memberVO;
 import com.bc.share.command.Command;
 
 public class loginCommand implements Command {
@@ -18,6 +19,7 @@ public class loginCommand implements Command {
 		
 		HttpSession session = request.getSession();
 		memberDAO dao = new memberDAO();
+		memberVO vo = new memberVO();
 		int chk = dao.loginCheck(id, pw);
 			
 		if (chk == 0) {
