@@ -1,6 +1,7 @@
 package com.bc.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,9 +12,12 @@ import javax.servlet.http.HttpSession;
 
 import com.bc.main.command.HobbyMainCommand;
 import com.bc.main.command.StudyMainCommand;
+import com.bc.main.dao.LocationDAO;
+import com.bc.main.vo.LocationVO;
 import com.bc.share.command.Command;
 import com.bc.share.command.HobbyCommand;
 import com.bc.share.command.StudyCommand;
+
 
 
 
@@ -37,10 +41,17 @@ public class LocationController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String hs = (String)session.getAttribute("hs");
 		String location = (String)request.getParameter("location");
-		session.setAttribute("location", location);
+		
+		List<LocationVO> list = LocationDAO.getLocation(location);
+		session.setAttribute("location", list);
+		
+		List<LocationVO> listAll = LocationDAO.getAll();
+		System.out.println("listAll : "+listAll);
+		session.setAttribute("locationAll", listAll);
+		
 		String path = null;
 		System.out.println("hs : "+hs);
-		System.out.println("location : "+location);
+		
 		Command comm = null;
 		
 		if(hs.equals("hobby")) {
@@ -48,7 +59,7 @@ public class LocationController extends HttpServlet {
 		}
 		else if(hs.equals("study")) {
 			comm = new StudyMainCommand();
-		}
+		} 
 		
 		path = comm.exec(request, response);
 		request.getRequestDispatcher(path).forward(request, response);

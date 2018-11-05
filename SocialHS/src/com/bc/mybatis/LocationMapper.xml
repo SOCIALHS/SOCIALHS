@@ -4,11 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- mapper 태그의 namespace 속성 필수 작성  -->  
-<mapper namespace="SubLocation">
+<mapper namespace="Location">
 	
-	<select id="list" resultType="com.bc.main.vo.SubLocationVO"
+	<select id="list" resultType="com.bc.main.vo.LocationVO"
 		parameterType="String">
-		SELECT * FROM SUB_LOCATION WHERE L_IDX = #{L_IDX}
+		SELECT * FROM LOCATION WHERE L_IDX = #{L_IDX}
+	</select>
+	
+	<select id = "all" resultType="com.bc.main.vo.LocationVO">
+		SELECT * FROM LOCATION ORDER BY L_IDX
 	</select>
 </mapper>  
 
