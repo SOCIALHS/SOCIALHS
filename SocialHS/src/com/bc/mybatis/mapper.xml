@@ -16,16 +16,22 @@
 	</select>
 	
 	
-	<select id="MSNChk" resultType="String" parameterType="String">
-		SELECT CHK FROM MESSENGER WHERE RECV_ID = #{id}
+	<select id="msnAlm" resultType="com.bc.main.vo.MessengerVO" parameterType="String">
+		SELECT * FROM MESSENGER WHERE RECV_ID = #{id} AND CHK = 0
 	</select>
 	
 	
-	<select id="MEMChk" resultType="String" parameterType="String">
-		SELECT CHK FROM B_BOARD WHERE ID = #{id}
+	<select id="memAlm" resultType="com.bc.main.vo.BoardVO" parameterType="String">
+		SELECT * FROM B_BOARD WHERE ID = #{id} AND CHK != 0
 	</select>
 	
-	
+	<select id="comAlm" resultType="com.bc.main.vo.CommentVO" parameterType="String">
+		SELECT B.TITLE, C.* 
+		FROM BB_COMMENT C, B_BOARD B 
+		WHERE B.BB_IDX = C.BB_IDX
+		AND B.ID = #{id}
+		AND C.CHK = 1
+	</select>
 	
 	
 </mapper>  
