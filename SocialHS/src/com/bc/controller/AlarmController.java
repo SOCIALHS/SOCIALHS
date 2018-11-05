@@ -1,7 +1,6 @@
 package com.bc.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bc.main.command.AlarmCommand;
-import com.bc.share.command.Command;
+import com.bc.share.command.Command;	
 
 /**
  * Servlet implementation class AlarmController
