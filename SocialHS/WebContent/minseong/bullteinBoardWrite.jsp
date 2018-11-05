@@ -7,14 +7,14 @@
 <title>공지 작성페이지</title>
 <script>
 	function write_go(frm) {
-		frm.action = "../BullteinController?type=bullteinWrite";
+		frm.action = "BullteinController?type=bullteinWrite";
 		frm.submit();
 	}
 </script>
 </head>
 <body>
 <h2>공지 작성페이지</h2>
-<form>
+<form method="post">
 	<table border="1">
 			<tr>	
 				<th>제목</th>
@@ -29,6 +29,7 @@
 					<input type="button" value="작성완료" onclick="write_go(this.form)">
 					<input type="reset" value="다시작성">
 					<input type="hidden" name="id" value="${memberid }">
+					<input type="hidden" name="chk" value="chk">
 				</td>
 				
 	</table>

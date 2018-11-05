@@ -7,16 +7,16 @@
 <mapper namespace="bulltein">
 	
 	<select id="BullteinList" resultType="BullteinBoardVO">
-		SELECT * FROM STUDY ORDER BY B_IDX
+		SELECT * FROM B_BOARD ORDER BY B_IDX
 	</select>
 	
 	<insert id="BullteinWrite" parameterType="com.bc.minseong.command.BullteinBoardVO">
-		INSERT INTO BULLTEINBOARD (BB_IDX, ID, TITLE, CONTENT, GOOD, REGDATE)
-					VALUE(#{bb_idx}, #{id}, #{title}, #{content}, #{good}, #{bad}, REGDATE)
+		INSERT INTO B_BOARD (BB_IDX, ID, TITLE, CONTENT, GOOD, BAD, L_IDX, BBS_IDX)
+					VALUES(BB_SEQ.NEXTVAL, test, #{title}, #{content}, 0, 0, 1, 301)
 	</insert>
 	
 	<update id="update" parameterType="com.bc.minseong.command.BullteinBoardVO">
-		UPDATE BULLTEINBOARD
+		UPDATE B_BOARD
 		   SET BB_IDX = #{bb_idx},
 		       ID = #{id},
 		       TITLE = #{title},

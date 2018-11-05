@@ -1,4 +1,4 @@
-package com.bc.study.dao;
+package com.bc.study.vo;
 
 public class PagingVO {
 	private int nowPage = 1; 

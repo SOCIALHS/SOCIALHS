@@ -14,7 +14,7 @@ public class BullteinBoardOneCommand implements Command {
 		String bb_idx = request.getParameter("bb_idx");
 		BullteinBoardVO bbvo = BullteinBoardDAO.selectOne(bb_idx);
 		request.getSession().setAttribute("BullteinBoardVO", bbvo);
-		return "BullteinWrite.jsp";
+		return "bullteinWrite.jsp";
 		
 	}
 

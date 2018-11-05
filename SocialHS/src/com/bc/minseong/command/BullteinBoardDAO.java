@@ -30,7 +30,7 @@ public class BullteinBoardDAO {
 	
 	//게시글 작성
 	public static int insert(BullteinBoardVO bbvo) {
-		int result = getSql().insert("insert", bbvo);
+		int result = getSql().insert("bulltein.BullteinWrite", bbvo);
 		getSql().commit();
 		return result;
 	}

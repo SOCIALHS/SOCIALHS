@@ -1,9 +1,10 @@
 <%@page import="com.bc.minseong.command.BullteinBoardDAO"%>
-<%@page import="com.bc.study.dao.PagingVO"%>
+<%@page import="com.bc.study.vo.PagingVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
+
 	PagingVO p = new PagingVO();
 	p.setTotalRecord(BullteinBoardDAO.getTotalCount());
 	p.setTotalPage();

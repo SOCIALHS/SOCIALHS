@@ -13,7 +13,7 @@ public class BullteinBoardWriteCommand implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println(">>writecommand 까지 옴");
 
-		String chk = request.getParameter("write_chk");
+		String chk = request.getParameter("chk");
 		System.out.println("chk : "+ chk);
 		String path = null;
 		if (chk == null) {
@@ -28,7 +28,7 @@ public class BullteinBoardWriteCommand implements Command {
 			BullteinBoardDAO.insert(bbvo);
 			
 			
-			path = "StudyController?type=bullteinList";
+			path = "../BullteinController?type=bullteinList";
 			System.out.println(path);
 		}
 		return path;

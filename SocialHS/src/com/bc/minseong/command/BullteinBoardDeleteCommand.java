@@ -14,7 +14,7 @@ public class BullteinBoardDeleteCommand implements Command {
 		String bb_idx = request.getParameter("bb_idx");
 		String path = null;
 		BullteinBoardDAO.delete(bb_idx);
-		path = "StudyController?type=bullteinList";
+		path = "BullteinController?type=bullteinList";
 		return path;
 		
 	}
