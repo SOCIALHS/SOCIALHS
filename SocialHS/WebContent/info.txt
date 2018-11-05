@@ -1,2 +1,10 @@
-session 객체에 저장되어있는 키
-: hs, location
+	session 객체에 저장되어있는 키
+{hs : hobby, study}
+{location : 0 ~ }
+
+
+공유 VO
+com.bc.main.vo
+- BbsCodeVO	: 게시판 코드 VO
+- BoardVO	: 게시판 VO
+- CommentVO	: 댓글 VO
