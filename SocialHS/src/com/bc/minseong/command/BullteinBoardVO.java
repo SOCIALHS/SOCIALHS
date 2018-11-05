@@ -1,11 +1,14 @@
 package com.bc.minseong.command;
 
 public class BullteinBoardVO {
-	public static int b_idx, hit;
+	public static int b_idx, hit, point;
 	public static String id, title, content, regdate, file_name;
-	public static int getIdx() {
-		return b_idx;
-	}
+	
+	
+	
+	
+	
+	
 	public static int getB_idx() {
 		return b_idx;
 	}
@@ -17,6 +20,12 @@ public class BullteinBoardVO {
 	}
 	public static void setHit(int hit) {
 		BullteinBoardVO.hit = hit;
+	}
+	public static int getPoint() {
+		return point;
+	}
+	public static void setPoint(int point) {
+		BullteinBoardVO.point = point;
 	}
 	public static String getId() {
 		return id;
@@ -48,6 +57,7 @@ public class BullteinBoardVO {
 	public static void setFile_name(String file_name) {
 		BullteinBoardVO.file_name = file_name;
 	}
+	
 	
 	
 	

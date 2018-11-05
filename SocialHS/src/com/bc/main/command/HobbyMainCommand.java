@@ -18,7 +18,10 @@ public class HobbyMainCommand implements Command {
 		HttpSession session = request.getSession();
 		
 		String location = (String)session.getAttribute("location");
+		String hs = (String)session.getAttribute("hs");
 		System.out.println("check!! Location2 : "+location);
+		System.out.println("check!! HS2 : "+hs);
+		
 		List<SubLocationVO> list = SubLocationDAO.getSubLocation(location);
 		
 		System.out.println("list : "+ list);

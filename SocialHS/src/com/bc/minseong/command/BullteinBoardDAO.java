@@ -14,9 +14,41 @@ public class BullteinBoardDAO {
 		ss = DBService.getFactory().openSession(true);
 		return ss;
 	}
-	public static List<BullteinBoardVO> getBullteinList() {
+	
+	//공지 게시판 리스트
+	public static List<BullteinBoardVO> getList() {
 		return getSql().selectList("BullteinBoard.list");
 		
 	}
+
+	//게시글 상세페이지
+	public static int selectOne(String b_idx) {
+		int bbvo = getSql().selectOne("one", b_idx);
+		return bbvo;
+	}
+	
+	
+	//게시글 작성
+	public static int insert(BullteinBoardVO bbvo) {
+		int result = getSql().insert("insert", bbvo);
+		getSql().commit();
+		return result;
+	}
+	
+	
+	//게시글 수정
+	public static int update(BullteinBoardVO bbvo) {
+		int result = getSql().update("update", bbvo);
+		getSql().commit();
+		return result;
+	}
+	
+	//게시글 삭제
+	public static int delete(String b_idx) {
+		int result = getSql().delete("delete", b_idx);
+		getSql().commit();
+		return result;
+	}
+	
 	
 }
