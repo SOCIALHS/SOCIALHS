@@ -2,7 +2,7 @@ package com.bc.main.vo;
 
 public class CommentVO {
 	
-	private int bbc_idx, bbs_idx;
+	private int bbc_idx, bb_idx, chk;
 	private String id, content, pw, regdate;
 	
 	
@@ -12,12 +12,6 @@ public class CommentVO {
 	}
 	public void setBbc_idx(int bbc_idx) {
 		this.bbc_idx = bbc_idx;
-	}
-	public int getBbs_idx() {
-		return bbs_idx;
-	}
-	public void setBbs_idx(int bbs_idx) {
-		this.bbs_idx = bbs_idx;
 	}
 	public String getId() {
 		return id;
@@ -43,12 +37,25 @@ public class CommentVO {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
-	
-	
+	public int getBb_idx() {
+		return bb_idx;
+	}
+	public void setBb_idx(int bb_idx) {
+		this.bb_idx = bb_idx;
+	}
+	public int getChk() {
+		return chk;
+	}
+	public void setChk(int chk) {
+		this.chk = chk;
+	}
 	@Override
 	public String toString() {
-		return "CommentVO [bbc_idx=" + bbc_idx + ", bbs_idx=" + bbs_idx + ", id=" + id + ", content=" + content
-				+ ", pw=" + pw + ", regdate=" + regdate + "]";
+		return "CommentVO [bbc_idx=" + bbc_idx + ", bb_idx=" + bb_idx + ", chk=" + chk + ", id=" + id + ", content="
+				+ content + ", pw=" + pw + ", regdate=" + regdate + "]";
 	}
+	
+	
+	
 	
 }
