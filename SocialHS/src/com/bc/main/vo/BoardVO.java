@@ -2,7 +2,7 @@ package com.bc.main.vo;
 
 public class BoardVO {
 	
-	private int bb_idx, hit, req_member, cur_member, chk, l_idx, bbs_idx, good, bad;
+	private int bb_idx, hit, req_member, cur_member, chk, l_idx, bbs_idx, good, bad, latitude, longitude;
 	private String id, title, content, file_name, regdate, rp, category;
 	public int getBb_idx() {
 		return bb_idx;
@@ -100,13 +100,27 @@ public class BoardVO {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+	public int getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(int latitude) {
+		this.latitude = latitude;
+	}
+	public int getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(int longitude) {
+		this.longitude = longitude;
+	}
 	@Override
 	public String toString() {
-		return "B_BoardVO [bb_idx=" + bb_idx + ", hit=" + hit + ", req_member=" + req_member + ", cur_member="
+		return "BoardVO [bb_idx=" + bb_idx + ", hit=" + hit + ", req_member=" + req_member + ", cur_member="
 				+ cur_member + ", chk=" + chk + ", l_idx=" + l_idx + ", bbs_idx=" + bbs_idx + ", good=" + good
-				+ ", bad=" + bad + ", id=" + id + ", title=" + title + ", content=" + content + ", file_name="
-				+ file_name + ", regdate=" + regdate + ", rp=" + rp + ", category=" + category + "]";
+				+ ", bad=" + bad + ", latitude=" + latitude + ", longitude=" + longitude + ", id=" + id + ", title="
+				+ title + ", content=" + content + ", file_name=" + file_name + ", regdate=" + regdate + ", rp=" + rp
+				+ ", category=" + category + "]";
 	}
+	
 	
 	
 	

@@ -19,7 +19,7 @@
 	<jsp:include page="jieun/header.jsp"></jsp:include>
 	
 	<%
-		String hs = (String)request.getAttribute("hs");
+		String hs = (String)session.getAttribute("hs");
 	%>
 	
     <!-- jumbotron -->
