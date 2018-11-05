@@ -32,6 +32,7 @@
 	 -->
 
 	<div class="row bg-light">
+		
 		<nav class="navbar navbar-expand-lg navbar-light bg-light ml-auto">
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
@@ -42,19 +43,9 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link" href="#">공지</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">공지사항</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">자유게시판</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">질문방</a></li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-						role="button" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false"> 마이페이지 </a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#">내정보</a> <a
-								class="dropdown-item" href="#">로그아웃</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">고객센터</a>
-						</div></li>
 				</ul>
 			</div>
 		</nav>
@@ -63,271 +54,14 @@
 	<div class="row">
 		<div class="col-3">
 			<!-- aside -->
-			<div class="accordion" id="accordionExample">
-				<div class="card">
-					<div class="card-header" id="headingOne">
-						<h5 class="mb-0">
-							<button class="btn btn-link" type="button" data-toggle="collapse"
-								data-target="#collapseOne" aria-expanded="false"
-								aria-controls="collapseOne">서울</button>
-						</h5>
-					</div>
-
-					<div id="collapseOne" class="collapse show"
-						aria-labelledby="headingOne" data-parent="#accordionExample">
-						<ul class="list-group">
-							<li class="list-group-item active">Cras justo odio</li>
-							<li class="list-group-item">Dapibus ac facilisis in</li>
-							<li class="list-group-item">Morbi leo risus</li>
-							<li class="list-group-item">Porta ac consectetur ac</li>
-							<li class="list-group-item">Vestibulum at eros</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div class="accordion" id="accordionExample">
-				<div class="card">
-					<div class="card-header" id="headingOne">
-						<h5 class="mb-0">
-							<button class="btn btn-link" type="button" data-toggle="collapse"
-								data-target="#collapseTwo" aria-expanded="false"
-								aria-controls="collapseTwo">경기</button>
-						</h5>
-					</div>
-
-					<div id="collapseTwo" class="collapse" aria-labelledby="headingOne"
-						data-parent="#accordionExample">
-						<ul class="list-group">
-							<li class="list-group-item active">Cras justo odio</li>
-							<li class="list-group-item">Dapibus ac facilisis in</li>
-							<li class="list-group-item">Morbi leo risus</li>
-							<li class="list-group-item">Porta ac consectetur ac</li>
-							<li class="list-group-item">Vestibulum at eros</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div class="accordion" id="accordionExample">
-				<div class="card">
-					<div class="card-header" id="headingOne">
-						<h5 class="mb-0">
-							<button class="btn btn-link" type="button" data-toggle="collapse"
-								data-target="#collapseThree" aria-expanded="false"
-								aria-controls="collapseThree">경남</button>
-						</h5>
-					</div>
-
-					<div id="collapseThree" class="collapse"
-						aria-labelledby="headingOne" data-parent="#accordionExample">
-						<ul class="list-group">
-							<li class="list-group-item active">Cras justo odio</li>
-							<li class="list-group-item">Dapibus ac facilisis in</li>
-							<li class="list-group-item">Morbi leo risus</li>
-							<li class="list-group-item">Porta ac consectetur ac</li>
-							<li class="list-group-item">Vestibulum at eros</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div class="accordion" id="accordionExample">
-				<div class="card">
-					<div class="card-header" id="headingOne">
-						<h5 class="mb-0">
-							<button class="btn btn-link" type="button" data-toggle="collapse"
-								data-target="#collapseFour" aria-expanded="false"
-								aria-controls="collapseFour">경북</button>
-						</h5>
-					</div>
-
-					<div id="collapseFour" class="collapse"
-						aria-labelledby="headingOne" data-parent="#accordionExample">
-						<ul class="list-group">
-							<li class="list-group-item active">Cras justo odio</li>
-							<li class="list-group-item">Dapibus ac facilisis in</li>
-							<li class="list-group-item">Morbi leo risus</li>
-							<li class="list-group-item">Porta ac consectetur ac</li>
-							<li class="list-group-item">Vestibulum at eros</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div class="accordion" id="accordionExample">
-				<div class="card">
-					<div class="card-header" id="headingOne">
-						<h5 class="mb-0">
-							<button class="btn btn-link" type="button" data-toggle="collapse"
-								data-target="#collapseFive" aria-expanded="false"
-								aria-controls="collapseFive">충남</button>
-						</h5>
-					</div>
-
-					<div id="collapseFive" class="collapse"
-						aria-labelledby="headingOne" data-parent="#accordionExample">
-						<ul class="list-group">
-							<li class="list-group-item active">Cras justo odio</li>
-							<li class="list-group-item">Dapibus ac facilisis in</li>
-							<li class="list-group-item">Morbi leo risus</li>
-							<li class="list-group-item">Porta ac consectetur ac</li>
-							<li class="list-group-item">Vestibulum at eros</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div class="accordion" id="accordionExample">
-				<div class="card">
-					<div class="card-header" id="headingOne">
-						<h5 class="mb-0">
-							<button class="btn btn-link" type="button" data-toggle="collapse"
-								data-target="#collapseSix" aria-expanded="false"
-								aria-controls="collapseSix">충북</button>
-						</h5>
-					</div>
-
-					<div id="collapseSix" class="collapse" aria-labelledby="headingOne"
-						data-parent="#accordionExample">
-						<ul class="list-group">
-							<li class="list-group-item active">Cras justo odio</li>
-							<li class="list-group-item">Dapibus ac facilisis in</li>
-							<li class="list-group-item">Morbi leo risus</li>
-							<li class="list-group-item">Porta ac consectetur ac</li>
-							<li class="list-group-item">Vestibulum at eros</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div class="accordion" id="accordionExample">
-				<div class="card">
-					<div class="card-header" id="headingOne">
-						<h5 class="mb-0">
-							<button class="btn btn-link" type="button" data-toggle="collapse"
-								data-target="#collapseSeven" aria-expanded="false"
-								aria-controls="collapseSeven">전남</button>
-						</h5>
-					</div>
-
-					<div id="collapseSeven" class="collapse"
-						aria-labelledby="headingOne" data-parent="#accordionExample">
-						<ul class="list-group">
-							<li class="list-group-item active">Cras justo odio</li>
-							<li class="list-group-item">Dapibus ac facilisis in</li>
-							<li class="list-group-item">Morbi leo risus</li>
-							<li class="list-group-item">Porta ac consectetur ac</li>
-							<li class="list-group-item">Vestibulum at eros</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div class="accordion" id="accordionExample">
-				<div class="card">
-					<div class="card-header" id="headingOne">
-						<h5 class="mb-0">
-							<button class="btn btn-link" type="button" data-toggle="collapse"
-								data-target="#collapseEight" aria-expanded="false"
-								aria-controls="collapseEight">전북</button>
-						</h5>
-					</div>
-
-					<div id="collapseEight" class="collapse"
-						aria-labelledby="headingOne" data-parent="#accordionExample">
-						<ul class="list-group">
-							<li class="list-group-item active">Cras justo odio</li>
-							<li class="list-group-item">Dapibus ac facilisis in</li>
-							<li class="list-group-item">Morbi leo risus</li>
-							<li class="list-group-item">Porta ac consectetur ac</li>
-							<li class="list-group-item">Vestibulum at eros</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div class="accordion" id="accordionExample">
-				<div class="card">
-					<div class="card-header" id="headingOne">
-						<h5 class="mb-0">
-							<button class="btn btn-link" type="button" data-toggle="collapse"
-								data-target="#collapseNine" aria-expanded="false"
-								aria-controls="collapseNine">강원</button>
-						</h5>
-					</div>
-
-					<div id="collapseNine" class="collapse"
-						aria-labelledby="headingOne" data-parent="#accordionExample">
-						<ul class="list-group">
-							<li class="list-group-item active">Cras justo odio</li>
-							<li class="list-group-item">Dapibus ac facilisis in</li>
-							<li class="list-group-item">Morbi leo risus</li>
-							<li class="list-group-item">Porta ac consectetur ac</li>
-							<li class="list-group-item">Vestibulum at eros</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div class="accordion" id="accordionExample">
-				<div class="card">
-					<div class="card-header" id="headingOne">
-						<h5 class="mb-0">
-							<button class="btn btn-link" type="button" data-toggle="collapse"
-								data-target="#collapseTen" aria-expanded="false"
-								aria-controls="collapseTen">제주</button>
-						</h5>
-					</div>
-
-					<div id="collapseTen" class="collapse" aria-labelledby="headingOne"
-						data-parent="#accordionExample">
-						<ul class="list-group">
-							<li class="list-group-item active">Cras justo odio</li>
-							<li class="list-group-item">Dapibus ac facilisis in</li>
-							<li class="list-group-item">Morbi leo risus</li>
-							<li class="list-group-item">Porta ac consectetur ac</li>
-							<li class="list-group-item">Vestibulum at eros</li>
-						</ul>
-					</div>
-				</div>
-
-			</div>
+			<h1>여기에 aside 추가</h1>
 		</div>
 
 		<div class="col-9">
 
 			<div class="row">
 				<!-- sub nav -->
-				<div class="dropdown m-2">
-					<button class="btn btn-light  btn-lg dropdown-toggle" type="button"
-						id="dropdownMenuButton" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">습관스터디</button>
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">아침출첵</a> <a
-							class="dropdown-item" href="#">저녁출첵</a>
-					</div>
-				</div>
-
-				<div class="dropdown m-2">
-					<button class="btn btn-light  btn-lg dropdown-toggle" type="button"
-						id="dropdownMenuButton" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">외국어스터디</button>
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">영어</a> <a class="dropdown-item"
-							href="#">일본어</a> <a class="dropdown-item" href="#">중국어</a>
-					</div>
-				</div>
-
-				<div class="dropdown m-2">
-					<button class="btn btn-light  btn-lg dropdown-toggle" type="button"
-						id="dropdownMenuButton" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">기타스터디</button>
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">주식</a> <a class="dropdown-item"
-							href="#">면접</a> <a class="dropdown-item" href="#">주짓수</a>
-					</div>
-				</div>
+				
 
 			</div>
 
