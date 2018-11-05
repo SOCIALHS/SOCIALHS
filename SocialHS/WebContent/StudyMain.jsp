@@ -54,6 +54,7 @@
 		<div class="col-2">
 			<!-- aside -->
 			<jsp:include page="wonho/sidebar.jsp"></jsp:include>
+
 		</div>
 
 		<div class="col-10">

@@ -20,9 +20,6 @@
 <title>SideBar</title>
 </head>
 <body>
-	<div class="row bg-light">
-        <!-- subnav -->
-    </div>
 
     <div class="row">
         <div>
@@ -61,7 +58,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <ul class="list-group">
                             <li class="list-group-item active">Cras justo odio</li>
                             <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -84,7 +81,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="collapseThree" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <ul class="list-group">
                             <li class="list-group-item active">Cras justo odio</li>
                             <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -107,7 +104,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="collapseFour" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <ul class="list-group">
                             <li class="list-group-item active">Cras justo odio</li>
                             <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -130,7 +127,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseFive" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="collapseFive" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <ul class="list-group">
                             <li class="list-group-item active">Cras justo odio</li>
                             <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -153,7 +150,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseSix" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="collapseSix" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <ul class="list-group">
                             <li class="list-group-item active">Cras justo odio</li>
                             <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -176,7 +173,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseSeven" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="collapseSeven" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <ul class="list-group">
                             <li class="list-group-item active">Cras justo odio</li>
                             <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -199,7 +196,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseEight" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="collapseEight" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <ul class="list-group">
                             <li class="list-group-item active">Cras justo odio</li>
                             <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -222,7 +219,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseNine" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="collapseNine" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <ul class="list-group">
                             <li class="list-group-item active">Cras justo odio</li>
                             <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -245,7 +242,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseTen" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="collapseTen" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <ul class="list-group">
                             <li class="list-group-item active">Cras justo odio</li>
                             <li class="list-group-item">Dapibus ac facilisis in</li>
