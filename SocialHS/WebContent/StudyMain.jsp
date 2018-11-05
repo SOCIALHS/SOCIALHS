@@ -59,14 +59,15 @@
 
 		<div class="col-9">
 
-			<div class="row">
+			<div class="row d-flex justify-content-center">
 				<!-- sub nav -->
-				
+				<jsp:include page="dongwu/category.jsp"></jsp:include>
 
 			</div>
 
-			<div class="row">
+			<div class="row d-flex justify-content-center">
 				<!-- content -->
+				<jsp:include page="dongwu/content.jsp"></jsp:include>
 			</div>
 
 		</div>
