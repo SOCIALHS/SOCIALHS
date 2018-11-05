@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bc.main.dao.MainDAO;
+import com.bc.main.vo.BbsCodeVO;
 import com.bc.main.vo.BoardVO;
 import com.bc.main.vo.CommentVO;
 import com.bc.main.vo.MessengerVO;
@@ -27,30 +28,62 @@ public class AlarmCommand implements Command {
 		comAlm = MainDAO.getComAlm("test");
 		System.out.println("comAlm: "+ comAlm);
 		
-		
 		int sumMsn = 0;
 		int sumMem = 0;
 		int sumCom = 0;
 		int sum = 0;
-		for (MessengerVO msn : msnAlm) {
-			sumMsn += msn.getChk();
+		
+		String result = "{";
+		if (msnAlm != null) {
+		result += "\"msnAlm\":[";
+			for (MessengerVO msn : msnAlm) {
+				sumMsn += msn.getChk();
+				result += "{";
+				result += "\"send_id\" : \""+ msn.getSend_id() +"\",";
+				result += "\"title\" : \""+ msn.getTitle() +"\",";
+				result += "\"content\" : \""+ msn.getContent() +"\"";
+				result += "},";
+			}
+			result = result.substring(0, result.length() - 1);
+			result += "],";
 		}
-		for (BoardVO board : memAlm) {
-			sumMem += board.getChk();
+		
+		if (memAlm != null) {
+			result += "\"memAlm\":[";
+			for (BoardVO board : memAlm) {
+				sumMem += board.getChk();
+				result += "{";
+				result += "\"title\" : \""+ board.getTitle() +"\"";
+				result += "},";
+			}
+			result = result.substring(0, result.length() - 1);
+			result += "],";
 		}
+		
+		if (comAlm != null) {
+		result += "\"comAlm\":[";
 		for (CommentVO com : comAlm) {
 			sumCom += com.getChk();
+			result += "{";
+			result += "\"title\" : \""+ com.getTitle() +"\",";
+			result += "\"content\" : \""+ com.getContent() +"\"";
+			result += "},";
+		}
+			result = result.substring(0, result.length() - 1);
+			result += "],";
 		}
 		
 		
-		HttpSession session = request.getSession();
-		session.setAttribute("msnAlm", msnAlm);
-		session.setAttribute("memAlm", memAlm);
-		session.setAttribute("comAlm", comAlm);
-		
 		sum = sumMsn + sumMem + sumCom;
+		result += "\"alm\":\""+ sum+ "\"";
+		result += "}";
 		
-		return sum+"";
+		
+		
+		
+		
+		return result;
+//		return sum+"";
 	}
 
 }
