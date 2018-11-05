@@ -19,17 +19,16 @@
 </head>
 <body>
 <%
-	if(session.getAttribute("memberid") == null) {
+	if (session.getAttribute("memberid") == null) {
 %>
 	<jsp:include page="jieun/header.jsp"></jsp:include>
 <%
-	}else{
+	} else {
 %>
 	<jsp:include page="jieun/loginheader.jsp"></jsp:include>
 <% 
 	}
 %>
-	
 
 	<!-- jumbotron -->
 	<div class="jumbotron jumbotron-fluid">

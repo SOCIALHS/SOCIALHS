@@ -12,6 +12,7 @@ import com.bc.member.command.idchkCommand;
 import com.bc.member.command.joinCommand;
 import com.bc.member.command.joinOkCommand;
 import com.bc.member.command.loginCommand;
+import com.bc.member.command.logoutCommand;
 import com.bc.member.command.updateCommand;
 import com.bc.member.command.updateMyinfoCommand;
 import com.bc.share.command.Command;
@@ -41,7 +42,12 @@ public class memberController extends HttpServlet {
 		
 		if (type.equals("login")) {
 			comm = new loginCommand();
-		} else if (type.equals("join")) {
+		} else if (type.equals("logout")) {
+			comm = new logoutCommand();
+		}
+		
+		
+		else if (type.equals("join")) {
 			comm = new joinCommand();
 		} else if (type.equals("joinOk")) {
 			comm = new joinOkCommand();
