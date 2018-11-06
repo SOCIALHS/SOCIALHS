@@ -1,5 +1,6 @@
 package com.bc.controller;
 
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -8,10 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bc.member.command.deleteCommand;
 import com.bc.member.command.idchkCommand;
 import com.bc.member.command.joinCommand;
 import com.bc.member.command.joinOkCommand;
 import com.bc.member.command.loginCommand;
+import com.bc.member.command.logoutCommand;
+import com.bc.member.command.myPageCommand;
 import com.bc.member.command.updateCommand;
 import com.bc.member.command.updateMyinfoCommand;
 import com.bc.share.command.Command;
@@ -41,7 +45,10 @@ public class memberController extends HttpServlet {
 		
 		if (type.equals("login")) {
 			comm = new loginCommand();
-		} else if (type.equals("join")) {
+		} else if (type.equals("logout")) {
+			comm = new logoutCommand();
+		}
+		else if (type.equals("join")) {
 			comm = new joinCommand();
 		} else if (type.equals("joinOk")) {
 			comm = new joinOkCommand();
@@ -51,10 +58,19 @@ public class memberController extends HttpServlet {
 			comm = new idchkCommand();
 		}
 		
+		//===================================
+		else if (type.equals("myPage")) {
+			comm = new myPageCommand();
+		}
+		
+		
 		else if (type.equals("update")) {
 			comm = new updateCommand();
-		} else if (type.equals("")) {
+		} else if (type.equals("updateOk")) {
 			comm = new updateMyinfoCommand();
+		}
+		else if (type.equals("delete")) {
+			comm = new deleteCommand();
 		}
 		
 		path = comm.exec(request, response);

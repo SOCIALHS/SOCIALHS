@@ -4,9 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>공지 게시글 삭제</title>
+<script>
+	function del_go(frm) {
+		frm.action = "../BullteinController?type=bullteinDelete&bb_idx=${BullteinBoardVO.getBb_idx() }";
+		frm.submit();
+	}
+</script>
 </head>
 <body>
-
+<form>
+	<input type="button" value="삭제" onclick="del_go(this.form)">
+</form>
 </body>
 </html>

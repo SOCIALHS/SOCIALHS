@@ -16,9 +16,10 @@ import com.bc.minseong.command.BullteinBoardListCommand;
 import com.bc.minseong.command.BullteinBoardOneCommand;
 import com.bc.minseong.command.BullteinBoardUpdateCommand;
 import com.bc.minseong.command.BullteinBoardWriteCommand;
-import com.bc.minseong.command.FreeBoardCommand;
+import com.bc.minseong.command.FreeBoardListCommand;
 import com.bc.minseong.command.StockBoardCommand;
 import com.bc.share.command.Command;
+import com.bc.study.command.CategoryCommand;
 import com.bc.wonho.command.AttendanceBoardCommand;
 
 
@@ -40,6 +41,8 @@ public class StudyMainController extends HttpServlet {
 	private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String type = request.getParameter("type");
+		String b_idx = request.getParameter("b_idx");
+		System.out.println("b_idx : "+b_idx);
 		String path = null;
 		System.out.println("type : "+type);
 		Command comm = null;
@@ -57,16 +60,6 @@ public class StudyMainController extends HttpServlet {
 			comm = new EnglishBoardCommand();
 		}else if(type.equals("stoc")) {
 			comm = new StockBoardCommand();
-		}else if(type.equals("bullteinList")) {
-			comm = new BullteinBoardListCommand();
-		}else if(type.equals("bullteinOne")) {
-			comm = new BullteinBoardOneCommand();
-		}else if(type.equals("bullteinWrite")) {
-			comm = new BullteinBoardWriteCommand();
-		}else if(type.equals("bullteinUpdate")) {
-			comm = new BullteinBoardUpdateCommand();
-		}else if(type.equals("bullteinDelete")) {
-			comm = new BullteinBoardDeleteCommand();
 		}
 		
 		path = comm.exec(request, response);

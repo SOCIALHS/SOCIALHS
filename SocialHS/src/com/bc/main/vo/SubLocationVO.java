@@ -1,4 +1,4 @@
-package com.bc.hobby.vo;
+package com.bc.main.vo;
 
 public class SubLocationVO {
 	private String sl_idx, sl_name, l_idx;
