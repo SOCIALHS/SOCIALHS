@@ -55,19 +55,22 @@ memberVO vo = new memberVO();
 	
 	//회원가입시 아이디 중복체크 
 	public boolean idCheck(String id) {
-		vo = selectId(id);
 		boolean chk = false;
+		vo = selectId(id);
 		System.out.println("vo: " + vo);
 		
-		if (vo.getId().equals(id)) {
-			//아이디 중복일때(DB상에 아이디 있음)
+		if (vo == null) {
 			chk = false;
-		} else {
+		} else if (vo.getId().equals(id)) {
+			//아이디 중복일때(DB상에 아이디 있음)
 			chk = true;
+		} else {
+			chk = false;
 		}
 		return chk;
 		
 	}
+	
 	
 //	public int idCheck(String id) {
 //		vo = selectId(id);
@@ -92,6 +95,11 @@ memberVO vo = new memberVO();
 	public static int update(memberVO vo) {
 		return getSql().update("updateMyinfo", vo);
 		
+	}
+	
+	//회원탈퇴
+	public static int delete(String id) {
+		return getSql().delete("deleteMtinfo", id);
 	}
 	
 	

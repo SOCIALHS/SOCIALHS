@@ -13,7 +13,17 @@ public class deleteCommand implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		
-		return "mingyeong/myinfoUpdate.jsp";
+		String chk = request.getParameter("infochk");
+		String id = request.getParameter("id");
+		
+		HttpSession session = request.getSession();
+		
+		session.removeAttribute("memberVO");
+		memberDAO.delete(id);
+			
+		System.out.println("회원탈퇴가 되었습니다!");
+		
+		return "index.jsp";
 		
 	}
 	

@@ -15,7 +15,7 @@ public class logoutCommand implements Command {
 		
 		String path = null;
 		HttpSession session = request.getSession();
-		session.removeAttribute("memberid");
+		session.removeAttribute("memberVO");
 		System.out.println("로그아웃 되었습니다!");
 		
 		return "index.jsp";
