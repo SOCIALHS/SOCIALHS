@@ -10,6 +10,10 @@
 		parameterType="String">
 		SELECT * FROM SUB_LOCATION WHERE L_IDX = #{L_IDX}
 	</select>
+	
+	<select id = "all" resultType="com.bc.main.vo.SubLocationVO">
+		SELECT * FROM SUB_LOCATION ORDER BY L_IDX
+	</select>
 </mapper>  
 
 
