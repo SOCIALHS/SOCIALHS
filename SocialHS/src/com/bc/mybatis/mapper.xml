@@ -34,6 +34,15 @@
 		ORDER BY BBC_IDX DESC 
 	</select>
 	
+	
+	<select id="msnList" resultType="com.bc.main.vo.MessengerVO" parameterType="String">
+		SELECT * FROM MESSENGER WHERE RECV_ID = #{id} ORDER BY MS_IDX DESC
+	</select>
+	
+	<select id="msnOne" resultType="com.bc.main.vo.MessengerVO" parameterType="String">
+		SELECT * FROM MESSENGER WHERE MS_IDX = #{ms_idx}
+	</select>
+	
 </mapper>
 
 

@@ -44,7 +44,7 @@ public class AlarmCommand implements Command {
 				sumMsn += msn.getChk();
 				result += "{";
 				result += "\"ms_idx\" : \""+ msn.getMs_idx() +"\",";
-				result += "\"title\" : \""+ msn.getSend_id() +"\"";
+				result += "\"send_id\" : \""+ msn.getSend_id() +"\"";
 				result += "},";
 			}
 			result = result.substring(0, result.length() - 1);

@@ -43,6 +43,11 @@
 		frm.submit();
 		
 	}
+	function messengerGo(frm) {
+		frm.action = "MessengerController?type=msnList";
+		frm.submit();
+		
+	}
 	function deleteInfo(frm) {
 		if (confirm("회원 탈퇴를 하시겠습니까?") == true) {
 			
@@ -90,7 +95,8 @@
 					<td colspan="5" class="right">
 						<input type="button" name="edit" value="내 정보 수정"
 							onclick="editInfo(this.form)">
-						<input type="button" name="sendMsg" value="쪽지" >
+						<input type="button" name="sendMsg" value="쪽지" 
+							onclick="messengerGo(this.form)">
 						<input type="button" name="delete" value="탈퇴하기"
 							onclick="deleteInfo(this.form)">
 						

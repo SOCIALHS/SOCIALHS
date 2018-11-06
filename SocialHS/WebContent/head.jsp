@@ -55,7 +55,7 @@
 					newAlm += "<b>모집 알람</b>";
 					newAlm += "<hr>";
 					$.each(memList, function(member) {
-						newAlm += '"' + this.title + '"' + "모집글에 신청 알림<br>";
+						newAlm += '"' + this.title + '"' + "모집글에 신청자가 나타났습니다.<br>";
 					});
 					newAlm += "<br><br>";
 				}
@@ -67,7 +67,7 @@
 					$.each(msnList,
 							function(member) {
 								newAlm += '"' + this.send_id + '"'
-										+ "님께서 보낸 쪽지 알림<br>";
+										+ "님께서 쪽지를 보냈습니다.<br>";
 							});
 					newAlm += "<br><br>";
 				}
@@ -77,7 +77,7 @@
 					newAlm += "<b>댓글 알람</b>";
 					newAlm += "<hr>";
 					$.each(comList, function(member) {
-						newAlm += '"' + this.title + '"' + "글에 댓글 알림<br>";
+						newAlm += '"' + this.title + '"' + "글에 댓글이 달렸습니다.<br>";
 					});
 					newAlm += "<br><br>";
 				}
