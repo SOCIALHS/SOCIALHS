@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.bc.main.command.HobbyMainCommand;
 import com.bc.mingyeong.command.PhotoBoardCommand;
 import com.bc.minseong.command.BullteinBoardListCommand;
-import com.bc.minseong.command.FreeBoardCommand;
+import com.bc.minseong.command.FreeBoardListCommand;
 
 import com.bc.share.command.Command;
 import com.bc.swan.command.BaseballBoardCommand;

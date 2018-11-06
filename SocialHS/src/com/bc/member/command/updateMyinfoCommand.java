@@ -32,9 +32,13 @@ public class updateMyinfoCommand implements Command {
 			memberVO vo = new memberVO();
 			vo.setId(id);
 			vo.setPw(pw);
+			vo.setEmail(email+"@"+com);
 			vo.setPhone(phone);
 			vo.setAddr(address);
 			
+			memberDAO.update(vo);
+			System.out.println("정보가 수정되었습니다.");
+			path = "mingyeong/myPage.jsp";
 			
 		}
 		

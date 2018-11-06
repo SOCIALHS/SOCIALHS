@@ -18,7 +18,7 @@
         </div>
         <ul class="nav justify-content-end">
             <li class="nav-item">
-                <a class="nav-link text-light" href="mingyeong/myPage.jsp">마이페이지</a>
+                <a class="nav-link text-light" href="memberController?type=myPage">마이페이지</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-light" href="memberController?type=logout">로그아웃</a>

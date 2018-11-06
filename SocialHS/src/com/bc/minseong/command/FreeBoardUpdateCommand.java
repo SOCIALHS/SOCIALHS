@@ -1,19 +1,19 @@
 package com.bc.minseong.command;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bc.share.command.Command;
 
-public class BullteinBoardUpdateCommand implements Command {
+public class FreeBoardUpdateCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		BullteinBoardVO bbv = new BullteinBoardVO();
-		return "minseong/bullteinBoardUpdate.jsp";
+		FreeBoardVO fvo = new FreeBoardVO();
+		fvo.setTitle(request.getParameter("title"));
+		fvo.setContent(request.getParameter("content"));
+		FreeBoardDAO.insert(fvo);
+		return null;
 	}
-
 
 }
