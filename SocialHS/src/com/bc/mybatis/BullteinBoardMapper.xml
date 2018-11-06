@@ -6,7 +6,7 @@
 <!-- mapper 태그의 namespace 속성 필수 작성  -->  
 <mapper namespace="bulltein">
 	
-	<select id="BullteinList" resultType="BullteinBoardVO">
+	<select id="BullteinList" resultType="com.bc.minseong.command.BullteinBoardVO">
 		SELECT * FROM B_BOARD ORDER BY B_IDX
 	</select>
 	

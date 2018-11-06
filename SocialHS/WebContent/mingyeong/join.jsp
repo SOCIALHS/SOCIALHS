@@ -56,9 +56,9 @@
 		<tbody>
 			<tr>
 				<td id="title">아이디</td>
-				
+				<% String id = (String)session.getAttribute("id"); %>
 				<td>
-					<input type="text" name="id" maxlength="50">
+					<input type="text" name="id" maxlength="50" value="${id }">
 					<input type="button" value="중복확인" onclick="idchk(this.form)">
 				</td>
 			</tr>
@@ -66,9 +66,9 @@
 	</table>
 </form>
 
-<form method="get"> -->
+<form method="get">
 	<table>
-		<tbody>
+		<tbody> -->
 			<tr>
 				<td id="title">비밀번호</td>
 				<td>
@@ -139,14 +139,13 @@
 			<tr>
 				<td id="title">주소</td>
 				<td>
-					<input type="text" name="address" size="50">
+					<input type="text" name="addr" size="50">
 				</td>
 			</tr>
 		</tbody>
 	</table>
 	<br>
 	<input type="button" value="가입하기" onclick="joinOk(this.form)">
-	
 	<input type="hidden" name="joinchk" value="chk">
 </form>
 </div>

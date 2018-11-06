@@ -2,8 +2,8 @@ package com.bc.main.vo;
 
 public class MessengerVO {
 	
-	String title, content, send_id, recv_id;
-	int ms_idx, chk;
+	private String title, content, send_id, recv_id;
+	private int ms_idx, chk;
 	public String getTitle() {
 		return title;
 	}
