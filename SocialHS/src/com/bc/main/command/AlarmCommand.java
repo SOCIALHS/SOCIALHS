@@ -19,58 +19,59 @@ public class AlarmCommand implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		
 		HttpSession session = request.getSession();
+		int sumMsn = 0;
+		int sumMem = 0;
+		int sumCom = 0;
+		int sum = 0;
 		List<MessengerVO> msnAlm;
 		List<BoardVO> memAlm;
 		List<CommentVO> comAlm;
 		memberVO vo = (memberVO)session.getAttribute("memberVO");
 		
-		System.out.println("세션 id: "+ vo.getId());
+//		System.out.println("세션 id: "+ vo.getId());
 		msnAlm = MainDAO.getMsnAlm(vo.getId());
-		System.out.println("msnAlm: "+ msnAlm);
+//		System.out.println("msnAlm: "+ msnAlm);
 		memAlm = MainDAO.getMemAlm(vo.getId());
-		System.out.println("memAlm: "+ memAlm);
+//		System.out.println("memAlm: "+ memAlm);
 		comAlm = MainDAO.getComAlm(vo.getId());
-		System.out.println("comAlm: "+ comAlm);
-		
-		int sumMsn = 0;
-		int sumMem = 0;
-		int sumCom = 0;
-		int sum = 0;
-		
+//		System.out.println("comAlm: "+ comAlm);
+//		
+//		MS_IDX, SEND_ID, CHK
 		String result = "{";
 		if (msnAlm.size() != 0) {
 		result += "\"msnAlm\":[";
 			for (MessengerVO msn : msnAlm) {
 				sumMsn += msn.getChk();
 				result += "{";
-				result += "\"send_id\" : \""+ msn.getSend_id() +"\",";
-				result += "\"title\" : \""+ msn.getTitle() +"\",";
-				result += "\"content\" : \""+ msn.getContent() +"\"";
+				result += "\"ms_idx\" : \""+ msn.getMs_idx() +"\",";
+				result += "\"title\" : \""+ msn.getSend_id() +"\"";
 				result += "},";
 			}
 			result = result.substring(0, result.length() - 1);
 			result += "],";
 		}
-		
+//		BB_IDX, TITLE, CHK
 		if (memAlm.size() != 0) {
 			result += "\"memAlm\":[";
 			for (BoardVO board : memAlm) {
 				sumMem += board.getChk();
 				result += "{";
+				result += "\"ms_idx\" : \""+ board.getBb_idx() +"\",";
 				result += "\"title\" : \""+ board.getTitle() +"\"";
 				result += "},";
 			}
 			result = result.substring(0, result.length() - 1);
 			result += "],";
 		}
-		
+//		B.TITLE, C.ID, C.BBC_IDX, C.CHK
 		if (comAlm.size() != 0) {
 		result += "\"comAlm\":[";
 		for (CommentVO com : comAlm) {
 			sumCom += com.getChk();
 			result += "{";
 			result += "\"title\" : \""+ com.getTitle() +"\",";
-			result += "\"content\" : \""+ com.getContent() +"\"";
+			result += "\"id\" : \""+ com.getId() +"\",";
+			result += "\"bbc_idx\" : \""+ com.getBbc_idx() +"\"";
 			result += "},";
 		}
 			result = result.substring(0, result.length() - 1);
