@@ -21,7 +21,7 @@ public class loginCommand implements Command {
 		
 		HttpSession session = request.getSession();
 		memberDAO dao = new memberDAO();
-		memberVO vo = dao.selectId(id);
+		//memberVO vo = dao.selectId(id);
 		int chk = dao.loginCheck(id, pw);
 			
 		if (chk == 0) {
@@ -37,7 +37,7 @@ public class loginCommand implements Command {
 		} else {
 			//로그인 성공 -> 메인화면 이동
 			System.out.println("로그인 성공!");
-			vo = dao.selectId(id);
+			memberVO vo = dao.selectId(id);
 			session.setAttribute("memberVO", vo);
 			path = "index.jsp";
 		}

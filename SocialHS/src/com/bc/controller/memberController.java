@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bc.member.command.deleteCommand;
-import com.bc.member.command.idchkCommand;
 import com.bc.member.command.joinCommand;
 import com.bc.member.command.joinOkCommand;
 import com.bc.member.command.loginCommand;
@@ -54,9 +53,7 @@ public class memberController extends HttpServlet {
 			comm = new joinOkCommand();
 		}
 		
-		else if (type.equals("idchk")) {
-			comm = new idchkCommand();
-		}
+		
 		
 		//===================================
 		else if (type.equals("myPage")) {
