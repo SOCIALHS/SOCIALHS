@@ -15,7 +15,7 @@
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"x
 		crossorigin="anonymous"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -36,7 +36,7 @@
 					type: "get",
 					dataType: "JSON",
 					success: function(data){
-						
+						console.log(data);
 						var msnList = data.msnAlm;
 						var memList = data.memAlm;
 						var comList = data.comAlm;
@@ -44,7 +44,7 @@
 						if (memList == undefined){
 							console.log("모집 언디파인드");
 						} else {
-							newAlm += "<b>모집 알람<b>";	
+							newAlm += "<b>모집 알람</b>";	
 							newAlm += "<hr>";
 							$.each(memList, function(member){
 								newAlm += '"'+ this.title+'"'+ "모집글에 신청 알림<br>";
@@ -54,7 +54,7 @@
 						if (msnList == undefined){
 							console.log("쪽지 언디파인드");
 						} else {
-							newAlm += "<b>쪽지 알람<b>";	
+							newAlm += "<b>쪽지 알람</b>";	
 							newAlm += "<hr>";
 							$.each(msnList, function(member){
 								newAlm += '"'+ this.send_id+'"'+ "님께서 보낸 쪽지 알림<br>";
@@ -64,7 +64,7 @@
 						if (comList == undefined){
 							console.log("댓글 언디파인드");
 						} else {
-							newAlm += "<b>댓글 알람<b>";	
+							newAlm += "<b>댓글 알람</b>";	
 							newAlm += "<hr>";
 							$.each(comList, function(member){
 								newAlm += '"'+ this.title+'"'+ "글에 댓글 알림<br>";

@@ -81,7 +81,7 @@ public class AlarmCommand implements Command {
 		sum = sumMsn + sumMem + sumCom;
 		result += "\"alm\":\""+ sum+ "\"";
 		result += "}";
-		
+		System.out.println(result);
 		
 		
 		

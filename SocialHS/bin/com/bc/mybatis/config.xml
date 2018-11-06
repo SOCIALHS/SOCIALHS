@@ -16,6 +16,7 @@
   </environments>
   
   <mappers>
+  	<mapper resource="com/bc/mybatis/mapper.xml"/>
   	<mapper resource="com/bc/mybatis/AttendanceMapper.xml"/>
   	<mapper resource="com/bc/mybatis/baseballMapper.xml"/>
   	<mapper resource="com/bc/mybatis/BasketballMapper.xml"/>

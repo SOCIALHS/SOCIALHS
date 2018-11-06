@@ -51,8 +51,3 @@
 
 
 	<jsp:include page="jieun/footer.jsp"></jsp:include>
-
-
-</body>
-</html>
-
