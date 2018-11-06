@@ -10,6 +10,8 @@
 	
 	<a href="../HobbyController?type=photo"><button>테스트</button></a>
 	<a href="/error/error.jsp"><button>테스트2</button></a>
-	
+	<% session.getAttribute("joinInfo"); %>
+	<p>${joinInfo.name }</p><br>
+	<p>${joinInfo.getName() }</p>
 </body>
 </html>
