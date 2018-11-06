@@ -13,15 +13,9 @@ import javax.servlet.http.HttpSession;
 import com.bc.main.command.HobbyMainCommand;
 import com.bc.main.command.StudyMainCommand;
 import com.bc.main.dao.LocationDAO;
-import com.bc.main.dao.SubLocationDAO;
 import com.bc.main.vo.LocationVO;
-import com.bc.main.vo.SubLocationVO;
 import com.bc.share.command.Command;
 import com.bc.study.command.CategoryCommand;
-
-
-
-
 
 @WebServlet("/LocationController")
 public class LocationController extends HttpServlet {
@@ -49,9 +43,6 @@ public class LocationController extends HttpServlet {
 		List<LocationVO> listAll = LocationDAO.getAll();
 		System.out.println("listAll : "+listAll);
 		session.setAttribute("locationAll", listAll);
-		
-		List<SubLocationVO> listSubAll = SubLocationDAO.getSubAll();
-		session.setAttribute("listSubAll", listSubAll);
 		
 		String path = null;
 		System.out.println("hs : "+hs);
