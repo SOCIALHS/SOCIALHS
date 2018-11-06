@@ -10,7 +10,7 @@
         <input type="hidden">
         <div id="almOutter">
         <button id="almBtn" type="button" class="btn btn-dark">
-            알림<span id="alarm" class="badge badge-dark">0</span>
+            알림<span id="almCnt" class="badge badge-dark">0</span>
         </button>
         <div id="newAlm">
         	
