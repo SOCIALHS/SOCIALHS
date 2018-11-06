@@ -45,6 +45,7 @@
 	}
 	function deleteInfo(frm) {
 		if (confirm("회원 탈퇴를 하시겠습니까?") == true) {
+			
 			frm.action = "memberController?type=delete";
 			frm.submit();
 		} else {

@@ -22,7 +22,7 @@
 		INSERT INTO MEMBER
 			(U_IDX, NAME, ID, PW, AGE, PHONE, EMAIL, ADDR, RANK, REGDATE, POINT, BIRTH)
 		VALUES (MEMBER_SEQ.NEXTVAL, #{name}, #{id}, #{pw}, 
-		TRUNC(MONTHS_BETWEEN(SYSDATE, TO_DATE(SUBSTR('#{age}', 1, 4), 'YYYY'))/12+1)
+		TRUNC(MONTHS_BETWEEN(SYSDATE, TO_DATE(SUBSTR(#{age}, 1, 4), 'YYYY'))/12+1)
 		, #{phone}, #{email}, #{addr}, '0', SYSDATE, 0, #{birth})
 	</insert>
 	

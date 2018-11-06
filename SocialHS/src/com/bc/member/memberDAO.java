@@ -71,21 +71,6 @@ memberVO vo = new memberVO();
 		
 	}
 	
-	
-//	public int idCheck(String id) {
-//		vo = selectId(id);
-//		//int chk;
-//		boolean chk = false;
-//		System.out.println(vo);
-//		
-//		if (vo.getId().equals(id)) {
-//			chk = 0; //아이디 중복일때(DB상에 아이디 있음)
-//		} else {
-//			chk = 1;
-//		}
-//		return chk;
-//	}
-	
 	//회원가입
 	public static int join(memberVO vo) {
 		return getSql().insert("join", vo);

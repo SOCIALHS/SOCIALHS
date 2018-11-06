@@ -39,11 +39,11 @@ public class joinOkCommand implements Command {
 			int age = Integer.parseInt(birthday + birthmm + birthdd);
 			String birth = birthday + "-" + birthmm + "-" + birthdd;
 			
-			//Date birthDate = Date.valueOf(birth);
+			Date birthDate = Date.valueOf(birth);
 			
 			System.out.println("age : " + age);
 			System.out.println("email : " + email+"@"+com);
-			//System.out.println("birthDate : " + birthDate);
+			System.out.println("birthDate : " + birthDate);
 
 			memberVO vo = new memberVO();
 			vo.setId(id);
@@ -53,10 +53,11 @@ public class joinOkCommand implements Command {
 			vo.setEmail(email+"@"+com);
 			vo.setPhone(phone);
 			vo.setAddr(addr);
-			vo.setBirth(birth);
+			vo.setBirth(birthDate);
 			
 			memberDAO.join(vo);
 			session.setAttribute("joinInfo", vo);
+			session.removeAttribute("id");
 			path = "mingyeong/joinOk.jsp";
 			
 		}

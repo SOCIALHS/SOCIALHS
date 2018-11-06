@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.bc.hobby.vo.BaseballBoardVO;
+import com.bc.main.vo.LocationVO;
 import com.bc.main.vo.SubLocationVO;
 import com.bc.mybatis.*;
 
@@ -23,6 +24,10 @@ public class SubLocationDAO {
 	
 	public static List<SubLocationVO> getSubLocation(String location) {
 		return getSql().selectList("SubLocation.list",location);
+	}
+	
+	public static List<SubLocationVO> getSubAll(){
+		return getSql().selectList("SubLocation.all");
 	}
 	
 	
