@@ -21,6 +21,7 @@
 <!-- jumbotron -->
 <div class="jumbotron jumbotron-fluid">
 	<div id="joinok" class="container text-center">
+	<% session.getAttribute("memberVO"); %>
 		<h2><b>회원가입이 완료되었습니다.</b></h2>
 		<p class="lead"><font color="blue">
 			<b>${memberVO.getName() }</b></font>&nbsp;님 가입을 축하드립니다!<br>

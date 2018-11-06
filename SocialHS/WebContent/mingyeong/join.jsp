@@ -35,14 +35,19 @@
 			return false;
 		}
 		
-		
 		/* window.open("usingIdchk.html", "아이디 중복 확인",
 				"width=400, height=300, left=100, top=50"); */
-		
 		
 		frm.action = "memberController?type=idchk";
 		frm.submit();
 		
+	}
+	
+	function main(frm) {
+		
+		frm.action = "index.jsp";
+		frm.submit();
+		<% session.removeAttribute("id"); %>
 	}
 	
 </script>
@@ -146,6 +151,8 @@
 	</table>
 	<br>
 	<input type="button" value="가입하기" onclick="joinOk(this.form)">
+	<input type="reset" value="취소">
+	<input type="button" value="메인화면" onclick="main(this.form)">
 	<input type="hidden" name="joinchk" value="chk">
 </form>
 </div>
