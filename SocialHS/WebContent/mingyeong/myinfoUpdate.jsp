@@ -37,6 +37,7 @@
 			return false;
 		}
 		
+		alert("정보가 수정되었습니다!");
 		frm.action = "memberController?type=updateOk";
 		frm.submit();
 		
@@ -102,6 +103,7 @@
 		<hr>
 		<input type="button" value="수정" onclick="update(this.form)">
 		<input type="reset" value="취소">
+		<input type="button" value="뒤로가기" onclick="history.back(-1); return false;">
 		<input type="hidden" name="id" value="${memberVO.getId() }">
 		<input type="hidden" name="infochk" value="chk">
 	</form>

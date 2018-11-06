@@ -76,14 +76,13 @@ public class AlarmCommand implements Command {
 			result = result.substring(0, result.length() - 1);
 			result += "],";
 		}
-		
-		
 		sum = sumMsn + sumMem + sumCom;
-		result += "\"alm\":\""+ sum+ "\"";
+		result += "\"almCnt\":\""+sum+"\"";
+		
+		System.out.println("sum: "+ sum);
 		result += "}";
+		
 		System.out.println(result);
-		
-		
 		
 		
 		return result;

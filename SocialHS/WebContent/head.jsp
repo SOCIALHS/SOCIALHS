@@ -28,82 +28,84 @@
 
 <script src="//code.jquery.com/jquery.min.js"></script>
 	<script>
-		setInterval(
-			function Alm() {
-				
-				$.ajax({
-					url: "AlarmController",
-					type: "get",
-					dataType: "JSON",
-					success: function(data){
-						console.log(data);
-						var msnList = data.msnAlm;
-						var memList = data.memAlm;
-						var comList = data.comAlm;
-						var newAlm = "";
-						if (memList == undefined){
-							console.log("모집 언디파인드");
-						} else {
-							newAlm += "<b>모집 알람</b>";	
-							newAlm += "<hr>";
-							$.each(memList, function(member){
-								newAlm += '"'+ this.title+'"'+ "모집글에 신청 알림<br>";
-							});
-							newAlm += "<br><br>";
-						}
-						if (msnList == undefined){
-							console.log("쪽지 언디파인드");
-						} else {
-							newAlm += "<b>쪽지 알람</b>";	
-							newAlm += "<hr>";
-							$.each(msnList, function(member){
-								newAlm += '"'+ this.send_id+'"'+ "님께서 보낸 쪽지 알림<br>";
-							});
-							newAlm += "<br><br>";
-						}
-						if (comList == undefined){
-							console.log("댓글 언디파인드");
-						} else {
-							newAlm += "<b>댓글 알람</b>";	
-							newAlm += "<hr>";
-							$.each(comList, function(member){
-								newAlm += '"'+ this.title+'"'+ "글에 댓글 알림<br>";
-							});
-							newAlm += "<br><br>";
-						}
-							console.log(newAlm);
-						$("#newAlm").html(newAlm);
-						/* alert("가져온 데이터: "+ data); */
-						if (data.alm == 0){
-							$("#alarm").attr("class", "badge badge-dark");							
-							$("#alarm").html(data.alm);
-						} else {
-							$("#alarm").attr("class", "badge badge-danger");							
-							$("#alarm").html(data.alm);
-						}
-					},
-					error: function(jqXHR, textStatus, errorThrown){
-  						console.log("실패: \n"
-    							+ "jqXHR.readyState: "+ jqXHR.readyState+ "\n"
-    							+ "textStatus: "+ textStatus+ "\n"
-    							+ "errorThrown: "+ errorThrown);
+	function Alm() {
+		$.ajax({
+			url: "AlarmController",
+			type: "get",
+			dataType: "JSON",
+			success: function(data){
+				console.log(data);
+				var msnList = data.msnAlm;
+				var memList = data.memAlm;
+				var comList = data.comAlm;
+				var newAlm = "";
+				if (memList == undefined){
+					console.log("모집 언디파인드");
+				} else {
+					newAlm += "<b>모집 알람</b>";	
+					newAlm += "<hr>";
+					$.each(memList, function(member){
+						newAlm += '"'+ this.title+'"'+ "모집글에 신청 알림<br>";
+					});
+					newAlm += "<br><br>";
+				}
+				if (msnList == undefined){
+					console.log("쪽지 언디파인드");
+				} else {
+					newAlm += "<b>쪽지 알람</b>";	
+					newAlm += "<hr>";
+					$.each(msnList, function(member){
+						newAlm += '"'+ this.send_id+'"'+ "님께서 보낸 쪽지 알림<br>";
+					});
+					newAlm += "<br><br>";
+				}
+				if (comList == undefined){
+					console.log("댓글 언디파인드");
+				} else {
+					newAlm += "<b>댓글 알람</b>";	
+					newAlm += "<hr>";
+					$.each(comList, function(member){
+						newAlm += '"'+ this.title+'"'+ "글에 댓글 알림<br>";
+					});
+					newAlm += "<br><br>";
+				}
+					console.log(newAlm);
+					console.log("data.almCnt: "+ data.almCnt);
+					
+				$("#newAlm").html(newAlm);
+				if (data.almCnt == '0'){
+					$("#almCnt").attr("class", "badge badge-dark");							
+					$("#almCnt").html(data.almCnt);
+				} else {
+					$("#almCnt").attr("class", "badge badge-danger");							
+					$("#almCnt").html(data.almCnt);
+				}
+				var btnChk = true;
+				$("#almBtn").on("click", function(){
+					if (btnChk == true){
+						$("#newAlm").css("display", "block");
+						btnChk = false;
+					} else {
+						$("#newAlm").css("display", "none");
+						btnChk = true;
 					}
 				});
-			}, 3000
-		);
+
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+					console.log("실패: \n"
+						+ "jqXHR.readyState: "+ jqXHR.readyState+ "\n"
+						+ "textStatus: "+ textStatus+ "\n"
+						+ "errorThrown: "+ errorThrown);
+			}
+		});
+	}
 	</script>
 <script>
 	$(document).ready(function() {
-		var btnChk = true;
-		$("#almBtn").on("click", function(){
-			if (btnChk == true){
-				$("#newAlm").css("display", "block");
-				btnChk = false;
-			} else {
-				$("#newAlm").css("display", "none");
-				btnChk = true;
-			}
-		});
+		Alm();
+		setInterval(Alm(), 3000
+		);
 	});
 </script>
 <style>
