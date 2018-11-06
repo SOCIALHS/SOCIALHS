@@ -11,18 +11,25 @@ public class BullteinBoardWriteCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		String chk = request.getParameter("write_chk");
+		System.out.println(">>writecommand 까지 옴");
+
+		String chk = request.getParameter("chk");
+		System.out.println("chk : "+ chk);
 		String path = null;
 		if (chk == null) {
-			path = "../minseong/bullteinBoardWrite.jsp";
+			System.out.println("널");
+			path = "minseong/bullteinBoardWrite.jsp";
+			System.out.println(path);
 		} else {
+			System.out.println("널 아님");
 			BullteinBoardVO bbvo = new BullteinBoardVO();
-			bbvo.setId(request.getParameter("id"));
 			bbvo.setTitle(request.getParameter("title"));
 			bbvo.setContent(request.getParameter("content"));
 			BullteinBoardDAO.insert(bbvo);
 			
-			path = "StudyController?type=bulltein";
+			
+			path = "../BullteinController?type=bullteinList";
+			System.out.println(path);
 		}
 		return path;
 	}

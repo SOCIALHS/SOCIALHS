@@ -16,15 +16,18 @@
   </environments>
   
   <mappers>
-    <mapper resource="com/bc/mybatis/mapper.xml"/>
-    <mapper resource="com/bc/mybatis/baseballMapper.xml"/>
-    <mapper resource="com/bc/mybatis/japaneseMapper.xml"/>
-    <mapper resource="com/bc/mybatis/photoMapper.xml"/>
-    <mapper resource="com/bc/mybatis/AttendanceMapper.xml"/>
-    <mapper resource="com/bc/mybatis/englishMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/AttendanceMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/baseballMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/BasketballMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/BullteinBoardMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/englishMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/japaneseMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/LocationMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/memberData.xml"/>
+  	<mapper resource="com/bc/mybatis/photoMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/stockMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/studyMapper.xml"/>
     <mapper resource="com/bc/mybatis/SubLocationMapper.xml"/>
-    <mapper resource="com/bc/mybatis/memberData.xml"/>
-    <mapper resource="com/bc/mybatis/LocationMapper.xml"/>
   </mappers>
 </configuration>
 

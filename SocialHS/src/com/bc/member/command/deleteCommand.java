@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bc.member.memberDAO;
-import com.bc.member.memberVO;
 import com.bc.share.command.Command;
 
 public class deleteCommand implements Command {

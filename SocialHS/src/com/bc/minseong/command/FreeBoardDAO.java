@@ -16,4 +16,22 @@ public class FreeBoardDAO {
 	public static List<FreeBoardVO> getFreeList() {
 		return getSql().selectList("Free.list");
 	}
+	
+	public static FreeBoardVO selectOne(String bb_idx) {
+		FreeBoardVO fvo = getSql().selectOne("one", bb_idx);
+		return fvo;
+	}
+	
+	public static int insert(FreeBoardVO fvo) {
+		int result = getSql().insert("insert", fvo);
+		getSql().commit();
+		return result;
+	}
+	
+	
+	public static int delete(String bb_idx) {
+		int result = getSql().delete("delete", bb_idx);
+		getSql().commit();
+		return result;
+	}
 }

@@ -11,9 +11,12 @@ public class BullteinBoardDeleteCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		List<BullteinBoardVO> list = BullteinBoardDAO.getList();
-		request.setAttribute("list", list);
-		return "minseong/bullteinBoardDelete.jsp";
+		String bb_idx = request.getParameter("bb_idx");
+		String path = null;
+		BullteinBoardDAO.delete(bb_idx);
+		path = "BullteinController?type=bullteinList";
+		return path;
+		
 	}
 
 

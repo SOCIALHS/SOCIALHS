@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bc.main.dao.MainDAO;
-import com.bc.main.vo.BbsCodeVO;
 import com.bc.main.vo.BoardVO;
 import com.bc.main.vo.CommentVO;
 import com.bc.main.vo.MessengerVO;
+import com.bc.member.memberVO;
 import com.bc.share.command.Command;
 
 public class AlarmCommand implements Command {
@@ -18,14 +18,18 @@ public class AlarmCommand implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		
+		HttpSession session = request.getSession();
 		List<MessengerVO> msnAlm;
 		List<BoardVO> memAlm;
 		List<CommentVO> comAlm;
-		msnAlm = MainDAO.getMsnAlm("test");
+		memberVO vo = (memberVO)session.getAttribute("memberVO");
+		
+		System.out.println("세션 id: "+ vo.getId());
+		msnAlm = MainDAO.getMsnAlm(vo.getId());
 		System.out.println("msnAlm: "+ msnAlm);
-		memAlm = MainDAO.getMemAlm("test");
+		memAlm = MainDAO.getMemAlm(vo.getId());
 		System.out.println("memAlm: "+ memAlm);
-		comAlm = MainDAO.getComAlm("test");
+		comAlm = MainDAO.getComAlm(vo.getId());
 		System.out.println("comAlm: "+ comAlm);
 		
 		int sumMsn = 0;
@@ -34,7 +38,7 @@ public class AlarmCommand implements Command {
 		int sum = 0;
 		
 		String result = "{";
-		if (msnAlm != null) {
+		if (msnAlm.size() != 0) {
 		result += "\"msnAlm\":[";
 			for (MessengerVO msn : msnAlm) {
 				sumMsn += msn.getChk();
@@ -48,7 +52,7 @@ public class AlarmCommand implements Command {
 			result += "],";
 		}
 		
-		if (memAlm != null) {
+		if (memAlm.size() != 0) {
 			result += "\"memAlm\":[";
 			for (BoardVO board : memAlm) {
 				sumMem += board.getChk();
@@ -60,7 +64,7 @@ public class AlarmCommand implements Command {
 			result += "],";
 		}
 		
-		if (comAlm != null) {
+		if (comAlm.size() != 0) {
 		result += "\"comAlm\":[";
 		for (CommentVO com : comAlm) {
 			sumCom += com.getChk();

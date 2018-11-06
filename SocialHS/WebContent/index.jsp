@@ -1,26 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<!-- <!doctype html>
-<html lang="en">
-<head>
-
-Required meta tags
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-Bootstrap CSS
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-	crossorigin="anonymous">
-
-<title>Social Hobby & Study</title>
-</head>
-<body> -->
-<head>
-<title>Social Hobby & Study</title>
+<jsp:include page="head.jsp"></jsp:include>
+    <title>Social Hobby & Study</title>
+    <!-- head 태그 -->
 </head>
 <%
 	if (session.getAttribute("memberVO") == null) {
@@ -33,6 +16,8 @@ Bootstrap CSS
 <% 
 	}
 %>
+<!-- body 태그 -->
+
 
 	<!-- jumbotron -->
 	<div class="jumbotron jumbotron-fluid">
