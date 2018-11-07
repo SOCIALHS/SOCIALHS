@@ -25,6 +25,7 @@
 <style type="text/css">
 	.positionTop{
 		top : 50px;
+		display: inline-block;
 	}
 	.box_width{
 		width : 300px;
