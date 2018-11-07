@@ -18,7 +18,6 @@
 %>
 <!-- body 태그 -->
 
-
 	<!-- jumbotron -->
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container text-center">
