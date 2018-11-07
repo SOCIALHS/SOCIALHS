@@ -1,6 +1,63 @@
+<%@page import="java.util.List"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="com.bc.main.dao.MainDAO"%>
+<%@page import="com.bc.main.vo.BoardVO"%>
+<%@page import="com.bc.member.Paging"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%-- 게시글 목록 화면에 표시 --%>
+<%
+	//페이징 처리 
+	Paging p = new Paging();
+	BoardVO bvo = new BoardVO();
+	MainDAO dao = new MainDAO();
+		
+	//1.전체 게시물 수
+	p.setTotalRecord(dao.getTotalCount());
+	p.setTotalPage(); 
+	System.out.println("전체 게시글 수 : " + p.getTotalRecord());
+	System.out.println("전체 페이지 수 : " + p.getTotalPage());
+	
+	//2.현재 페이지 구하기
+	String cPage = request.getParameter("cPage");
+	if (cPage != null) {
+		p.setNowPage(Integer.parseInt(cPage));
+	}
+	
+	//3.현재 페이지의 시작번호와 끝 번호 
+	p.setBegin((p.getNowPage() - 1) * p.getNumPerpage() +1);
+	p.setEnd(p.getBegin() + p.getNumPerpage() -1);
+	
+	//4. 블록의 시작 페이지, 끝페이지 번호
+	p.setBeginPage((p.getNowPage()-1) / p.getPagePerBlock() * p.getPagePerBlock() +1);
+	p.setEndPage(p.getBeginPage() + p.getPagePerBlock()-1);
+	
+	System.out.println("=============================");
+	System.out.println("시작 페이지번호 : " + p.getBeginPage());
+	System.out.println("끝 페이지번호 : " + p.getEndPage());
+	System.out.println("=============================");
+	
+	if (p.getEndPage() > p.getTotalPage()) {
+		p.setEndPage(p.getTotalPage());
+	}
+
+%>
+<%
+	//5.현재 페이지 기준 게시글 가져오기 
+	Map<String, Integer> map = new HashMap<>();
+	map.put("begin", p.getBegin());
+	map.put("end", p.getEnd());
+	
+	List<BoardVO> list = MainDAO.getMypageList(map);
+	pageContext.setAttribute("list", list);
+	pageContext.setAttribute("pvo", p);
+	pageContext.setAttribute("cPage", cPage);
+
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,6 +93,14 @@
 	#mypage .center { text-align: center; }
 	#mypage .right { text-align: right; }
 	
+	/* 페이징 표시 시작 */
+	.paging { list-style: none; }
+	
+	
+	
+	
+	
+	/* 페이징 표시 끝 */
 </style>
 <script>
 	function editInfo(frm) {
@@ -65,7 +130,7 @@
 <body>
 
 <!-- jumbotron -->
-<div id="mypage" class="jumbotron jumbotron-fluid">
+<div id="mypage" >
 	<div class="container text-center">
 	<p class ="infohead">내 정보&nbsp;|&nbsp;
 	<a href="">Q&A</a>&nbsp;|&nbsp;
@@ -110,12 +175,12 @@
 		
 		<table>
 			<thead>
-				<tr>
-					<th>글번호</th>
-					<th>제목</th>
-					<th>글쓴이</th>
-					<th>작성일</th>
-					<th>조회</th>
+				<tr class="pagetitle">
+					<th class="no">글번호</th>
+					<th class="title">제목</th>
+					<th class="writer">글쓴이</th>
+					<th class="date">작성일</th>
+					<th class="hit">조회</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -123,11 +188,11 @@
 			<c:if test="${not empty mylist }">
 				<c:forEach var="vo" items="${mylist }">
 					<tr>
-						<td class="center">${vo.getBb_idx() }</td>
-						<td>${vo.getTitle() }</td>
-						<td>${vo.getId() }</td>
-						<td class="center">${vo.getRegdate() }</td>
-						<td class="center">${vo.getRp() }</td>
+						<td class="center">${bvo.getBb_idx() }</td>
+						<td>${bvo.getTitle() }</td>
+						<td>${bvo.getId() }</td>
+						<td class="center">${bvo.getRegdate() }</td>
+						<td class="center">${bvo.getRp() }</td>
 					</tr>
 				</c:forEach>
 			</c:if>
@@ -139,6 +204,54 @@
 			</c:if>
 			
 			</tbody>
+			<tfood>
+				<tr>
+					<td colspan="5">
+						<ol class="paging">
+						
+						<%-- 이전페이지 사용여부 --%>
+						<c:choose>
+							<%-- 사용불가 (첫번째 블록) --%>
+							<c:when test="${pvo.beginPage < pvo.pagePerBlock }">
+								<li class="disable">◀&nbsp;이전&nbsp;</li>
+							</c:when>
+							
+							<%-- 사용가능 --%>
+							<c:otherwise>
+								<li><a href="myPage.jsp?cPage=${pvo.beginPage-1 }">
+								◀&nbsp;이전&nbsp;</a></li>
+							</c:otherwise>
+						</c:choose>
+						
+						<%-- 현재 블록의 시작페이지>끝 페이지 반복처리 --%>
+						<c:forEach var="k" begin="{pvo.beginPage }" end="${pvo.endPage }">
+						<c:choose>
+							<c:when test="${k == pvo.nowPage }">
+								<li class="now">${k }</li>
+							</c:when>
+							<c:otherwise>
+								<li>
+									<a href="myPage.jsp?cPage=${k }">${k }</a>
+								</li>
+							</c:otherwise>
+						</c:choose>
+						</c:forEach>
+						
+						<%-- 다음페이지 --%>
+						<c:choose>
+							<%-- 사용불가 --%>
+							<c:when test="${pvo.endPage >= pvo.totalPage }">
+								<li class="disable">&nbsp;다음&nbsp;▶</li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="myPage.jsp?cPage=${pvo.endPage+1 }">&nbsp;다음&nbsp;▶</a></li>
+							</c:otherwise>
+						</c:choose>
+						</ol>
+					
+					</td>
+				</tr>
+			</tfood>
 		</table>
 	</form>
 	</div>

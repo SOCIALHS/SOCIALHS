@@ -35,48 +35,65 @@
 	window.onload = function(){
 		var l_idx = "${lo_list}";
 		var sub = l_idx.substr(19,1);
-		begin(num[sub-1]);
+		begin(num[sub-1]);	
 	}
+	
+	
 	function begin(l_idx){
 		document.getElementById(l_idx).className = "collapse show";
+		bgBtnChange(l_idx);
 	}
-	
-	function check(self){
+
+	function check(self){		
 		document.getElementById(self.name).className = "collapse show";
-	
 		var tempNum;
 		for(var i = 0; i < num.length; i++){
-			console.log("self.name : "+self.name +" , num[i] : "+num[i]);
 			if(self.name == num[i]){
 				tempNum = i;
 			}
 		}
+		bgBtnChange(num[tempNum]);
 		close(tempNum);
+		
 	}
+	
 	function close(idx){
 		for(var i = 0; i < num.length; i++){
 			if(i != idx){
 				document.getElementById(num[i]).className = "collapse";
+				resetBgBtn(num[i]);
 			}
 		}
 	}
+
+	function bgBtnChange(idx) {
+		document.getElementById("heading" + idx).setAttribute("class", "card-header bg-dark");
+		document.getElementById("My" + idx).setAttribute("class", "btn btn-dark");
+	}
+	
+	function resetBgBtn(idx) {
+		document.getElementById("heading" + idx).setAttribute("class", "card-header");
+		document.getElementById("My" + idx).setAttribute("class", "btn btn-light");
+	}
+	
 </script>
 </head> 
 <body>
+<br><br>
     <div class="row">
     	<c:forEach var="listAll" items="${listAll }" varStatus="idx">
         	<div class="accordion" id="accordionExample">
 	        <div class="card" style="text-align:center">
-	            <div class="card-header" id="heading${num[idx.index] }" style="width:100%">
+	            <div class="card-header" id="heading${num[idx.index] }" style="width:200px">
 	                <h5 class="mb-0">
-	                    <button class="btn btn-link" type="button" name="${num[idx.index] }" data-toggle="collapse" data-target= ${num[idx.index] }
-	                        aria-expanded="true" aria-controls="collapseOne" onclick = "check(this)">
+	                    <button class="btn btn-light" type="button" name="${num[idx.index] }" data-toggle="collapse" data-target= ${num[idx.index] }
+	                        aria-expanded="false" aria-controls="collapseOne" onclick = "check(this)" id="My${num[idx.index] }">
 	                        ${listAll.getL_Name() }
 	                    </button>
 	                </h5>
 	            </div>
 	
-	            <div id=${num[idx.index] } class="collapse" aria-labelledby="heading${num[idx.index] }" data-parent="#accordionExample">
+	            <div id=${num[idx.index] } class="collapse" aria-labelledby="heading" data-parent="#accordionExample">
 	                <div class="card-body">
 	                	<c:forEach var="listSubAll" items="${listSubAll }">
 	                		<c:if test="${listSubAll.getL_idx() == listAll.getL_Idx() }"> 
