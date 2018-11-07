@@ -2,9 +2,20 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-	<jsp:include page="head.jsp"></jsp:include>
+<%
+	if (session.getAttribute("memberVO") == null) {
+%>
+<jsp:include page="jieun/header_head.jsp"></jsp:include>
+<%
+	} else {
+%>
+<jsp:include page="head.jsp"></jsp:include>
+<% 
+	}
+%>
     <title>Social Hobby & Study</title>
     <!-- head 태그 -->
+
 </head>
 <%
 	if (session.getAttribute("memberVO") == null) {

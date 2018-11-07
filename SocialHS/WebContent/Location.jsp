@@ -1,8 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	if (session.getAttribute("memberVO") == null) {
+%>
+<jsp:include page="jieun/header_head.jsp"></jsp:include>
+<%
+	} else {
+%>
 <jsp:include page="head.jsp"></jsp:include>
+<% 
+	}
+%>
     <title>Social Hobby & Study</title>
     <!-- head 태그 -->
+
 </head>
 <%
 	if (session.getAttribute("memberVO") == null) {
