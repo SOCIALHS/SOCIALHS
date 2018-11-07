@@ -20,10 +20,10 @@
 	<!-- 회원가입 insert -->
 	<insert id="join" parameterType="com.bc.member.memberVO">
 		INSERT INTO MEMBER
-			(U_IDX, NAME, ID, PW, AGE, PHONE, EMAIL, ADDR, RANK, REGDATE, POINT)
+			(U_IDX, NAME, ID, PW, AGE, PHONE, EMAIL, ADDR, RANK, REGDATE, POINT, BIRTH)
 		VALUES (MEMBER_SEQ.NEXTVAL, #{name}, #{id}, #{pw}, 
-		TRUNC(MONTHS_BETWEEN(SYSDATE, TO_DATE(SUBSTR('19950112', 1, 4), 'YYYY'))/12)
-		, #{phone}, #{email}, #{addr}, '0', SYSDATE, 0)
+		TRUNC(MONTHS_BETWEEN(SYSDATE, TO_DATE(SUBSTR(#{age}, 1, 4), 'YYYY'))/12+1)
+		, #{phone}, #{email}, #{addr}, '0', SYSDATE, 0, #{birth})
 	</insert>
 	
 	<!-- 내 정보 수정 -->
@@ -35,6 +35,11 @@
 				ADDR = #{addr}
 				WHERE ID = #{id}
 	</update>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="deleteMtinfo" parameterType="com.bc.member.memberVO">
+		DELETE MEMBER WHERE ID = #{id}
+	</delete>
 	
 	
 	

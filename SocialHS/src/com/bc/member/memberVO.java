@@ -1,8 +1,11 @@
 package com.bc.member;
 
+import java.sql.Date;
+
 public class memberVO {
 	private int u_idx, age, point;
 	private String name, id, pw, phone, email, addr, rank, regdate;
+	private Date birth;
 	
 	public int getU_idx() {
 		return u_idx;
@@ -70,12 +73,21 @@ public class memberVO {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
+	public Date getBirth() {
+		return birth;
+	}
+	public void setBirth(Date birth) {
+		this.birth = birth;
+	}
+	
 	
 	@Override
 	public String toString() {
 		return "memberVO [u_idx=" + u_idx + ", age=" + age + ", point=" + point + ", name=" + name + ", id=" + id
 				+ ", pw=" + pw + ", phone=" + phone + ", email=" + email + ", addr=" + addr + ", rank=" + rank
-				+ ", regdate=" + regdate + "]";
+				+ ", regdate=" + regdate + ", birth=" + birth + "]";
 	}
+	
+	
 	
 }

@@ -3,11 +3,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% String id = (String) session.getAttribute("id"); %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
+
 <style>
 </style>
 
@@ -29,21 +32,32 @@
 	
 	function idchk(frm) {
 		
-		if (!frm.id.value) {
+		var id1 = frm.id.value;
+		
+		if (id1 == "") {
 			alert("아이디를 입력하세요.");
 			frm.id.focus();
 			return false;
+		} else {
+			//아이디를 입력했을 때 
+			//window.name = "idOk";
+			window.open("mingyeong/usingIdchk.jsp?id=" + id1, "아이디 중복 확인",
+			"width=30, height=20, left=30, top=20");
+			
 		}
 		
-		
-		/* window.open("usingIdchk.html", "아이디 중복 확인",
-				"width=400, height=300, left=100, top=50"); */
-		
-		
-		frm.action = "memberController?type=idchk";
 		frm.submit();
 		
 	}
+	
+	function main(frm) {
+		
+		frm.action = "index.jsp";
+		frm.submit();
+		<% session.removeAttribute("id"); %>
+	}
+	
+	
 	
 </script>
 </head>
@@ -56,9 +70,8 @@
 		<tbody>
 			<tr>
 				<td id="title">아이디</td>
-				
 				<td>
-					<input type="text" name="id" maxlength="50">
+					<input type="text" id="id" name="id" maxlength="50">
 					<input type="button" value="중복확인" onclick="idchk(this.form)">
 				</td>
 			</tr>
@@ -66,9 +79,9 @@
 	</table>
 </form>
 
-<form method="get"> -->
+<form method="get">
 	<table>
-		<tbody>
+		<tbody> -->
 			<tr>
 				<td id="title">비밀번호</td>
 				<td>
@@ -139,14 +152,15 @@
 			<tr>
 				<td id="title">주소</td>
 				<td>
-					<input type="text" name="address" size="50">
+					<input type="text" name="addr" size="50">
 				</td>
 			</tr>
 		</tbody>
 	</table>
 	<br>
 	<input type="button" value="가입하기" onclick="joinOk(this.form)">
-	
+	<input type="reset" value="취소">
+	<input type="button" value="메인화면" onclick="main(this.form)">
 	<input type="hidden" name="joinchk" value="chk">
 </form>
 </div>

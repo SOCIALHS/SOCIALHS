@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper 태그의 namespace 속성 필수 작성  -->  
+<mapper namespace="hobbyboard">
+	
+	<select id="list" resultType="com.bc.hobby.vo.HobbyBoardVO"
+		parameterType="Map">
+		select *
+   			 from b_board
+       			 where l_idx = #{l_idx} and hs = #{hs}
+	</select>
+	
+	<select id="list_category" resultType="com.bc.hobby.vo.HobbyBoardVO"
+		parameterType="Map">
+		select * 
+			from bbs_code a, b_board b
+    		where a.bbs_idx = b.bbs_idx and l_idx = #{l_idx} and hs = #{hs}
+	</select>
+	
+	<select id="one" resultType="com.bc.hobby.vo.HobbyBoardVO"
+		parameterType="String">
+		select * 
+			from b_board
+			where bb_idx = #{bb_idx}
+	</select>
+	
+	
+	
+</mapper>  
+
+
+
+
+
+

@@ -16,18 +16,28 @@
   </environments>
   
   <mappers>
-    <mapper resource="com/bc/mybatis/mapper.xml"/>
-    <mapper resource="com/bc/mybatis/baseballMapper.xml"/>
-    <mapper resource="com/bc/mybatis/japaneseMapper.xml"/>
-    <mapper resource="com/bc/mybatis/photoMapper.xml"/>
-    <mapper resource="com/bc/mybatis/AttendanceMapper.xml"/>
-    <mapper resource="com/bc/mybatis/englishMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/mapper.xml"/>
+  	<mapper resource="com/bc/mybatis/AttendanceMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/baseballMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/BasketballMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/BullteinBoardMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/englishMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/japaneseMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/LocationMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/memberData.xml"/>
+  	<mapper resource="com/bc/mybatis/photoMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/stockMapper.xml"/>
+  	<mapper resource="com/bc/mybatis/studyMapper.xml"/>
     <mapper resource="com/bc/mybatis/SubLocationMapper.xml"/>
+<<<<<<< HEAD
     <mapper resource="com/bc/mybatis/StockMapper.xml"/>
     <mapper resource="com/bc/mybatis/memberData.xml"/>
     <mapper resource="com/bc/mybatis/LocationMapper.xml"/>
     <mapper resource="com/bc/mybatis/BullteinBoardMapper.xml"/>
     <mapper resource="com/bc/mybatis/FreeBoardMapper.xml"/>
+=======
+    <mapper resource="com/bc/mybatis/HobbyBoardMapper.xml"/>
+>>>>>>> refs/remotes/origin/master
   </mappers>
 </configuration>
 

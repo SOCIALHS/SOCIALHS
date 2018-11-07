@@ -2,8 +2,8 @@ package com.bc.main.vo;
 
 public class MessengerVO {
 	
-	String title, content, send_id, recv_id;
-	int ms_idx, chk;
+	private String title, content, send_id, recv_id, regdate;
+	private int ms_idx, chk;
 	public String getTitle() {
 		return title;
 	}
@@ -40,10 +40,17 @@ public class MessengerVO {
 	public void setChk(int chk) {
 		this.chk = chk;
 	}
+	
+	public String getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
+	}
 	@Override
 	public String toString() {
 		return "MessengerVO [title=" + title + ", content=" + content + ", send_id=" + send_id + ", recv_id=" + recv_id
-				+ ", ms_idx=" + ms_idx + ", chk=" + chk + "]";
+				+ ", regdate=" + regdate + ", ms_idx=" + ms_idx + ", chk=" + chk + "]";
 	}
 	
 	

@@ -1,5 +1,7 @@
 package com.bc.member.command;
 
+import java.sql.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -28,15 +30,20 @@ public class joinOkCommand implements Command {
 			String com = request.getParameter("com");
 			
 			String phone = request.getParameter("phone");
-			String address = request.getParameter("address");
+			String addr = request.getParameter("addr");
 			
 			String birthday = request.getParameter("birthday");
 			String birthmm = request.getParameter("birthmm");
 			String birthdd = request.getParameter("birthdd");
 			
 			int age = Integer.parseInt(birthday + birthmm + birthdd);
+			String birth = birthday + "-" + birthmm + "-" + birthdd;
+			
+			Date birthDate = Date.valueOf(birth);
+			
 			System.out.println("age : " + age);
 			System.out.println("email : " + email+"@"+com);
+			System.out.println("birthDate : " + birthDate);
 
 			memberVO vo = new memberVO();
 			vo.setId(id);
@@ -45,10 +52,12 @@ public class joinOkCommand implements Command {
 			vo.setAge(age);
 			vo.setEmail(email+"@"+com);
 			vo.setPhone(phone);
-			vo.setAddr(address);
+			vo.setAddr(addr);
+			vo.setBirth(birthDate);
 			
 			memberDAO.join(vo);
-			session.setAttribute("memberVO", vo);
+			session.setAttribute("joinInfo", vo);
+			session.removeAttribute("id");
 			path = "mingyeong/joinOk.jsp";
 			
 		}
