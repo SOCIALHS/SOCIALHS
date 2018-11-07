@@ -28,6 +28,7 @@
 <% 
 	}
 %>
+	<!-- <body> -->
 	
 	<div class="row bg-light">
 		

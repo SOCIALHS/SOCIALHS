@@ -31,7 +31,6 @@
 	<!-- jumbotron -->
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container text-center">
-			<br><br><br>
 			<h1 class="display-4">Social Hobby & Study</h1>
 			<p class="lead">소셜 하비 앤 스터디에 오신 것을 환영합니다.</p>
 			<hr class="my-4">
@@ -54,7 +53,6 @@
 				<img class="d-block w-100" src="imgs/index3.jpg" alt="Third slide">
 			</div>
 		</div>
-	</div>
 	</div>
 
 

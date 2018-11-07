@@ -1,11 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	pageEncoding="UTF-8"%>
+<%
+	if (session.getAttribute("memberVO") == null) {
+%>
+<jsp:include page="../jieun/header_head.jsp"></jsp:include>
+<%
+	} else {
+%>
+<jsp:include page="../head.jsp"></jsp:include>
+<% 
+	}
+%>
+    <title>Social Hobby & Study</title>
+    <!-- head 태그 -->
+
+</head>
+<%
+	if (session.getAttribute("memberVO") == null) {
+%>
+	<jsp:include page="../jieun/header.jsp"></jsp:include>
+<%
+	} else {
+%>
+	<jsp:include page="../jieun/loginheader.jsp"></jsp:include>
+<% 
+	}
+%>
+<!-- body 태그 -->
+
 <script>
 	$(document).ready(function() {
 		setInterval(
@@ -29,11 +51,8 @@
 		);
 	});	
 </script>
-</head>
-<body>
-	
 	<div id="alarm"></div>
 	
 	
-</body>
-</html>
+	
+	<jsp:include page="../jieun/footer.jsp"></jsp:include>

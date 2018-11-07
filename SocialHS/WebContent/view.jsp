@@ -1,26 +1,42 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html>
-<head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
+
+<%
+	if (session.getAttribute("memberVO") == null) {
+%>
+<jsp:include page="jieun/header_head.jsp"></jsp:include>
+<%
+	} else {
+%>
+<jsp:include page="head.jsp"></jsp:include>
+<% 
+	}
+%>
+
+
+<title>${hbvo.title }</title>
+
 <!-- NaverMap API -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <title>°£´ÜÇÑ Áöµµ Ç¥½ÃÇÏ±â</title>
+    <title>ê°„ë‹¨í•œ ì§€ë„ í‘œì‹œí•˜ê¸°</title>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=5jEX8e7bvKVZGhXBRBn9&submodules=geocoder"></script>
-<!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-	crossorigin="anonymous">
-
-<title>${hbvo.title }</title>
 </head>
 
-<body>
+<%
+	if (session.getAttribute("memberVO") == null) {
+%>
+	<jsp:include page="jieun/header.jsp"></jsp:include>
+<%
+	} else {
+%>
+	<jsp:include page="jieun/loginheader.jsp"></jsp:include>
+<% 
+	}
+%>
+<!-- <body>ìˆìŒ -->
+
 	<!-- Page Content -->
 	<div class="container">
 	
@@ -29,7 +45,7 @@
 			<!-- Post Content Column -->
 			<div class="col-lg">
 
-				<!-- Ä«Å×°í¸®                -->
+				<!-- ì¹´í…Œê³ ë¦¬                -->
 				<p>${hbvo.bbs_idx }</p>
 
 				<hr>
@@ -50,7 +66,7 @@
 				<hr>
 
 				<!-- reg_member, cur_member                -->
-				<p>ÇöÀçÀÎ¿ø : ${hbvo.cur_member } / ¸ğÁıÀÎ¿ø : ${hbvo.req_member}</p>
+				<p>í˜„ì¬ì¸ì› : ${hbvo.cur_member } / ëª¨ì§‘ì¸ì› : ${hbvo.req_member}</p>
 
 				<hr>
 
@@ -64,6 +80,8 @@
 					height="900"> -->
 		
 			    <div id="map" style="width:40%;height:600px;"></div>
+			    <br>
+			    <div><input type = "button" name = "btn" onclick = "removeMark()" value = "í˜¸ìŠ¤íŠ¸ ì¥ì†Œ ë°”ê¾¸ê¸°"></div>  
 			    
 
 				<hr>
@@ -169,20 +187,7 @@
 			</div>
 
 
-			<!-- Optional JavaScript -->
-			<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-				integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-				crossorigin="anonymous"></script>
-			<script
-				src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-				integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-				crossorigin="anonymous"></script>
-			<script
-				src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-				integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-				crossorigin="anonymous"></script>
-			<!-- naver map apiµî·Ï -->
+		<!-- naver map apië“±ë¡ -->
 			<script>
 var mapOptions = {
     center: new naver.maps.LatLng(37.3595704, 127.105399),
@@ -217,38 +222,38 @@ var marker1 = new naver.maps.Marker({ //seoul
 });
 marker1.setTitle("seoul");
 
-var marker2 = new naver.maps.Marker({ //°æ±âµµ
+var marker2 = new naver.maps.Marker({ //ê²½ê¸°ë„
     position: new naver.maps.LatLng(37.302805,  127.565128),
     map: map
 });
-marker2.setTitle("°æ±âµµ");
-var marker3 = new naver.maps.Marker({ //°­¿øµµ
+marker2.setTitle("ê²½ê¸°ë„");
+var marker3 = new naver.maps.Marker({ //ê°•ì›ë„
     position: new naver.maps.LatLng(37.791067,  128.219262),
     map: map
 });
-marker3.setTitle("°­¿øµµ");
-var marker4 = new naver.maps.Marker({ //°æ»ó³²µµ
+marker3.setTitle("ê°•ì›ë„");
+var marker4 = new naver.maps.Marker({ //ê²½ìƒë‚¨ë„
     position: new naver.maps.LatLng(35.515506,  128.824389),
     map: map
 });
-marker4.setTitle("¹Ğ¾ç");
+marker4.setTitle("ë°€ì–‘");
 
 naver.maps.Event.addListener(marker1, 'click', function(e) {
     console.log(e);
     console.log("seoul");
-    location.href = "LocationController?location=1"; //ÀÌ·±½ÄÀ¸·Î º¸³»¸é µÈ´Ù.
+    location.href = "LocationController?location=1"; //ì´ëŸ°ì‹ìœ¼ë¡œ ë³´ë‚´ë©´ ëœë‹¤.
 });
 naver.maps.Event.addListener(marker2, 'click', function(e) {
     console.log(e);
-    console.log("°æ±âµµ");
+    console.log("ê²½ê¸°ë„");
 });
 naver.maps.Event.addListener(marker3, 'click', function(e) {
     console.log(e);
-    console.log("°­¿øµµ");
+    console.log("ê°•ì›ë„");
 });
 naver.maps.Event.addListener(marker4, 'click', function(e) {
     console.log(e);
-    console.log("°æ»ó³²µµ");
+    console.log("ê²½ìƒë‚¨ë„");
 });
 
 var polyline = new naver.maps.Polyline({
@@ -274,7 +279,7 @@ function marker(y,x){
         position: new naver.maps.LatLng(0,  0),
         map: map,
     });
-    markTest.setTitle("host Àå¼Ò");
+    markTest.setTitle("host ì¥ì†Œ");
     markTest.position["y"] = y;
     markTest.position["x"] = x;
     console.log(markTest.position["y"]);
@@ -284,29 +289,23 @@ var flag = true;
 var conf;
 naver.maps.Event.addListener(map, 'click', function(e) {
     if(flag){
-       conf = confirm("ÀÌ°÷À» È£½ºÆ® Àå¼Ò·Î ÀÔ·ÂÇÏ°Ú½À´Ï±î?!");
+       conf = confirm("ì´ê³³ì„ í˜¸ìŠ¤íŠ¸ ì¥ì†Œë¡œ ì…ë ¥í•˜ê² ìŠµë‹ˆê¹Œ?!");
     }
     if(conf){
         flag = false;
         console.log(e);
-        console.log("À§µµ : "+e["coord"]["y"] + " °æµµ : "+e["coord"]["x"]);
+        console.log("ìœ„ë„ : "+e["coord"]["y"] + " ê²½ë„ : "+e["coord"]["x"]);
         var y = e["coord"]["y"];
         var x = e["coord"]["x"];
         marker(y,x);
         conf = false;
     }
-    // console.log("À§µµ :"+e.lating["x"]+", °æµµ : "+e.lating["y"]);
-});//map Å¬¸¯½Ã À§µµ¿Í °æµµ ¹Ş±â
+    // console.log("ìœ„ë„ :"+e.lating["x"]+", ê²½ë„ : "+e.lating["y"]);
+});//map í´ë¦­ì‹œ ìœ„ë„ì™€ ê²½ë„ ë°›ê¸°
 function removeMark(){
     markTest.setMap(null);
     flag = true;
 }
-
-
-
-
 </script>
-<div><input type = "button" name = "btn" onclick = "removeMark()" value = "È£½ºÆ® Àå¼Ò ¹Ù²Ù±â"></div>  
-</body>
 
-</html>
+	<jsp:include page="jieun/footer.jsp"></jsp:include>

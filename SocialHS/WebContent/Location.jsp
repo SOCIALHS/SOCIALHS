@@ -11,7 +11,7 @@
 <% 
 	}
 %>
-    <title>Social Hobby & Study</title>
+    <title>Location</title>
     <!-- head 태그 -->
 
 </head>
