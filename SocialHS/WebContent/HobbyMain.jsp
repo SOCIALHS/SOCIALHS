@@ -30,6 +30,7 @@
 	<a href = "HobbyController?type=basket">basketball</a>
 	 -->
 
+
 	<div class="row bg-light">
 		
 		<nav class="navbar navbar-expand-lg navbar-light bg-light ml-auto">
@@ -56,18 +57,18 @@
 			<jsp:include page="wonho/sidebar.jsp"></jsp:include>
 		</div>
 
-		<div class="col-10">
-
-			<div class="row d-flex justify-content-center">
+ 		<div class="col-10">
+		
+<!-- 이 밑에 DIV에 카테고리 출력 -->
+		<div class="row d-flex justify-content-center">
 				<!-- sub nav -->
 				<jsp:include page="dongwu/category.jsp"></jsp:include>
 
-			</div>
-
-			<div class="row d-flex justify-content-center">
+		</div>
+				<!-- <div class="row d-flex justify-content-center"> -->
 				<!-- content -->
 				<jsp:include page="dongwu/content.jsp"></jsp:include>
-			</div>
+		<!-- </div> -->
 
 		</div>
 

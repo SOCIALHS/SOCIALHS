@@ -19,10 +19,12 @@ public class StudyMainCommand implements Command {
 		HttpSession session = request.getSession();
 		
 		List<LocationVO> location = (List<LocationVO>)session.getAttribute("location");
+		
+		System.out.println("location : "+location);
 		String hs = (String)session.getAttribute("hs");
 		
 		System.out.println("check!! HS2 : "+hs);
-		
+		String l_idx = location.get(0).getL_Idx();
 		List<SubLocationVO> list = SubLocationDAO.getSubLocation(location.get(0).getL_Idx());
 		
 		System.out.println("list : "+ list);
