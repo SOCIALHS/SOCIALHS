@@ -79,6 +79,7 @@
 </script>
 </head> 
 <body>
+<br><br>
     <div class="row">
     	<c:forEach var="listAll" items="${listAll }" varStatus="idx">
         	<div class="accordion" id="accordionExample">

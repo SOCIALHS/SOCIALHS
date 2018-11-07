@@ -30,7 +30,7 @@ window.onload = function(){
 			alert("json check");
 			alert(json);
 			console.log(json);
-			var output = "<br><br>";
+			var output = "<br><br><br>";
 			console.log("asdfadsf");
 			var count = 0;
 			console.log(json["list"]);
