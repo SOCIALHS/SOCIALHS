@@ -4,6 +4,7 @@ public class BoardVO {
 	
 	private int bb_idx, hit, req_member, cur_member, chk, l_idx, bbs_idx, good, bad, latitude, longitude;
 	private String id, title, content, file_name, regdate, rp, category;
+	
 	public int getBb_idx() {
 		return bb_idx;
 	}
