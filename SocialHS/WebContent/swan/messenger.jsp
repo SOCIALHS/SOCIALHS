@@ -9,11 +9,10 @@
 <style>
 </style>
 <script>
-/* location.href='/MessengerController?type=delete&ms_idx=${list.ms_idx}' */
 	function delOk(){
 		var chk = confirm("쪽지를 삭제하시겠습니까?");
 		if(chk == true){
-			location.href='MessengerController?type=delete&ms_idx=${list.ms_idx}'
+			location.href='MessengerController?type=delete'
 		}else {
 			return false;
 		}
@@ -52,6 +51,7 @@
 					</c:if>
 					<td><button
 							onClick="delOk()">삭제</button></td>
+							
 				</tr>
 			</c:forEach>
 		</table>

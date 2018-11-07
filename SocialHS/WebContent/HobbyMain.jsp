@@ -5,11 +5,11 @@
 <%
 	if (session.getAttribute("memberVO") == null) {
 %>
-<jsp:include page="jieun/header_head.jsp"></jsp:include>
+<%@ include file="jieun/header_head.jsp" %>
 <%
 	} else {
 %>
-<jsp:include page="head.jsp"></jsp:include>
+<%@ include file="head.jsp" %>
 <% 
 	}
 %>
@@ -20,11 +20,11 @@
 <%
 	if (session.getAttribute("memberVO") == null) {
 %>
-	<jsp:include page="jieun/header.jsp"></jsp:include>
+<%@ include file="jieun/header.jsp" %>
 <%
 	} else {
 %>
-	<jsp:include page="jieun/loginheader.jsp"></jsp:include>
+<%@ include file="jieun/loginheader.jsp" %>
 <% 
 	}
 %>
@@ -49,7 +49,8 @@
 	<div class="row">
 		<div class="col-2">
 			<!-- aside -->
-			<jsp:include page="wonho/sidebar.jsp"></jsp:include>
+			<%@ include file="wonho/sidebar.jsp" %>
+			<%-- <jsp:include page="wonho/sidebar.jsp"></jsp:include> --%>
 		</div>
 
  		<div class="col-10">
@@ -57,16 +58,19 @@
 <!-- 이 밑에 DIV에 카테고리 출력 -->
 		<div class="row d-flex justify-content-center">
 				<!-- sub nav -->
-				<jsp:include page="dongwu/category.jsp"></jsp:include>
+				<%@ include file="dongwu/category.jsp" %>
+				<%-- <jsp:include page="dongwu/category.jsp"></jsp:include> --%>
 
 		</div>
 				<!-- <div class="row d-flex justify-content-center"> -->
 				<!-- content -->
-				<jsp:include page="dongwu/content.jsp"></jsp:include>
+				<%@ include file="dongwu/content.jsp" %>
+				<%-- <jsp:include page="dongwu/content.jsp"></jsp:include> --%>
 		<!-- </div> -->
 
 		</div>
 
 	</div>
 
-	<jsp:include page="jieun/footer.jsp"></jsp:include>
+				<%@ include file="jieun/footer.jsp" %>
+	<%-- <jsp:include page="jieun/footer.jsp"></jsp:include> --%>

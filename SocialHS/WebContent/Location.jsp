@@ -3,26 +3,26 @@
 <%
 	if (session.getAttribute("memberVO") == null) {
 %>
-<jsp:include page="jieun/header_head.jsp"></jsp:include>
+<%@ include file="jieun/header_head.jsp" %>
 <%
 	} else {
 %>
-<jsp:include page="head.jsp"></jsp:include>
+<%@ include file="head.jsp" %>
 <% 
 	}
 %>
-    <title>Location</title>
+    <title>Social Hobby & Study</title>
     <!-- head 태그 -->
 
 </head>
 <%
 	if (session.getAttribute("memberVO") == null) {
 %>
-	<jsp:include page="jieun/header.jsp"></jsp:include>
+<%@ include file="jieun/header.jsp" %>
 <%
 	} else {
 %>
-	<jsp:include page="jieun/loginheader.jsp"></jsp:include>
+<%@ include file="jieun/loginheader.jsp" %>
 <% 
 	}
 %>
@@ -48,5 +48,4 @@
             <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=10" role="button">제주</a>
         </div>
     </div>
-    
-    <jsp:include page="jieun/footer.jsp"></jsp:include>
+    <%@ include file="jieun/footer.jsp" %>

@@ -24,9 +24,6 @@ public class MessengerCommand implements Command {
 		request.setAttribute("msnList", list);
 		
 		
-		
-		
-		
 		return "swan/messenger.jsp";
 	}
 

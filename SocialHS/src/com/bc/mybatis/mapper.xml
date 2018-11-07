@@ -41,32 +41,6 @@
 		ORDER BY BBC_IDX DESC
 	</select>
 
-	<!-- (mypage) 게시글 수 조회 -->
-	<select id="mypagetotalCnt" resultType="int">
-		SELECT COUNT(*) FROM B_BOARD
-	</select>
-	
-	<!-- (mypage) 내가 쓴 전체 게시글 조회 -->
-	<select id="mylist" resultType="com.bc.main.vo.BoardVO"
-		parameterType="Map">
-		SELECT *
-		FROM (SELECT ROWNUM R_NUM, B.*
-				FROM (SELECT *
-						FROM B_BOARD
-						ORDER BY REGDATE DESC) B)
-				WHERE R_NUM BETWEEN #{begin} AND #{end}
-	</select>
-	
-	<!-- (mypage) 내가 쓴 글 상세보기 -->
-	<select id="myWrite" resultType="com.bc.main.vo.BoardVO"
-		parameterType="String">
-		SELECT BB_IDX, TITLE, ID, REGDATE, HIT
-		FROM B_BOARD
-		WHERE ID = #{id}
-		ORDER BY REGDATE DESC
-	
-	</select>
-	
 	<select id="msnList" resultType="com.bc.main.vo.MessengerVO" parameterType="String">
 		SELECT * FROM MESSENGER WHERE RECV_ID = #{id} ORDER BY MS_IDX DESC
 	</select>

@@ -1,19 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 	<script>
 		window.onload = function() {
-			alert("TEst");
+			/* alert("TEst"); */
 			var request = new XMLHttpRequest();
 			request.onreadystatechange = function() {
 				if (request.readyState == 4 && request.status == 200) {
 					var json = JSON.parse(request.responseText);
-					alert("json check");
-					alert(json);
+					/* alert("json check");
+					alert(json); */
 					console.log(json);
 					var output = "<br><br><br>";
 					console.log("asdfadsf");
 					var count = 0;
 					console.log(json["list"]);
+					
 					var list = json["list"];
 					
 					output += "<table class=\"table table-info\">";
