@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bc.hobby.command.HobbyWriteCommand;
 import com.bc.main.command.HobbyMainCommand;
 import com.bc.mingyeong.command.PhotoBoardCommand;
 import com.bc.minseong.command.BullteinBoardListCommand;
@@ -15,6 +16,7 @@ import com.bc.minseong.command.FreeBoardListCommand;
 
 import com.bc.share.command.Command;
 import com.bc.swan.command.BaseballBoardCommand;
+import com.sun.glass.ui.CommonDialogs.Type;
 
 
 
@@ -34,19 +36,23 @@ public class HobbyMainController extends HttpServlet {
 	
 	private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		
 		String type = request.getParameter("type");
 		String path = null;
+		Command comm;
 		System.out.println("type : "+type);
-		Command comm = null;
+		comm = null;
 		
 		if(type.equals("main")) {
 			comm = new HobbyMainCommand();
 		}else if(type.equals("board")) {
-			//�썝�븯�뒗 �쐞移섎줈 �꽆湲� command �깮�꽦
+			
 		}else if(type.equals("base")) {
 			comm = new BaseballBoardCommand();
 		}else if(type.equals("photo")) {
 			comm = new PhotoBoardCommand();
+		}else if(type.equals("write")) {
+			comm = new HobbyWriteCommand();
 		}
 		
 		path = comm.exec(request, response);
