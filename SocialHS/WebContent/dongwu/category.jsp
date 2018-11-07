@@ -36,14 +36,14 @@
 					console.log(json["list"]);
 					var list = json["list"];
 					
-					output += "<table class="table table-info">";
+					output += "<table class=\"table table-info\">";
 
 					for (var i = 0; i < list.length; i++) {
 
 						if (count % 5 == 0) {
-							output += "<tr class="text-center">";
+							output += "<tr class=\"text-center\">";
 						}
-						output += "<td class="border border-white"><a href="#">";
+						output += "<td class=\"border border-white\"><a href=\"#\">";
 						for ( var key in list[i]) {
 							output += list[i][key] + "&nbsp;";
 						}
@@ -78,7 +78,7 @@
 		}
 	</script>
 
-	<div id="category"></div>
+	<div id="category" style="width: 100%;"></div>
 
 	<!--<jsp:include page="../hsList.jsp"></jsp:include> -->
 
