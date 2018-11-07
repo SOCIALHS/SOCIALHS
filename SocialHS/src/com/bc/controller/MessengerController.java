@@ -8,8 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bc.main.command.MessengerCommand;
-import com.bc.main.command.MsnDetailCommand;
+import com.bc.messenger.command.MessengerCommand;
+import com.bc.messenger.command.MsnDelCommand;
+import com.bc.messenger.command.MsnDetailCommand;
+import com.bc.messenger.command.MsnInsCommand;
+import com.bc.messenger.command.MsnWriteCommand;
 import com.bc.share.command.Command;
 
 /**
@@ -40,9 +43,15 @@ public class MessengerController extends HttpServlet {
 			comm = new MessengerCommand();
 		} else if (type.equals("oneList")) {
 			comm = new MsnDetailCommand();
+		} else if (type.equals("delete")) {
+			comm = new MsnDelCommand();
+		} else if (type.equals("write")) {
+			comm = new MsnWriteCommand();
+		} else if (type.equals("writeOk")) {
+			comm = new MsnInsCommand();
 		}
 
-		
+		System.out.println("여기 실행댐");
 		path = comm.exec(request, response);
 		
 		request.getRequestDispatcher(path).forward(request, response);
