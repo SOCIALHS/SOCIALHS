@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<jsp:include page="head.jsp"></jsp:include>
+	<jsp:include page="head.jsp"></jsp:include>
     <title>Social Hobby & Study</title>
     <!-- head 태그 -->
 </head>
@@ -17,20 +17,7 @@
 <% 
 	}
 %>
-<!-- body 태그 -->
 	
-	<!-- 
-	지역 id :  ${location }
-	<c:forEach var = "vo" items="${SubLocation }">
-		<ul>
-			<li>${vo.getSl_name() }</li>
-		</ul>
-		  
-	</c:forEach>
-	<a href = "HobbyController?type=basket">basketball</a>
-	 -->
-
-
 	<div class="row bg-light">
 		
 		<nav class="navbar navbar-expand-lg navbar-light bg-light ml-auto">
@@ -42,11 +29,7 @@
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link" href="#">공지사항</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">자유게시판</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">질문방</a></li>
-				</ul>
+				
 			</div>
 		</nav>
 	</div>

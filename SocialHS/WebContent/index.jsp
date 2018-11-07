@@ -1,9 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+
+<!doctype html>
+
+<body> 
+<head>
+<title>Social Hobby & Study</title>
+
 <jsp:include page="head.jsp"></jsp:include>
     <title>Social Hobby & Study</title>
     <!-- head 태그 -->
+
 </head>
 <%
 	if (session.getAttribute("memberVO") == null) {
@@ -17,7 +25,6 @@
 	}
 %>
 <!-- body 태그 -->
-
 
 	<!-- jumbotron -->
 	<div class="jumbotron jumbotron-fluid">
