@@ -7,17 +7,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import com.bc.main.command.MessengerCommand;
+import com.bc.main.command.MsnDetailCommand;
 import com.bc.share.command.Command;
-import com.bc.share.command.HobbyCommand;
-import com.bc.share.command.StudyCommand;
 
-
-
-
-@WebServlet("/MainController")
-public class MainController extends HttpServlet {
+/**
+ * Servlet implementation class MessengerController
+ */
+@WebServlet("/MessengerController")
+public class MessengerController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,28 +24,28 @@ public class MainController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		process(request, response);
 	}
 	
 	private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String type = request.getParameter("type");
-		String path = null;
-		System.out.println("type : "+type);
-		Command comm = null;
+		response.setContentType("text/html; charset=utf-8");
 		
-		if(type.equals("hobby")) {
-			comm = new HobbyCommand();
+		String type = request.getParameter("type");
+		System.out.println("type: "+ type);
+		
+		Command comm = null;
+		String path = "";
+		if (type.equals("msnList")) {
+			comm = new MessengerCommand();
+		} else if (type.equals("oneList")) {
+			comm = new MsnDetailCommand();
 		}
-			else if(type.equals("study")) {
-			comm = new StudyCommand();
-		}
+
 		
 		path = comm.exec(request, response);
+		
 		request.getRequestDispatcher(path).forward(request, response);
-		
-		
 	}
 
 }
