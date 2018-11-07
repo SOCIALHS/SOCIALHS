@@ -29,6 +29,7 @@
   	<mapper resource="com/bc/mybatis/stockMapper.xml"/>
   	<mapper resource="com/bc/mybatis/studyMapper.xml"/>
     <mapper resource="com/bc/mybatis/SubLocationMapper.xml"/>
+    <mapper resource="com/bc/mybatis/HobbyBoardMapper.xml"/>
   </mappers>
 </configuration>
 

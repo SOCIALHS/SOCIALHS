@@ -1,5 +1,13 @@
+<%@page import="com.bc.hobby.vo.HobbyBoardVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	List<HobbyBoardVO> hobbyList = (List<HobbyBoardVO>) request.getAttribute("HobbyList");
+	System.out.println("hobbyList check : " + hobbyList);
+	pageContext.setAttribute("hobbyList", hobbyList);
+%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,55 +21,38 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
-
 <title>Social Hobby & Study</title>
+<style type="text/css">
+	.positionTop{
+		top : 50px;
+	}
+	.box_width{
+		width : 300px;
+	}
+</style>
 </head>
 <body>
-
-	<div class="card text-center my-2 mx-2">
-		<div class="card-header">Featured</div>
-		<div class="card-body">
-			<h5 class="card-title">Special title treatment</h5>
-			<p class="card-text">With supporting text below as a natural
-				lead-in to additional content.</p>
-			<a href="#" class="btn btn-primary">Go somewhere</a>
-		</div>
-		<div class="card-footer text-muted">2 days ago</div>
+	<div class="empty">
 	</div>
-
-	<div class="card text-center my-2 mx-2">
-		<div class="card-header">Featured</div>
-		<div class="card-body">
-			<h5 class="card-title">Special title treatment</h5>
-			<p class="card-text">With supporting text below as a natural
-				lead-in to additional content.</p>
-			<a href="#" class="btn btn-primary">Go somewhere</a>
+	<c:forEach var="list" items="${hobbyList }">
+		<div class="card text-center my-2 mx-2 positionTop box_width" >
+			<div class="card-header">${list.bbs_name }</div>
+			<div class="card-body">
+				<h5 class="card-title">${list.title }</h5>
+				<p class="card-text">${list.id }</p>
+				<hr>
+				<p class="card-text">${list.req_member }</p>
+				<p class="card-text">${list.cur_member }</p>
+				<hr>
+				<p class="card-text">${list.place }</p>
+				<p class="card-text">${list.time }</p>
+				<a href="HobbyController?type=write&bb_idx=${list.bb_idx }" class="btn btn-primary">상세보기</a>
+			</div>
+			<div class="card-footer text-muted">2 days ago</div>
 		</div>
-		<div class="card-footer text-muted">2 days ago</div>
-	</div>
+	</c:forEach>
 
-	<div class="card text-center my-2 mx-2">
-		<div class="card-header">Featured</div>
-		<div class="card-body">
-			<h5 class="card-title">Special title treatment</h5>
-			<p class="card-text">With supporting text below as a natural
-				lead-in to additional content.</p>
-			<a href="#" class="btn btn-primary">Go somewhere</a>
-		</div>
-		<div class="card-footer text-muted">2 days ago</div>
-	</div>
 
-	<div class="card text-center my-2 mx-2">
-		<div class="card-header">Featured</div>
-		<div class="card-body">
-			<h5 class="card-title">Special title treatment</h5>
-			<p class="card-text">With supporting text below as a natural
-				lead-in to additional content.</p>
-			<a href="#" class="btn btn-primary">Go somewhere</a>
-		</div>
-		<div class="card-footer text-muted">2 days ago</div>
-	</div>
-	
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

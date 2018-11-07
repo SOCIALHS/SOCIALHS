@@ -17,16 +17,16 @@
 	
 	
 	<select id="msnAlm" resultType="com.bc.main.vo.MessengerVO" parameterType="String">
-		SELECT * FROM MESSENGER WHERE RECV_ID = #{id} AND CHK != 0 ORDER BY MS_IDX DESC
+		SELECT MS_IDX, SEND_ID, CHK FROM MESSENGER WHERE RECV_ID = #{id} AND CHK != 0 ORDER BY MS_IDX DESC
 	</select>
 	
 	
 	<select id="memAlm" resultType="com.bc.main.vo.BoardVO" parameterType="String">
-		SELECT * FROM B_BOARD WHERE ID = #{id} AND CHK != 0 ORDER BY BB_IDX DESC
+		SELECT BB_IDX, TITLE, CHK FROM B_BOARD WHERE ID = #{id} AND CHK != 0 ORDER BY BB_IDX DESC
 	</select>
 	
 	<select id="comAlm" resultType="com.bc.main.vo.CommentVO" parameterType="String">
-		SELECT B.TITLE, C.*  
+		SELECT B.TITLE, C.ID, C.BBC_IDX, C.CHK  
 		FROM BB_COMMENT C, B_BOARD B  
 		WHERE B.BB_IDX = C.BB_IDX 
 		AND B.ID = #{id}  
@@ -60,7 +60,15 @@
 	
 	</select>
 	
-</mapper>  
+	<select id="msnList" resultType="com.bc.main.vo.MessengerVO" parameterType="String">
+		SELECT * FROM MESSENGER WHERE RECV_ID = #{id} ORDER BY MS_IDX DESC
+	</select>
+	
+	<select id="msnOne" resultType="com.bc.main.vo.MessengerVO" parameterType="String">
+		SELECT * FROM MESSENGER WHERE MS_IDX = #{ms_idx}
+	</select>
+	
+</mapper>
 
 
 
