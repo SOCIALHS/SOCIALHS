@@ -45,7 +45,7 @@
 
 <body>
 	<nav class="navbar navbar-dark bg-dark fixed-top">
-		<a class="navbar-brand" style="color: aliceblue;">SHAS (Social
+		<a class="navbar-brand" style="color: aliceblue;" href="/SocialHS">SHAS (Social
 			Hobby & Study)</a>
 		<form class="form-inline my-2" method="post">
 			<div class="form-group mx-sm-3">

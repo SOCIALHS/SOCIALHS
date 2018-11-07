@@ -24,12 +24,23 @@ public class MessengerDAO {
 	}
 	
 	public static List<MessengerVO> getList(String id) {
-		return getSql().selectList("msnList", id);
+		return getSql().selectList("socialhs.msnList", id);
 	}
 	
-	public static MessengerVO getOne(String idx) {
-		return getSql().selectOne("msnOne", idx);
+	public static MessengerVO getOne(String ms_idx) {
+		return getSql().selectOne("socialhs.msnOne", ms_idx);
 	}
 	
+	public static int updateChk(String ms_idx) {
+		return getSql().update("socialhs.updateChk", ms_idx);
+	}
+	
+	public static int deleteMsg(String ms_idx) {
+		return getSql().delete("socialhs.deleteMsg", ms_idx);
+	}
+	
+	public static int insertMsg(MessengerVO vo) {
+		return getSql().insert("insertMsg", vo);
+	}
 	
 }

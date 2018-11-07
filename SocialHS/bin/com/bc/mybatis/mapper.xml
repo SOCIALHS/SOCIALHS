@@ -3,46 +3,79 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- mapper 태그의 namespace 속성 필수 작성  -->  
+<!-- mapper 태그의 namespace 속성 필수 작성 -->
 <mapper namespace="socialhs">
-	
+
 	<select id="hobbyList" resultType="com.bc.main.vo.BbsCodeVO">
-		SELECT * FROM BBS_CODE WHERE BBS_IDX BETWEEN 300 AND 500 ORDER BY BBS_NAME
+		SELECT * FROM BBS_CODE WHERE 
+		BBS_IDX BETWEEN 300 AND 500 ORDER BY BBS_NAME
 	</select>
-	
-	
+
+
 	<select id="studyList" resultType="com.bc.main.vo.BbsCodeVO">
-		SELECT * FROM BBS_CODE WHERE BBS_IDX BETWEEN 700 AND 999 ORDER BY BBS_NAME
+		SELECT * FROM BBS_CODE WHERE 
+		BBS_IDX BETWEEN 700 AND 999 ORDER BY BBS_NAME
 	</select>
-	
-	
-	<select id="msnAlm" resultType="com.bc.main.vo.MessengerVO" parameterType="String">
-		SELECT MS_IDX, SEND_ID, CHK FROM MESSENGER WHERE RECV_ID = #{id} AND CHK != 0 ORDER BY MS_IDX DESC
+
+
+	<select id="msnAlm" resultType="com.bc.main.vo.MessengerVO"
+		parameterType="String">
+		SELECT MS_IDX, SEND_ID, CHK FROM MESSENGER WHERE RECV_ID 
+		= #{id} AND CHK != 0 ORDER BY MS_IDX DESC
 	</select>
-	
-	
-	<select id="memAlm" resultType="com.bc.main.vo.BoardVO" parameterType="String">
-		SELECT BB_IDX, TITLE, CHK FROM B_BOARD WHERE ID = #{id} AND CHK != 0 ORDER BY BB_IDX DESC
+
+
+	<select id="memAlm" resultType="com.bc.main.vo.BoardVO"
+		parameterType="String">
+		SELECT BB_IDX, TITLE, CHK FROM B_BOARD WHERE ID = #{id} 
+		AND CHK != 0 ORDER BY BB_IDX DESC 
 	</select>
-	
-	<select id="comAlm" resultType="com.bc.main.vo.CommentVO" parameterType="String">
-		SELECT B.TITLE, C.ID, C.BBC_IDX, C.CHK  
-		FROM BB_COMMENT C, B_BOARD B  
+
+	<select id="comAlm" resultType="com.bc.main.vo.CommentVO"
+		parameterType="String">
+		SELECT B.TITLE, C.ID, C.BBC_IDX, C.CHK 
+		FROM BB_COMMENT C, B_BOARD B 
 		WHERE B.BB_IDX = C.BB_IDX 
-		AND B.ID = #{id}  
-		AND C.CHK = 1  
-		ORDER BY BBC_IDX DESC 
+		AND B.ID = #{id} 
+		AND C.CHK = 1 
+		ORDER BY BBC_IDX DESC
 	</select>
-	
-	
-	<select id="msnList" resultType="com.bc.main.vo.MessengerVO" parameterType="String">
-		SELECT * FROM MESSENGER WHERE RECV_ID = #{id} ORDER BY MS_IDX DESC
+
+
+	<select id="msnList" resultType="com.bc.main.vo.MessengerVO"
+		parameterType="String">
+		SELECT * FROM MESSENGER WHERE RECV_ID = #{id} ORDER BY 
+		MS_IDX DESC
 	</select>
-	
-	<select id="msnOne" resultType="com.bc.main.vo.MessengerVO" parameterType="String">
+
+	<select id="msnOne" resultType="com.bc.main.vo.MessengerVO"
+		parameterType="String"> 
 		SELECT * FROM MESSENGER WHERE MS_IDX = #{ms_idx}
 	</select>
-	
+
+
+
+
+	<update id="updateChk" parameterType="String">
+		UPDATE MESSENGER SET CHK = 
+		0 WHERE MS_IDX = #{ms_idx}
+	</update>
+
+
+
+	<delete id="deleteMsg" parameterType="String">
+		DELETE FROM MESSENGER WHERE 
+		MS_IDX = {ms_idx}
+	</delete>
+
+
+	<insert id="insertMsg"
+		parameterType="com.bc.main.vo.MessengerVO">
+		INSERT INTO MESSENGER (MS_IDX, TITLE, CONTENT, SEND_ID,	RECV_ID) 
+		VALUES(MS_SEQ.NEXTVAL, #{title}, #{content}, #{send_id}, #{recv_id})
+	</insert>
+
+
 </mapper>
 
 

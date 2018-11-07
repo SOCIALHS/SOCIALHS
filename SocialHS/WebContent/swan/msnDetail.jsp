@@ -8,8 +8,7 @@
 </head>
 <body>
 
-	<h1>여기는 쪽지 확인 페이지임돠</h1>
-	<table>
+	<table border="1">
 		<thead>
 			<tr>
 				<th>보낸이</th>
@@ -21,17 +20,15 @@
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td>${msnVO.content }</td>
+				<td><textarea rows="15" cols="40">${msnVO.content }</textarea></td>
 			</tr>
 			<tr>
-				<th>내용</th>
+				<th>발송일</th>
 				<td>${msnVO.regdate }</td>
 			</tr>
 		</thead>
 	</table>
 
-
-	${msnVO }
 
 </body>
 </html>
