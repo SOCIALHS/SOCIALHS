@@ -13,14 +13,9 @@
 	pageContext.setAttribute("sub_list", sub_list);
 	pageContext.setAttribute("lo_list", lo_list);
 	pageContext.setAttribute("listAll", listAll);
-	System.out.println("lo_list : " + lo_list);
-	System.out.println("sub_list : " + sub_list);
-	System.out.println("listAll : " + listAll);
-	System.out.println("listSubAll : " + listSubAll);
 	
 	String[] num = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"};
 	pageContext.setAttribute("num", num);
-	System.out.println("num[0] : " + num[0]);
 %>
  <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -32,12 +27,12 @@
 <script>
 	
 	var num = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
-	window.onload = function(){
+
+	$(function(){
 		var l_idx = "${lo_list}";
 		var sub = l_idx.substr(19,1);
-		begin(num[sub-1]);	
-	}
-	
+		begin(num[sub-1]);
+	})	
 	
 	function begin(l_idx){
 		document.getElementById(l_idx).className = "collapse show";
@@ -54,7 +49,6 @@
 		}
 		bgBtnChange(num[tempNum]);
 		close(tempNum);
-		
 	}
 	
 	function close(idx){
@@ -79,11 +73,12 @@
 </script>
 </head> 
 <body>
-    <div class="row">
+<br><br>
+    <div class="row d-block m-0">
     	<c:forEach var="listAll" items="${listAll }" varStatus="idx">
         	<div class="accordion" id="accordionExample">
 	        <div class="card" style="text-align:center">
-	            <div class="card-header" id="heading${num[idx.index] }" style="width:200px">
+	            <div class="card-header" id="heading${num[idx.index] }">
 	                <h5 class="mb-0">
 	                    <button class="btn btn-light" type="button" name="${num[idx.index] }" data-toggle="collapse" data-target= ${num[idx.index] }
 	                        aria-expanded="false" aria-controls="collapseOne" onclick = "check(this)" id="My${num[idx.index] }">
@@ -96,7 +91,7 @@
 	                <div class="card-body">
 	                	<c:forEach var="listSubAll" items="${listSubAll }">
 	                		<c:if test="${listSubAll.getL_idx() == listAll.getL_Idx() }"> 
-	                   			 <button type="button" class="list-group-item list-group-item-action" style="border:none;">${listSubAll.getSl_name() }</button>
+	                   			 <button type="button" class="list-group-item list-group-item-action" style="border:none">${listSubAll.getSl_name() }</button>
 	                   		</c:if>
 	                    </c:forEach>
 	                </div>
@@ -105,9 +100,6 @@
 
     	</div>
    	 </c:forEach>
-   	 
-   	 
-
 	</div>
 
 
