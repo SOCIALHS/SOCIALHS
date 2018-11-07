@@ -4,10 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>수정 페이지</title>
+<title>Insert title here</title>
+<script>
+	function start() {
+		location = "../FreeController?type=freeList"
+	}
+</script>
 </head>
-<body>
-	<h2>게시글 수정</h2>
-	<a href="../BullteinController?type=list">목록으로</a>
+<body onload="start()">
+	<h3>start...</h3>
 </body>
 </html>

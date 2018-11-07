@@ -13,11 +13,11 @@ public class BullteinBoardDeleteCommand implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		String bb_idx = request.getParameter("bb_idx");
 		String path = null;
-		BullteinBoardDAO.delete(bb_idx);
-		path = "BullteinController?type=bullteinList";
+
+			BullteinBoardDAO.delete(bb_idx);
+			path = "BullteinController?type=bullteinList";
 		return path;
 		
 	}
-
 
 }

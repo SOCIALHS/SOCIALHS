@@ -3,112 +3,87 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-
-	PagingVO p = new PagingVO();
-	p.setTotalRecord(BullteinBoardDAO.getTotalCount());
-	p.setTotalPage();
-	
-	String cPage = request.getParameter("cPage");
-	if(cPage != null) {
-		p.setNowPage(Integer.parseInt(cPage));
-	}
-	
-	p.setEndContent(p.getNowPage() * p.getNumPerPage());
-	p.setBeginContent(p.getEndContent() - p.getNumPerPage() + 1);
-	
-	int nowPage = p.getNowPage();
-	p.setBeginPage((nowPage - 1) / p.getPagePerBlock() * p.getPagePerBlock() + 1);
-	p.setEndPage(p.getBeginPage() + p.getPagePerBlock() - 1);
-	
-	if (p.getEndPage() > p.getTotalPage()) {
-		p.setEndPage(p.getTotalPage());
-	}
-	
-	
-	
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항</title>
-</head>
+<title>공지 게시판</title>
 <style>
+	#container {
+		width: 512px; margin: auto;
+	}
+	#container h2 { text-align: center; }
+	#container p { text-align: center; }
+	#container table {
+		width: 500px; padding: 0 5px;
+		border: 1px solid black;
+		border-collapse: collapse;
+	}
+	#container th, td { border: 1px solid black; }
+	#container table th {
+		background-color: #9cf;
+	}
+	#container table td {
+		text-align: left;
+	}
+	#container p > a {
+		text-decoration: none;
+		font-weight: bold;
+	}
+	#container .center { text-align: center; }
 	
 </style>
+</head>
 <body>
-<h2>공지 게시판</h2>
-	<a href="../BullteinController?type=bullteinWrite">공지 작성</a>
-	<table border="1">
+
+<div id="container">
+	<h2>공지사항</h2>
+	<hr>
+	<p>[<a href="BullteinController?type=bullteinWrite&bb_idx=${vo.bb_idx }">게시물 작성</a>]</p>
+	<table>
 		<thead>
 			<tr>
-				<th>no</th>
+				<th>글번호</th>
 				<th>제목</th>
 				<th>작성자</th>
-				<th>작성일</th>
 				<th>조회수</th>
-				<th>좋아요</th>
+				<th>GOOD</th>
+				<th>BAD</th>
 			</tr>
 		</thead>
 		<tbody>
-		<c:if test="${not empty list }">
-			<c:forEach var="st" items="${list }">
+	
+		<c:if test="${not empty list }">	
+			<c:forEach var="vo" items="${list }">
 			<tr>
-				<td>${st.getBb_idx() }</td>
-				<td><a href="StudyController?type=bullteinWrite&$b_idx=${st.bb_idx }">${st.getTitle() }</a></td>
-				<td>${st.getId() }</td>
-				<td>${st.getRegdate }</td>
-				<td>${st.getHit() }</td>
-				<td>${st.Good() }</td>
-				<td>${st.bad() }</td>
+				<td>${vo.getBb_idx() }</td>
+				<td><a href="BullteinController?type=bullteinOne&bb_idx=${vo.bb_idx }">${vo.getTitle() }</a></td>
+				<td>${vo.getId() }</td>
+				<td>${vo.getHit() }</td>
+				<td>${vo.getGood() }</td>
+				<td>${vo.getBad() }</td>
 			</tr>
-		</c:forEach>
-		</c:if>
-		
+			</c:forEach>
+		</c:if>			
+	
+		<c:if test="${empty list }">		
+			<tr>
+				<td colspan="7">입력된 자료가 없습니다</td>
+			</tr>
+		</c:if>		
 		</tbody>
-		<tfoot>
-		<ol>
-			<tr>
-				<td colspan="6">
-					<c:choose>
-						<c:when test="${bbvo.beginPage == 1 }">
-							<li> ← </li>
-						</c:when>
-						<c:otherwise>
-							<li>
-								<a href="bullteinList.jsp?cPage=${bbvo.beginPage - 1 }"> ← </a>
-							</li>
-						</c:otherwise>
-					</c:choose>
-				<c:forEach var = "k" begin="${bbvo.beginPage }" end="${bbvo.endPage }">
-					<c:choose>
-						<c:when test="${k == bbvo.nowPage }">
-							<li>%{k}</li>
-						</c:when>
-						<c:otherwise>
-							<li>
-								 <a href="BullteinBoardList.jsp?cPage=${k }">${k }</a>
-							</li>
-						</c:otherwise>
-					</c:choose>
-				</c:forEach>
-				
-				<c:choose>
-					<c:when test="${bbvo.endPage >= bbvo.totalPage }">
-						<li>
-							<li> → </li>
-						</li>
-					</c:when>
-					<c:otherwise>
-							<a href="BullteinBoardList.jsp?cPage=${bbvo.endPage + 1 }"> → </a>
-					</c:otherwise>
-				</c:choose>
-				</ol>
-				</td>
-				
-			</tr>
-		</tfoot>
 	</table>
+</div>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
