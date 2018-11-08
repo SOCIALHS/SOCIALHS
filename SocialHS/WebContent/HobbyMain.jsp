@@ -33,21 +33,7 @@
 %>
 <!-- <body> -->
 
-<div class="row bg-light">
-
-	<nav class="navbar navbar-expand-lg navbar-light bg-light ml-auto">
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-		</div>
-	</nav>
-</div>
+	<%@ include file="dongwu/subnav.jsp"%>
 
 <div class="row">
 	<div class="col-2" style="width: 100%;">
@@ -62,8 +48,13 @@
 			<!-- sub nav -->
 			<div id="category" style="width: 100%;"></div>
 			<%-- <%@ include file="dongwu/category.jsp" %> --%>
-
 		</div>
+
+		<div class="row d-flex justify-content-center" style="width: 100%;">
+			<%@ include file="dongwu/searchnwrite.jsp"%>
+		</div>
+
+
 		<!-- <div class="row d-flex justify-content-center"> -->
 		<!-- content -->
 		<div class="row d-flex justify-content-center" style="width: 100%;">
