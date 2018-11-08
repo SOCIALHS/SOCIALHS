@@ -11,6 +11,7 @@
 <% 
    }
 %>
+
     <title>Social Hobby & Study</title>
     <!-- head 태그 -->
 
