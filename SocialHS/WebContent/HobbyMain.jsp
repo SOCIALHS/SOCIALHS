@@ -50,7 +50,7 @@
 </div>
 
 <div class="row">
-	<div class="col-2">
+	<div class="col-2" style="width: 100%;">
 		<!-- aside -->
 		<%@ include file="wonho/sidebar_body.jsp"%>
 	</div>
