@@ -50,7 +50,7 @@
 </div>
 
 <div class="row">
-	<div class="col-2">
+	<div class="col-2" style="width: 100%;">
 		<!-- aside -->
 		<%@ include file="wonho/sidebar_body.jsp"%>
 	</div>
@@ -58,7 +58,7 @@
 	<div class="col-10">
 
 		<!-- 이 밑에 DIV에 카테고리 출력 -->
-		<div class="row d-flex justify-content-center">
+		<div class="row">
 			<!-- sub nav -->
 			<div id="category" style="width: 100%;"></div>
 			<%-- <%@ include file="dongwu/category.jsp" %> --%>
@@ -66,9 +66,10 @@
 		</div>
 		<!-- <div class="row d-flex justify-content-center"> -->
 		<!-- content -->
-		<%@ include file="dongwu/content_body.jsp"%>
-		<!-- </div> -->
-
+		<div class="row d-flex justify-content-center" style="width: 100%;">
+			<%@ include file="dongwu/content_body.jsp"%>
+			<!-- </div> -->
+		</div>
 	</div>
 
 </div>
