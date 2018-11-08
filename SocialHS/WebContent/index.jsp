@@ -11,17 +11,6 @@
 <%
 	}
 %>
-<%
-	if (session.getAttribute("memberVO") == null) {
-%>
-<%@ include file="jieun/header_head.jsp"%>
-<%
-	} else {
-%>
-<%@ include file="head.jsp"%>
-<%
-	}
-%>
 <title>Social Hobby & Study</title>
 <!-- head 태그 -->
 
