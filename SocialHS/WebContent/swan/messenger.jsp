@@ -131,10 +131,11 @@ ul.tab li.current {
 		</form>
 		<%-- 최신 글 목록/댓글 목록 보이기(제일 위에 글/댓글 5개만) --%>
 		<%-- 내가 쓴 게시글 / 내가 쓴 댓글 /  카페 활동 알림 --%>
-		<div>
-			<ul class="tab">
-				<li class="tablink current" data-tab="allPage">받은 쪽지 함</li>
-				<li class="tablink" data-tab="allComment"
+		<div id ="infohead">
+			<ul class="tab nav mx-auto my-2">
+				<li class="tablink current nav-item" data-tab="allPage">받은 쪽지 함</li>
+				<span>&nbsp;&nbsp;</span>
+				<li class="tablink nav-item" data-tab="allComment"
 					onclick="location.href='/SocialHS/MessengerController?type=write'">쪽지
 					보내기</li>
 			</ul>
