@@ -114,7 +114,7 @@
 				<td>
 					<input type="password" class="form-control mb-2 mr-sm-2"
 						name="pw" maxlength="50" placeholder="비밀번호">
-				
+				</td>
 				<td>
 					<input type="password" class="form-control mb-2 mr-sm-2"
 						name="pwchk" maxlength="50" placeholder="비밀번호 확인">
@@ -174,13 +174,13 @@
 			</tr>
 			<tr class="form-group">
 				<td>
-					<input type="text" class="form-control" placeholder="휴대전화번호"
+					<input type="text" class="form-control mb-2 mr-sm-2" placeholder="휴대전화번호"
 						name="phone">
 				</td>
 			</tr>
 			<tr class="form-group">
 				<td>
-					<input type="text" class="form-control" placeholder="주소"
+					<input type="text" class="form-control mb-2 mr-sm-2" placeholder="주소"
 						name="addr" size="50">
 				</td>
 			</tr>
