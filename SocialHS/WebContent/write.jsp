@@ -151,7 +151,7 @@
             <textarea class="form-control" id="content" name = "content" rows="30"></textarea>
         </div>
         
-        <div class="form-group" style="margin-left: 1300px;">
+        <div class="form-group" style="margin-left: 1600px;">
              <button type="reset" class="btn btn-danger">다시 작성하기</button>
              <button type="button" class="btn btn-danger" onclick = "send_go(this.form)">작성 완료</button>
         </div>
