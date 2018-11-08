@@ -40,6 +40,7 @@ public class MainWriteCommand implements Command {
 		
 		request.setAttribute("bbs_code_list", bbs_code_list);
 		request.setAttribute("LocationAll", LocationAll);
+		request.setAttribute("SubLocationAll", listSubAll2);
 		
 		System.out.println("LocationAll : "+LocationAll);
 		System.out.println("SubLocationAll : "+SubLocationAll);

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <div class="empty"></div>
-<c:forEach var="list" items="${hobbyList }">
+<c:forEach var="list" items="${MainList }">
 	<div class="card text-center my-2 mx-2 positionTop box_width">
 		<div class="card-header">${list.bbs_name }</div>
 		<div class="card-body">
