@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
+<%@ include file="../jieun/header_head.jsp" %>
 <meta charset="UTF-8">
 <title>내 정보 수정</title>
 <script>
@@ -45,6 +43,7 @@
 </script>
 
 </head>
+<<<<<<< HEAD
 	<jsp:include page="../jieun/loginheader.jsp"></jsp:include>
 
 	<!-- Required meta tags -->
@@ -55,6 +54,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
 <body>
+=======
+<%@ include file="../jieun/header.jsp" %>
+>>>>>>> refs/remotes/origin/master
 <div>
 	<p><font><b>내 정보 수정</b></font></p>
 	<hr>
@@ -118,6 +120,7 @@
 	</form>
 
 </div>
+<<<<<<< HEAD
 	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -128,3 +131,7 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+=======
+
+<%@ include file="../jieun/footer.jsp" %>
+>>>>>>> refs/remotes/origin/master

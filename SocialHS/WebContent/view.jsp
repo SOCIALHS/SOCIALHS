@@ -66,7 +66,7 @@
 				<hr>
 
 				<!-- reg_member, cur_member                -->
-				<p>현재인원 : ${viewVO.cur_member } / 모집인원 : ${hbvo.req_member}</p>
+				<p>현재인원 : ${viewVO.cur_member } / 모집인원 : ${viewVO.req_member}</p>
 
 				<hr>
 
@@ -213,6 +213,4 @@
 				
 		</script>
 <div></div>  
-</body>
-
-</html>
+		<%@ include file="jieun/footer.jsp"%>
