@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<%@ include file="../head.jsp" %>
 <title>쪽지</title>
 <style>
 </style>
@@ -20,7 +17,7 @@
 	
 </script>
 </head>
-<body>
+<%@ include file="../jieun/loginheader.jsp" %>
 	<h1>여기는 쪽지 페이지 임돠</h1>
 
 	<button onClick="location.href='memberController?type=myPage'">마이페이지로</button>

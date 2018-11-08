@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div class="row d-block m-0">
-	<div class="row">
 		<c:forEach var="listAll" items="${listAll }" varStatus="idx">
 			<div class="accordion" id="accordionExample">
 				<div class="card" style="text-align: center">
@@ -31,5 +30,4 @@
 
 			</div>
 		</c:forEach>
-	</div>
 </div>
