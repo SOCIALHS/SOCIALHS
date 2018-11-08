@@ -22,12 +22,9 @@
 
 	List<BoardVO> list = memberDAO.getMypageList(map);
 	pageContext.setAttribute("list", list);
-<<<<<<< HEAD
 	
 	List<CommentVO> commList = memberDAO.getMypageCommList(map);
 	pageContext.setAttribute("commList", commList);
-=======
->>>>>>> refs/remotes/origin/master
 	
 %>
 
