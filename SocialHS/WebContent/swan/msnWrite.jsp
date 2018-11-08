@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-	
-	<%@ include file="../head.jsp" %>
+
+
+<%@ include file="../head.jsp"%>
 <title>쪽지 작성</title>
 <script>
 	function checkId() {
@@ -13,14 +13,14 @@
 			dataType : "text",
 			success : function(data) {
 				var chk = false;
-				if (data == 1){ 	// id가 존재함
+				if (data == 1) { // id가 존재함
 					chk = true;
-					$("#idChk").css("color", "green");
-					$("#idChk").html("ID 확인 완료");
+					alert("id 확인 완료");
+					$("#subBtn").css("display", "block");
 				} else if (data == 0) {
 					chk = false;
-					$("#idChk").css("color", "red");
-					$("#idChk").html("존재하지 않는 ID입니다");
+					alert("존재하지 않는 ID입니다");
+					$("#subBtn").css("display", "none");
 				}
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
@@ -32,35 +32,56 @@
 	}
 </script>
 <style type="text/css">
-	#idChk{ font-size: 9px; }
+	#subBtn{
+		display: none;
+	}
+	form {
+		margin: auto;
+	}
 </style>
 </head>
-<%@ include file="../jieun/loginheader.jsp" %>
+<%@ include file="../jieun/loginheader.jsp"%>
 
-	<h1>여긴 쪽지 작성 페이지</h1>
-	<form method="post" action="MessengerController?type=writeOk">
-		<table>
-			<tr>
-				<th>받는이</th>
-				<td><input type="text" name="recv_id" id="recv_id"></td>
-				<td><input type="button" onClick="checkId()" value="id확인"><span id="idChk"></span></td>
-			</tr>
-			<tr>
-				<th>제목</th>
-				<td colsepan="2"><input type="text" name="title"></td>
-			</tr>
-			<tr>
-				<th>내용</th>
-				<td colspan="2"><textarea rows="15" cols="40" name="content"></textarea></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit" value="발송" id="submit"></td>
-			</tr>
-		</table>
-	</form>
+<form method="post" action="MessengerController?type=writeOk">
+	<table>
+		<tr>
+			<td>
+				<div class="input-group mb-3">
+					<input id="recv_id" name="recv_id" type="text" class="form-control"
+						placeholder="UserId" aria-label="UserId"
+						aria-describedby="button-addon2">
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" type="button"
+							id="button-addon2 idChk" onClick="checkId()">id 확인</button>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">제 목</span>
+					</div>
+					<input id="title" name="title" type="text" class="form-control"
+						placeholder="Title" aria-label="Username"
+						aria-describedby="basic-addon1">
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="input-group">
+					<textarea name="content" class="form-control"
+						aria-label="With textarea" placeholder="Content" ></textarea>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td><button type="submit" class="btn btn-secondary" id="subBtn">보내기</button></td>
+		</tr>
+	</table>
+</form>
 
 
-
-
-</body>
-</html>
+<%@ include file="../jieun/footer.jsp"%>

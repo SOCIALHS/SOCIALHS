@@ -13,7 +13,7 @@
 			<h5 class="card-title">${list.title }</h5>
 			<p class="card-text">${list.id }</p>
 			<hr>
-			<p class="card-text">${list.req_member }</p>
+			<p class="card-text">${list.req_member }</p> 
 			<p class="card-text">${list.cur_member }</p>
 			<hr>
 			<p class="card-text">${list.place }</p>
