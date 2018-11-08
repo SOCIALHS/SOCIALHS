@@ -1,3 +1,4 @@
+<%@page import="com.bc.main.vo.CommentVO"%>
 <%@page import="com.bc.member.memberVO"%>
 <%@page import="com.bc.member.memberDAO"%>
 <%@page import="java.util.List"%>
@@ -20,7 +21,10 @@
 	map.put("id", mvo.getId());
 
 	List<BoardVO> list = memberDAO.getMypageList(map);
-	session.setAttribute("list", list);
+	pageContext.setAttribute("list", list);
+	
+	List<CommentVO> commList = memberDAO.getMypageCommList(map);
+	pageContext.setAttribute("commList", commList);
 	
 %>
 
@@ -60,7 +64,8 @@
 	
 	#mypage .center { text-align: center; }
 	#mypage .right { text-align: right; }
-
+	#mypage .left { text-align: left; }
+	
 	/* 탭 스타일 */
 	ul.tab {
 		width: 800px; margin: auto;
@@ -91,7 +96,7 @@
 </style>
 <script>
 	function editInfo(frm) {
-		frm.action = "memberController?type=update";
+		frm.action = "MypageController?type=update";
 		frm.submit();
 		
 	}
@@ -103,7 +108,7 @@
 	function deleteInfo(frm) {
 		if (confirm("회원 탈퇴를 하시겠습니까?") == true) {
 			
-			frm.action = "memberController?type=delete";
+			frm.action = "MypageController?type=delete";
 			frm.submit();
 		} else {
 			return;
@@ -201,7 +206,10 @@
 						<c:forEach var="vo" items="${list }">
 							<tr>
 								<td class="center">${vo.getBb_idx() }</td>
-								<td class="clickTitle"><a href="">${vo.getTitle() }</a></td>
+								<td class="clickTitle">
+									<a href="BullteinController?type=bullteinOne&bb_idx=${vo.getBb_idx() }">
+									${vo.getTitle() }</a>
+								</td>
 								<td>${vo.getId() }</td>
 								<td class="center">${vo.getRegdate().substring(0, 10) }</td>
 								<td class="center">${vo.getHit() }</td>
@@ -217,7 +225,9 @@
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="5" class="right"><a href=""><b>더보기&gt;</b></a></td>
+					<td colspan="5" class="right">
+						<a href="MypageController?type=moreWrite&id=${memberVO.getId() }">
+						<b>더보기&gt;</b></a></td>
 				<tr>
 			</tfoot>
 			</table>
@@ -227,25 +237,31 @@
 		<%-- 댓글 --%>
 		<div id="allComment" class="tabcontent">
 			<table class="table my-2 mx-auto">
-				<thead>
-					<tr>
-						<th>작성자</th>
-						<th>댓글단 날짜</th>
-					</tr>
-				</thead>
 				<tbody>
+				<%-- 데이터가 있을 때 --%>
+				<c:if test="${not empty commList }">
+					<c:forEach var="cvo" items="${commList }">
+						<tr>
+							<td colspan="2" class="left"><b>${cvo.getId() }</b>
+								&nbsp;&nbsp;&nbsp;<font>${cvo.getRegdate() }</font></td>
+						</tr>
+						<tr>
+							<td class="left">${cvo.getContent() }</td>
+							<td class="left">${cvo.getTitle() }</td>
+						</tr>
+					</c:forEach>
+				</c:if>
+				<c:if test="${empty commList }">
 					<tr>
-						<td>댓글내용</td>
-						<td>글제목 </td>
+						<th colspan="5">등록된 댓글이 없습니다.</th>
 					</tr>
+				</c:if>
 				</tbody>
-				<tr>
-					<th colspan="5">등록된 댓글이 없습니다.</th>
-					
-				</tr>
 				<tfoot>
 					<tr>
-						<td colspan="5" class="right"><a href=""><b>더보기&gt;</b></a></td>
+						<td colspan="5" class="right">
+						<a href="MypageController?type=moreComment&id=${memberVO.getId() }">
+						<b>더보기&gt;</b></a></td>
 					<tr>
 				</tfoot>
 			
