@@ -3,7 +3,6 @@ package com.bc.main.dao;
 
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -44,23 +43,5 @@ public class MainDAO {
 	public static List<CommentVO> getComAlm(String id) {
 		return getSql().selectList("socialhs.comAlm", id);
 	}
-	
-	//(mypage)전체 게시글 수 조회 (B_Board)
-	public int getTotalCount() {
-		int totalCount = getSql().selectOne("socialhs.mypagetotalCnt");
-		return totalCount;
-	}
-	
-	//(mypage)내가 쓴 전체 게시글 조회 
-	public static List<BoardVO> getMypageList(Map<String, Integer> map) {
-		return getSql().selectList("socialhs.mylist", map);
-	}
-	
-	//(mypage))내가 쓴 글 상세보기 
-	public static BoardVO selectOne(String id) {
-		return getSql().selectOne("socialhs.myWrite", id);
-	}
-	
-	
 	
 }

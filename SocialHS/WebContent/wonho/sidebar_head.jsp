@@ -22,7 +22,7 @@
 
 	$(function(){
 		var l_idx = "${lo_list}";
-		var sub = l_idx.substr(19,1);
+		var sub = l_idx.substr(19,2);
 		begin(num[sub-1]);
 	})	
 	

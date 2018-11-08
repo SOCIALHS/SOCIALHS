@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
+<%@ include file="../jieun/header_head.jsp" %>
 <meta charset="UTF-8">
 <title>내 정보 수정</title>
 <script>
@@ -45,7 +43,7 @@
 </script>
 
 </head>
-<body>
+<%@ include file="../jieun/header.jsp" %>
 <div>
 	<p><font><b>내 정보 수정</b></font></p>
 	<hr>
@@ -110,5 +108,4 @@
 
 </div>
 
-</body>
-</html>
+<%@ include file="../jieun/footer.jsp" %>

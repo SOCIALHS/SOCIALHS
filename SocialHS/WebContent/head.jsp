@@ -34,7 +34,6 @@
 	$(document).ready(function() {
 		almFnc();
 		console.log("로딩 완료");
-		/* setInterval(almFnc, 5000); */
 	});
 
 	function almFnc() {
@@ -103,7 +102,7 @@
 						btnChk = true;
 					}
 				});
-				setTimeout(almFnc, 5000);
+				setTimeout(almFnc, 10000);
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
 				console.log("실패: \n" + "jqXHR.readyState: " + jqXHR.readyState

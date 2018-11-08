@@ -11,36 +11,34 @@
 				/* alert("json check");
 				alert(json); */
 				console.log(json);
-				var output = "<br><br><br>";
+				var output = "<br>";
 				console.log("asdfadsf");
 				var count = 0;
 				console.log(json["list"]);
 
 				var list = json["list"];
 
-				output += "<table class=\"table table-info\">";
-
 				for (var i = 0; i < list.length; i++) {
 
 					if (count % 5 == 0) {
-						output += "<tr class=\"text-center\">";
+						output += "<nav class=\"nav nav-pills nav-fill mb-1\">";
 					}
-					output += "<td class=\"border border-white\"><a href=\"#\">";
+					output += "<a class=\"nav-item nav-link bg-info m-1 active\" href=\"#\">";
 					for ( var key in list[i]) {
 						output += list[i][key] + "&nbsp;";
 					}
 					count++;
 					console.log("cnt : " + count);
-					output += "</a></td>";
+					output += "</a>";
 					//output += "&nbsp;&nbsp;&nbsp;&nbsp;";
 					//console.log("output "+output);
 
 					if (count % 5 == 0) {
-						output += "</tr>";
+						output += "</nav>";
 					}
 
 				}
-				output += "</table>";
+				output += "<br>"; 
 
 				var test = document.getElementById("test");
 				//category.innerHTML(output);

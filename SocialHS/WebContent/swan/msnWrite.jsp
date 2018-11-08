@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	
+	<%@ include file="../head.jsp" %>
 <title>쪽지 작성</title>
-<script src="//code.jquery.com/jquery.min.js"></script>
 <script>
 	function checkId() {
 		var recv_id = document.getElementById("recv_id").value;
@@ -37,7 +35,7 @@
 	#idChk{ font-size: 9px; }
 </style>
 </head>
-<body>
+<%@ include file="../jieun/loginheader.jsp" %>
 
 	<h1>여긴 쪽지 작성 페이지</h1>
 	<form method="post" action="MessengerController?type=writeOk">

@@ -213,6 +213,4 @@
 				
 		</script>
 <div></div>  
-</body>
-
-</html>
+		<%@ include file="jieun/footer.jsp"%>

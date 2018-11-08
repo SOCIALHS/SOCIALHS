@@ -8,7 +8,6 @@
 <script>
 	function start() {
 		location.href = "../BullteinController?type=bullteinList"
-		//location.href = "bullteinBoardList.jsp"
 	}
 </script>	
 </head>

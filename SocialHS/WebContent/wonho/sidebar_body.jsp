@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div class="row d-block m-0">
-	<div class="row">
 		<c:forEach var="listAll" items="${listAll }" varStatus="idx">
 			<div class="accordion" id="accordionExample">
 				<div class="card" style="text-align: center">
@@ -17,11 +16,11 @@
 
 					<div id=${num[idx.index] } class="collapse"
 						aria-labelledby="heading" data-parent="#accordionExample">
-						<div class="card-body">
+						<div class="card-body border">
 							<c:forEach var="listSubAll" items="${listSubAll }">
 								<c:if test="${listSubAll.getL_idx() == listAll.getL_Idx() }">
 									<button type="button"
-										class="list-group-item list-group-item-action"
+										class="list-group-item list-group-item-action btn-block"
 										style="border: none">${listSubAll.getSl_name() }</button>
 								</c:if>
 							</c:forEach>
@@ -31,5 +30,4 @@
 
 			</div>
 		</c:forEach>
-	</div>
 </div>
