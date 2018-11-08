@@ -32,11 +32,11 @@ public class HobbyMainCommand implements Command {
 		map.put("l_idx", l_idx);
 		map.put("hs","h"); 
 		
-	
-		List<HobbyBoardVO> HobbyList = HobbyBoardDAO.getHobbyMainCategoryList(map);
-		System.out.println("HobbyList: "+HobbyList);
-		request.setAttribute("HobbyList", HobbyList); //HobbyList는 HobbyMain에쓸 리스트를 저장한 객체 
 		
+		List<HobbyBoardVO> HobbyList = HobbyBoardDAO.getMainCategoryList(map);
+		System.out.println("HobbyList: "+HobbyList);
+		request.setAttribute("MainList", HobbyList); //HobbyList는 HobbyMain에쓸 리스트를 저장한 객체 
+		//MainList는 공용으로 사용하는 것이고 Main에서 사용할 객체들의 집합을 의미
 		
 		System.out.println("list : "+ list);
 		session.setAttribute("SubLocation", list);

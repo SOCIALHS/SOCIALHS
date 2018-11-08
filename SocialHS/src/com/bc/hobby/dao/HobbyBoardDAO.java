@@ -28,7 +28,7 @@ public class HobbyBoardDAO {
 		
 	}
 	
-	public static List<HobbyBoardVO> getHobbyMainCategoryList(Map<String, String> map){
+	public static List<HobbyBoardVO> getMainCategoryList(Map<String, String> map){
 		System.out.println("check3");
 		return getSql().selectList("hobbyboard.list_category", map);
 	}
@@ -36,6 +36,11 @@ public class HobbyBoardDAO {
 	public static HobbyBoardVO getOne(String bb_idx) {
 		System.out.println("check45");
 		return getSql().selectOne("hobbyboard.one", bb_idx);
+	}
+	
+	public static HobbyBoardVO getViewVo(String bb_idx) {
+		System.out.println("checkGetViewVO");
+		return getSql().selectOne("hobbyboard.get_ViewVO", bb_idx);
 	}
 	
 	

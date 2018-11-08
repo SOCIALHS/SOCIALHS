@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지 게시판</title>
+<title>자유 게시판</title>
 <style>
 	#container {
 		width: 512px; margin: auto;

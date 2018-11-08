@@ -49,6 +49,8 @@ public class LocationController extends HttpServlet {
 		List<LocationVO> listAll = LocationDAO.getAll();
 		System.out.println("listAll : "+listAll);
 		session.setAttribute("locationAll", listAll);
+		List<SubLocationVO> listSubAll2 = (List<SubLocationVO>)SubLocationDAO.getSubAll();
+		session.setAttribute("listSubAll2", listSubAll2);
 		
 		List<SubLocationVO> listSubAll = SubLocationDAO.getSubAll();
 		session.setAttribute("listSubAll", listSubAll);

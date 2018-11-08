@@ -8,10 +8,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
 <meta charset="UTF-8">
 <title>회원가입</title>
 
 <style>
+	
 </style>
 
 <script>
@@ -26,6 +35,43 @@
 			frm.pw.focus();
 			return false;
 		}
+		
+		if (!frm.name.value) {
+			alert("이름을 입력하세요.");
+			frm.name.focus();
+			return false;
+		}
+		
+		if (!frm.birthday.value) {
+			alert("생년월일을 입력하세요.");
+			frm.birthday.focus();
+			return false;
+		}
+		if (!frm.birthmm.value) {
+			alert("생년월일을 입력하세요.");
+			return false;
+		}
+		if (!frm.birthdd.value) {
+			alert("생년월일을 입력하세요.");
+			return false;
+		}
+		
+		if (!frm.email.value) {
+			alert("이메일을 입력하세요.");
+			frm.email.focus();
+			return false;
+		}
+		if (!frm.phone.value) {
+			alert("전화번호를 입력하세요.");
+			frm.phone.focus();
+			return false;
+		}
+		if (!frm.addr.value) {
+			alert("주소를 입력하세요.");
+			frm.addr.focus();
+			return false;
+		}
+		
 		frm.action = "memberController?type=joinOk";
 		frm.submit();
 	}
@@ -39,11 +85,8 @@
 			frm.id.focus();
 			return false;
 		} else {
-			//아이디를 입력했을 때 
-			//window.name = "idOk";
 			window.open("mingyeong/usingIdchk.jsp?id=" + id1, "아이디 중복 확인",
-			"width=30, height=20, left=30, top=20");
-			
+			"width=450, height=200, left=300, top=200");
 		}
 		
 		frm.submit();
@@ -61,58 +104,53 @@
 	
 </script>
 </head>
+
+
 <body>
-<div id="join">
+<div id="join" style="width: 600px; padding: 20px;" class="mx-auto mt-5">
 	<p><font size="6"><b>회원가입</b></font></p>
 
 <form method="post">
 	<table>
 		<tbody>
-			<tr>
-				<td id="title">아이디</td>
+			<tr class="form-inline">
 				<td>
-					<input type="text" id="id" name="id" maxlength="50">
-					<input type="button" value="중복확인" onclick="idchk(this.form)">
+					<input type="text" class="form-control mb-2 mr-sm-2"
+						id="id" name="id" maxlength="50" placeholder="아이디">
+					<input type="button" class="btn btn-secondary mb-2"
+						value="중복확인" onclick="idchk(this.form)">
 				</td>
 			</tr>
-		<!-- </tbody>
-	</table>
-</form>
-
-<form method="get">
-	<table>
-		<tbody> -->
-			<tr>
-				<td id="title">비밀번호</td>
+			<tr class="form-inline">
 				<td>
-					<input type="password" name="pw" maxlength="50">
+					<input type="password" class="form-control mb-2 mr-sm-2"
+						name="pw" maxlength="50" placeholder="비밀번호">
+				
+				<td>
+					<input type="password" class="form-control mb-2 mr-sm-2"
+						name="pwchk" maxlength="50" placeholder="비밀번호 확인">
 				</td>
 			</tr>
-			<tr>
-				<td id="title">비밀번호 확인</td>
+			<tr class="form-group">
 				<td>
-					<input type="password" name="pwchk" maxlength="50">
+					<input type="text" class="form-control"
+						name="name" maxlength="50" placeholder="이름">
 				</td>
 			</tr>
-			<tr>
-				<td id="title">이름</td>
-				<td>
-					<input type="text" name="name" maxlength="50">
-				</td>
-			</tr>
-			<tr>
-				<td id="title">성별</td>
+			<tr class="form-group">
 				<td>
 					<input type="radio" name="gender" value="남" checked>남
 					<input type="radio" name="gender" value="여">여
 				</td>
 			</tr>
-			<tr>
-				<td id="title">생일</td>
+			<tr class="form-inline">
 				<td>
-					<input type="text" name="birthday" maxlength="4"
-							placeholder="년(4자)" size="6">
-					<select name="birthmm">
+					<input type="text" name="birthday"
+						class="form-control mb-2 mr-sm-2"
+						maxlength="4" placeholder="년(4자)" size="6">
+					
+					<select name="birthmm" class="custom-select mr-sm-2 mb-2"
+						id="inlineFormCustomSelect">
 						<option value="">월</option>
 						<option value="01">1</option>
 						<option value="02">2</option>
@@ -127,15 +165,17 @@
 						<option value="11">11</option>
 						<option value="12">12</option>
 					</select>
-					<input type="text" name="birthdd" maxlength="2"
-							placeholder="일" size="4">
+					<input type="text" name="birthdd"
+						class="form-control mb-2 mr-sm-2"
+						maxlength="2" placeholder="일" size="4">
 				</td>
 			</tr>
-			<tr>
-				<td id="title">이메일</td>
+			<tr class="form-inline">
 				<td>
-					<input type="text" name="email" maxlength="50">@
-					<select name="com">
+					<input type="text"
+						class="form-control mb-2 mr-sm-2" placeholder="이메일"
+						name="email" maxlength="50">&nbsp;@&nbsp;
+					<select name="com" class="custom-select mr-sm-2 mb-2">
 						<option>naver.com</option>
 						<option>daum.com</option>
 						<option>nate.com</option>
@@ -143,24 +183,26 @@
 					</select>
 				</td>
 			</tr>
-			<tr>
-				<td id="title">휴대전화</td>
+			<tr class="form-group">
 				<td>
-					<input type="text" name="phone">
+					<input type="text" class="form-control" placeholder="휴대전화번호"
+						name="phone">
 				</td>
 			</tr>
-			<tr>
-				<td id="title">주소</td>
+			<tr class="form-group">
 				<td>
-					<input type="text" name="addr" size="50">
+					<input type="text" class="form-control" placeholder="주소"
+						name="addr" size="50">
 				</td>
 			</tr>
 		</tbody>
 	</table>
 	<br>
-	<input type="button" value="가입하기" onclick="joinOk(this.form)">
-	<input type="reset" value="취소">
-	<input type="button" value="메인화면" onclick="main(this.form)">
+	<input type="button" class="btn btn-secondary mb-2"
+		value="가입하기" onclick="joinOk(this.form)">
+	<input type="reset" class="btn btn-secondary mb-2" value="취소">
+	<input type="button" class="btn btn-secondary mb-2"
+		value="메인화면" onclick="main(this.form)">
 	<input type="hidden" name="joinchk" value="chk">
 </form>
 </div>

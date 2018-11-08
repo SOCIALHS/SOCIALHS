@@ -15,11 +15,24 @@
 
 <meta charset="UTF-8">
 <title>회원가입 완료</title>
+<style>
+	#joinok {
+		padding: 150px;
+	
+	}
+	a { color: black; }
+	a:hover {
+		text-decoration: underline;
+		color: orangered;
+	}
+
+
+</style>
 </head>
 <body>
 
 <!-- jumbotron -->
-<div class="jumbotron jumbotron-fluid">
+<div >
 	<div id="joinok" class="container text-center">
 	<% session.getAttribute("joinInfo"); %>
 		<h2><b>회원가입이 완료되었습니다.</b></h2>
@@ -31,7 +44,7 @@
 		<form method="post">
 			<input type="hidden" name="id" value="${memberVO.getId() }">
 		</form>
-		<a href="index.jsp">home</a>
+		<a href="index.jsp">메인화면으로 가기</a>
 	</div>
 	
 </div>
