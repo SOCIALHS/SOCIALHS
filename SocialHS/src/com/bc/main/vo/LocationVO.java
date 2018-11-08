@@ -9,7 +9,7 @@ public class LocationVO {
 
 	@Override
 	public String toString() {
-		return "LocationVO [L_Idx=" + L_Idx + ", L_Name=" + L_Name + "]";
+		return "LocationVO [L_Idx=" + L_Idx + " , L_Name=" + L_Name + "]";
 	}
 
 	public String getL_Idx() {

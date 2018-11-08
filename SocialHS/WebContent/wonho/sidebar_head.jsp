@@ -12,6 +12,11 @@
 	pageContext.setAttribute("lo_list", lo_list);
 	pageContext.setAttribute("listAll", listAll);
 	
+	System.out.println("lo_list : " + lo_list);
+	System.out.println("sub_list : " + sub_list);
+	System.out.println("listAll : " + listAll);
+	System.out.println("listSubAll : " + listSubAll);
+	
 	String[] num = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"};
 	pageContext.setAttribute("num", num);
 %>
@@ -22,7 +27,7 @@
 
 	$(function(){
 		var l_idx = "${lo_list}";
-		var sub = l_idx.substr(19,1);
+		var sub = l_idx.substr(19,2);
 		begin(num[sub-1]);
 	})	
 	
