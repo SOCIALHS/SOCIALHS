@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<c:forEach var="list" items="${hobbyList }">
+	
+	
+<div class="empty"></div>
+<div>
+	<a href="HobbyController?type=write">글작성</a>
+</div>
+<c:forEach var="list" items="${MainList }">
 	<div class="card text-center my-2 mx-2" style="width: 23%;">
 		<div class="card-header bg-light">${list.bbs_name }</div>
 		<div class="card-body">
