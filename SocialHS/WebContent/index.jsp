@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-<<<<<<< HEAD
    pageEncoding="UTF-8"%>
 <%
    if (session.getAttribute("memberVO") == null) {
@@ -11,8 +10,7 @@
 <%@ include file="head.jsp" %>
 <% 
    }
-=======
-	pageEncoding="UTF-8"%>
+%>
 <%
 	if (session.getAttribute("memberVO") == null) {
 %>
@@ -23,7 +21,6 @@
 <%@ include file="head.jsp" %>
 <% 
 	}
->>>>>>> refs/remotes/origin/master
 %>
     <title>Social Hobby & Study</title>
     <!-- head 태그 -->
@@ -42,7 +39,6 @@
 %>
 <!-- body 태그 -->
 
-<<<<<<< HEAD
    <!-- jumbotron -->
    <div class="jumbotron jumbotron-fluid">
       <div class="container text-center">
@@ -70,7 +66,6 @@
          </div>
       </div>
    </div>
-=======
 	<!-- jumbotron -->
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container text-center">
@@ -98,8 +93,5 @@
 			</div>
 		</div>
 	</div>
->>>>>>> refs/remotes/origin/master
-
-
 
 <%@ include file="jieun/footer.jsp" %>
