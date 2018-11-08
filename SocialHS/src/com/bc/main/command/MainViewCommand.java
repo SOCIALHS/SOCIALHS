@@ -1,4 +1,4 @@
-package com.bc.hobby.command;
+package com.bc.main.command;
 
 import java.util.List;
 
@@ -13,18 +13,20 @@ import com.bc.hobby.vo.HobbyBoardVO;
 import com.bc.share.command.Command;
 
 
-public class HobbyWriteCommand implements Command {
+public class MainViewCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		System.out.println("check write");
+		System.out.println("check MainViewCommand");
 		String bb_idx = request.getParameter("bb_idx");
 		
 		System.out.println("bb_idx : "+bb_idx);
-		HobbyBoardVO hbvo = HobbyBoardDAO.getOne(bb_idx);
-		session.setAttribute("hbvo", hbvo);
+		HobbyBoardVO viewVO = HobbyBoardDAO.getViewVo(bb_idx);
+		System.out.println("viewVO"+viewVO);
+		//이것도 main으로 공용으로 사용함 getOne은 어차피 bb_idx로 구분하기 때문
+		session.setAttribute("viewVO", viewVO);
 		return "view.jsp";
 	}
 

@@ -24,7 +24,10 @@
 	
 %>
 
-	<jsp:include page="../head.jsp"></jsp:include>
+<!DOCTYPE html>
+<html>
+<head>
+	<jsp:include page="../jieun/loginheader.jsp"></jsp:include>
 
 	<!-- Required meta tags -->
     <meta charset="utf-8">
@@ -36,57 +39,54 @@
 
 <meta charset="UTF-8">
 <title>마이 페이지</title>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <style>
 	#infohead {
 		text-align: left;
 		width: 800px; margin: auto;
 	}
-	#infohead a { color: black; }
-	#infohead a:hover {
+	
+	a { color: black; }
+	a:hover {
 		text-decoration: underline;
 		color: orangered;
 	}
+	
 	#mypage table {
 		/* border: 1px lightgray solid;
 		border-collapse: collapse; */
 		width: 800px; margin: auto; padding: 50px;
-		
 	}
-	/* th, td {
-		border: 1px lightgray solid;
-		border-collapse: collapse;
-	} */
+	
 	#mypage .center { text-align: center; }
 	#mypage .right { text-align: right; }
 
 	/* 탭 스타일 */
-	.tablink {
-		
+	ul.tab {
+		width: 800px; margin: auto;
 		float: left;
-		border: none;
-		outline: none;
-		cursor: pointer;
-		width: 20%; margin: auto;
-		background-color: black;
-		color: white;
+		list-style: none;
 	}
-	.tablink:hover {
+	ul.tab li {
+		background-color: none;
+		color: black;
+		display: inline-block;
+		cursor: pointer;
+	}
+	
+	ul.tab li.current {
 		text-decoration: underline;
+		color: orangered;
 	}
 	
 	.tabcontent {
-		color: black;
+		display: none;
 		width: 800px; margin: auto;
-		border: 1px solid silver;
-		border-collapse: collapse;
 		
 	}
-	#btn {
-		width: 800px; margin: auto;
+	.tabcontent.current {
+		display: inherit;
 	}
-	
-	
-	
 	
 </style>
 <script>
@@ -112,9 +112,23 @@
 	}
 	
 </script>
-</head>
+<script type="text/javascript">
+	//내가 쓴 게시글 / 댓글 탭 
+	$(document).ready(function() {
+		$('ul.tab li').click(function() {
+			var tabid = $(this).attr('data-tab');
+			
+			$('ul.tab li').removeClass('current');
+			$('.tabcontent').removeClass('current');
+			
+			$(this).addClass('current');
+			$("#"+tabid).addClass('current');
+		})
+	})
+</script>
 
-	<jsp:include page="../jieun/loginheader.jsp"></jsp:include>
+</head>
+<body>
 
 <!-- jumbotron -->
 <div id="mypage"
@@ -160,16 +174,17 @@
 				</tr>
 			</tbody>
 		</table>
-		
+	</form>	
 		<%-- 최신 글 목록/댓글 목록 보이기(제일 위에 글/댓글 5개만) --%>
 		<%-- 내가 쓴 게시글 / 내가 쓴 댓글 /  카페 활동 알림 --%>
-		<div id="btn">
-			<button class="tablink" onclick="openPage('allPage', this, 'white')">내가 쓴 게시글</button>
-			<button class="tablink" onclick="openPage('allComment', this, 'white')">내가 쓴 댓글</button>
+		<div>
+			<ul class="tab">
+				<li class="tablink current" data-tab="allPage">내가 쓴 게시글</li>
+				<li class="tablink" data-tab="allComment">내가 쓴 댓글</li>
+			</ul>
 		</div>
-		<br>
-	
-		<div id="allPage">
+		
+		<div id="allPage" class="tabcontent current">
 			<table class="table my-2 mx-auto">
 				<thead >
 					<tr>
@@ -200,47 +215,55 @@
 						</tr>
 					</c:if>
 			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="5" class="right"><a href=""><b>더보기&gt;</b></a></td>
+				<tr>
+			</tfoot>
 			</table>
 		</div>
 		
 		
 		<%-- 댓글 --%>
-		<div id="allComment">
+		<div id="allComment" class="tabcontent">
 			<table class="table my-2 mx-auto">
+				<thead>
+					<tr>
+						<th>작성자</th>
+						<th>댓글단 날짜</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>댓글내용</td>
+						<td>글제목 </td>
+					</tr>
+				</tbody>
 				<tr>
 					<th colspan="5">등록된 댓글이 없습니다.</th>
 					
 				</tr>
+				<tfoot>
+					<tr>
+						<td colspan="5" class="right"><a href=""><b>더보기&gt;</b></a></td>
+					<tr>
+				</tfoot>
 			
 			</table>
 		
 		</div>
 		
-	</form>
 	</div>
 </div>
-<script>
-	function openPage(pageName,elmnt,color) {
-		var i, tabcontent, tablinks;
-		tabcontent = document.getElementsByClassName("tabcontent");
-		for (i=0; i<tabcontent.length; i++) {
-			tabcontent[i].style.display = "none";
-		}
-		
-		tablinks = document.getElementsByClassName("tablink");
-		for (i=0; i<tablinks.length; i++) {
-			tablinks[i].style.backgroundColor ="";
-		}
-		
-		document.getElementById(pageName).style.display = "block";
-		elmnt.style.backgroundColor = color;
-	}
-	document.getElementById("defaultOpen").click();
 
-
-
-</script>
-
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

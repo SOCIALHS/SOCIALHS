@@ -27,6 +27,11 @@
 			where bb_idx = #{bb_idx}
 	</select>
 	
+	<select id="get_ViewVO" resultType="com.bc.hobby.vo.HobbyBoardVO"
+		parameterType="String">
+		select * from b_board a, bbs_code b  where a.bbs_idx = b.bbs_idx and a.bb_idx = #{bb_idx}
+	</select>
+	
 	
 	
 </mapper>  

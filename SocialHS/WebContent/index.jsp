@@ -1,16 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	if (session.getAttribute("memberVO") == null) {
-%>
-<%@ include file="jieun/header_head.jsp" %>
-<%
-	} else {
-%>
-<%@ include file="head.jsp" %>
-<% 
-	}
-%>
+
+
+<!doctype html>
+
+<body> 
+<head>
+<title>Social Hobby & Study</title>
+
+<jsp:include page="head.jsp"></jsp:include>
     <title>Social Hobby & Study</title>
     <!-- head 태그 -->
 
@@ -18,15 +16,16 @@
 <%
 	if (session.getAttribute("memberVO") == null) {
 %>
-<%@ include file="jieun/header.jsp" %>
+	<jsp:include page="jieun/header.jsp"></jsp:include>
 <%
 	} else {
 %>
-<%@ include file="jieun/loginheader.jsp" %>
+	<jsp:include page="jieun/loginheader.jsp"></jsp:include>
 <% 
 	}
 %>
 <!-- body 태그 -->
+
 
 	<!-- jumbotron -->
 	<div class="jumbotron jumbotron-fluid">
@@ -55,7 +54,8 @@
 			</div>
 		</div>
 	</div>
+	</div>
 
 
 
-<%@ include file="jieun/footer.jsp" %>
+	<jsp:include page="jieun/footer.jsp"></jsp:include>

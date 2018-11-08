@@ -3,7 +3,7 @@ package com.bc.hobby.vo;
 public class HobbyBoardVO {
 	private String bb_idx, id, title, content, file_name,
 				regdate, hit, req_member, cur_member, rp,
-				chk, l_idx, bbs_idx, category, good,
+				chk, l_idx, bbs_idx, hs, good,
 				bad, latitude, longitude, time, place, sl_idx;
 	
 	private String bbs_name;
@@ -120,12 +120,12 @@ public class HobbyBoardVO {
 		this.bbs_idx = bbs_idx;
 	}
 
-	public String getCategory() {
-		return category;
+	public String geths() {
+		return hs;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
+	public void seths(String hs) {
+		this.hs = hs;
 	}
 
 	public String getGood() {
@@ -189,7 +189,7 @@ public class HobbyBoardVO {
 		return "HobbyBoardVO [bb_idx=" + bb_idx + ", id=" + id + ", title=" + title + ", content=" + content
 				+ ", file_name=" + file_name + ", regdate=" + regdate + ", hit=" + hit + ", req_member=" + req_member
 				+ ", cur_member=" + cur_member + ", rp=" + rp + ", chk=" + chk + ", l_idx=" + l_idx + ", bbs_idx="
-				+ bbs_idx + ", category=" + category + ", good=" + good + ", bad=" + bad + ", latitude=" + latitude
+				+ bbs_idx + ", hs=" + hs + ", good=" + good + ", bad=" + bad + ", latitude=" + latitude
 				+ ", longitude=" + longitude + ", time=" + time + ", place=" + place + ", sl_idx=" + sl_idx
 				+ ", bbs_name=" + bbs_name + "]";
 	}

@@ -64,7 +64,7 @@
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td>${BoardVO.getContent() }</td>
+			<td><textarea name="content " row="5" cols="45">${BoardVO.getContent() }</textarea></td>
 		</tr>
 		<tr>
 			<th>good</th>
@@ -88,7 +88,43 @@
 		</table>
 	</form>
 </div>
-
+<div>
+<hr>
+	<%-- 댓글 입력 --%>
+	<form method="post" action="cWriteCommand.jsp">
+		<p>댓글번호: ${CommentVO.getBb_idx() }</p>
+		<p>작성자 : ${CommentVO.getId() }</p>
+		<p>내용 : <textarea name="content " row="4" cols="55"></textarea></p>
+		<p>작성일 : ${CommentVO.getRegdate() }</p>
+		<input type="submit" value="댓글 저장">
+	
+		<input type="hidden" name="bb_idx" value="${bbvo.bb_idx }">
+		<%-- <input type="hidden" name="cPage" value="${cPage }" --%>
+	</form>
+	
+	<hr>
+	
+	댓글 목록
+	
+	<hr>
+	
+<%-- 댓글 출력 --%>
+<c:forEach var="CommentVO" items="${cList }">
+<div class="comment">
+	<form action="cDelete.jsp" method="post">
+		<p>댓글번호 : ${CommentVO.bbc_idx }</p>
+		<p>작성자 : ${CommentVO.id }</p>
+		<p>내용 : ${CommentVO.content }</p>
+		<p>작성일 : ${CommentVO.regdate}</p>
+		<input type="sumbit" value="삭제">
+		
+		<input type="hidden" name="bbc_idx" value="${CommentVO.bbc_idx }">
+		<input type="hidden" name="content" value="${CommentVO.content }">
+		<input type="hidden" name="bb_idx" value="${CommentVO.bb_idx }">
+	</form>
+</div>
+</c:forEach>
+	
 </body>
 </html>
 

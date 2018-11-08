@@ -24,4 +24,6 @@ public class StudyDAO {
 		System.out.println(list);
 		return list;
 	}
+	
+	
 }

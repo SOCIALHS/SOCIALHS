@@ -66,5 +66,18 @@
 		SELECT * FROM B_BOARD WHERE ID = #{id}
 	</select>
 	
+	<!-- (mypage) 내가 쓴 전체 댓글 조회 -->
+	<select id="myCommList" resultType="com.bc.main.vo.CommentVO"
+	parameterType="Map">
+		SELECT *
+		FROM (SELECT ROWNUM R_NUM, T.*
+				FROM (SELECT B.TITLE, C.*
+						FROM B_BOARD B
+						INNER JOIN BB_COMMENT C ON B.BB_IDX = C.BB_IDX
+						WHERE C.ID = #{id}
+						ORDER BY C.REGDATE DESC) T)
+				WHERE R_NUM BETWEEN #{begin} AND #{end}
+	</select>
+	
 	
 </mapper>  

@@ -4,25 +4,29 @@
 <%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-	List<HobbyBoardVO> hobbyList = (List<HobbyBoardVO>) request.getAttribute("HobbyList");
-	System.out.println("hobbyList check : " + hobbyList);
-	pageContext.setAttribute("hobbyList", hobbyList);
+	List<HobbyBoardVO> mainList = (List<HobbyBoardVO>) request.getAttribute("MainList");
+	System.out.println("mainList check : " + mainList);
+	pageContext.setAttribute("mainList", mainList);
 %>
-<meta charset="utf-8">
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 
 <style type="text/css">
-
 	.positionTop{
 		top : 50px;
-		display: inline-block;
 	}
 	.box_width{
 		width : 300px;
 	}
 </style>
+</head>
+<body>
 	<div class="empty">
 	</div>
-	<c:forEach var="list" items="${hobbyList }">
+	<div><a href = "HobbyController?type=write">글작성</a></div>
+	<c:forEach var="list" items="${mainList }">
 		<div class="card text-center my-2 mx-2 positionTop box_width" >
 			<div class="card-header">${list.bbs_name }</div>
 			<div class="card-body">
@@ -34,7 +38,7 @@
 				<hr>
 				<p class="card-text">${list.place }</p>
 				<p class="card-text">${list.time }</p>
-				<a href="HobbyController?type=write&bb_idx=${list.bb_idx }" class="btn btn-primary">상세보기</a>
+				<a href="HobbyController?type=view&bb_idx=${list.bb_idx }" class="btn btn-primary">상세보기</a>
 			</div>
 			<div class="card-footer text-muted">2 days ago</div>
 		</div>

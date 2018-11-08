@@ -28,3 +28,4 @@ public class LocationVO {
 		L_Name = l_Name;
 	} 
 }
+
