@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-	
-<div class="empty"></div>
 
+<div class="empty"></div>
 <c:forEach var="list" items="${MainList }">
-	<div class="card text-center my-2 mx-2" style="width: 23%;">
-		<div class="card-header bg-light">${list.bbs_name }</div>
+	<div class="card text-center my-2 mx-2 positionTop box_width" style="width: 23%;">
+		<div class="card-header">${list.bbs_name }</div>
 		<div class="card-body">
 			<h5 class="card-title">${list.title }</h5>
 			<p class="card-text">${list.id }</p>
