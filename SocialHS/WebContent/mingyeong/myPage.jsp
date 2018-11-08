@@ -22,7 +22,7 @@
 
 	List<BoardVO> list = memberDAO.getMypageList(map);
 	pageContext.setAttribute("list", list);
-	
+
 	List<CommentVO> commList = memberDAO.getMypageCommList(map);
 	pageContext.setAttribute("commList", commList);
 	

@@ -72,13 +72,19 @@ ul.tab li.current {
 }
 </style>
 <script>
-	function delOk() {
+	function delOk(idx) {
 		var chk = confirm("쪽지를 삭제하시겠습니까?");
 		if (chk == true) {
-			location.href = 'MessengerController?type=delete'
+			location.href = 'MessengerController?type=delete&ms_idx='+idx;
 		} else {
 			return false;
 		}
+	}
+	
+	function detailGo(idx) {
+		alert(idx);
+		$("#checkDiv"+idx).html('&#10004;');
+		
 	}
 </script>
 </head>
@@ -160,19 +166,19 @@ ul.tab li.current {
 								<td><span class="badge badge-secondary">${list.send_id }</span></td>
 								<td>
 								<a href="#"
-									onClick="window.open('MessengerController?type=oneList&ms_idx=${list.ms_idx }&chk=${list.chk}','쪽지창', 'width=500px, height=300px')">
+									onClick="detailGo(${list.ms_idx }); window.open('MessengerController?type=oneList&ms_idx=${list.ms_idx}&chk=${list.chk }','쪽지창', 'width=500px, height=300px')">
 										${list.title }
 								</a>
 								</td>
 								<td>${list.regdate.substring(0,10) }</td>
 								<c:if test="${list.chk == 1 }">
-									<td></td>
+									<td id="checkDiv${list.ms_idx }"></td>
 								</c:if>
 								<c:if test="${list.chk == 0 }">
 									<td>&#10004;</td>
 								</c:if>
 								<td><button type="button" class="btn btn-outline-danger"
-										onClick="delOk()">삭제</button></td>
+										onClick="delOk(${list.ms_idx})">삭제</button></td>
 
 							</tr>
 						</c:forEach>

@@ -51,7 +51,6 @@ public class MessengerController extends HttpServlet {
 			comm = new MsnInsCommand();
 		}
 
-		System.out.println("여기 실행댐");
 		path = comm.exec(request, response);
 		
 		request.getRequestDispatcher(path).forward(request, response);

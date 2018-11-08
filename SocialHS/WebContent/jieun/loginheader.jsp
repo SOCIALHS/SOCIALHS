@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<body>
+<body class="bg-light text-dark">
 
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" style="color:aliceblue;" href="/SocialHS">SHAS (Social Hobby & Study)</a>

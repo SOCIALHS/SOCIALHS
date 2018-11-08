@@ -40,7 +40,7 @@ public class MessengerDAO {
 	}
 	
 	public static int insertMsg(MessengerVO vo) {
-		return getSql().insert("insertMsg", vo);
+		return getSql().insert("socialhs.insertMsg", vo);
 	}
 	
 }
