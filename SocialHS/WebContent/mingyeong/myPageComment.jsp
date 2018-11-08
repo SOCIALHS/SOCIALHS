@@ -104,6 +104,7 @@
 	}
 	#mypage .center { text-align: center; }
 	#mypage .right { text-align: right; }
+	#mypage .left { text-align: left; }
 	
 	/* 페이징 표시 시작 */
 	.paging {
@@ -165,7 +166,7 @@
 						</tr>
 						<tr>
 							<td class="left">${cvo.getContent() }</td>
-							<td class="left">${cvo.getTitle() }</td>
+							<td class="center">${cvo.getTitle() }</td>
 						</tr>
 					</c:forEach>
 				</c:if>

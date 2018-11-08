@@ -22,9 +22,10 @@
 
 	List<BoardVO> list = memberDAO.getMypageList(map);
 	pageContext.setAttribute("list", list);
+
 	List<CommentVO> commList = memberDAO.getMypageCommList(map);
 	pageContext.setAttribute("commList", commList);
-
+	
 %>
 
 <%@ include file="../head.jsp" %>
@@ -168,10 +169,11 @@
 	</form>	
 		<%-- 최신 글 목록/댓글 목록 보이기(제일 위에 글/댓글 5개만) --%>
 		<%-- 내가 쓴 게시글 / 내가 쓴 댓글 /  카페 활동 알림 --%>
-		<div>
-			<ul class="tab">
-				<li class="tablink current" data-tab="allPage">내가 쓴 게시글</li>
-				<li class="tablink" data-tab="allComment">내가 쓴 댓글</li>
+		<div id ="infohead">
+			<ul class="tab nav mx-auto my-2" >
+				<li class="tablink current nav-item" data-tab="allPage">내가 쓴 게시글</li>
+				<span>&nbsp;&nbsp;</span>
+				<li class="tablink nav-item" data-tab="allComment">내가 쓴 댓글</li>
 			</ul>
 		</div>
 		

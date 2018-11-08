@@ -72,13 +72,19 @@ ul.tab li.current {
 }
 </style>
 <script>
-	function delOk() {
+	function delOk(idx) {
 		var chk = confirm("쪽지를 삭제하시겠습니까?");
 		if (chk == true) {
-			location.href = 'MessengerController?type=delete'
+			location.href = 'MessengerController?type=delete&ms_idx='+idx;
 		} else {
 			return false;
 		}
+	}
+	
+	function detailGo(idx) {
+		alert(idx);
+		$("#checkDiv"+idx).html('&#10004;');
+		
 	}
 </script>
 </head>
@@ -131,10 +137,11 @@ ul.tab li.current {
 		</form>
 		<%-- 최신 글 목록/댓글 목록 보이기(제일 위에 글/댓글 5개만) --%>
 		<%-- 내가 쓴 게시글 / 내가 쓴 댓글 /  카페 활동 알림 --%>
-		<div>
-			<ul class="tab">
-				<li class="tablink current" data-tab="allPage">받은 쪽지 함</li>
-				<li class="tablink" data-tab="allComment"
+		<div id ="infohead">
+			<ul class="tab nav mx-auto my-2">
+				<li class="tablink current nav-item" data-tab="allPage">받은 쪽지 함</li>
+				<span>&nbsp;&nbsp;</span>
+				<li class="tablink nav-item" data-tab="allComment"
 					onclick="location.href='/SocialHS/MessengerController?type=write'">쪽지
 					보내기</li>
 			</ul>
@@ -159,19 +166,19 @@ ul.tab li.current {
 								<td><span class="badge badge-secondary">${list.send_id }</span></td>
 								<td>
 								<a href="#"
-									onClick="window.open('MessengerController?type=oneList&ms_idx=${list.ms_idx }&chk=${list.chk}','쪽지창', 'width=500px, height=300px')">
+									onClick="detailGo(${list.ms_idx }); window.open('MessengerController?type=oneList&ms_idx=${list.ms_idx}&chk=${list.chk }','쪽지창', 'width=500px, height=300px')">
 										${list.title }
 								</a>
 								</td>
 								<td>${list.regdate.substring(0,10) }</td>
 								<c:if test="${list.chk == 1 }">
-									<td></td>
+									<td id="checkDiv${list.ms_idx }"></td>
 								</c:if>
 								<c:if test="${list.chk == 0 }">
 									<td>&#10004;</td>
 								</c:if>
 								<td><button type="button" class="btn btn-outline-danger"
-										onClick="delOk()">삭제</button></td>
+										onClick="delOk(${list.ms_idx})">삭제</button></td>
 
 							</tr>
 						</c:forEach>

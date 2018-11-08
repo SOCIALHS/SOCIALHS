@@ -97,6 +97,103 @@
 <div id="join" style="width: 600px; padding: 20px;" class="mx-auto my-2 bg-light">
 	<h1 class="display-3 text-center mb-5">회원가입</h1>
 
+<<<<<<< HEAD
+<form method="post">
+	<table>
+		<tbody>
+			<tr class="form-inline">
+				<td>
+					<input type="text" class="form-control mb-2 mr-sm-2"
+						id="id" name="id" maxlength="50" placeholder="아이디">
+					<input type="button" class="btn btn-secondary mb-2"
+						value="중복확인" onclick="idchk(this.form)">
+				</td>
+			</tr>
+			<tr class="form-inline">
+				<td>
+					<input type="password" class="form-control mb-2 mr-sm-2"
+						name="pw" maxlength="50" placeholder="비밀번호">
+				</td>
+				<td>
+					<input type="password" class="form-control mb-2 mr-sm-2"
+						name="pwchk" maxlength="50" placeholder="비밀번호 확인">
+				</td>
+			</tr>
+			<tr class="form-group">
+				<td>
+					<input type="text" class="form-control"
+						name="name" maxlength="50" placeholder="이름">
+				</td>
+			</tr>
+			<tr class="form-group">
+				<td>
+					<input type="radio" name="gender" value="남" checked>남
+					<input type="radio" name="gender" value="여">여
+				</td>
+			</tr>
+			<tr class="form-inline">
+				<td>
+					<input type="text" name="birthday"
+						class="form-control mb-2 mr-sm-2"
+						maxlength="4" placeholder="년(4자)" size="6">
+					
+					<select name="birthmm" class="custom-select mr-sm-2 mb-2"
+						id="inlineFormCustomSelect">
+						<option value="">월</option>
+						<option value="01">1</option>
+						<option value="02">2</option>
+						<option value="03">3</option>
+						<option value="04">4</option>
+						<option value="05">5</option>
+						<option value="06">6</option>
+						<option value="07">7</option>
+						<option value="08">8</option>
+						<option value="09">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+					</select>
+					<input type="text" name="birthdd"
+						class="form-control mb-2 mr-sm-2"
+						maxlength="2" placeholder="일" size="4">
+				</td>
+			</tr>
+			<tr class="form-inline">
+				<td>
+					<input type="text"
+						class="form-control mb-2 mr-sm-2" placeholder="이메일"
+						name="email" maxlength="50">&nbsp;@&nbsp;
+					<select name="com" class="custom-select mr-sm-2 mb-2">
+						<option>naver.com</option>
+						<option>daum.com</option>
+						<option>nate.com</option>
+						<option>gmail.com</option>
+					</select>
+				</td>
+			</tr>
+			<tr class="form-group">
+				<td>
+					<input type="text" class="form-control mb-2 mr-sm-2" placeholder="휴대전화번호"
+						name="phone">
+				</td>
+			</tr>
+			<tr class="form-group">
+				<td>
+					<input type="text" class="form-control mb-2 mr-sm-2" placeholder="주소"
+						name="addr" size="50">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<input type="button" class="btn btn-secondary mb-2"
+		value="가입하기" onclick="joinOk(this.form)">
+	<input type="reset" class="btn btn-secondary mb-2" value="취소">
+	<input type="button" class="btn btn-secondary mb-2"
+		value="메인화면" onclick="main(this.form)">
+	<input type="hidden" name="joinchk" value="chk">
+</form>
+=======
 	<form method="post">
 		<div class="row mb-4">
 			<div class="col-9">
@@ -202,6 +299,7 @@
 			</div>
 		</div>
 	</form>
+>>>>>>> refs/remotes/origin/master
 </div>
 
 
