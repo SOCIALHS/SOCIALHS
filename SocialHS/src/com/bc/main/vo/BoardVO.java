@@ -2,8 +2,12 @@ package com.bc.main.vo;
 
 public class BoardVO {
 	
-	private int bb_idx, hit, req_member, cur_member, chk, l_idx, bbs_idx, good, bad, latitude, longitude;
-	private String id, title, content, file_name, regdate, rp, category;
+	private int bb_idx, hit, req_member, cur_member, chk, l_idx, bbs_idx, good, bad, latitude, longitude, sl_idx;
+	private String id, title, content, file_name, regdate, rp, hs, time, place;
+	
+	
+	
+	
 	public int getBb_idx() {
 		return bb_idx;
 	}
@@ -58,6 +62,24 @@ public class BoardVO {
 	public void setBad(int bad) {
 		this.bad = bad;
 	}
+	public int getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(int latitude) {
+		this.latitude = latitude;
+	}
+	public int getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(int longitude) {
+		this.longitude = longitude;
+	}
+	public int getSl_idx() {
+		return sl_idx;
+	}
+	public void setSl_idx(int sl_idx) {
+		this.sl_idx = sl_idx;
+	}
 	public String getId() {
 		return id;
 	}
@@ -94,35 +116,33 @@ public class BoardVO {
 	public void setRp(String rp) {
 		this.rp = rp;
 	}
-	public String getCategory() {
-		return category;
+	public String getHs() {
+		return hs;
 	}
-	public void setCategory(String category) {
-		this.category = category;
+	public void setHs(String hs) {
+		this.hs = hs;
 	}
-	public int getLatitude() {
-		return latitude;
+	public String getTime() {
+		return time;
 	}
-	public void setLatitude(int latitude) {
-		this.latitude = latitude;
+	public void setTime(String time) {
+		this.time = time;
 	}
-	public int getLongitude() {
-		return longitude;
+	public String getPlace() {
+		return place;
 	}
-	public void setLongitude(int longitude) {
-		this.longitude = longitude;
+	public void setPlace(String place) {
+		this.place = place;
 	}
+	
 	@Override
 	public String toString() {
 		return "BoardVO [bb_idx=" + bb_idx + ", hit=" + hit + ", req_member=" + req_member + ", cur_member="
 				+ cur_member + ", chk=" + chk + ", l_idx=" + l_idx + ", bbs_idx=" + bbs_idx + ", good=" + good
-				+ ", bad=" + bad + ", latitude=" + latitude + ", longitude=" + longitude + ", id=" + id + ", title="
-				+ title + ", content=" + content + ", file_name=" + file_name + ", regdate=" + regdate + ", rp=" + rp
-				+ ", category=" + category + "]";
+				+ ", bad=" + bad + ", latitude=" + latitude + ", longitude=" + longitude + ", sl_idx=" + sl_idx
+				+ ", id=" + id + ", title=" + title + ", content=" + content + ", file_name=" + file_name + ", regdate="
+				+ regdate + ", rp=" + rp + ", hs=" + hs + ", time=" + time + ", place=" + place + "]";
 	}
-	
-	
-	
 	
 	
 	

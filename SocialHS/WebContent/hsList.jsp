@@ -1,11 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<meta charset="utf-8">
 <script>
 $(document).ready(function(){
 	
@@ -42,7 +36,7 @@ $(document).ready(function(){
 		
 });
 </script>
-<style>.
+<style>
 
 	ul { list-style-type: none;}
 	li {
@@ -65,22 +59,3 @@ $(document).ready(function(){
 		border: 2px solid black;	
 	}
 </style>
-
-<h1>취미 리스트</h1>
-</head>
-<body>
-	
-	<hr>
-	<div id="outBox">
-	<ul id="hoList">
-	
-	</ul>
-	</div>
-	<hr>
-	
-		
-	
-		
-	
-</body>
-</html>

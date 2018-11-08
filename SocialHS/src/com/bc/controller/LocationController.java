@@ -19,6 +19,10 @@ import com.bc.main.vo.SubLocationVO;
 import com.bc.share.command.Command;
 import com.bc.study.command.CategoryCommand;
 
+
+
+
+
 @WebServlet("/LocationController")
 public class LocationController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -47,6 +51,9 @@ public class LocationController extends HttpServlet {
 		session.setAttribute("locationAll", listAll);
 		List<SubLocationVO> listSubAll2 = (List<SubLocationVO>)SubLocationDAO.getSubAll();
 		session.setAttribute("listSubAll2", listSubAll2);
+		
+		List<SubLocationVO> listSubAll = SubLocationDAO.getSubAll();
+		session.setAttribute("listSubAll", listSubAll);
 		
 		String path = null;
 		System.out.println("hs : "+hs);

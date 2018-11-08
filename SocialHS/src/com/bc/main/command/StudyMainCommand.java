@@ -41,4 +41,5 @@ public class StudyMainCommand implements Command {
 		return "StudyMain.jsp";
 	}
 
+
 }

@@ -1,6 +1,7 @@
 package com.bc.member;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -18,22 +19,10 @@ memberVO vo = new memberVO();
 		return ss;
 	}
 	
-	//전체 데이타 조회
-	public static List<memberVO> getmemberList() {
-		List<memberVO> list = getSql().selectList("memberlist");
-		return list;
-	}
-	//내가쓴 글 조회
-	public static List<BoardVO> getmyList(String id) {
-		List<BoardVO> mylist = getSql().selectList("mylist", id);
-		return mylist;
-	}
-	
 	//아이디 조회
 	public static memberVO selectId (String id) {
-		return getSql().selectOne("idchk", id);
+		return getSql().selectOne("memberdata.idchk", id);
 	}
-	
 	
 	//로그인시 아이디, 비밀번호 체크
 	public int loginCheck(String id, String pw) {
@@ -73,20 +62,46 @@ memberVO vo = new memberVO();
 	
 	//회원가입
 	public static int join(memberVO vo) {
-		return getSql().insert("join", vo);
+		return getSql().insert("memberdata.join", vo);
 	}
 	
 	//내 정보 수정 
 	public static int update(memberVO vo) {
-		return getSql().update("updateMyinfo", vo);
+		return getSql().update("memberdata.updateMyinfo", vo);
 		
 	}
 	
 	//회원탈퇴
 	public static int delete(String id) {
-		return getSql().delete("deleteMtinfo", id);
+		return getSql().delete("memberdata.deleteMtinfo", id);
 	}
 	
+	
+	
+	
+	
+	
+	//(mypage)전체 게시글 수 조회 (B_Board)
+	public int getTotalCount() {
+		int totalCount = getSql().selectOne("memberdata.mypagetotalCnt");
+		return totalCount;
+	}
+		
+	//(mypage)전체 게시글 조회 
+	public static List<BoardVO> getMypageList(Map<String, String> map) {
+		return getSql().selectList("memberdata.mylist", map);
+	}
+	
+		
+	//(mypage)내가 쓴 글 상세보기 
+	public static BoardVO selectOne(String id) {
+		return getSql().selectOne("memberdata.myWrite", id);
+	}
+	
+	//(mypage) 내가 쓴 게시글 조회(전체)
+	public static List<BoardVO> recentWritelist() {
+		return getSql().selectList("memberdata.recentWritelist");
+	}
 	
 	
 }

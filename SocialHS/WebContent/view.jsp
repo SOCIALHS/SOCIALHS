@@ -1,26 +1,42 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html>
-<head>
+
+<%
+	if (session.getAttribute("memberVO") == null) {
+%>
+<%@ include file="jieun/header_head.jsp"%>
+<%
+	} else {
+%>
+<%@ include file="head.jsp"%>
+<%
+	}
+%>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <!-- NaverMap API -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <title>°£´ÜÇÑ Áöµµ Ç¥½ÃÇÏ±â</title>
+    <title>ê°„ë‹¨í•œ ì§€ë„ í‘œì‹œí•˜ê¸°</title>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=5jEX8e7bvKVZGhXBRBn9&submodules=geocoder"></script>
-<!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-	crossorigin="anonymous">
+
 
 <title>${viewVO.title }</title>
 </head>
 
-<body>
+<%
+	if (session.getAttribute("memberVO") == null) {
+%>
+<%@ include file="jieun/header.jsp"%>
+<%
+	} else {
+%>
+<%@ include file="jieun/loginheader.jsp"%>
+<%
+	}
+%>
+<!-- <body>ìˆìŒ -->
 	<!-- Page Content -->
 	<div class="container">
 		
@@ -29,7 +45,7 @@
 			<!-- Post Content Column -->
 			<div class="col-lg">
 
-				<!-- Ä«Å×°í¸®                -->
+			<!-- ì¹´í…Œê³ ë¦¬                -->
 				<p>${viewVO.bbs_name }</p>
 
 				<hr>
@@ -50,7 +66,7 @@
 				<hr>
 
 				<!-- reg_member, cur_member                -->
-				<p>ÇöÀçÀÎ¿ø : ${viewVO.cur_member } / ¸ğÁıÀÎ¿ø : ${hbvo.req_member}</p>
+				<p>í˜„ì¬ì¸ì› : ${viewVO.cur_member } / ëª¨ì§‘ì¸ì› : ${hbvo.req_member}</p>
 
 				<hr>
 
@@ -168,21 +184,7 @@
 
 			</div>
 
-
-			<!-- Optional JavaScript -->
-			<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-				integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-				crossorigin="anonymous"></script>
-			<script
-				src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-				integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-				crossorigin="anonymous"></script>
-			<script
-				src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-				integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-				crossorigin="anonymous"></script>
-			<!-- naver map apiµî·Ï -->
+		<!-- naver map apië“±ë¡ -->
 			<script>
 			var latitude = ${viewVO.latitude};
 			var longitude = ${viewVO.longitude};
@@ -194,8 +196,8 @@
 				    mapTypeControl: true
 				};
 				
-			alert("À§µµ : "+latitude);
-			alert("°æµµ : "+longitude);
+			alert("ìœ„ë„ : "+latitude);
+			alert("ê²½ë„ : "+longitude);
 			var infoWindow = new naver.maps.InfoWindow({
 			    anchorSkew: true
 			});
@@ -207,7 +209,7 @@
 			    position: new naver.maps.LatLng(longitude, latitude),
 			    map: map
 			});
-			marker1.setTitle("host Àå¼Ò");		
+			marker1.setTitle("hostì¥ì†Œ");		
 				
 		</script>
 <div></div>  

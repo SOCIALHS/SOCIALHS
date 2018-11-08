@@ -3,7 +3,7 @@
 <body>
 
     <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" style="color:aliceblue;">SHAS (Social Hobby & Study)</a>
+        <a class="navbar-brand" style="color:aliceblue;" href="/SocialHS">SHAS (Social Hobby & Study)</a>
         <span class="text-light bg-dark ml-auto mx-2">
         	<b>${memberVO.id }</b>&nbsp;님 환영합니다.
         </span>
@@ -25,3 +25,4 @@
             </li>
         </ul>
     </nav>
+    <br><br><br>

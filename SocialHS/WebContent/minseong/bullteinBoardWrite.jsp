@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지 작성페이지</title>
+<title>공지 작성</title>
 <script>
 	function write_go(frm) {
 		frm.action = "BullteinController?type=bullteinWrite";
@@ -13,26 +14,38 @@
 </script>
 </head>
 <body>
-<h2>공지 작성페이지</h2>
-<form method="post">
-	<table border="1">
+
+<div>
+	<h2>게시물 작성</h2>
+	<hr>
+	<form method="post">
+		<table>
+		<tbody>
 			<tr>	
 				<th>제목</th>
 				<td><input type="text" name="title"></td>
 			</tr>
-			<tr>	
-				<th>내용</th>
-				<td><input type="text" name="content"></td>
+			
+			<tr>
+			<th>내용</th>
+				<td>
+					<textarea name="content" rows="5" cols="60"></textarea>
+				</td>
 			</tr>
+		</tbody>
+		<tfoot>
 			<tr>
 				<td colspan="2">
-					<input type="button" value="작성완료" onclick="write_go(this.form)">
-					<input type="reset" value="다시작성">
-					<input type="hidden" name="id" value="${memberid }">
-					<input type="hidden" name="chk" value="chk">
+					<input type="button" value="작성 완료" onclick="write_go(this.form)">
+					<input type="reset" value="초기화">
+					<!--  <input type="hidden" name="id" value="${memberid }"> -->
+					<input type="hidden" name="chk" value="1">
 				</td>
-				
-	</table>
+			</tr>
+		</tfoot>	
+		</table>
 	</form>
+</div>
+
 </body>
 </html>

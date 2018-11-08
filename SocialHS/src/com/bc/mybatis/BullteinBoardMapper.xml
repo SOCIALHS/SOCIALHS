@@ -6,26 +6,36 @@
 <!-- mapper 태그의 namespace 속성 필수 작성  -->  
 <mapper namespace="bulltein">
 	
-	<select id="BullteinList" resultType="com.bc.minseong.command.BullteinBoardVO">
-		SELECT * FROM B_BOARD ORDER BY B_IDX
+
+	<select id="BullteinList" resultType="com.bc.main.vo.BoardVO">
+		SELECT * FROM B_BOARD ORDER BY BB_IDX DESC
 	</select>
 	
-	<insert id="BullteinWrite" parameterType="com.bc.minseong.command.BullteinBoardVO">
-		INSERT INTO B_BOARD (BB_IDX, ID, TITLE, CONTENT, GOOD, BAD, L_IDX, BBS_IDX)
-					VALUES(BB_SEQ.NEXTVAL, test, #{title}, #{content}, 0, 0, 1, 301)
+	
+	
+	<select id="BullteinOne" resultType="com.bc.main.vo.BoardVO" parameterType="String">
+		SELECT * FROM B_BOARD WHERE BB_IDX = #{bb_idx}
+	</select>
+	
+	
+	
+	<insert id="BullteinWrite" parameterType="com.bc.main.vo.BoardVO">
+		 INSERT INTO B_BOARD (BB_IDX, ID, TITLE, CONTENT, L_IDX, BBS_IDX)
+					VALUES(BB_SEQ.NEXTVAL, 'test', #{title}, #{content}, 1, 301) 
 	</insert>
 	
-	<update id="update" parameterType="com.bc.minseong.command.BullteinBoardVO">
+	
+	
+	<update id="BullteinUpdate" parameterType="com.bc.main.vo.BoardVO">
 		UPDATE B_BOARD
-		   SET BB_IDX = #{bb_idx},
-		       ID = #{id},
-		       TITLE = #{title},
-		       CONTENT = #{content},
-		       GOOD = #{good},
-		       BAD = #{bad},
-		       REGDATE = SYSDATE
-		 WHERE BB_IDX = #{bb_idx}      
+		       SET TITLE = #{title},
+		         CONTENT = #{content}
+		 	WHERE BB_IDX = #{bb_idx}
 	</update>
+	
+	<delete id="BullteinDelete" parameterType="String">
+		DELETE FROM B_BOARD WHERE BB_IDX = #{bb_idx}
+	</delete>
 	
 </mapper>  
 
