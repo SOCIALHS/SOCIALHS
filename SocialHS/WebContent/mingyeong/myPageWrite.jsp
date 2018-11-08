@@ -1,3 +1,4 @@
+<%@page import="com.bc.member.memberVO"%>
 <%@page import="com.bc.member.memberDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Map"%>
@@ -14,10 +15,13 @@
 	Paging p = new Paging();
 	BoardVO bvo = new BoardVO();
 	memberDAO dao = new memberDAO();
-		
-	//1.전체 게시물 수
-	p.setTotalRecord(dao.getTotalCount());
-	p.setTotalPage(); 
+	
+	memberVO mvo = (memberVO)session.getAttribute("memberVO");
+	String id = mvo.getId();
+	
+	p.setTotalRecord(dao.getTotalCount(id));
+	p.setTotalPage(); //전체 페이지 수 구하기
+	
 	System.out.println("전체 게시글 수 : " + p.getTotalRecord());
 	System.out.println("전체 페이지 수 : " + p.getTotalPage());
 	
@@ -42,20 +46,23 @@
 	
 	if (p.getEndPage() > p.getTotalPage()) {
 		p.setEndPage(p.getTotalPage());
-	}
-
+	}	
+	
 %>
 <%
-	//5.현재 페이지 기준 게시글 가져오기 
+	//5.현재 페이지 기준 게시글 가져오기
 	Map<String, String> map = new HashMap<>();
-	map.put("begin", "p.getBegin()");
-	map.put("end", "p.getEnd()");
+	String beginNum = String.valueOf(p.getBegin());
+	String endNum = String.valueOf(p.getEnd());
 	
+	map.put("begin", beginNum);
+	map.put("end", endNum);
+	map.put("id", mvo.getId());
+
 	List<BoardVO> list = memberDAO.getMypageList(map);
 	pageContext.setAttribute("list", list);
 	pageContext.setAttribute("pvo", p);
 	pageContext.setAttribute("cPage", cPage);
-
 %>
 
 <!DOCTYPE html>
@@ -72,14 +79,15 @@
         crossorigin="anonymous">
 
 <meta charset="UTF-8">
-<title>마이 페이지</title>
+<title>마이 페이지(내가 쓴 게시글)</title>
 <style>
 	#infohead {
 		text-align: left;
 		width: 800px; margin: auto;
 	}
-	#infohead a { color: black; }
-	#infohead a:hover {
+	
+	a { color: black; }
+	a:hover {
 		text-decoration: underline;
 		color: orangered;
 	}
@@ -89,18 +97,8 @@
 		width: 800px; margin: auto; padding: 50px;
 		
 	}
-	/* th, td {
-		border: 1px lightgray solid;
-		border-collapse: collapse;
-	} */
 	#mypage .center { text-align: center; }
 	#mypage .right { text-align: right; }
-	
-	.clickTitle a { color: black; }
-	.clickTitle a:hover {
-		text-decoration: underline;
-		color: orangered;
-	}
 	
 	/* 페이징 표시 시작 */
 	.paging {
@@ -133,29 +131,7 @@
 
 	/* 페이징 표시 끝 */
 </style>
-<script>
-	function editInfo(frm) {
-		frm.action = "memberController?type=update";
-		frm.submit();
-		
-	}
-	function messengerGo(frm) {
-		frm.action = "MessengerController?type=msnList";
-		frm.submit();
-		
-	}
-	function deleteInfo(frm) {
-		if (confirm("회원 탈퇴를 하시겠습니까?") == true) {
-			
-			frm.action = "memberController?type=delete";
-			frm.submit();
-		} else {
-			return;
-		}
-		
-	}
-	
-</script>
+
 </head>
 
 <body>
@@ -165,46 +141,13 @@
 	class="container  text-black mx-auto mt-5 align-middle">
 	<div class="container text-center">
 	<ul id ="infohead" class="nav mx-auto my-2">
-		<li class="nav-item">내 정보&nbsp;|&nbsp;</li>
-		<li class="nav-item"><a href="">Q&A</a>&nbsp;|&nbsp;</li>
-		<li class="nav-item"><a href="index.jsp">home</a></li>
+		<li class="nav-item"><a href="MypageController?type=moreWrite&cPage=1">
+				<font color="orangered"><b>내가 쓴 게시글</b></font></a>&nbsp;|&nbsp;</li>
+		<li class="nav-item"><a href="MypageController?type=moreComment&cPage=1">내가 쓴 댓글</a>&nbsp;|&nbsp;</li>
+		<li class="nav-item"><a href="javascript:history.back()">뒤로가기</a></li>
 	</ul>
 	
 	<form method="post">
-		<table class="table my-2 mx-auto">
-			<thead class="thead-dark">
-				<tr>
-					<th>아이디</th>
-					<th>이름</th>
-					<th>등급</th>
-					<th>포인트</th>
-					<th>가입일</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td class="center">${memberVO.getId() }</td>
-					<td class="center">${memberVO.getName() }</td>
-					<td class="center">${memberVO.getRank() } 등급</td>
-					<td class="center">${memberVO.getPoint() } point</td>
-					<td class="center">${memberVO.getRegdate().substring(0, 10) }</td>
-				</tr>
-				<tr>
-					<td colspan="5" class="right">
-						<input type="button" name="edit" value="내 정보 수정"
-							onclick="editInfo(this.form)">
-						<input type="button" name="sendMsg" value="쪽지" 
-							onclick="messengerGo(this.form)">
-						<input type="button" name="delete" value="탈퇴하기"
-							onclick="deleteInfo(this.form)">
-						
-						<input type="hidden" name="id" value="${memberVO.getId() }">
-						<input type="hidden" name="infochk" value="chk">
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		
 		
 		<table class="table my-5 mx-auto">
 			<thead class="thead-dark">
@@ -222,7 +165,10 @@
 				<c:forEach var="vo" items="${list }">
 					<tr>
 						<td class="center">${vo.getBb_idx() }</td>
-						<td class="clickTitle"><a href="">${vo.getTitle() }</a></td>
+						<td class="clickTitle">
+							<a href="BullteinController?type=bullteinOne&bb_idx=${vo.getBb_idx() }">
+								${vo.getTitle() }</a>
+						</td>
 						<td>${vo.getId() }</td>
 						<td class="center">${vo.getRegdate().substring(0, 10) }</td>
 						<td class="center">${vo.getHit() }</td>
@@ -251,7 +197,7 @@
 							
 							<%-- 사용가능 --%>
 							<c:otherwise>
-								<li><a href="memberController?type=myPage&cPage=${pvo.beginPage-1 }">
+								<li><a href="MypageController?type=moreWrite&cPage=${pvo.beginPage-1 }">
 								&lt;&nbsp;이전&nbsp;</a></li>
 							</c:otherwise>
 						</c:choose>
@@ -264,7 +210,7 @@
 							</c:when>
 							<c:otherwise>
 								<li>
-									<a href="memberController?type=myPage&cPage=${k }">${k }</a>
+									<a href="MypageController?type=moreWrite&cPage=${k }">${k }</a>
 								</li>
 							</c:otherwise>
 						</c:choose>
@@ -277,7 +223,8 @@
 								<li class="disable" id="next">&nbsp;다음&nbsp;&gt;</li>
 							</c:when>
 							<c:otherwise>
-								<li><a href="memberController?type=myPage&cPage=${pvo.endPage+1 }">&nbsp;다음&nbsp;&gt;</a></li>
+								<li><a href="MypageController?type=moreWrite&cPage=${pvo.endPage+1 }">
+									&nbsp;다음&nbsp;&gt;</a></li>
 							</c:otherwise>
 						</c:choose>
 						</ol>

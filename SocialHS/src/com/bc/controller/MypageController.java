@@ -14,13 +14,15 @@ import com.bc.member.command.joinOkCommand;
 import com.bc.member.command.loginCommand;
 import com.bc.member.command.logoutCommand;
 import com.bc.mypage.command.deleteCommand;
+import com.bc.mypage.command.moreCommentCommand;
+import com.bc.mypage.command.moreWriteCommand;
 import com.bc.mypage.command.myPageCommand;
 import com.bc.mypage.command.updateCommand;
 import com.bc.mypage.command.updateMyinfoCommand;
 import com.bc.share.command.Command;
 
-@WebServlet("/memberController")
-public class memberController extends HttpServlet {
+@WebServlet("/MypageController")
+public class MypageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     
@@ -42,15 +44,25 @@ public class memberController extends HttpServlet {
 		System.out.println("type : "+type);
 		Command comm = null;
 		
-		if (type.equals("login")) {
-			comm = new loginCommand();
-		} else if (type.equals("logout")) {
-			comm = new logoutCommand();
+		if (type.equals("myPage")) {
+			comm = new myPageCommand();
 		}
-		else if (type.equals("join")) {
-			comm = new joinCommand();
-		} else if (type.equals("joinOk")) {
-			comm = new joinOkCommand();
+		
+		else if (type.equals("moreWrite")) {
+			comm = new moreWriteCommand();
+		}
+		else if (type.equals("moreComment")) {
+			comm = new moreCommentCommand();
+		}
+		
+		else if (type.equals("update")) {
+			comm = new updateCommand();
+		} else if (type.equals("updateOk")) {
+			comm = new updateMyinfoCommand();
+		}
+		else if (type.equals("delete")) {
+			//회원탈퇴
+			comm = new deleteCommand();
 		}
 		
 		path = comm.exec(request, response);
