@@ -8,8 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bc.hobby.command.HobbyWriteCommand;
 import com.bc.main.command.HobbyMainCommand;
+import com.bc.main.command.MainViewCommand;
+import com.bc.main.command.MainWriteCommand;
+import com.bc.main.command.MainWriteOkCommand;
 import com.bc.mingyeong.command.PhotoBoardCommand;
 import com.bc.minseong.command.BullteinBoardListCommand;
 import com.bc.minseong.command.FreeBoardListCommand;
@@ -51,8 +53,15 @@ public class HobbyMainController extends HttpServlet {
 			comm = new BaseballBoardCommand();
 		}else if(type.equals("photo")) {
 			comm = new PhotoBoardCommand();
+		}else if(type.equals("view")) {
+			comm = new MainViewCommand();
+			//여기도 Hobby랑 Study랑 공용으로 사용
+			//main이라고 쓰여있는건 Hobby랑 Study랑 공용으로 사용한다고 보면됨
 		}else if(type.equals("write")) {
-			comm = new HobbyWriteCommand();
+			comm = new MainWriteCommand();
+		}else if(type.equals("writeOk")) {
+			System.out.println("찍힘");
+			comm = new MainWriteOkCommand();
 		}
 		
 		path = comm.exec(request, response);

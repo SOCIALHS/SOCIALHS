@@ -17,45 +17,45 @@
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
 
-<title>${hbvo.title }</title>
+<title>${viewVO.title }</title>
 </head>
 
 <body>
 	<!-- Page Content -->
 	<div class="container">
-	
+		
 		<div class="row">
 
 			<!-- Post Content Column -->
 			<div class="col-lg">
 
 				<!-- 카테고리                -->
-				<p>${hbvo.bbs_idx }</p>
+				<p>${viewVO.bbs_name }</p>
 
 				<hr>
 
 				<!-- Title -->
-				<h1 class="mt-4">${hbvo.title }</h1>
+				<h1 class="mt-4">${viewVO.title }</h1>
 
 				<!-- Author -->
 				<p class="lead">
-					by <a href="#">${hbvo.id }</a>
+					by <a href="#">${viewVO.id }</a>
 				</p>
 
 				<hr>
 
 				<!-- Date/Time -->
-				<p>${hbvo.regdate }</p>
+				<p>${viewVO.regdate }</p>
 
 				<hr>
 
 				<!-- reg_member, cur_member                -->
-				<p>현재인원 : ${hbvo.cur_member } / 모집인원 : ${hbvo.req_member}</p>
+				<p>현재인원 : ${viewVO.cur_member } / 모집인원 : ${hbvo.req_member}</p>
 
 				<hr>
 
 				<!-- time, place                -->
-				<p>${hbvo.time }, ${hbvo.place }</p>
+				<p>${viewVO.time }, ${viewVO.place }</p>
 
 				<hr>
 
@@ -63,13 +63,13 @@
 				<!--  <img class="img-fluid rounded" src="#" alt="img" width="900"
 					height="900"> -->
 		
-			    <div id="map" style="width:40%;height:600px;"></div>
+			    <div class="img-fluid rounded" id="map" style="width:40%;height:600px;"></div>
 			    
 
 				<hr>
 
 				<!-- Post Content -->
-				<p class="lead">${hbvo.content }</p>
+				<p class="lead">${viewVO.content }</p>
 
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut,
 					tenetur natus doloremque laborum quos iste ipsum rerum obcaecati
@@ -184,129 +184,33 @@
 				crossorigin="anonymous"></script>
 			<!-- naver map api등록 -->
 			<script>
-var mapOptions = {
-    center: new naver.maps.LatLng(37.3595704, 127.105399),
-    zoom: 1,
-    maxzoom : 0, 
-    zoomControl: false,
-    mapTypeControl: true
-};
+			var latitude = ${viewVO.latitude};
+			var longitude = ${viewVO.longitude};
+			var mapOptions = {
+				    center: new naver.maps.LatLng(longitude, latitude),
+				    zoom: 10,
+				    maxzoom : 0, 
+				    zoomControl: false,
+				    mapTypeControl: true
+				};
+				
+			alert("위도 : "+latitude);
+			alert("경도 : "+longitude);
+			var infoWindow = new naver.maps.InfoWindow({
+			    anchorSkew: true
+			});
+			var map = new naver.maps.Map('map', mapOptions);
 
-var infoWindow = new naver.maps.InfoWindow({
-    anchorSkew: true
-});
+			map.setCursor('pointer');
 
-
-
-var map = new naver.maps.Map('map', mapOptions);
-
-map.setCursor('pointer');
-
-
-
-
-var marker1 = new naver.maps.Marker({ //seoul
-    position: new naver.maps.LatLng(37.561190, 126.914008),
-    map: map,
-    // ,icon: {
-    //     url: './icon/seoul.png',
-    //     size: new naver.maps.Size(22, 35),
-    //     origin: new naver.maps.Point(0, 0),
-    //     anchor: new naver.maps.Point(11, 35)
-    // }
-});
-marker1.setTitle("seoul");
-
-var marker2 = new naver.maps.Marker({ //경기도
-    position: new naver.maps.LatLng(37.302805,  127.565128),
-    map: map
-});
-marker2.setTitle("경기도");
-var marker3 = new naver.maps.Marker({ //강원도
-    position: new naver.maps.LatLng(37.791067,  128.219262),
-    map: map
-});
-marker3.setTitle("강원도");
-var marker4 = new naver.maps.Marker({ //경상남도
-    position: new naver.maps.LatLng(35.515506,  128.824389),
-    map: map
-});
-marker4.setTitle("밀양");
-
-naver.maps.Event.addListener(marker1, 'click', function(e) {
-    console.log(e);
-    console.log("seoul");
-    location.href = "LocationController?location=1"; //이런식으로 보내면 된다.
-});
-naver.maps.Event.addListener(marker2, 'click', function(e) {
-    console.log(e);
-    console.log("경기도");
-});
-naver.maps.Event.addListener(marker3, 'click', function(e) {
-    console.log(e);
-    console.log("강원도");
-});
-naver.maps.Event.addListener(marker4, 'click', function(e) {
-    console.log(e);
-    console.log("경상남도");
-});
-
-var polyline = new naver.maps.Polyline({
-    map: map,
-    path: [
-        new naver.maps.LatLng(37.359924641705476, 127.1148204803467),
-        new naver.maps.LatLng(37.36343797188166, 127.11486339569092),
-        new naver.maps.LatLng(37.368520071054576, 127.11473464965819),
-        new naver.maps.LatLng(37.3685882848096, 127.1088123321533),
-        new naver.maps.LatLng(37.37295383612657, 127.10876941680907),
-        new naver.maps.LatLng(37.38001321351567, 127.11851119995116),
-        new naver.maps.LatLng(37.378546827477855, 127.11984157562254),
-        new naver.maps.LatLng(37.376637072444105, 127.12052822113036),
-        new naver.maps.LatLng(37.37530703574853, 127.12190151214598),
-        new naver.maps.LatLng(37.371657839593894, 127.11645126342773),
-        new naver.maps.LatLng(37.36855417793982, 127.1207857131958)
-    ]
-});
-var markTest;
-function marker(y,x){
-    // markTest.setDraggable(true);
-    markTest = new naver.maps.Marker({ 
-        position: new naver.maps.LatLng(0,  0),
-        map: map,
-    });
-    markTest.setTitle("host 장소");
-    markTest.position["y"] = y;
-    markTest.position["x"] = x;
-    console.log(markTest.position["y"]);
-    console.log(markTest.position["x"]);
-}
-var flag = true;
-var conf;
-naver.maps.Event.addListener(map, 'click', function(e) {
-    if(flag){
-       conf = confirm("이곳을 호스트 장소로 입력하겠습니까?!");
-    }
-    if(conf){
-        flag = false;
-        console.log(e);
-        console.log("위도 : "+e["coord"]["y"] + " 경도 : "+e["coord"]["x"]);
-        var y = e["coord"]["y"];
-        var x = e["coord"]["x"];
-        marker(y,x);
-        conf = false;
-    }
-    // console.log("위도 :"+e.lating["x"]+", 경도 : "+e.lating["y"]);
-});//map 클릭시 위도와 경도 받기
-function removeMark(){
-    markTest.setMap(null);
-    flag = true;
-}
-
-
-
-
-</script>
-<div><input type = "button" name = "btn" onclick = "removeMark()" value = "호스트 장소 바꾸기"></div>  
+			var marker1 = new naver.maps.Marker({ //seoul
+			    position: new naver.maps.LatLng(longitude, latitude),
+			    map: map
+			});
+			marker1.setTitle("host 장소");		
+				
+		</script>
+<div></div>  
 </body>
 
 </html>

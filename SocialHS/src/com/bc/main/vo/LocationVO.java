@@ -16,15 +16,15 @@ public class LocationVO {
 		return L_Idx;
 	}
 
-	public void setL_Idx(String l_Idx) {
-		L_Idx = l_Idx;
+	public void setL_Idx(String L_Idx) {
+		this.L_Idx = L_Idx;
 	}
 
 	public String getL_Name() {
 		return L_Name;
 	}
 
-	public void setL_Name(String l_Name) {
-		L_Name = l_Name;
+	public void setL_Name(String L_Name) {
+		this.L_Name = L_Name;
 	} 
 }

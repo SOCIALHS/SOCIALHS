@@ -30,6 +30,7 @@
   	<mapper resource="com/bc/mybatis/studyMapper.xml"/>
     <mapper resource="com/bc/mybatis/SubLocationMapper.xml"/>
     <mapper resource="com/bc/mybatis/HobbyBoardMapper.xml"/>
+    <mapper resource="com/bc/mybatis/MainWriteMapper.xml"/>
   </mappers>
 </configuration>
 

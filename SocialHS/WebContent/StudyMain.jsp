@@ -17,7 +17,6 @@
 
 <title>Social Hobby & Study</title>
 <script>
-
 window.onload = function(){
 	alert("TEst");
 	var request = new XMLHttpRequest();
