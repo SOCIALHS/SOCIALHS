@@ -3,12 +3,11 @@
 <%
 	if (session.getAttribute("memberVO") == null) {
 %>
-<jsp:include page="jieun/header_head.jsp"></jsp:include>
+<%@ include file="jieun/header_head.jsp" %>
 <%
 	} else {
 %>
-<%-- <%@ include file="head.jsp" %> --%>
-<jsp:include page="head.jsp"></jsp:include>
+<%@ include file="head.jsp" %>
 <% 
 	}
 %>
@@ -19,11 +18,11 @@
 <%
 	if (session.getAttribute("memberVO") == null) {
 %>
-	<jsp:include page="jieun/header.jsp"></jsp:include>
+<%@ include file="jieun/header.jsp" %>
 <%
 	} else {
 %>
-	<jsp:include page="jieun/loginheader.jsp"></jsp:include>
+<%@ include file="jieun/loginheader.jsp" %>
 <% 
 	}
 %>
@@ -59,4 +58,4 @@
 
 
 
-<jsp:include page="jieun/footer.jsp"></jsp:include>
+<%@ include file="jieun/footer.jsp" %>
