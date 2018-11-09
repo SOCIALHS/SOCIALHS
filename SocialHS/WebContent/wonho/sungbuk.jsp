@@ -12,7 +12,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
+<%-- <%
 	//보드
 	List<BoardVO> SubBoard = (List<BoardVO>)session.getAttribute("subBoard");
 	//현재 location 페이지
@@ -98,7 +98,7 @@
 	pageContext.setAttribute("cPage", cPage);
 	
 	System.out.println("sbList : " + sbList);
-%>
+%> --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -208,8 +208,8 @@
 				</thead>
 			<tbody>
 					<%-- 리스트에 데이터가 있을 때 --%>
-					<c:if test="${not empty SubBoard }">
-						<c:forEach var="sbl" items="${SubBoard }">
+					<c:if test="${not empty subBoard }">
+						<c:forEach var="sbl" items="${subBoard }">
 					  		<tr>
 					  			<td>${sbl.getBb_idx() }</td>
 					  			<td>${sbl.getTitle() }</td>
@@ -219,7 +219,7 @@
 					  		</tr>
 					  	</c:forEach>	
 					</c:if>
-					<c:if test="${empty SubBoard }">
+					<c:if test="${empty subBoard }">
 						<tr>
 							<td colspan="5" class="center">
 								등록된 게시글이 없습니다.<br>
@@ -234,13 +234,13 @@
 						<ol class="paging">
 						
 						<%-- 이전페이지 사용여부 --%>
-						<c:choose>
-							<%-- 사용불가 (첫번째 블록) --%>
+						<%-- <c:choose>
+							사용불가 (첫번째 블록)
 							<c:when test="${pvo.beginPage < pvo.pagePerBlock }">
 								<li class="disable">&lt;&nbsp;이전&nbsp;</li>
 							</c:when>
 							
-							<%-- 사용가능 --%>
+							사용가능
 							<c:otherwise>
 								<li>
 								<a href="SubLocationController?type=moreComment&cPage=${pvo.beginPage-1 }">&lt;&nbsp;이전&nbsp;</a>
@@ -248,7 +248,7 @@
 							</c:otherwise>
 						</c:choose>
 						
-						<%-- 현재 블록의 시작페이지>끝 페이지 반복처리 --%>
+						현재 블록의 시작페이지>끝 페이지 반복처리
 						<c:forEach var="k" begin="${pvo.beginPage }" end="${pvo.endPage }">
 						<c:choose>
 							<c:when test="${k == pvo.nowPage }">
@@ -262,9 +262,9 @@
 						</c:choose>
 						</c:forEach>
 						
-						<%-- 다음페이지 --%>
+						다음페이지
 						<c:choose>
-							<%-- 사용불가 --%>
+							사용불가
 							<c:when test="${pvo.endPage >= pvo.totalPage }">
 								<li class="disable" id="next">&nbsp;다음&nbsp;&gt;</li>
 							</c:when>
@@ -273,7 +273,7 @@
 								<a href="SubLocationController?type=moreComment&cPage=${pvo.endPage+1 }">&nbsp;다음&nbsp;&gt;</a>
 									</li>
 							</c:otherwise>
-						</c:choose>
+						</c:choose> --%>
 						</ol>
 					
 					</td>

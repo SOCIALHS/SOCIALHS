@@ -47,4 +47,15 @@ public class SubLocationDAO {
 		return getSql().selectList("SubLocation.BoardCommList", map);
 	}
 	
+	
+	
+	/***************************************/
+	public static int getCountAll(Map<String, String> map){
+		return getSql().selectOne("SubLocation.countAll", map);
+	}
+	
+	public static List<BoardVO> getPagingAll(Map map){
+		return getSql().selectList("SubLocation.BoardCommList", map);
+	}
+	
 }

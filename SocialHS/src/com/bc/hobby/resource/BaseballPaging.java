@@ -63,11 +63,11 @@ public class BaseballPaging {
 	public Map<String, Integer> getBeEnd() {
 		Map<String, Integer> map = new HashMap<>();
 		
-//		begin = (현재페이지 - (현재페이지 % cntPerBlock) - 1)
+//		begin = (((현재페이지 - 1) / cpb) * cpb + 1)
 		int cP = getcPage();
 		int cpb = getCntPerBlock();
 		
-		int begin = (cP - (cP % cpb) - 1);
+		int begin = ((int)((cP - 1) / cpb))*cpb + 1;
 		int end = begin  + (cpb - 1);
 		map.put("begin", begin);
 		map.put("end", end);

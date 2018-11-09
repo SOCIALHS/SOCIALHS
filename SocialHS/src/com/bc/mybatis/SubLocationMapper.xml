@@ -33,9 +33,17 @@
 				FROM (SELECT *
                         FROM B_BOARD
                         WHERE SL_IDX = #{sl_idx} and HS = #{hs}
-                        ORDER BY REGDATE DESC) T)
-				WHERE R_NUM BETWEEN #{beginNum} AND #{endNum}
+                        ORDER BY BB_IDX DESC) T)
+				WHERE R_NUM BETWEEN #{begin} AND #{end}
 	</select>
+	
+	
+	<!-- 내가 수정한 부분 시작 -->
+	<select id="countAll" resultType="int">
+		SELECT COUNT(*) FROM B_BOARD WHERE SL_IDX = #{sl_idx} AND HS = #{hs}
+	</select>
+	
+	
 </mapper>  
 
 
