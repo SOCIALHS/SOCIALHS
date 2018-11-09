@@ -1,32 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%
 	if (session.getAttribute("memberVO") == null) {
 %>
-<%@ include file="jieun/header_head.jsp"%>
+<%@ include file="jieun/header_head.jsp" %>
 <%
 	} else {
 %>
-<%@ include file="head.jsp"%>
-<%
+<%@ include file="head.jsp" %>
+<% 
 	}
 %>
+    <title>Social Hobby & Study</title>
+    <!-- head 태그 -->
 
-<title>소셜 하비 앤 스터디</title>
-
+</head>
 <%
 	if (session.getAttribute("memberVO") == null) {
 %>
-<%@ include file="jieun/header.jsp"%>
+<%@ include file="jieun/header.jsp" %>
 <%
 	} else {
 %>
-<%@ include file="jieun/loginheader.jsp"%>
-<%
+<%@ include file="jieun/loginheader.jsp" %>
+<% 
 	}
 %>
-
-<style>
+<!-- body 태그 -->
+	
+	
+    <!-- jumbotron -->
+    <style>
 .location {
 	margin: 10px;
 }
@@ -88,5 +92,4 @@
 		</div>
 	</div>
 </div>
-
-<%@ include file="jieun/footer.jsp"%>
+    <%@ include file="jieun/footer.jsp" %>
