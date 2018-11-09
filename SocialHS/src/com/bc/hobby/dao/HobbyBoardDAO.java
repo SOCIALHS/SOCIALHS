@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.bc.hobby.vo.BaseballBoardVO;
 import com.bc.hobby.vo.BasketballBoardVO;
 import com.bc.hobby.vo.HobbyBoardVO;
+import com.bc.main.vo.CommentVO;
 import com.bc.mybatis.*;
 
 
@@ -41,6 +42,11 @@ public class HobbyBoardDAO {
 	public static HobbyBoardVO getViewVo(String bb_idx) {
 		System.out.println("checkGetViewVO");
 		return getSql().selectOne("hobbyboard.get_ViewVO", bb_idx);
+	}
+	
+	public static List<CommentVO> getCommentVo(String bb_idx) {
+		System.out.println("checkCommentVO");
+		return getSql().selectList("hobbyboard.get_CommentVO", bb_idx);
 	}
 	
 	

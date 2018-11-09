@@ -32,6 +32,11 @@
 		select * from b_board a, bbs_code b  where a.bbs_idx = b.bbs_idx and a.bb_idx = #{bb_idx}
 	</select>
 	
+	<select id="get_CommentVO" resultType="com.bc.main.vo.CommentVO"
+		parameterType="String">
+		select * from bb_comment where bb_idx = #{bb_idx} order by regdate desc
+	</select>
+	
 	
 	
 </mapper>  
