@@ -12,11 +12,6 @@
 	pageContext.setAttribute("lo_list", lo_list);
 	pageContext.setAttribute("listAll", listAll);
 	
-	System.out.println("lo_list : " + lo_list);
-	System.out.println("sub_list : " + sub_list);
-	System.out.println("listAll : " + listAll);
-	System.out.println("listSubAll : " + listSubAll);
-	
 	String[] num = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"};
 	pageContext.setAttribute("num", num);
 %>
