@@ -53,9 +53,6 @@ public class SubLocationController extends HttpServlet {
 		
 		if(type.equals("sub")) {
 			comm = new SubLocationCommand();
-			System.out.println("여긴 왔네?");
-		} else if (type.equals("moreComment")) {
-			comm = new SubLocationMoreCommand();
 		}
 		
 		path = comm.exec(request, response);
