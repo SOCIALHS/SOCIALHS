@@ -162,7 +162,7 @@
 					<c:forEach var="cvo" items="${commList }">
 						<tr>
 							<td colspan="2" class="left"><b>${cvo.getId() }</b>
-								&nbsp;&nbsp;&nbsp;<font>${cvo.getRegdate() }</font></td>
+								&nbsp;&nbsp;&nbsp;<font>${cvo.getRegdate().substring(0, 16) }</font></td>
 						</tr>
 						<tr>
 							<td class="left">${cvo.getContent() }</td>
