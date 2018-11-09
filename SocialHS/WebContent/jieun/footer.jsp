@@ -7,8 +7,9 @@
 <title>footer</title>
 </head>
 <body> -->
-	<!-- Footer -->
-	<footer class="page-footer font-small indigo"> <!-- Footer Links -->
+<!-- Footer -->
+<footer class="page-footer font-small indigo">
+	<!-- Footer Links -->
 	<div class="container">
 
 		<!-- Grid row-->
@@ -17,7 +18,9 @@
 			<!-- Grid column -->
 			<div class="col-md-2 mb-3">
 				<h6 class="text-uppercase font-weight-bold">
-					<a href="#!">About us</a>
+					<a href="#"
+						onClick="window.open('../dongwu/aboutus.jsp','소개창', 'width=600px, height=320px, scrollbars=yes')">
+						About us</a>
 				</h6>
 			</div>
 			<!-- Grid column -->
@@ -25,7 +28,9 @@
 			<!-- Grid column -->
 			<div class="col-md-2 mb-3">
 				<h6 class="text-uppercase font-weight-bold">
-					<a href="#!">Products</a>
+					<a href="#"
+						onClick="window.open('../dongwu/projects.jsp','소개창', 'width=600px, height=320px, scrollbars=yes')">
+						Projects</a>
 				</h6>
 			</div>
 			<!-- Grid column -->
@@ -33,7 +38,7 @@
 			<!-- Grid column -->
 			<div class="col-md-2 mb-3">
 				<h6 class="text-uppercase font-weight-bold">
-					<a href="#!">Awards</a>
+					<a href="#">Awards</a>
 				</h6>
 			</div>
 			<!-- Grid column -->
@@ -41,7 +46,7 @@
 			<!-- Grid column -->
 			<div class="col-md-2 mb-3">
 				<h6 class="text-uppercase font-weight-bold">
-					<a href="#!">Help</a>
+					<a href="#">Help</a>
 				</h6>
 			</div>
 			<!-- Grid column -->
@@ -49,7 +54,7 @@
 			<!-- Grid column -->
 			<div class="col-md-2 mb-3">
 				<h6 class="text-uppercase font-weight-bold">
-					<a href="#!">Contact</a>
+					<a href="#">Contact</a>
 				</h6>
 			</div>
 			<!-- Grid column -->
@@ -64,12 +69,9 @@
 
 			<!-- Grid column -->
 			<div class="col-md-8 col-12 mt-5">
-				<p style="line-height: 1.7rem">Sed ut perspiciatis unde omnis
-					iste natus error sit voluptatem accusantium doloremque laudantium,
-					totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
-					quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-					voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed
-					quia consequuntur.</p>
+				<p style="line-height: 1.7rem">비트주세요 팀은 새로운 연결을 통해 더 편리하고 즐거운 세상을
+					꿈꿉니다. 사람과 사람, 사람과 기술을 한층 가깝게 연결함으로써 세상을 어제보다 더 나은 곳으로 만들기 위해 노력하고
+					있습니다.</p>
 			</div>
 			<!-- Grid column -->
 
@@ -120,13 +122,15 @@
 		<!-- Grid row-->
 
 	</div>
-	<!-- Footer Links --> <!-- Copyright -->
+	<!-- Footer Links -->
+	<!-- Copyright -->
 	<div class="footer-copyright text-center py-3">
 		© 2018 Copyright: <a
-			href="https://mdbootstrap.com/bootstrap-tutorial/">
-			MDBootstrap.com</a>
+			href="http://sc.bitcamp.co.kr/index.php?main_page=home"> 비트캠프
+			신촌센터</a>
 	</div>
-	<!-- Copyright --> </footer>
-	<!-- Footer -->
+	<!-- Copyright -->
+</footer>
+<!-- Footer -->
 </body>
 </html>
