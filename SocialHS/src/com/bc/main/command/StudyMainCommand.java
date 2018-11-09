@@ -26,12 +26,13 @@ public class StudyMainCommand implements Command {
 		
 		List<LocationVO> location = (List<LocationVO>)session.getAttribute("location");
 		String hs = (String)session.getAttribute("hs");
+		
 		String l_idx = location.get(0).getL_Idx();
 		List<SubLocationVO> list = SubLocationDAO.getSubLocation(l_idx);
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("l_idx", l_idx);
-		map.put("hs","s"); 
+		map.put("hs", hs); 
 		
 		if (bbs_idx == null) {					// 일반적인 경우
 			System.out.println("bbs_idx가 널임");
