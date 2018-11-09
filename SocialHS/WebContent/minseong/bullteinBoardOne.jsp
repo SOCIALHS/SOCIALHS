@@ -48,7 +48,7 @@
 					onclick="delete_go(this.form)">삭제하기</button>
 			</div>
 		</div>
-
+ 
 		<!-- Comments Form -->
 		<div class="card my-4">
 			<h5 class="card-header">Leave a Comment</h5>

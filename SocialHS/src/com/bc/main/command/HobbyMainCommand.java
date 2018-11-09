@@ -31,9 +31,13 @@ public class HobbyMainCommand implements Command {
 		List<SubLocationVO> list = SubLocationDAO.getSubLocation(l_idx);
 		
 		Map<String, String> map = new HashMap<String, String>();
-		
+		if(hs.equals("hobby")) {
+			hs = "h";
+		}else if(hs.equals("study")) {
+			hs = "s";
+		}
 		map.put("l_idx", l_idx);
-		map.put("hs","h"); 
+		map.put("hs",hs); 
 		
 		
 		if (bbs_idx == null) {					// 일반적인 경우
