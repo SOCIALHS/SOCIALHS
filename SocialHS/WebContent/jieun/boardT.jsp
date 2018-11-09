@@ -14,6 +14,12 @@
 	//페이징 처리 
 	Paging p = new Paging();
 	BoardVO bvo = new BoardVO();
+	memberDAO dao = new memberDAO();
+	
+	memberVO mvo = (memberVO)session.getAttribute("memberVO");
+	String id = mvo.getId();
+	
+	p.setTotalRecord(dao.getTotalCount(id));
 	p.setTotalPage(); //전체 페이지 수 구하기
 	
 	System.out.println("전체 게시글 수 : " + p.getTotalRecord());
@@ -51,27 +57,27 @@
 	
 	map.put("begin", beginNum);
 	map.put("end", endNum);
+	map.put("id", mvo.getId());
 
 	pageContext.setAttribute("pvo", p);
 	pageContext.setAttribute("cPage", cPage);
 %>
 
-<%
-	if (session.getAttribute("memberVO") == null) {
-%>
-<jsp:include page="../jieun/header_head.jsp"></jsp:include>
-<%
-	} else {
-%>
-<%-- <%@ include file="head.jsp" %> --%>
-<jsp:include page="../head.jsp"></jsp:include>
-<% 
-	}
-%>
-<!-- <html> ~ <head> -->
+<!DOCTYPE html>
+<html>
+<head>
+	<jsp:include page="../jieun/loginheader.jsp"></jsp:include>
 
-<!-- **여기에 타이틀 넣기 -->
-<title> 검색 결과 </title>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+<meta charset="UTF-8">
+<title>마이 페이지(내가 쓴 게시글)</title>
 <style>
 	#infohead {
 		text-align: left;
@@ -123,26 +129,12 @@
 
 	/* 페이징 표시 끝 */
 </style>
+
 </head>
-<%
-	if (session.getAttribute("memberVO") == null) {
-%>
-	<jsp:include page="../jieun/header.jsp"></jsp:include>
-<%
-	} else {
-%>
-	<jsp:include page="../jieun/loginheader.jsp"></jsp:include>
-<% 
-	}
-%>
-<!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- <body> 태그 포함 -->
 
-<!-- 밑에서 부터 body 임 -->
-<%-- 검색창(글제목, 글내용, 작성자 검색) --%>
+<body>
 
+<!-- jumbotron -->
 <div id="mypage"
 	class="container  text-black mx-auto mt-5 align-middle">
 	<div class="container text-center">
@@ -151,8 +143,6 @@
 	</ul>
 	
 	<form method="post">
-	
-	<h5>검색 결과</h5>
 		
 		<table class="table my-5 mx-auto">
 			<thead class="thead-dark">
@@ -166,15 +156,17 @@
 			</thead>
 			<tbody>
 			<%-- 리스트에 데이터가 있을 때 --%>
-			
-			<c:if test="${not empty sessionScope.s_list }">
+			<c:if test="${not empty list }">
 				<c:forEach var="e" items="${s_list }">
 					<tr>
-						<td class="center">${e.bb_idx }</td>
-						<td class="clickTitle">${e.title }</td>
-						<td>${e.id }</td>
-						<td class="center">${e.regdate.substring(0, 10) }</td>
-						<td class="center">${e.hit }</td>
+						<td class="center">${e.Bb_idx }</td>
+						<td class="clickTitle">
+							<a href="BullteinController?type=bullteinOne&bb_idx=${e.Bb_idx }">
+								${e.Title }</a>
+						</td>
+						<td>${vo.getId() }</td>
+						<td class="center">${e.Regdate.substring(0, 10) }</td>
+						<td class="center">${e.Hit }</td>
 					</tr>
 				</c:forEach>
 			</c:if>
@@ -240,7 +232,3 @@
 	</div>
 </div>
 
-
-
-<!-- </body> </html> 포함 -->
-<jsp:include page="../jieun/footer.jsp"></jsp:include>
