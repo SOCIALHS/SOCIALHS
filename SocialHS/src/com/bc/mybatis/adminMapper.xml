@@ -5,9 +5,21 @@
 
 <!-- mapper 태그의 namespace 속성 필수 작성  -->  
 <mapper namespace="admin">
+
+	<!-- 관리자 아이디 조회 -->
+	<select id="Aidchk" resultType="com.bc.admin.AdminVO"
+		parameterType="String">
+		SELECT * FROM ADMIN WHERE ID = #{id}
+	</select>
+	
+	<!-- 관리자의 정보 수정 -->
+	<update id="" parameterType="com.bc.admin.AdminVO">
+	</update>
+	
+	<!-- 관리자 추가!!! -->
 	
 	<!-- 게시판 전체 조회 -->
-	<select id="allList" resultType="com.bc.member.AdminVO"
+	<select id="allList" resultType="com.bc.admin.A_AllBoardVO"
 		parameterType="Map">
 		SELECT * FROM (
 			SELECT ROWNUM R_NUM, T.*
@@ -30,10 +42,14 @@
 	</select>
 	
 	<!-- 전체 게시글 수 조회 -->
-	<select id="allWriteCount">
-	
+	<select id="allWriteCount" resultType="int">
+		SELECT COUNT(*) FROM B_BOARD
 	</select>
 	
+	<!-- 전체 회원 수 조회 -->
+	<select id="allMemberCount" resultType="int">
+		SELECT COUNT(*) FROM MEMBER
+	</select>
 	
 	
 	

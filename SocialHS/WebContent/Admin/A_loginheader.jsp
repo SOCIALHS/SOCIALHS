@@ -2,17 +2,17 @@
     pageEncoding="UTF-8"%>
 <body class="bg-light text-dark">
 
-    <nav class="navbar navbar-dark bg-dark py-3">
-		<a class="navbar-brand" href="index.jsp">
-			소셜 하비 앤 스터디
+    <nav class="navbar navbar-dark bg-success py-3">
+		<a class="navbar-brand" href="AdminPage.jsp">
+			[A] 소셜 하비 앤 스터디
 		</a>
-        <span class="text-light bg-dark ml-auto mx-2">
-        	<b>${memberVO.id }</b>&nbsp;님 환영합니다.
+        <span class="text-light bg-success ml-auto mx-2">
+        	<b>${AdminVO.id }</b>&nbsp;님 환영합니다.
         </span>
         <input type="hidden">
         <div id="almOutter">
-        <button id="almBtn" type="button" class="btn btn-dark">
-            알림<span id="almCnt" class="badge badge-dark">0</span>
+        <button id="almBtn" type="button" class="btn btn-light">
+            알림<span id="almCnt" class="badge badge-light">0</span>
         </button>
         <div id="newAlm">
         	
@@ -27,4 +27,3 @@
             </li>
         </ul>
     </nav>
-    <br><br>

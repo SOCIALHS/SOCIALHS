@@ -5,13 +5,16 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.bc.admin.AdminVO;
 import com.bc.main.vo.BoardVO;
 import com.bc.main.vo.CommentVO;
 import com.bc.mybatis.DBService;
 
 public class memberDAO {
-private static SqlSession ss;
-memberVO vo = new memberVO();
+	
+	private static SqlSession ss;
+	memberVO vo = new memberVO();
+	AdminVO avo = new AdminVO();
 	
 	// 싱글턴 패턴: 하나의 객체만을 만들어 사용
 	private synchronized static SqlSession getSql() {
@@ -25,21 +28,52 @@ memberVO vo = new memberVO();
 		return getSql().selectOne("memberdata.idchk", id);
 	}
 	
+	//아이디 조회(관리자인지 확인) 
+	public static AdminVO selectAid (String id) {
+		return getSql().selectOne("admin.Aidchk", id);
+	}
+	
 	//로그인시 아이디, 비밀번호 체크
 	public int loginCheck(String id, String pw) {
 		vo = selectId(id);
-		int chk = -1;
-		System.out.println(vo);
+		avo = selectAid(id);
 		
-		if (vo == null) { //로그인 아이디가 없음
-			chk = -1;
+		int chk = -1;
+		System.out.println("회원 : "+vo);
+		System.out.println("관리자 : " +avo);
+		
+		//관리자 로그인 
+		if (vo != null) {
+			chk = memberlogin(vo, pw);
+			return chk;
+		} else if (avo != null) {
+			chk = adminlogin(avo, pw);
+			return chk;
 		} else {
-			if (vo.getPw().equals(pw)) {
+			chk = -1;
+			return chk;
+		}
+		
+	}
+	
+	public static int memberlogin(memberVO id, String pw) {
+		int chk = 0;
+			if (id.getPw().equals(pw)) {
 				chk = 1; //비밀번호 일치 
 			} else {
 				chk = 0;
 			}
-		}
+		return chk;
+	}
+	
+	public static int adminlogin(AdminVO id, String pw) {
+		int chk = 0;
+		
+			if (id.getPw().equals(pw)) {
+				chk = 2;
+			} else {
+				chk = 0;
+			}
 		return chk;
 	}
 	

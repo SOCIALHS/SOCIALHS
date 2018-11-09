@@ -47,21 +47,19 @@ public class LocationController extends HttpServlet {
 			location = "1";
 		}
 		
-		if(session.getAttribute("l_idx") == null) {
-			session.setAttribute("l_idx", Integer.parseInt(location));
-			
-			List<LocationVO> list = LocationDAO.getLocation(location);
-			session.setAttribute("location", list);
-			
-			List<LocationVO> listAll = LocationDAO.getAll();
-			System.out.println("listAll : "+listAll);
-			session.setAttribute("locationAll", listAll);
-			List<SubLocationVO> listSubAll2 = (List<SubLocationVO>)SubLocationDAO.getSubAll();
-			session.setAttribute("listSubAll2", listSubAll2);
-			
-			List<SubLocationVO> listSubAll = SubLocationDAO.getSubAll();
-			session.setAttribute("listSubAll", listSubAll);
-		}
+		session.setAttribute("l_idx", Integer.parseInt(location));
+		
+		List<LocationVO> list = LocationDAO.getLocation(location);
+		session.setAttribute("location", list);
+		
+		List<LocationVO> listAll = LocationDAO.getAll();
+		System.out.println("listAll : "+listAll);
+		session.setAttribute("locationAll", listAll);
+		List<SubLocationVO> listSubAll2 = (List<SubLocationVO>)SubLocationDAO.getSubAll();
+		session.setAttribute("listSubAll2", listSubAll2);
+		
+		List<SubLocationVO> listSubAll = SubLocationDAO.getSubAll();
+		session.setAttribute("listSubAll", listSubAll);
 		
 		String path = null;
 		System.out.println("hs : "+hs);
