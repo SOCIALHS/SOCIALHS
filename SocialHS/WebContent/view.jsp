@@ -168,5 +168,7 @@
 			marker1.setTitle("host장소");		
 				
 		</script>
-<div></div>  
+		</div>
+		</div>
+		
 		<%@ include file="jieun/footer.jsp"%>
