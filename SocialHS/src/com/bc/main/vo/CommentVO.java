@@ -2,13 +2,24 @@ package com.bc.main.vo;
 
 public class CommentVO {
 	private String bbc_idx, id, content, pw, regdate,
-				bb_idx, chk;
+				bb_idx, chk, title;
 
 	@Override
 	public String toString() {
 		return "CommentVO [bbc_idx=" + bbc_idx + ", id=" + id + ", content=" + content + ", pw=" + pw + ", regdate="
-				+ regdate + ", bb_idx=" + bb_idx + ", chk=" + chk + "]";
+				+ regdate + ", bb_idx=" + bb_idx + ", chk=" + chk + ", title=" + title + "]";
 	}
+	
+	
+	public String getTitle() {
+		return title;
+	}
+
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 
 	public String getBbc_idx() {
 		return bbc_idx;
