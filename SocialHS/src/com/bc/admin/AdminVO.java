@@ -1,9 +1,9 @@
-package com.bc.member;
+package com.bc.admin;
 
 public class AdminVO {
 	
 	private int a_idx, age;
-	private String name, id, pw, phone, email, addr, rank, bbs_name;
+	private String name, id, pw, phone, email, addr, rank;
 	
 	public int getA_idx() {
 		return a_idx;
@@ -59,19 +59,13 @@ public class AdminVO {
 	public void setRank(String rank) {
 		this.rank = rank;
 	}
-	public String getBbs_name() {
-		return bbs_name;
-	}
-	public void setBbs_name(String bbs_name) {
-		this.bbs_name = bbs_name;
-	}
+	
 	
 	@Override
 	public String toString() {
 		return "AdminVO [a_idx=" + a_idx + ", age=" + age + ", name=" + name + ", id=" + id + ", pw=" + pw + ", phone="
-				+ phone + ", email=" + email + ", addr=" + addr + ", rank=" + rank + ", bbs_name=" + bbs_name + "]";
+				+ phone + ", email=" + email + ", addr=" + addr + ", rank=" + rank + "]";
 	}
-	
 	
 
 }
