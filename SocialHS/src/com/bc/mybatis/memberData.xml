@@ -43,10 +43,16 @@
 	
 	
 	
-	<!-- (mypage) 게시글 수 조회 -->
+	<!-- (mypage) 내가 쓴 게시글 수 조회 -->
 	<select id="mypagetotalCnt" resultType="int">
-		SELECT COUNT(*) FROM B_BOARD
+		SELECT COUNT(*) FROM B_BOARD WHERE ID = #{id}
 	</select>
+	
+	<!-- (mypage) 내가 쓴 게시글 수 조회 -->
+	<select id="mypagetotalCommCnt" resultType="int">
+		SELECT COUNT(*) FROM BB_COMMENT WHERE ID = #{id}
+	</select>
+	
 	
 	<!-- (mypage) 내가 쓴 전체 게시글 조회 -->
 	<select id="mylist" resultType="com.bc.main.vo.BoardVO"

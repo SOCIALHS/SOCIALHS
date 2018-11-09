@@ -31,11 +31,13 @@ public class MainWriteOkCommand implements Command {
 		String latitude = (String)request.getParameter("latitude");
 		String longitude = (String)request.getParameter("longitude");
 		String id = (String)request.getParameter("id");
+		String sl_idx = (String)request.getParameter("sl_idx");
 		
 		HobbyBoardVO vo = new HobbyBoardVO();
 		System.out.println("BBS_IDX : "+bbs_idx);
 		System.out.println("찍히니?!");
 		System.out.println("title : "+title);
+		System.out.println("sl_idx : "+sl_idx);
 		vo.setBbs_idx(bbs_idx);
 		vo.setL_idx(l_idx);
 		vo.setTitle(title);
@@ -46,9 +48,7 @@ public class MainWriteOkCommand implements Command {
 		vo.setLatitude(latitude);
 		vo.setLongitude(longitude);
 		vo.setId(id);
-		
-		
-		
+		vo.setSl_idx(sl_idx);
 		
 		String hs = (String)session.getAttribute("hs");
 		String hs_idx = "";

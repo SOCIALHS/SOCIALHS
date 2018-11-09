@@ -44,6 +44,7 @@ public class AlarmCommand implements Command {
 				sumMsn += msn.getChk();
 				result += "{";
 				result += "\"ms_idx\" : \""+ msn.getMs_idx() +"\",";
+				result += "\"chk\" : \""+ msn.getChk() +"\",";
 				result += "\"send_id\" : \""+ msn.getSend_id() +"\"";
 				result += "},";
 			}
@@ -56,7 +57,7 @@ public class AlarmCommand implements Command {
 			for (BoardVO board : memAlm) {
 				sumMem += board.getChk();
 				result += "{";
-				result += "\"ms_idx\" : \""+ board.getBb_idx() +"\",";
+				result += "\"bb_idx\" : \""+ board.getBb_idx() +"\",";
 				result += "\"title\" : \""+ board.getTitle() +"\"";
 				result += "},";
 			}

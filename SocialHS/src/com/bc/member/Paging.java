@@ -4,7 +4,7 @@ public class Paging {
 	private int nowPage = 1; //현재 페이지
 	private int nowBlock = 1; //현재 블록 
 	
-	private int numPerpage = 10; //하나의 페이지에 게시되는 글의 수
+	private int numPerpage = 5; //하나의 페이지에 게시되는 글의 수
 	private int pagePerBlock = 5; //블록당 표시하는 페이지의 수
 	
 	private int totalRecord = 0; //총 게시물의 수 

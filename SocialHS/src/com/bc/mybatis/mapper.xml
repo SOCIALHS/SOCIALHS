@@ -62,7 +62,7 @@
 
 	<delete id="deleteMsg" parameterType="String">
 		DELETE FROM MESSENGER WHERE 
-		MS_IDX = {ms_idx}
+		MS_IDX = #{ms_idx}
 	</delete>
 
 

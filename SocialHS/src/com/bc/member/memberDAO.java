@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 
 import com.bc.main.vo.BoardVO;
+import com.bc.main.vo.CommentVO;
 import com.bc.mybatis.DBService;
 
 public class memberDAO {
@@ -76,23 +77,31 @@ memberVO vo = new memberVO();
 		return getSql().delete("memberdata.deleteMtinfo", id);
 	}
 	
-	
-	
-	
-	
-	
-	//(mypage)전체 게시글 수 조회 (B_Board)
-	public int getTotalCount() {
-		int totalCount = getSql().selectOne("memberdata.mypagetotalCnt");
+	//(mypage)전체 게시글 수 조회 (B_Board) COUNT 
+	public int getTotalCount(String id) {
+		int totalCount = getSql().selectOne("memberdata.mypagetotalCnt", id);
 		return totalCount;
 	}
+	//(mypage)전체 댓글 수 조회 (BB_COMMENT) COUNT 
+	public int getTotCommentCnt(String id) {
+		int totCommCnt = getSql().selectOne("memberdata.mypagetotalCommCnt", id);
+		return totCommCnt;
+	}
+	
+	
 		
 	//(mypage)전체 게시글 조회 
 	public static List<BoardVO> getMypageList(Map<String, String> map) {
 		return getSql().selectList("memberdata.mylist", map);
 	}
 	
-		
+	//(mypage)전체 댓글 조회
+	public static List<CommentVO> getMypageCommList(Map<String, String> map) {
+		return getSql().selectList("memberdata.myCommList", map);
+	}
+	
+	
+	
 	//(mypage)내가 쓴 글 상세보기 
 	public static BoardVO selectOne(String id) {
 		return getSql().selectOne("memberdata.myWrite", id);
