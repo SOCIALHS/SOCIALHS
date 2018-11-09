@@ -33,7 +33,6 @@
 <script>
 	$(document).ready(function() {
 		almFnc();
-		console.log("로딩 완료");
 	});
 
 	function almFnc() {
@@ -43,35 +42,33 @@
 			type : "get",
 			dataType : "JSON",
 			success : function(data) {
-				console.log(data);
+				console.log("알람 가져오기 성공")
 				var msnList = data.msnAlm;
 				var memList = data.memAlm;
 				var comList = data.comAlm;
 				var newAlm = "";
 				if (memList == undefined) {
-					console.log("모집 언디파인드");
 				} else {
 					newAlm += "<b>모집 알람</b>";
 					newAlm += "<hr>";
 					$.each(memList, function(member) {
-						newAlm += '"' + this.title + '"' + "모집글에 신청자가 나타났습니다.<br>";
+						newAlm += "<a class='ajaxLink' href='HobbyController?type=view&bb_idx="+this.bb_idx+"'>" + '"<span class="ajaxTitle">' + this.title + '</span>"' + "모집글에 신청자가 나타났습니다.<br></a>";
 					});
 					newAlm += "<br><br>";
 				}
 				if (msnList == undefined) {
-					console.log("쪽지 언디파인드");
 				} else {
 					newAlm += "<b>쪽지 알람</b>";
 					newAlm += "<hr>";
 					$.each(msnList,
 							function(member) {
-								newAlm += '"' + this.send_id + '"'
-										+ "님께서 쪽지를 보냈습니다.<br>";
+								newAlm += "<a class='ajaxLink' href='MessengerController?type=msnList'>"
+									    + '"<span class="ajaxTitle">' + this.send_id + '</span>"'
+										+ "님께서 쪽지를 보냈습니다.<br></a>";
 							});
 					newAlm += "<br><br>";
 				}
 				if (comList == undefined) {
-					console.log("댓글 언디파인드");
 				} else {
 					newAlm += "<b>댓글 알람</b>";
 					newAlm += "<hr>";
@@ -80,8 +77,6 @@
 					});
 					newAlm += "<br><br>";
 				}
-				console.log(newAlm);
-				console.log("data.almCnt: " + data.almCnt);
 
 				$("#newAlm").html(newAlm);
 				if (data.almCnt == '0') {
@@ -102,7 +97,7 @@
 						btnChk = true;
 					}
 				});
-				setTimeout(almFnc, 10000);
+				setTimeout(almFnc, 30000);
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
 				console.log("실패: \n" + "jqXHR.readyState: " + jqXHR.readyState
@@ -113,6 +108,13 @@
 	}
 </script>
 <style>
+.ajaxLink{
+	text-decoration: none;
+	color: black;
+}
+.ajaxTitle{
+	color: blue;
+}
 #newAlm {
 	display: none;
 	position: absolute;

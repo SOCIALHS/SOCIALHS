@@ -158,9 +158,9 @@
                 <input id="time" type="text" class="form-control" placeholder="구체적인 시간을 필수적으로 입력해주세요." name = "time">
             </div>
         </div>
-        <div class="map container my-5" style="width: 600px; height: 600px;">
+        <div class="map container my-5" style="width: 600px; height: 500px;">
             <div id="map" style="width:100%; height:500px;"></div>
-            <div><button type="button" class="btn btn-outline-primary" onclick = "removeMark()">장소 바꾸기</button></div>
+            <div><button type = "button" class="btn btn-dark mt-2" onclick = "removeMark()">위치 바꾸기</button></div>
         </div>
         <div class="form-group mx-5">
             <label for="place">장소</label>
@@ -169,12 +169,12 @@
 
         <div class="form-group mx-5">
             <label for="content">내용</label>
-            <textarea class="form-control" id="content" name = "content" rows="50"></textarea>
+            <textarea class="form-control" id="content" name = "content" rows="30"></textarea>
         </div>
         
-        <div class="form-group mx-5">
-             <button type="button" class="btn btn-outline-primary" onclick = "send_go(this.form)">submit</button>
-             <button type="reset" class="btn btn-outline-primary">reset</button>
+        <div class="form-group" style="margin-left: 1600px;">
+             <button type="reset" class="btn btn-danger">다시 작성하기</button>
+             <button type="button" class="btn btn-danger" onclick = "send_go(this.form)">작성 완료</button>
         </div>
         <input type = "hidden" name = "latitude" id = "latitude" value="0">
         <input type = "hidden" name = "longitude" id = "longitude" value="0">

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bc.dongwu.command.JapaneseCommand;
 import com.bc.jieun.command.EnglishBoardCommand;
+import com.bc.main.command.MainWriteCommand;
 import com.bc.main.command.StudyMainCommand;
 import com.bc.minseong.command.BullteinBoardDeleteCommand;
 import com.bc.minseong.command.BullteinBoardListCommand;
@@ -60,6 +61,8 @@ public class StudyMainController extends HttpServlet {
 			comm = new EnglishBoardCommand();
 		}else if(type.equals("stoc")) {
 			comm = new StockBoardCommand();
+		}else if(type.equals("write")) {
+			comm = new MainWriteCommand();
 		}
 		
 		path = comm.exec(request, response);

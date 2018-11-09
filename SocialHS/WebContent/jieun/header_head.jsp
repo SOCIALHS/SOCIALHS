@@ -1,3 +1,5 @@
+<%@page import="com.bc.member.memberVO"%>
+<%@page import="com.bc.member.memberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -34,6 +36,9 @@
 <script>
 	function login(frm) {
 		
+		var id1 = frm.id.value;
+		var pw1 = frm.pw.value;
+		
 		if (!frm.id.value) {
 			alert("아이디를 입력하세요.");
 			frm.id.focus();
@@ -45,7 +50,7 @@
 			frm.pw.focus();
 			return false;
 		}
-		
+
 		frm.action = "memberController?type=login";
 		frm.submit();
 	}

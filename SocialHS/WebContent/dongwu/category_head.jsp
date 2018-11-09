@@ -23,7 +23,7 @@
 					if (count % 5 == 0) {
 						output += "<nav class=\"nav nav-pills nav-fill mb-1\">";
 					}
-					output += "<a class=\"nav-item nav-link bg-info m-1 active\" href=\"#\">";
+					output += "<a class=\"nav-item nav-link bg-danger m-1 active\" href=\"#\">";
 					for ( var key in list[i]) {
 						output += list[i][key] + "&nbsp;";
 					}
@@ -38,7 +38,6 @@
 					}
 
 				}
-				output += "<br>"; 
 
 				var test = document.getElementById("test");
 				//category.innerHTML(output);

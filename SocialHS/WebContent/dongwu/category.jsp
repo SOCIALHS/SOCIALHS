@@ -11,14 +11,14 @@
 					/* alert("json check");
 					alert(json); */
 					console.log(json);
-					var output = "<br><br><br>";
+					var output = "<br><br>";
 					console.log("asdfadsf");
 					var count = 0;
 					console.log(json["list"]);
 					
 					var list = json["list"];
 					
-					output += "<table class=\"table table-info\">";
+					output += "<table class=\"table \">";
 
 					for (var i = 0; i < list.length; i++) {
 
@@ -60,4 +60,4 @@
 		}
 	</script>
 
-	<div id="category" style="width: 100%;"></div>
+	<!-- <div id="category" class="m-0" style="width: 100%;"></div> -->

@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bc.member.command.deleteCommand;
 import com.bc.member.command.joinCommand;
 import com.bc.member.command.joinOkCommand;
 import com.bc.member.command.loginCommand;
 import com.bc.member.command.logoutCommand;
-import com.bc.member.command.myPageCommand;
-import com.bc.member.command.updateCommand;
-import com.bc.member.command.updateMyinfoCommand;
+import com.bc.mypage.command.deleteCommand;
+import com.bc.mypage.command.myPageCommand;
+import com.bc.mypage.command.updateCommand;
+import com.bc.mypage.command.updateMyinfoCommand;
 import com.bc.share.command.Command;
 
 @WebServlet("/memberController")
@@ -51,23 +51,6 @@ public class memberController extends HttpServlet {
 			comm = new joinCommand();
 		} else if (type.equals("joinOk")) {
 			comm = new joinOkCommand();
-		}
-		
-		
-		
-		//===================================
-		else if (type.equals("myPage")) {
-			comm = new myPageCommand();
-		}
-		
-		
-		else if (type.equals("update")) {
-			comm = new updateCommand();
-		} else if (type.equals("updateOk")) {
-			comm = new updateMyinfoCommand();
-		}
-		else if (type.equals("delete")) {
-			comm = new deleteCommand();
 		}
 		
 		path = comm.exec(request, response);
