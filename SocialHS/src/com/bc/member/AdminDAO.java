@@ -25,9 +25,9 @@ private static SqlSession ss;
 	}
 	
 	//전체 게시글 조회
-	private static List<AdminVO> getAllList(Map<String, String> map) {
-		return getSql().selectList("admin.allList", map);
-	}
+//	private static List<AdminVO> getAllList(Map<String, String> map) {
+//		return getSql().selectList("admin.allList", map);
+//	}
 	
 	//전체 회원들 수(cnt) 조회
 	
