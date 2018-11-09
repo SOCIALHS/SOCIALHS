@@ -2,8 +2,11 @@
 	pageEncoding="UTF-8"%>
 <body>
 	<nav class="navbar navbar-dark bg-dark fixed-top">
-		<a class="navbar-brand" style="color: aliceblue;" href="/SocialHS">SHAS (Social
-			Hobby & Study)</a>
+		<a class="navbar-brand" href="index.jsp"> <img
+			src="imgs/networking.png" width="30"
+			height="30" class="d-inline-block align-top" alt="logo">
+			&nbsp;Social Hobby & Study
+		</a>
 		<form class="form-inline my-2" method="post">
 			<div class="form-group mx-sm-3">
 				<label for="inputId" class="sr-only">Id</label> <input type="text"
@@ -14,8 +17,11 @@
 					type="password" class="form-control" id="inputPassword" name="pw"
 					placeholder="Password">
 			</div>
-			<button type="button" class="btn btn-light mr-3" onclick="login(this.form)">로그인</button>
+			<button type="button" class="btn btn-light mr-3"
+				onclick="login(this.form)">로그인</button>
 			<button type="button" class="btn btn-light" onclick="join(this.form)">회원가입</button>
 		</form>
 	</nav>
-	<br><br><br>
+	<br>
+	<br>
+	<br>

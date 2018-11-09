@@ -82,7 +82,6 @@ ul.tab li.current {
 	}
 	
 	function detailGo(idx) {
-		alert(idx);
 		$("#checkDiv"+idx).html('&#10004;');
 		
 	}
@@ -166,7 +165,7 @@ ul.tab li.current {
 								<td><span class="badge badge-secondary">${list.send_id }</span></td>
 								<td>
 								<a href="#"
-									onClick="detailGo(${list.ms_idx }); window.open('MessengerController?type=oneList&ms_idx=${list.ms_idx}&chk=${list.chk }','쪽지창', 'width=500px, height=300px')">
+									onClick="detailGo(${list.ms_idx }); window.open('MessengerController?type=oneList&ms_idx=${list.ms_idx}&chk=${list.chk }','쪽지창', 'width=600px, height=320px, scrollbars=yes')">
 										${list.title }
 								</a>
 								</td>
