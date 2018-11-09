@@ -14,6 +14,12 @@
 	<select id = "all" resultType="com.bc.main.vo.SubLocationVO">
 		SELECT * FROM SUB_LOCATION ORDER BY L_IDX
 	</select>
+	
+	<select id = "listBoard" resultType="com.bc.main.vo.BoardVO" parameterType="Map">
+		SELECT * 
+			FROM B_BOARD 
+				WHERE SL_IDX = #{sl_idx} AND HS = #{hs}
+	</select>
 </mapper>  
 
 

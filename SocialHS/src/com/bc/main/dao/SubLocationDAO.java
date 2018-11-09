@@ -2,10 +2,12 @@ package com.bc.main.dao;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
 import com.bc.hobby.vo.BaseballBoardVO;
+import com.bc.main.vo.BoardVO;
 import com.bc.main.vo.LocationVO;
 import com.bc.main.vo.SubLocationVO;
 import com.bc.mybatis.*;
@@ -31,7 +33,10 @@ public class SubLocationDAO {
 	}
 	
 	
-	
+	public static List<BoardVO> getBoardAll(Map<String, String> map) {
+		System.out.println("checkBoard");
+		return getSql().selectList("SubLocation.listBoard", map);
+	}
 	
 	
 }
