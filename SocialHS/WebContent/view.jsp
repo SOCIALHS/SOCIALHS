@@ -141,6 +141,8 @@
 				</c:forEach>
 
 			</div>
+			</div>
+			</div>
 
 		<!-- naver map api등록 -->
 			<script>
@@ -168,5 +170,5 @@
 			marker1.setTitle("host장소");		
 				
 		</script>
-<div></div>  
+
 		<%@ include file="jieun/footer.jsp"%>
