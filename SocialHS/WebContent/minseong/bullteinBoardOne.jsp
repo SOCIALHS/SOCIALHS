@@ -48,7 +48,7 @@
 					onclick="delete_go(this.form)">삭제하기</button>
 			</div>
 		</div>
-
+ 
 		<!-- Comments Form -->
 		<div class="card my-4">
 			<h5 class="card-header">Leave a Comment</h5>
@@ -59,7 +59,7 @@
 						<textarea class="form-control" name="content" rows="3"></textarea>
 					</div>
 					<button type="submit" class="btn btn-dark ml-auto">댓글 저장하기</button>
-					<input type="hidden" name="bb_idx" value="${bbvo.bb_idx }">
+					<input type="hidden" name="bb_idx" value="${BoardVO.bb_idx }">
 				</form>
 			</div>
 		</div>
@@ -70,7 +70,7 @@
 		<div class="output">
 			<c:forEach var="CommentVO" items="${cList }">
 				<div class="card my-4">
-					<h5 class="card-header">Leave a Comment</h5>
+					<h5 class="card-header">Comments</h5>
 					<div class="card-body">
 						<form action="cDelete.jsp" method="post">
 							<div class="form-group">
