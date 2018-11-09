@@ -15,9 +15,7 @@
 %>
 
 <%@ include file="wonho/sidebar_head.jsp"%>
-
 <%@ include file="dongwu/category_head.jsp"%>
-
 <%@ include file="dongwu/content_head.jsp"%>
 
 <title>소셜 하비 앤 스터디</title>
@@ -36,21 +34,7 @@
 </head>
 
 <!-- <body> -->
-<div class="row bg-light">
-
-	<nav class="navbar navbar-expand-lg navbar-light bg-light ml-auto">
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-		</div>
-	</nav>
-</div>
+<%@ include file="dongwu/subnav.jsp"%>
 
 <div class="row">
 	<div class="col-2">
@@ -63,15 +47,19 @@
 		<!-- 이 밑에 DIV에 카테고리 출력 -->
 		<div class="row d-flex justify-content-center">
 			<!-- sub nav -->
-			<div id="category" style="width: 100%;"></div>
+			<div id="category" style="width: 100%; margin-right: 40px"></div>
 			<%-- <%@ include file="dongwu/category.jsp" %> --%>
-
 		</div>
+
+		<div class="row d-flex justify-content-center" style="width: 100%;">
+			<%@ include file="dongwu/searchnwrite.jsp"%>
+		</div>
+
 		<!-- <div class="row d-flex justify-content-center"> -->
 		<!-- content -->
-		<%@ include file="dongwu/content_body.jsp"%>
-		<!-- </div> -->
-
+		<div class="row d-flex justify-content-center" style="width: 100%;">
+			<%@ include file="dongwu/content_body.jsp"%>
+		</div>
 	</div>
 
 </div>

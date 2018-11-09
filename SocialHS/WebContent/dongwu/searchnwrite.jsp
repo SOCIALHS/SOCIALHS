@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <script>
 	function write_go(){
-		location.href="../HobbyController?type=write";
+		location.href="../StudyController?type=write";
 	}
 
 </script>

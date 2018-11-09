@@ -38,7 +38,6 @@
 					}
 
 				}
-				output += "<br>"; 
 
 				var test = document.getElementById("test");
 				//category.innerHTML(output);
