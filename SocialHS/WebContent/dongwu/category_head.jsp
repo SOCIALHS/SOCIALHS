@@ -17,16 +17,17 @@
 				console.log(json["list"]);
 
 				var list = json["list"];
-
 				for (var i = 0; i < list.length; i++) {
 
 					if (count % 5 == 0) {
 						output += "<nav class=\"nav nav-pills nav-fill mb-1\">";
 					}
-					output += "<a class=\"nav-item nav-link bg-info m-1 active\" href=\"#\">";
-					for ( var key in list[i]) {
-						output += list[i][key] + "&nbsp;";
-					}
+					/* 링크  */
+					output += "<a class=\"nav-item nav-link bg-info m-1 active\" href=\"LocationController?location=${l_idx}&bbs_idx="+list[i].h_idx+"\">";
+					/* for ( var key in list[i]) { */
+						console.log(list[i].h_idx);
+						output += list[i].h_name + "&nbsp;";
+					/* } */
 					count++;
 					console.log("cnt : " + count);
 					output += "</a>";
