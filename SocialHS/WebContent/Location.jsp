@@ -53,11 +53,11 @@
 			</div>
 			<div class="col">
 				<a class="btn btn-danger btn-lg btn-block location"
-					href="LocationController?hs=${hs }&location=03" role="button">경남</a>
+					href="LocationController?hs=${hs }&location=03" role="button">강원</a>
 			</div>
 			<div class="col">
 				<a class="btn btn-danger btn-lg btn-block location"
-					href="LocationController?hs=${hs }&location=04" role="button">경북</a>
+					href="LocationController?hs=${hs }&location=04" role="button">충북</a>
 			</div>
 			<div class="col">
 				<a class="btn btn-danger btn-lg btn-block location"
@@ -67,7 +67,7 @@
 		<div class="row">
 			<div class="col">
 				<a class="btn btn-danger btn-lg btn-block location"
-					href="LocationController?hs=${hs }&location=06" role="button">충북</a>
+					href="LocationController?hs=${hs }&location=06" role="button">전북</a>
 			</div>
 			<div class="col">
 				<a class="btn btn-danger btn-lg btn-block location"
@@ -75,11 +75,11 @@
 			</div>
 			<div class="col">
 				<a class="btn btn-danger btn-lg btn-block location"
-					href="LocationController?hs=${hs }&location=08" role="button">전북</a>
+					href="LocationController?hs=${hs }&location=08" role="button">경북</a>
 			</div>
 			<div class="col">
 				<a class="btn btn-danger btn-lg btn-block location"
-					href="LocationController?hs=${hs }&location=09" role="button">강원</a>
+					href="LocationController?hs=${hs }&location=09" role="button">경남</a>
 			</div>
 			<div class="col">
 				<a class="btn btn-danger btn-lg btn-block location"
