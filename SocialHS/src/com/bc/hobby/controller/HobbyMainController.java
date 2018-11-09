@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bc.main.command.HobbyMainCommand;
+import com.bc.main.command.MainDeleteOkCommand;
+import com.bc.main.command.MainUpdateCommand;
+import com.bc.main.command.MainUpdateOkCommand;
 import com.bc.main.command.MainViewCommand;
 import com.bc.main.command.MainWriteCommand;
 import com.bc.main.command.MainWriteOkCommand;
@@ -62,6 +65,13 @@ public class HobbyMainController extends HttpServlet {
 		}else if(type.equals("writeOk")) {
 			System.out.println("찍힘");
 			comm = new MainWriteOkCommand();
+		}else if(type.equals("update")) {
+			comm = new MainUpdateCommand();
+		}else if(type.equals("updateOk")) {
+			System.out.println("updateOK check");
+			comm = new MainUpdateOkCommand();
+		}else if(type.equals("deleteOk")) {
+			comm = new MainDeleteOkCommand();
 		}
 		
 		path = comm.exec(request, response);

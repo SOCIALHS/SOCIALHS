@@ -113,7 +113,11 @@
 					Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione
 					tempore quidem voluptates cupiditate voluptas illo saepe quaerat
 					numquam recusandae? Qui, necessitatibus, est!</p>
-
+				<!-- ----------------------------------------------------------------------------------------- -->
+				<button type="button" class="btn btn-outline-primary" 
+					onclick = "location.href = 'HobbyController?type=update'">수정</button>
+				<button type="button" class="btn btn-outline-primary" 
+				onclick = "location.href = 'HobbyController?type=deleteOk&bb_idx=${viewVO.bb_idx}'">삭제</button>
 				<hr>
 
 				<!-- Comments Form -->
@@ -195,9 +199,7 @@
 				    zoomControl: false,
 				    mapTypeControl: true
 				};
-				
-			alert("위도 : "+latitude);
-			alert("경도 : "+longitude);
+
 			var infoWindow = new naver.maps.InfoWindow({
 			    anchorSkew: true
 			});

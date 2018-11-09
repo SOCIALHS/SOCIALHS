@@ -38,13 +38,13 @@
             <hr class="my-4">
             <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=01" role="button">서울</a>
             <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=02" role="button">경기</a>
-            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=03" role="button">경남</a>
-            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=04" role="button">경북</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=03" role="button">강원</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=04" role="button">충북</a>
             <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=05" role="button">충남</a>
-            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=06" role="button">충북</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=06" role="button">전북</a>
             <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=07" role="button">전남</a>
-            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=08" role="button">전북</a>
-            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=09" role="button">강원</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=08" role="button">경북</a>
+            <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=09" role="button">경남</a>
             <a class="btn btn-dark btn-lg btn-block" href="LocationController?hs=${hs }&location=10" role="button">제주</a>
         </div>
     </div>
