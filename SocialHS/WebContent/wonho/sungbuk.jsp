@@ -37,6 +37,7 @@
 	Paging p = new Paging();
 	CommentVO cvo = new CommentVO();
 	SubLocationDAO dao = new SubLocationDAO();
+
 	String hs = (String)session.getAttribute("hs");
 	hs =  hs.substring(0, 1);
 	Map<String, String> map = new HashMap<String, String>();
