@@ -39,6 +39,10 @@ public class LocationController extends HttpServlet {
 		String hs = (String)session.getAttribute("hs");
 		String location = (String)request.getParameter("location");
 		
+		if(location == null) {
+			location = "1";
+		}
+		
 		List<LocationVO> list = LocationDAO.getLocation(location);
 		session.setAttribute("location", list);
 		
