@@ -2,11 +2,9 @@
     pageEncoding="UTF-8"%>
 <body class="bg-light text-dark">
 
-    <nav class="navbar navbar-dark bg-dark">
-		<a class="navbar-brand" href="index.jsp"> <img
-			src="imgs/networking.png" width="30"
-			height="30" class="d-inline-block align-top" alt="logo">
-			&nbsp;Social Hobby & Study
+    <nav class="navbar navbar-dark bg-dark py-3">
+		<a class="navbar-brand" href="index.jsp">
+			소셜 하비 앤 스터디
 		</a>
         <span class="text-light bg-dark ml-auto mx-2">
         	<b>${memberVO.id }</b>&nbsp;님 환영합니다.
@@ -29,4 +27,3 @@
             </li>
         </ul>
     </nav>
-    <br><br><br>

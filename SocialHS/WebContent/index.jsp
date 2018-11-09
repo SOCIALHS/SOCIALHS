@@ -11,10 +11,9 @@
 <%
 	}
 %>
-<title>Social Hobby & Study</title>
-<!-- head 태그 -->
 
-</head>
+<title>소셜 하비 앤 스터디</title>
+
 <%
 	if (session.getAttribute("memberVO") == null) {
 %>
@@ -26,10 +25,12 @@
 <%
 	}
 %>
-<!-- body 태그 -->
+</head>
 
-<!-- jumbotron -->
+<!-- body -->
 <div class="jumbotron jumbotron-fluid">
+
+	<!-- picture slide -->
 	<div id="carouselExampleSlidesOnly" class="carousel slide mx-auto"
 		style="width: 800px;" data-ride="carousel" data-interval="3000">
 		<div class="carousel-inner">
@@ -43,13 +44,15 @@
 				<img class="d-block w-100" src="imgs/index03.jpg" alt="Third slide">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" src="imgs/index04.jpg" alt="Third slide">
+				<img class="d-block w-100" src="imgs/index04.jpg" alt="Fourth slide">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" src="imgs/index05.jpg" alt="Third slide">
+				<img class="d-block w-100" src="imgs/index05.jpg" alt="Fifth slide">
 			</div>
 		</div>
 	</div>
+	
+	<!-- jumbotron -->
 	<div class="container text-center mt-3">
 		<h1 class="display-3">소셜 하비 앤 스터디</h1>
 		<p class="lead">원하는 취미 모임, 필요한 스터디 모임이 여기에 있습니다.</p>
@@ -62,6 +65,5 @@
 			style="padding: 25px 100px;">스터디</a>
 	</div>
 </div>
-
 
 <%@ include file="jieun/footer.jsp"%>
