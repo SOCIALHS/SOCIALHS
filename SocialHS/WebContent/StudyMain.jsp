@@ -13,13 +13,15 @@
 <%
 	}
 %>
-<%@ include file="wonho/sidebar_head.jsp"%>
-<%@ include file="dongwu/category_head.jsp"%>
-<%@ include file="dongwu/content_head.jsp"%>
-<title>Social Hobby & Study</title>
-<!-- head 태그 -->
 
-</head>
+<%@ include file="wonho/sidebar_head.jsp"%>
+
+<%@ include file="dongwu/category_head.jsp"%>
+
+<%@ include file="dongwu/content_head.jsp"%>
+
+<title>소셜 하비 앤 스터디</title>
+
 <%
 	if (session.getAttribute("memberVO") == null) {
 %>
@@ -31,8 +33,9 @@
 <%
 	}
 %>
-<!-- <body> -->
+</head>
 
+<!-- <body> -->
 <div class="row bg-light">
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light ml-auto">

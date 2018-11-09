@@ -19,10 +19,6 @@ import com.bc.main.vo.SubLocationVO;
 import com.bc.share.command.Command;
 import com.bc.study.command.CategoryCommand;
 
-
-
-
-
 @WebServlet("/LocationController")
 public class LocationController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
