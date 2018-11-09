@@ -38,5 +38,13 @@ public class SubLocationDAO {
 		return getSql().selectList("SubLocation.listBoard", map);
 	}
 	
+	public int getTotCommentCnt(Map<String, String> map) {
+		int totCommCnt = getSql().selectOne("SubLocation.listBoardCommentCnt", map);
+		return totCommCnt;
+	}
+	
+	public static List<BoardVO> getBoardCommList(Map<String,String> map) {
+		return getSql().selectList("SubLocation.BoardCommList", map);
+	}
 	
 }

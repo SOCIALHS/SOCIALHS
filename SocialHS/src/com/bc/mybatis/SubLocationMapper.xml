@@ -20,6 +20,22 @@
 			FROM B_BOARD 
 				WHERE SL_IDX = #{sl_idx} AND HS = #{hs}
 	</select>
+	
+	<select id = "listBoardCommentCnt" resultType="int" parameterType="Map">
+		SELECT COUNT(*) 
+    		FROM B_BOARD
+    	    WHERE SL_IDX = #{sl_idx} and hs = #{hs}
+	</select>
+	
+	<select id ="BoardCommList" resultType="com.bc.main.vo.BoardVO" parameterType="Map">
+		SELECT *
+		FROM (SELECT ROWNUM R_NUM, T.*
+				FROM (SELECT *
+                        FROM B_BOARD
+                        WHERE SL_IDX = #{sl_idx} and HS = #{hs}
+                        ORDER BY REGDATE DESC) T)
+				WHERE R_NUM BETWEEN #{beginNum} AND #{endNum}
+	</select>
 </mapper>  
 
 

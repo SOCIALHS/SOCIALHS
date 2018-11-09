@@ -17,9 +17,11 @@ import com.bc.main.dao.SubLocationDAO;
 import com.bc.main.vo.BoardVO;
 import com.bc.main.vo.LocationVO;
 import com.bc.main.vo.SubLocationVO;
+import com.bc.member.memberVO;
 import com.bc.share.command.Command;
 import com.bc.study.command.CategoryCommand;
 import com.bc.wonho.command.SubLocationCommand;
+import com.bc.wonho.command.SubLocationMoreCommand;
 
 
 
@@ -45,7 +47,6 @@ public class SubLocationController extends HttpServlet {
 		String sl_idx = request.getParameter("sl_idx");
 		String type = request.getParameter("type");
 		System.out.println("sl_idx : "+ sl_idx);
-		System.out.println("sl_idx : "+ sl_idx);
 		
 		String path = null;
 		Command comm = null;
@@ -53,6 +54,8 @@ public class SubLocationController extends HttpServlet {
 		if(type.equals("sub")) {
 			comm = new SubLocationCommand();
 			System.out.println("여긴 왔네?");
+		} else if (type.equals("moreComment")) {
+			comm = new SubLocationMoreCommand();
 		}
 		
 		path = comm.exec(request, response);
