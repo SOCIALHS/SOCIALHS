@@ -33,7 +33,7 @@
 
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script>
-	function closeFnc(){
+	function closeFnc() {
 		window.close();
 	}
 </script>
@@ -44,11 +44,10 @@
 </style>
 </head>
 <body>
-
-<h2>${msnVO.title }</h2>
-<hr>
-<b>${msnVO.send_id }</b>
-<small>${msnVO.regdate }</small>
+	<h1 class="display-4">${msnVO.title }</h1>
+	<hr>
+	<p class="lead">${msnVO.send_id }</p>
+	<p class="lead">${msnVO.regdate }</p>
 
 
 	<div class="input-group">

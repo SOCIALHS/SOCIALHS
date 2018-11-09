@@ -187,7 +187,7 @@
 					size="50">
 			</div>
 		</div>
-		<div class="row" style="margin-left: 250px" >
+		<div class="row" style="margin-left: 290px" >
 			<div class="col">
 				<input type="button" class="btn btn-danger mb-2 mx-2" value="가입하기"
 					onclick="joinOk(this.form)">
