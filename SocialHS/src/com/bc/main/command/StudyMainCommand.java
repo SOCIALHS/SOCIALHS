@@ -22,6 +22,8 @@ public class StudyMainCommand implements Command {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		
+		String bbs_idx = request.getParameter("bbs_idx");
+		
 		List<LocationVO> location = (List<LocationVO>)session.getAttribute("location");
 		String hs = (String)session.getAttribute("hs");
 		String l_idx = location.get(0).getL_Idx();
@@ -31,12 +33,20 @@ public class StudyMainCommand implements Command {
 		map.put("l_idx", l_idx);
 		map.put("hs","s"); 
 		
-		System.out.println("check!! HS2 : "+hs);
-		List<HobbyBoardVO> StudyList = HobbyBoardDAO.getMainCategoryList(map); //HobbyBoardVO 와 HobbyBoardDAO는 그냥 mainBoardVO로 쓰겠습니다.
-		request.setAttribute("MainList", StudyList); //main에 쓸 list 저장 제일 중요!!
-		//여기서 제대로 출력됨!! HobbyBoardVO를 MainBoardVO로 사용!!!
-		System.out.println("StudyList : "+StudyList); 
-		System.out.println("list : "+ list);
+		if (bbs_idx == null) {					// 일반적인 경우
+			System.out.println("bbs_idx가 널임");
+			List<HobbyBoardVO> StudyList = HobbyBoardDAO.getMainCategoryList(map);
+			System.out.println("StudyList: "+StudyList); //HobbyBoardVO 와 HobbyBoardDAO는 그냥 mainBoardVO로 쓰겠습니다
+			request.setAttribute("MainList", StudyList); //main에 쓸 list 저장 제일 중요!!
+			//여기서 제대로 출력됨!! HobbyBoardVO를 MainBoardVO로 사용!!!
+		}else {									// 카테고리에서 넘어왔을 경우
+			map.put("bbs_idx", bbs_idx);
+			System.out.println("bbs_idx가 널이 아님");
+			List<HobbyBoardVO> StudyList = HobbyBoardDAO.getCategoryFromCategory(map);
+			request.setAttribute("MainList", StudyList); 
+		}
+		
+		
 		session.setAttribute("SubLocation", list);
 		return "StudyMain.jsp";
 	}

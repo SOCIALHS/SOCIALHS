@@ -9,13 +9,13 @@
 			<h5 class="card-title">${list.title }</h5>
 			<p class="card-text">${list.id }</p>
 			<hr>
-			<p class="card-text">${list.req_member }</p> 
+			<p class="card-text">${list.req_member }</p>
 			<p class="card-text">${list.cur_member }</p>
 			<hr>
 			<p class="card-text">${list.place }</p>
 			<p class="card-text">${list.time }</p>
 			<a href="HobbyController?type=view&bb_idx=${list.bb_idx }"
-				class="btn btn-dark">상세보기</a>
+				class="btn btn-secondary">상세보기</a>
 		</div>
 		<div class="card-footer bg-light">2 days ago</div>
 	</div>
