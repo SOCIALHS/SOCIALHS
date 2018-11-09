@@ -89,7 +89,7 @@
 	a { color: black; }
 	a:hover {
 		text-decoration: underline;
-		color: orangered;
+		color: #b30000;
 	}
 	#mypage table {
 		/* border: 1px lightgray solid;
@@ -116,7 +116,7 @@
 		color: black;
 	}
 	.paging li a:hover {
-		color: orangered;
+		color: #b30000;
 		font-weight: bold;
 	}
 	
@@ -125,7 +125,7 @@
 	}
 	.paging .now {
 		font-weight: bold;
-		color: orangered;
+		color: #b30000;
 		text-decoration: underline;
 	}
 
@@ -142,15 +142,15 @@
 	<div class="container text-center">
 	<ul id ="infohead" class="nav mx-auto my-2">
 		<li class="nav-item"><a href="MypageController?type=moreWrite&cPage=1">
-				<font color="orangered"><b>내가 쓴 게시글</b></font></a>&nbsp;|&nbsp;</li>
+				<font color="#b30000"><b>내가 쓴 게시글</b></font></a>&nbsp;|&nbsp;</li>
 		<li class="nav-item"><a href="MypageController?type=moreComment&cPage=1">내가 쓴 댓글</a>&nbsp;|&nbsp;</li>
 		<li class="nav-item"><a href="javascript:history.back()">뒤로가기</a></li>
 	</ul>
 	
 	<form method="post">
 		
-		<table class="table my-5 mx-auto">
-			<thead class="thead-dark">
+		<table class="table mx-auto">
+			<thead class="thead bg-dark text-white">
 				<tr class="pagetitle">
 					<th class="no">글번호</th>
 					<th class="title">제목</th>

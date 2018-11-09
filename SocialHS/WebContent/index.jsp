@@ -1,30 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	if (session.getAttribute("memberVO") == null) {
-%>
-<%@ include file="jieun/header_head.jsp"%>
+	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
+%>		<%@ include file="jieun/header_head.jsp"%>
 <%
-	} else {
-%>
-<%@ include file="head.jsp"%>
+	} else if (session.getAttribute("memberVO") != null) {
+%>		<%@ include file="head.jsp"%>
 <%
-	}
+	} else if (session.getAttribute("AdminVO") != null) {
+%>		<%@ include file="head.jsp"%>
+<%
+	} 
 %>
 
 <title>소셜 하비 앤 스터디</title>
 
 <%
-	if (session.getAttribute("memberVO") == null) {
-%>
-<%@ include file="jieun/header.jsp"%>
+	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
+%>		<%@ include file="jieun/header.jsp"%>
 <%
-	} else {
-%>
-<%@ include file="jieun/loginheader.jsp"%>
+	} else if (session.getAttribute("memberVO") != null) {
+%>		<%@ include file="jieun/loginheader.jsp"%>
 <%
-	}
+	} else if (session.getAttribute("AdminVO") != null) {
+%>		<%@ include file="Admin/A_loginheader.jsp"%>
+<%
+	} 
 %>
+
 </head>
 
 <!-- body -->

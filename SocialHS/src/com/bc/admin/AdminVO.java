@@ -1,8 +1,9 @@
-package com.bc.member;
+package com.bc.admin;
 
-public class adminVO {
+public class AdminVO {
+	
 	private int a_idx, age;
-	private String name, id, pw, phone, email, addr, rank, regdate;
+	private String name, id, pw, phone, email, addr, rank;
 	
 	public int getA_idx() {
 		return a_idx;
@@ -58,17 +59,13 @@ public class adminVO {
 	public void setRank(String rank) {
 		this.rank = rank;
 	}
-	public String getRegdate() {
-		return regdate;
-	}
-	public void setRegdate(String regdate) {
-		this.regdate = regdate;
-	}
+	
 	
 	@Override
 	public String toString() {
-		return "adminVO [a_idx=" + a_idx + ", age=" + age + ", name=" + name + ", id=" + id + ", pw=" + pw + ", phone="
-				+ phone + ", email=" + email + ", addr=" + addr + ", rank=" + rank + ", regdate=" + regdate + "]";
+		return "AdminVO [a_idx=" + a_idx + ", age=" + age + ", name=" + name + ", id=" + id + ", pw=" + pw + ", phone="
+				+ phone + ", email=" + email + ", addr=" + addr + ", rank=" + rank + "]";
 	}
 	
+
 }

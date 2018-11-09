@@ -19,6 +19,10 @@ import com.bc.main.vo.SubLocationVO;
 import com.bc.share.command.Command;
 import com.bc.study.command.CategoryCommand;
 
+
+
+
+
 @WebServlet("/LocationController")
 public class LocationController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -38,6 +42,12 @@ public class LocationController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String hs = (String)session.getAttribute("hs");
 		String location = (String)request.getParameter("location");
+		
+		if(location == null) {
+			location = "1";
+		}
+		
+		session.setAttribute("l_idx", Integer.parseInt(location));
 		
 		List<LocationVO> list = LocationDAO.getLocation(location);
 		session.setAttribute("location", list);

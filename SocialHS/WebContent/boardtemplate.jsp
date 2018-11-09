@@ -70,7 +70,7 @@
 	pageContext.setAttribute("pvo", p);
 	pageContext.setAttribute("cPage", cPage);
 	
-	System.out.println("cList : " + cList);
+	System.out.println("cList : " + cList); 
 %>
 <style>
 	.commCnt {

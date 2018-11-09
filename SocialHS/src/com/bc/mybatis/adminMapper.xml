@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper 태그의 namespace 속성 필수 작성  -->  
+<mapper namespace="admin">
+
+	<!-- 관리자 아이디 조회 -->
+	<select id="Aidchk" resultType="com.bc.admin.AdminVO"
+		parameterType="String">
+		SELECT * FROM ADMIN WHERE ID = #{id}
+	</select>
+	
+	<!-- 관리자의 정보 수정 -->
+	<update id="" parameterType="com.bc.admin.AdminVO">
+	</update>
+	
+	<!-- 관리자 추가!!! -->
+	
+	<!-- 게시판 전체 조회 -->
+	<select id="allList" resultType="com.bc.admin.A_AllBoardVO"
+		parameterType="Map">
+		SELECT * FROM (
+			SELECT ROWNUM R_NUM, T.*
+			FROM (
+				SELECT B.BB_IDX, BBS.BBS_NAME, B.TITLE, B.ID, B.REGDATE
+				FROM B_BOARD B, BBS_CODE BBS
+				ORDER BY B.REGDATE DESC) T)
+		WHERE R_NUM BETWEEN #{begin} AND #{end}
+	</select>
+	
+	<!-- 회원정보 전체 조회 -->
+	<select id="allmemberInfo" resultType="com.bc.member.memberVO"
+		parameterType="Map">
+		SELECT * FROM (
+			SELECT ROWNUM R_NUM, M.*
+			FROM (
+				SELECT * FROM MEMBER
+				ORDER BY REGDATE DESC) M)
+		WHERE R_NUM BETWEEN #{begin} AND #{end}
+	</select>
+	
+	<!-- 전체 게시글 수 조회 -->
+	<select id="allWriteCount" resultType="int">
+		SELECT COUNT(*) FROM B_BOARD
+	</select>
+	
+	<!-- 전체 회원 수 조회 -->
+	<select id="allMemberCount" resultType="int">
+		SELECT COUNT(*) FROM MEMBER
+	</select>
+	
+	
+	
+</mapper>  

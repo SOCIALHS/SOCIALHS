@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.bc.hobby.vo.BaseballBoardVO;
 import com.bc.hobby.vo.BasketballBoardVO;
 import com.bc.hobby.vo.HobbyBoardVO;
+import com.bc.main.vo.CommentVO;
 import com.bc.mybatis.*;
 
 
@@ -33,6 +34,11 @@ public class HobbyBoardDAO {
 		return getSql().selectList("hobbyboard.list_category", map);
 	}
 	
+	public static List<HobbyBoardVO> getCategoryFromCategory(Map<String, String> map){
+		return getSql().selectList("hobbyboard.list_from_category", map);
+	}
+	
+	
 	public static HobbyBoardVO getOne(String bb_idx) {
 		System.out.println("check45");
 		return getSql().selectOne("hobbyboard.one", bb_idx);
@@ -41,6 +47,11 @@ public class HobbyBoardDAO {
 	public static HobbyBoardVO getViewVo(String bb_idx) {
 		System.out.println("checkGetViewVO");
 		return getSql().selectOne("hobbyboard.get_ViewVO", bb_idx);
+	}
+	
+	public static List<CommentVO> getCommentVo(String bb_idx) {
+		System.out.println("checkCommentVO");
+		return getSql().selectList("hobbyboard.get_CommentVO", bb_idx);
 	}
 	
 	

@@ -32,9 +32,7 @@
 	}
 %>
 <!-- <body> -->
-
-
-	<%@ include file="dongwu/subnav.jsp"%>
+<%@ include file="dongwu/subnav.jsp"%>
 
 <div class="row">
 	<div class="col-2" style="width: 100%;">
@@ -45,9 +43,9 @@
 	<div class="col-10">
 
 		<!-- 이 밑에 DIV에 카테고리 출력 -->
-		<div class="row">
+		<div class="row d-flex justify-content-center">
 			<!-- sub nav -->
-			<div id="category" style="width: 100%;"></div>
+			<div id="category" style="width: 100%; margin-right: 40px"></div>
 			<%-- <%@ include file="dongwu/category.jsp" %> --%>
 		</div>
 

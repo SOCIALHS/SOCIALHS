@@ -46,6 +46,25 @@
     	
     	console.log(subLocation);
     	
+    	function setName(){
+    		var target = document.getElementById("sl_idx");
+    		var temp_idx = target.value;
+    		var setname;
+    		alert(temp_idx);
+    		alert(subLocation);
+    		for(var i = 0; i < subLocation.length; i++){
+    			if(temp_idx == subLocation[i]["sl_idx"]){
+    				setname = subLocation[i]["serverName"];
+    			}
+    		}
+    		console.log(setname);
+    		alert(setname);
+    		var tempName = "["+setname+"]";
+    		
+    		document.getElementById("title").value = tempName;
+    		
+    		
+    	}
     	
     	function send_go(frm){
     		frm.method = "post";
@@ -54,7 +73,7 @@
     	}
     	function moveMap(){
     		var l_value = document.getElementById("l_idx").value;
-    		
+    			
     		console.log(subLocation);
     		var temp = "";
     		temp += "<select id = 'sl_idx' name = 'sl_idx'>";
@@ -84,6 +103,8 @@
     		console.log(info[l_value]["y"]);
     		
     		moveFocus(info[l_value]); //use the method to move the focus in the map wherever u wanna go
+    	
+    		setName();
     	}
     </script>
     
@@ -114,7 +135,7 @@
             </div>
             <div class="col ml-4">
                 <label for="sl_idx">서브지역</label>
-                <select class="form-control" id="sl_idx" name = "sl_idx" >
+                <select class="form-control" id="sl_idx" name = "sl_idx" onchange = "setName()">
                     <c:forEach var = "SubLocationVO" items = "${SubLocationAll }">
                     	<c:if test = "${SubLocationVO.l_idx eq 1 }">
                     		<option value = "${SubLocationVO.sl_idx }">${SubLocationVO.sl_name }</option>
@@ -124,7 +145,7 @@
             </div>
         </div>
         <div class="form-group mx-5">
-            <label for="title">제목</label>
+            <label for="title2">제목</label>
             <input type="text" class="form-control" id="title" name = "title">
         </div>
         <div class="row">

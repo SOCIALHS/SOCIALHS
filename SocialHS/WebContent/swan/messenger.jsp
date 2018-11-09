@@ -18,7 +18,7 @@ a {
 
 a:hover {
 	text-decoration: underline;
-	color: orangered;
+	color: #b30000;
 }
 
 #mypage table {
@@ -54,7 +54,7 @@ ul.tab li {
 
 ul.tab li.current {
 	text-decoration: underline;
-	color: orangered;
+	color: #b30000;
 }
 
 .tabcontent {
@@ -92,14 +92,14 @@ ul.tab li.current {
 <div id="mypage" class="container  text-black mx-auto mt-5 align-middle">
 	<div class="container text-center">
 		<ul id="infohead" class="nav mx-auto my-2">
-			<li class="nav-item">내 정보&nbsp;|&nbsp;</li>
-			<li class="nav-item"><a href="">Q&A</a>&nbsp;|&nbsp;</li>
+			<li class="nav-item" style="font-weight: bold">내 정보</li>&nbsp;|&nbsp;
+			<li class="nav-item"><a href="#">Q&A</a>&nbsp;|&nbsp;</li>
 			<li class="nav-item"><a href="index.jsp">home</a></li>
 		</ul>
 
 		<form method="post">
 			<table class="table my-2 mx-auto">
-				<thead class="thead-dark">
+				<thead class="thead bg-dark text-white">
 					<tr>
 						<th>아이디</th>
 						<th>이름</th>
@@ -148,7 +148,7 @@ ul.tab li.current {
 
 		<div id="allPage" class="tabcontent current">
 			<table class="table my-2 mx-auto">
-				<thead>
+				<thead class="bg-dark text-white">
 					<tr>
 						<th class="no">보낸 사람</th>
 						<th class="title">제목</th>
@@ -165,7 +165,7 @@ ul.tab li.current {
 								<td><span class="badge badge-secondary">${list.send_id }</span></td>
 								<td>
 								<a href="#"
-									onClick="detailGo(${list.ms_idx }); window.open('MessengerController?type=oneList&ms_idx=${list.ms_idx}&chk=${list.chk }','쪽지창', 'width=600px, height=320px, scrollbars=yes')">
+									onClick="detailGo(${list.ms_idx }); window.open('MessengerController?type=oneList&ms_idx=${list.ms_idx}&chk=${list.chk }','쪽지창', 'width=600px, height=320px, scrollbars=no')">
 										${list.title }
 								</a>
 								</td>

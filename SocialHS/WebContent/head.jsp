@@ -49,16 +49,16 @@
 				var newAlm = "";
 				if (memList == undefined) {
 				} else {
-					newAlm += "<b>모집 알람</b>";
+					newAlm += "<p class=\"lead\">모집 알람</p>";
 					newAlm += "<hr>";
 					$.each(memList, function(member) {
-						newAlm += "<a class='ajaxLink' href='HobbyController?type=view&bb_idx="+this.bb_idx+"'>" + '"<span class="ajaxTitle">' + this.title + '</span>"' + "모집글에 신청자가 나타났습니다.<br></a>";
+						newAlm += "<a class='ajaxLink' href='HobbyController?type=view&bb_idx="+this.bb_idx+"'>" + '"<span class="ajaxTitle">' + this.title + '</span>"' + "모집글에 신청자가 나타났습니다.<br><br></a>";
 					});
 					newAlm += "<br><br>";
 				}
 				if (msnList == undefined) {
 				} else {
-					newAlm += "<b>쪽지 알람</b>";
+					newAlm += "<p class=\"lead\">쪽지 알람</p>";
 					newAlm += "<hr>";
 					$.each(msnList,
 							function(member) {
@@ -70,10 +70,10 @@
 				}
 				if (comList == undefined) {
 				} else {
-					newAlm += "<b>댓글 알람</b>";
+					newAlm += "<p class=\"lead\">댓글 알람</p>";
 					newAlm += "<hr>";
 					$.each(comList, function(member) {
-						newAlm += '"' + this.title + '"' + "글에 댓글이 달렸습니다.<br>";
+						newAlm += '"' + this.title + '"' + "글에 댓글이 달렸습니다.<br><br>";
 					});
 					newAlm += "<br><br>";
 				}

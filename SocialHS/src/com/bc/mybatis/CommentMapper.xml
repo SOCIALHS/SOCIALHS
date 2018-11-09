@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper 태그의 namespace 속성 필수 작성  -->  
+<mapper namespace="comment">
+
+	<insert id = "insertComment" parameterType="com.bc.main.vo.CommentVO">
+		insert into bb_comment (bbc_idx, id, content, regdate, bb_idx )
+			values (BBC_SEQ.nextVal, #{id}, #{content}, sysdate, #{bb_idx})
+	</insert>
+	
+	<delete id = "deleteComment" parameterType="String">
+		delete from bb_comment where bbc_idx = #{bbc_idx}
+	</delete>
+	
+</mapper>  
+
+
+
+
+
+
