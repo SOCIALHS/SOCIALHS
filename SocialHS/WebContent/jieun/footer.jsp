@@ -19,7 +19,7 @@
 			<div class="col-md-2 mb-3">
 				<h6 class="text-uppercase font-weight-bold">
 					<a href="#"
-						onClick="window.open('../dongwu/aboutus.jsp','소개창', 'width=600px, height=320px, scrollbars=yes')">
+						onClick="window.open('dongwu/aboutus.jsp','소개창', 'width=600px, height=320px, scrollbars=yes')">
 						About us</a>
 				</h6>
 			</div>
@@ -29,7 +29,7 @@
 			<div class="col-md-2 mb-3">
 				<h6 class="text-uppercase font-weight-bold">
 					<a href="#"
-						onClick="window.open('../dongwu/projects.jsp','소개창', 'width=600px, height=320px, scrollbars=yes')">
+						onClick="window.open('dongwu/projects.jsp','소개창', 'width=600px, height=320px, scrollbars=yes')">
 						Projects</a>
 				</h6>
 			</div>
@@ -69,8 +69,8 @@
 
 			<!-- Grid column -->
 			<div class="col-md-8 col-12 mt-5">
-				<p style="line-height: 1.7rem">비트주세요 팀은 새로운 연결을 통해 더 편리하고 즐거운 세상을
-					꿈꿉니다. 사람과 사람, 사람과 기술을 한층 가깝게 연결함으로써 세상을 어제보다 더 나은 곳으로 만들기 위해 노력하고
+				<p class="lead"><strong>비트주세요</strong> 팀은 새로운 연결을 통해 더 편리하고 즐거운 세상을
+					꿈꿉니다. <br>사람과 사람, 사람과 기술을 한층 가깝게 연결함으로써<br> 세상을 어제보다 더 나은 곳으로 만들기 위해 노력하고
 					있습니다.</p>
 			</div>
 			<!-- Grid column -->
@@ -80,48 +80,8 @@
 		<hr class="clearfix d-md-none rgba-white-light"
 			style="margin: 10% 15% 5%;">
 
-		<!-- Grid row-->
-		<div class="row pb-3">
-
-			<!-- Grid column -->
-			<div class="col-md-12">
-
-				<div class="mb-5 flex-center">
-
-					<!-- Facebook -->
-					<a class="fb-ic"> <i
-						class="fa fa-facebook fa-lg white-text mr-4"> </i>
-					</a>
-					<!-- Twitter -->
-					<a class="tw-ic"> <i
-						class="fa fa-twitter fa-lg white-text mr-4"> </i>
-					</a>
-					<!-- Google +-->
-					<a class="gplus-ic"> <i
-						class="fa fa-google-plus fa-lg white-text mr-4"> </i>
-					</a>
-					<!--Linkedin -->
-					<a class="li-ic"> <i
-						class="fa fa-linkedin fa-lg white-text mr-4"> </i>
-					</a>
-					<!--Instagram-->
-					<a class="ins-ic"> <i
-						class="fa fa-instagram fa-lg white-text mr-4"> </i>
-					</a>
-					<!--Pinterest-->
-					<a class="pin-ic"> <i class="fa fa-pinterest fa-lg white-text">
-					</i>
-					</a>
-
-				</div>
-
-			</div>
-			<!-- Grid column -->
-
-		</div>
-		<!-- Grid row-->
-
 	</div>
+	<hr>
 	<!-- Footer Links -->
 	<!-- Copyright -->
 	<div class="footer-copyright text-center py-3">

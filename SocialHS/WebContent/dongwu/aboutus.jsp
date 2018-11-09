@@ -40,7 +40,7 @@
 </head>
 
 <body>
-	<div class="bg-light">
+	<div class="bg-light p-5">
 		<h1 class="display-4 text-center">비트주세요</h1>
 		<hr>
 		<div class="ml-3">
@@ -52,8 +52,9 @@
 			<p class="lead">- 오지은</p>
 			<p class="lead">- 허동우</p>
 		</div>
+		<hr>
 		<div class="footer my-2 ml-3">
-			<button type="button" class="btn btn-danger" onClick="closeFnc()">창닫기</button>
+			<button type="button" class="btn btn-dark" onClick="closeFnc()">창닫기</button>
 		</div>
 	</div>
 </body>

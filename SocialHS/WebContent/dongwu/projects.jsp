@@ -40,15 +40,16 @@
 </head>
 
 <body>
-	<div class="bg-light">
+	<div class="bg-light p-5">
 		<h1 class="display-4 text-center">프로젝트</h1>
 		<hr>
 		<div class="ml-3">
-			<p class="lead">소셜 하비 - 취미 공유 소셜 미디어</p>
-			<p class="lead">소셜 스터디 - 학습 공유 소셜 미디어</p>
+			<p class="lead">소셜 하비 - 취미 공유 소셜 웹 서비스</p>
+			<p class="lead">소셜 스터디 - 학습 공유 소셜 웹 서비스</p>
 		</div>
+		<hr>
 		<div class="footer my-2 ml-3">
-			<button type="button" class="btn btn-danger" onClick="closeFnc()">창닫기</button>
+			<button type="button" class="btn btn-dark" onClick="closeFnc()">창닫기</button>
 		</div>
 	</div>
 </body>
