@@ -16,6 +16,7 @@
 
 					<div id=${num[idx.index] } class="collapse"
 						aria-labelledby="heading${num[idx.index] }" data-parent="#accordionExample">
+						aria-labelledby="heading" data-parent="#accordionExample">
 						<div class="card-body border">
 							<c:forEach var="listSubAll" items="${listSubAll }">
 								<c:if test="${listSubAll.getL_idx() == listAll.getL_Idx() }">

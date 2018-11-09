@@ -11,7 +11,7 @@
 				/* alert("json check");
 				alert(json); */
 				console.log(json);
-				var output = "";
+				var output = "<br>";
 				console.log("asdfadsf");
 				var count = 0;
 				console.log(json["list"]);

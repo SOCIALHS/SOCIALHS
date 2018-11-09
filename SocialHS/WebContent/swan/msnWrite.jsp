@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<%@ include file="../head.jsp"%>
 <title>쪽지 작성</title>
-<script src="//code.jquery.com/jquery.min.js"></script>
 <script>
 	function checkId() {
 		var recv_id = document.getElementById("recv_id").value;
@@ -15,14 +13,14 @@
 			dataType : "text",
 			success : function(data) {
 				var chk = false;
-				if (data == 1){ 	// id가 존재함
+				if (data == 1) { // id가 존재함
 					chk = true;
-					$("#idChk").css("color", "green");
-					$("#idChk").html("ID 확인 완료");
+					alert("id 확인 완료");
+					$("#subBtn").css("display", "block");
 				} else if (data == 0) {
 					chk = false;
-					$("#idChk").css("color", "red");
-					$("#idChk").html("존재하지 않는 ID입니다");
+					alert("존재하지 않는 ID입니다");
+					$("#subBtn").css("display", "none");
 				}
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
@@ -34,35 +32,55 @@
 	}
 </script>
 <style type="text/css">
-	#idChk{ font-size: 9px; }
+#idChk {
+	font-size: 9px;
+}
+
+#subBtn {
+	display: none;
+}
+
+form {
+	margin: auto;
+}
 </style>
 </head>
-<body>
+<%@ include file="../jieun/loginheader.jsp"%>
 
-	<h1>여긴 쪽지 작성 페이지</h1>
-	<form method="post" action="MessengerController?type=writeOk">
-		<table>
-			<tr>
-				<th>받는이</th>
-				<td><input type="text" name="recv_id" id="recv_id"></td>
-				<td><input type="button" onClick="checkId()" value="id확인"><span id="idChk"></span></td>
-			</tr>
-			<tr>
-				<th>제목</th>
-				<td colsepan="2"><input type="text" name="title"></td>
-			</tr>
-			<tr>
-				<th>내용</th>
-				<td colspan="2"><textarea rows="15" cols="40" name="content"></textarea></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit" value="발송" id="submit"></td>
-			</tr>
-		</table>
-	</form>
+<form action="MessengerController?type=writeOk">
+	<div class="mx-auto my-2 bg-light p-2" style="width: 600px">
+		<button type="button" class="close" data-dismiss="modal"
+			aria-label="Close"></button>
+
+		<div class="input-group mb-3">
+			<input type="text" class="form-control" placeholder="받는 사람"
+				id="recv_id" name="recv_id" aria-label="Recipient's username"
+				aria-describedby="button-addon2">
+			<div class="input-group-append">
+				<button class="btn btn-outline-dark" type="button"
+					id="button-addon2" onClick="checkId()">수신자 여부 확인</button>
+			</div>
+		</div>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon1">제목</span>
+			</div>
+			<input type="text" class="form-control" aria-label="Username"
+				aria-describedby="basic-addon1" name="title">
+		</div>
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text">내용</span>
+			</div>
+			<textarea class="form-control" aria-label="With textarea" rows="10"
+				name="content"></textarea>
+		</div>
+		<div class="footer my-4" style="margin-left: 420px">
+			<button type="submit" class="btn btn-primary" formmethod="post"
+				id="subBtn">보내기</button>
+		</div>
+	</div>
+</form>
 
 
-
-
-</body>
-</html>
+<%@ include file="../jieun/footer.jsp"%>

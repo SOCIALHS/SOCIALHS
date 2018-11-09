@@ -17,10 +17,11 @@ public class MsnDelCommand implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		
 		String ms_idx = request.getParameter("ms_idx");
+		System.out.println("ms_idx: "+ ms_idx);
 		MessengerDAO.deleteMsg(ms_idx);
 		
 		
-		return "swan/msnDetail.jsp";
+		return "MessengerController?type=msnList";
 	}
 
 }

@@ -23,6 +23,13 @@ public class MsnInsCommand implements Command {
 		String send_id = vo.getId();
 		String recv_id = request.getParameter("recv_id");
 		
+		System.out.println("title: "+ title);
+		System.out.println("content: "+ content);
+		System.out.println("send_id"+ send_id);
+		System.out.println("recv_id"+ recv_id);
+		
+		
+		
 		MessengerVO msgVO = new MessengerVO();
 		msgVO.setTitle(title);
 		msgVO.setContent(content);
