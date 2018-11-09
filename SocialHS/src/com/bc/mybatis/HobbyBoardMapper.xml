@@ -20,6 +20,14 @@
     		where a.bbs_idx = b.bbs_idx and l_idx = #{l_idx} and hs = #{hs}
 	</select>
 	
+	<select id="list_from_category" resultType="com.bc.hobby.vo.HobbyBoardVO" parameterType="Map">
+		select * 
+			from bbs_code a, b_board b
+    		where a.bbs_idx = b.bbs_idx 
+    		and l_idx = #{l_idx} and hs = #{hs} 
+    		and a.bbs_idx = #{bbs_idx}
+	</select>
+	
 	<select id="one" resultType="com.bc.hobby.vo.HobbyBoardVO"
 		parameterType="String">
 		select * 

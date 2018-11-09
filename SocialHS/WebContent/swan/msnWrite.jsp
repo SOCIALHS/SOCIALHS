@@ -36,21 +36,16 @@
 	font-size: 9px;
 }
 
-#subBtn {
-	display: none;
-}
-
 form {
 	margin: auto;
 }
 </style>
 </head>
 <%@ include file="../jieun/loginheader.jsp"%>
+<h1 class="display-4 my-5 text-center">쪽지 작성하기</h1>
 
 <form action="MessengerController?type=writeOk">
 	<div class="mx-auto my-2 bg-light p-2" style="width: 600px">
-		<button type="button" class="close" data-dismiss="modal"
-			aria-label="Close"></button>
 
 		<div class="input-group mb-3">
 			<input type="text" class="form-control" placeholder="받는 사람"
@@ -76,11 +71,10 @@ form {
 				name="content"></textarea>
 		</div>
 		<div class="footer my-4" style="margin-left: 420px">
-			<button type="submit" class="btn btn-primary" formmethod="post"
-				id="subBtn">보내기</button>
+			<button type="submit" class="btn btn-danger" formmethod="post"
+				id="subBtn" style="margin-left: 90px;">보내기</button>
 		</div>
 	</div>
 </form>
-
 
 <%@ include file="../jieun/footer.jsp"%>

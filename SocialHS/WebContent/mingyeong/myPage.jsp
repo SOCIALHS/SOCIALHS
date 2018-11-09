@@ -41,7 +41,7 @@
 	a { color: black; }
 	a:hover {
 		text-decoration: underline;
-		color: orangered;
+		color: #b30000;
 	}
 	
 	#mypage table {
@@ -69,7 +69,7 @@
 	
 	ul.tab li.current {
 		text-decoration: underline;
-		color: orangered;
+		color: #b30000;
 	}
 	
 	.tabcontent {
@@ -124,17 +124,17 @@
 <%@ include file="../jieun/loginheader.jsp" %>
 <!-- jumbotron -->
 <div id="mypage"
-	class="container  text-black mx-auto mt-5 align-middle">
+	class="container text-black mx-auto mt-5 align-middle">
 	<div class="container text-center">
 		<ul id ="infohead" class="nav mx-auto my-2">
-			<li class="nav-item">내 정보&nbsp;|&nbsp;</li>
+			<li class="nav-item" style="font-weight: bold">내 정보</li>&nbsp;|&nbsp;
 			<li class="nav-item"><a href="">Q&A</a>&nbsp;|&nbsp;</li>
 			<li class="nav-item"><a href="index.jsp">home</a></li>
 		</ul>
 	
 	<form method="post">
 		<table class="table my-2 mx-auto">
-			<thead class="thead-dark">
+			<thead class="thead bg-dark text-white">
 				<tr>
 					<th>아이디</th>
 					<th>이름</th>
@@ -153,11 +153,11 @@
 				</tr>
 				<tr>
 					<td colspan="5" class="right">
-						<input type="button" name="edit" class="btn btn-secondary mb-2"
+						<input type="button" name="edit" class="btn btn-dark mb-2"
 							value="내 정보 수정" onclick="editInfo(this.form)">
-						<input type="button" name="sendMsg" class="btn btn-secondary mb-2"
+						<input type="button" name="sendMsg" class="btn btn-dark mb-2"
 							value="쪽지" onclick="messengerGo(this.form)">
-						<input type="button" name="delete" class="btn btn-secondary mb-2"
+						<input type="button" name="delete" class="btn btn-dark mb-2"
 							value="탈퇴하기" onclick="deleteInfo(this.form)">
 						
 						<input type="hidden" name="id" value="${memberVO.getId() }">
@@ -179,7 +179,7 @@
 		
 		<div id="allPage" class="tabcontent current">
 			<table class="table my-2 mx-auto">
-				<thead >
+				<thead class="bg-dark text-white">
 					<tr>
 						<th class="no">글번호</th>
 						<th class="title">제목</th>

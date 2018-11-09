@@ -22,6 +22,9 @@ public class HobbyMainCommand implements Command {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		
+		String bbs_idx = request.getParameter("bbs_idx");
+		
+		
 		List<LocationVO> location = (List<LocationVO>)session.getAttribute("location");	
 		String hs = (String)session.getAttribute("hs");
 		String l_idx = location.get(0).getL_Idx();
@@ -37,10 +40,15 @@ public class HobbyMainCommand implements Command {
 		map.put("hs",hs); 
 		
 		
-		List<HobbyBoardVO> HobbyList = HobbyBoardDAO.getMainCategoryList(map);
-		System.out.println("HobbyList: "+HobbyList);
-		request.setAttribute("MainList", HobbyList); //HobbyList는 HobbyMain에쓸 리스트를 저장한 객체 
-		//MainList는 공용으로 사용하는 것이고 Main에서 사용할 객체들의 집합을 의미
+		if (bbs_idx == null) {					// 일반적인 경우
+			List<HobbyBoardVO> HobbyList = HobbyBoardDAO.getMainCategoryList(map);
+			request.setAttribute("MainList", HobbyList); //HobbyList는 HobbyMain에쓸 리스트를 저장한 객체 
+			//MainList는 공용으로 사용하는 것이고 Main에서 사용할 객체들의 집합을 의미
+		}else {									// 카테고리에서 넘어왔을 경우
+			map.put("bbs_idx", bbs_idx);
+			List<HobbyBoardVO> HobbyList = HobbyBoardDAO.getCategoryFromCategory(map);
+			request.setAttribute("MainList", HobbyList); 
+		}
 		
 		System.out.println("list : "+ list);
 		session.setAttribute("SubLocation", list);
