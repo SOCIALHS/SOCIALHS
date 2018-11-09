@@ -24,6 +24,6 @@
 		
 	</div>
 	
-	<button class="btn bg-warning text-white my-2 my-sm-2"
-		onclick="write_go()">글 작성하기</button>
+	<input type="button" class="btn bg-warning text-white my-2 my-sm-2"
+		onclick="write_go()" value="글 작성하기">
 </form>

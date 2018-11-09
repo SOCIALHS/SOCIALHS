@@ -24,9 +24,7 @@ public class SubLocationCommand implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		
-		List<LocationVO> location = (List<LocationVO>)session.getAttribute("location");
 		/*SubLocationController?type=sub&l_idx=${listSubAll.getL_idx() }&sl_idx=${listSubAll.getSl_idx()}&cPage=1*/
-		String l_idx = request.getParameter("l_idx");
 		String sl_idx = request.getParameter("sl_idx");
 		String cPage = request.getParameter("cPage");
 		String cntPerPage = request.getParameter("cntPerPage");
@@ -39,12 +37,10 @@ public class SubLocationCommand implements Command {
 		map.put("sl_idx", sl_idx);
 		
 		int countAll = SubLocationDAO.getCountAll(map);
-		System.out.println("cPage: "+ cPage+ ", cntPerPage: "+ cntPerPage);
-		System.out.println(countAll);
 		
 		Map<String, Integer> PagingMap = null;
 		if (cPage.equals("") || cntPerPage.equals("")) {
-			BaseballPaging paging = new BaseballPaging(countAll, 1, 3);
+			BaseballPaging paging = new BaseballPaging(countAll, 1, 5);
 		} else {
 			BaseballPaging paging = new BaseballPaging(countAll, Integer.parseInt(cPage), Integer.parseInt(cntPerPage));
 			PagingMap = paging.getBeEnd();
@@ -52,15 +48,19 @@ public class SubLocationCommand implements Command {
 			String end = String.valueOf(PagingMap.get("end"));
 			map.put("begin", begin);
 			map.put("end", end);
+			
+			request.setAttribute("pvo", paging);
 		}
-		System.out.println("begin: "+ map.get("begin"));
-		System.out.println("end: "+ map.get("end"));
-		System.out.println("hs: "+ map.get("hs"));
-		System.out.println("sl_idx: "+ map.get("sl_idx"));
-		System.out.println("l_idx: "+ l_idx);
 		List<BoardVO> subBoard = SubLocationDAO.getBoardCommList(map);
 		System.out.println("subBoard: "+ subBoard);
 		request.setAttribute("subBoard", subBoard);
+		request.setAttribute("sl_idx", sl_idx);
+		
+		if (request.getParameter("l_idx") != null) {
+			HashMap testMap = SubLocationDAO.getLoName(sl_idx);
+			session.setAttribute("l_name", testMap.get("L_NAME"));
+			session.setAttribute("sl_name", testMap.get("SL_NAME"));
+		}
 		
 		return "wonho/sungbuk.jsp";
 	}
