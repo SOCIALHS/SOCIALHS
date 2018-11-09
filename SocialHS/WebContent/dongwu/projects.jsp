@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>쪽지</title>
+<title>프로젝트</title>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
@@ -37,26 +37,18 @@
 		window.close();
 	}
 </script>
-<style>
-#close {
-	margin: auto;
-}
-</style>
 </head>
+
 <body>
 	<div class="bg-light p-5">
-		<h1 class="display-4">${msnVO.title }</h1>
+		<h1 class="display-4 text-center">프로젝트</h1>
 		<hr>
-		<p class="lead">${msnVO.send_id }</p>
-		<p class="lead">${msnVO.regdate }</p>
-
-
-		<div class="input-group">
-			<textarea class="form-control" aria-label="With textarea" rows="6"
-				readonly="readonly">${msnVO.content }</textarea>
+		<div class="ml-3">
+			<p class="lead">소셜 하비 - 취미 공유 소셜 웹 서비스</p>
+			<p class="lead">소셜 스터디 - 학습 공유 소셜 웹 서비스</p>
 		</div>
-
-		<div class="footer my-4" style="margin-left: 400px">
+		<hr>
+		<div class="footer my-2 ml-3">
 			<button type="button" class="btn btn-dark" onClick="closeFnc()">창닫기</button>
 		</div>
 	</div>

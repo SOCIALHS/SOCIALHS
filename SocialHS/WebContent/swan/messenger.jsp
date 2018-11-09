@@ -93,7 +93,7 @@ ul.tab li.current {
 	<div class="container text-center">
 		<ul id="infohead" class="nav mx-auto my-2">
 			<li class="nav-item" style="font-weight: bold">내 정보</li>&nbsp;|&nbsp;
-			<li class="nav-item"><a href="">Q&A</a>&nbsp;|&nbsp;</li>
+			<li class="nav-item"><a href="#">Q&A</a>&nbsp;|&nbsp;</li>
 			<li class="nav-item"><a href="index.jsp">home</a></li>
 		</ul>
 
@@ -165,7 +165,7 @@ ul.tab li.current {
 								<td><span class="badge badge-secondary">${list.send_id }</span></td>
 								<td>
 								<a href="#"
-									onClick="detailGo(${list.ms_idx }); window.open('MessengerController?type=oneList&ms_idx=${list.ms_idx}&chk=${list.chk }','쪽지창', 'width=600px, height=320px, scrollbars=yes')">
+									onClick="detailGo(${list.ms_idx }); window.open('MessengerController?type=oneList&ms_idx=${list.ms_idx}&chk=${list.chk }','쪽지창', 'width=600px, height=320px, scrollbars=no')">
 										${list.title }
 								</a>
 								</td>

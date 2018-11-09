@@ -68,7 +68,7 @@ public class AlarmCommand implements Command {
 		if (comAlm.size() != 0) {
 		result += "\"comAlm\":[";
 		for (CommentVO com : comAlm) {
-			sumCom += com.getChk();
+			sumCom += Integer.parseInt(com.getChk());
 			result += "{";
 			result += "\"title\" : \""+ com.getTitle() +"\",";
 			result += "\"id\" : \""+ com.getId() +"\",";

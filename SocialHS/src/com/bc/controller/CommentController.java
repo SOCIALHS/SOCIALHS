@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.bc.comment.command.CommentDeleteOkCommand;
+import com.bc.comment.command.CommentWriteOkCommand;
 import com.bc.main.command.HobbyMainCommand;
 import com.bc.main.command.StudyMainCommand;
 import com.bc.main.dao.LocationDAO;
@@ -19,12 +21,8 @@ import com.bc.main.vo.SubLocationVO;
 import com.bc.share.command.Command;
 import com.bc.study.command.CategoryCommand;
 
-
-
-
-
-@WebServlet("/LocationController")
-public class LocationController extends HttpServlet {
+@WebServlet("/Comment")
+public class CommentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,40 +36,20 @@ public class LocationController extends HttpServlet {
 	
 	private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-
+		
+		System.out.println("Comment까지왔음");
 		request.setCharacterEncoding("UTF-8");
-		String hs = (String)session.getAttribute("hs");
-		String location = (String)request.getParameter("location");
 		
-		if(location == null) {
-			location = "1";
-		}
-		
-		session.setAttribute("l_idx", Integer.parseInt(location));
-		
-		List<LocationVO> list = LocationDAO.getLocation(location);
-		session.setAttribute("location", list);
-		
-		List<LocationVO> listAll = LocationDAO.getAll();
-		System.out.println("listAll : "+listAll);
-		session.setAttribute("locationAll", listAll);
-		List<SubLocationVO> listSubAll2 = (List<SubLocationVO>)SubLocationDAO.getSubAll();
-		session.setAttribute("listSubAll2", listSubAll2);
-		
-		List<SubLocationVO> listSubAll = SubLocationDAO.getSubAll();
-		session.setAttribute("listSubAll", listSubAll);
-		
-		String path = null;
-		System.out.println("hs : "+hs);
-		
+		String type = request.getParameter("type");
 		Command comm = null;
-		
-		if(hs.equals("hobby")) {
-			comm = new HobbyMainCommand();
+		String path = "";
+		System.out.println("type : "+type);
+		if(type.equals("writeOk")) {
+			comm = new CommentWriteOkCommand();
+		}else if(type.equals("deleteOk")) {
+			comm = new CommentDeleteOkCommand();
 		}
-		else if(hs.equals("study")) {
-			comm = new StudyMainCommand();
-		} 
+	
 		
 		path = comm.exec(request, response);
 		request.getRequestDispatcher(path).forward(request, response);

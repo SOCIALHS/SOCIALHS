@@ -37,6 +37,7 @@
     <mapper resource="com/bc/mybatis/MainDeleteMapper.xml"/>
     <mapper resource="com/bc/mybatis/adminMapper.xml"/>
     
+    
   </mappers>
 </configuration>
 

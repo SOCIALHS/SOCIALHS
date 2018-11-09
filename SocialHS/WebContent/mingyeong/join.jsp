@@ -3,9 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
-	String id = (String) session.getAttribute("id");
-%>
 
 <%@ include file="../jieun/header_head.jsp"%>
 <meta charset="UTF-8">
@@ -88,7 +85,6 @@
 
 		frm.action = "index.jsp";
 		frm.submit();
-<%session.removeAttribute("id");%>
 	}
 </script>
 </head>
@@ -191,7 +187,7 @@
 					size="50">
 			</div>
 		</div>
-		<div class="row" style="margin-left: 250px" >
+		<div class="row" style="margin-left: 290px" >
 			<div class="col">
 				<input type="button" class="btn btn-danger mb-2 mx-2" value="가입하기"
 					onclick="joinOk(this.form)">
