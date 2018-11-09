@@ -44,19 +44,21 @@
 </style>
 </head>
 <body>
-	<h1 class="display-4">${msnVO.title }</h1>
-	<hr>
-	<p class="lead">${msnVO.send_id }</p>
-	<p class="lead">${msnVO.regdate }</p>
+	<div class="bg-light p-5">
+		<h1 class="display-4">${msnVO.title }</h1>
+		<hr>
+		<p class="lead">${msnVO.send_id }</p>
+		<p class="lead">${msnVO.regdate }</p>
 
 
-	<div class="input-group">
-		<textarea class="form-control" aria-label="With textarea" rows="6"
-			readonly="readonly">${msnVO.content }</textarea>
-	</div>
+		<div class="input-group">
+			<textarea class="form-control" aria-label="With textarea" rows="6"
+				readonly="readonly">${msnVO.content }</textarea>
+		</div>
 
-	<div class="footer my-4" style="margin-left: 263px">
-		<button type="button" class="btn btn-dark" onClick="closeFnc()">창닫기</button>
+		<div class="footer my-4" style="margin-left: 400px">
+			<button type="button" class="btn btn-dark" onClick="closeFnc()">창닫기</button>
+		</div>
 	</div>
 </body>
 </html>
