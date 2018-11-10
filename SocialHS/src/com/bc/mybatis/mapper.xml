@@ -33,7 +33,7 @@
 
 	<select id="comAlm" resultType="com.bc.main.vo.CommentVO"
 		parameterType="String">
-		SELECT B.TITLE, C.ID, C.BBC_IDX, C.CHK 
+		SELECT B.TITLE, C.ID, B.BB_IDX, C.CHK, C.BBC_IDX  
 		FROM BB_COMMENT C, B_BOARD B 
 		WHERE B.BB_IDX = C.BB_IDX 
 		AND B.ID = #{id} 
@@ -71,7 +71,20 @@
 		INSERT INTO MESSENGER (MS_IDX, TITLE, CONTENT, SEND_ID,	RECV_ID) 
 		VALUES(MS_SEQ.NEXTVAL, #{title}, #{content}, #{send_id}, #{recv_id})
 	</insert>
-
+	
+	
+	
+	<!-- 알람 체크 sql -->
+	
+	<update id="checkCom" parameterType="String">
+		UPDATE 	BB_COMMENT SET CHK = 0 WHERE BBC_IDX = #{bbc_idx}
+	</update>
+	
+	<update id="checkMem" parameterType="String">
+		UPDATE B_BOARD SET CHK = 0 WHERE BB_IDX = #{bb_idx}
+	</update>
+	
+	
 
 </mapper>
 
