@@ -26,6 +26,7 @@ public class StudyMainCommand implements Command {
 		
 		List<LocationVO> location = (List<LocationVO>)session.getAttribute("location");
 		String hs = (String)session.getAttribute("hs");
+		hs = hs.substring(0, 1);
 		
 		String l_idx = location.get(0).getL_Idx();
 		List<SubLocationVO> list = SubLocationDAO.getSubLocation(l_idx);

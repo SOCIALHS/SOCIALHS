@@ -52,7 +52,7 @@
 					newAlm += "<p class=\"lead\">모집 알람</p>";
 					newAlm += "<hr>";
 					$.each(memList, function(member) {
-						newAlm += "<a class='ajaxLink' href='HobbyController?type=view&bb_idx="+this.bb_idx+"'>" + '"<span class="ajaxTitle">' + this.title + '</span>"' + "모집글에 신청자가 나타났습니다.<br><br></a>";
+						newAlm += "<a class='ajaxLink' href='AlarmCheck?type=mem&bb_idx="+this.bb_idx+"'>" + '"<span class="ajaxTitle">' + this.title + '</span>"' + "모집글에 신청자가 나타났습니다.<br><br></a>";
 					});
 					newAlm += "<br><br>";
 				}
@@ -73,7 +73,9 @@
 					newAlm += "<p class=\"lead\">댓글 알람</p>";
 					newAlm += "<hr>";
 					$.each(comList, function(member) {
-						newAlm += '"' + this.title + '"' + "글에 댓글이 달렸습니다.<br><br>";
+						newAlm += "<a class='ajaxLink' href='AlarmCheck?type=com&bbc_idx="+this.bbc_idx+"&bb_idx="+this.bb_idx+"'>"; 
+						newAlm += '"<span class="ajaxTitle">' + this.title + '</span>"';
+						newAlm += "글에 \"<span class='ajaxId'>"+this.id+"</span>\"님이 댓글을 달았습니다.<br><br></a>";
 					});
 					newAlm += "<br><br>";
 				}
@@ -113,7 +115,12 @@
 	color: black;
 }
 .ajaxTitle{
-	color: blue;
+	font-size: 1.2em;
+	color: #7BB31A;
+}
+.ajaxId{
+	font-size: 1.2em;
+	color: #FF9C00;
 }
 #newAlm {
 	display: none;
