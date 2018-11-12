@@ -39,9 +39,12 @@ public class BullteinBoardController extends HttpServlet {
 			comm = new BullteinBoardWriteCommand();
 		}else if(type.equals("bullteinUpdate")) {
 			comm = new BullteinBoardUpdateCommand();
-			System.out.println("업데이트 컨트롤러까진 오네?");
 		}else if(type.equals("bullteinDelete")) {
 			comm = new BullteinBoardDeleteCommand();
+		}else if(type.equals("bullteinGood")) {
+			comm = new BullteinBoardGoodCommand();
+		}else if(type.equals("bullteinBad")) {
+			comm = new BullteinBoardBadCommand();
 		}
 		
 		path = comm.exec(request, response);

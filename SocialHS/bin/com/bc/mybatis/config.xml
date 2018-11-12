@@ -26,8 +26,7 @@
   	<mapper resource="com/bc/mybatis/LocationMapper.xml"/>
   	<mapper resource="com/bc/mybatis/memberData.xml"/>
   	<mapper resource="com/bc/mybatis/photoMapper.xml"/>
-  	<!--  <mapper resource="com/bc/mybatis/StockMapper.xml"/> -->
-
+  	<mapper resource="com/bc/mybatis/StockMapper.xml"/>
   	<mapper resource="com/bc/mybatis/studyMapper.xml"/>
  	<mapper resource="com/bc/mybatis/FreeBoard.xml"/>		
     <mapper resource="com/bc/mybatis/SubLocationMapper.xml"/>
@@ -36,6 +35,7 @@
     <mapper resource="com/bc/mybatis/MainUpdateMapper.xml"/>
     <mapper resource="com/bc/mybatis/MainDeleteMapper.xml"/>
     <mapper resource="com/bc/mybatis/adminMapper.xml"/>
+    <mapper resource="com/bc/mybatis/CommentMapper.xml"/>
     
     
   </mappers>

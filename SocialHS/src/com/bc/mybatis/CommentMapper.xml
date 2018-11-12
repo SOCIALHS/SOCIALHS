@@ -3,16 +3,22 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- mapper 태그의 namespace 속성 필수 작성  -->  
 <mapper namespace="comment">
-
-	<insert id = "insertComment" parameterType="com.bc.main.vo.CommentVO">
-		insert into bb_comment (bbc_idx, id, content, regdate, bb_idx )
-			values (BBC_SEQ.nextVal, #{id}, #{content}, sysdate, #{bb_idx})
+	
+	<select id="CommentList" resultType="com.bc.main.vo.CommentVO">
+		SELECT * FROM BB_COMMENT ORDER BY BBC_IDX DESC
+	</select>
+	
+	
+	<insert id="CommentWrite" parameterType="com.bc.main.vo.CommentVO">
+		INSERT INTO BB_COMMENT (BBC_IDX, ID, CONTENT, PW, REGDATE, BB_IDX)
+					VALUES(BBC_SEQ.NEXTVAL, #{id}, #{content}, #{pw}, SYSDATE, 1)					 
 	</insert>
 	
-	<delete id = "deleteComment" parameterType="String">
-		delete from bb_comment where bbc_idx = #{bbc_idx}
+	
+	
+	<delete id="CommentDelete" parameterType="String">
+		DELETE FROM BB_COMMENT WHERE BBC_IDX = #{bbc_idx}
 	</delete>
 	
 </mapper>  
