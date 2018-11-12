@@ -82,80 +82,11 @@
 <meta charset="UTF-8">
 <title>[A] 전체 게시판 글 목록</title>
 <style>
-	#infohead {
-		width: 200px;
-		height: 100%;
-		background-color: #f9f9f9;
-		margin-top: -9999px;
-		margin-bottom: -9999px;
-		padding-top: 9999px;
-		padding-bottom: 9999px;
-	}
 	
-	.menu { text-indent: 10px; }
-	.topMenuLi {
-		list-style: none;
-		cursor: pointer;
-	}
-	.topMenuLi li { list-style: none; }
-	.menuLink {
-		height: 35px;
-		line-height: 35px;
-	}
-	
-	.submenuUl { display: none; }
-	.submenuUl a {
-		margin-bottom: 2px;
-		height: 35px;
-		line-height: 35px;
-		cursor: pointer;
-	}
-	
-	.submenuLink {
-		display: block;
-		height: 100%; width: 100%;
-		cursor: pointer;
-		background-color: #f1f1f1;
-		text-decoration: none;
-	}
-	.submenuLink:hover {
-		display: block;
-		background-color: gold;
-	}
-	
-	#infohead a, #infohead a:hover { text-decoration: none; color: black; }
-	a { color: black; }
-	table a:hover {
-		text-decoration: underline;
-		color: forestgreen;
-	}
-	
-	#adminPage table {
-		/* border: 1px lightgray solid;
-		border-collapse: collapse; */
-		width: 1100px; margin: auto; padding: 50px; 
-	}
-	#allList, #hobbylist, #studylist, #allmemberInfo {
-		padding-left: 50px; }
-	#adminPage .center { text-align: center; }
-	#adminPage .right { text-align: right; }
-	#adminPage .left { text-align: left; }
-	#adminPage { overflow: hidden; display: flex; }
-	
-	/* 탭 스타일 */
-	.tabcontent { display: none; }
-	.tabcontent.current { display: inherit; }
-	#infohead .current { background-color: gold; } 
-	/* 탭 스타일 끝 */
-	
-	#searchmenu {
-		text-align: center; 
-		padding-bottom: 20px;
-	}
-
-
 </style>
 <link href="css/A_Paging.css" rel="stylesheet" type="text/css">
+<link href="css/A_morepage.css" rel="stylesheet" type="text/css">
+
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	//내가 쓴 게시글 / 댓글 탭 
@@ -183,6 +114,13 @@
 		});
 	});
 </script>
+<script>
+	function search_go(frm) {
+		frm.action = "AdminController?type=search";
+		frm.submit();
+	}
+
+</script>
 </head>
 <body>
 <div id="adminPage" class="jumbotron jumbotron-fluid">
@@ -208,11 +146,16 @@
 	
 	<div id="hobbylist">
 	
-	<div id="searchmenu">
-		<input type="text" size="50px" id="search" placeholder="검색어 입력">&nbsp;&nbsp;
-		<input type="button" value="검색" onclick="search_allwrite(this.form)">
-	</div>
-	
+	<form method="post">
+		<div id="searchmenu">
+			<select name="select">
+				<option value="1">제목/내용</option>
+				<option value="2">아이디</option>
+			</select>
+			<input type="text" size="50px" id="search" placeholder="검색어 입력">&nbsp;&nbsp;
+			<input type="button" value="검색" onclick="search_go(this.form)">
+		</div>
+	</form>
 	
 	<form method="post">
 		<table class="table my-2 mx-auto text-center">
