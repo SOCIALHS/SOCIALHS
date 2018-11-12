@@ -13,6 +13,7 @@ public class BullteinBoardOneCommand implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		String bb_idx = request.getParameter("bb_idx");
 		BoardVO bbvo = BullteinBoardDAO.selectOne(bb_idx);
+		
 		request.getSession().setAttribute("BoardVO", bbvo);
 		return "minseong/bullteinBoardOne.jsp";
 		

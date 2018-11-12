@@ -12,7 +12,7 @@
 	
 	<insert id="CommentWrite" parameterType="com.bc.main.vo.CommentVO">
 		INSERT INTO BB_COMMENT (BBC_IDX, ID, CONTENT, PW, REGDATE, BB_IDX)
-					VALUES(BBC_SEQ.NEXTVAL, #{id}, #{content}, #{pw}, SYSDATE, 1)					 
+					VALUES(BBC_SEQ.NEXTVAL, #{id}, #{content}, #{pw}, SYSDATE, #{bb_idx})					 
 	</insert>
 	
 	

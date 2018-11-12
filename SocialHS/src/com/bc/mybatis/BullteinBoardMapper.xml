@@ -50,16 +50,16 @@
 		 WHERE BB_IDX = #{bb_idx}
 	</update>
 	
-	<update id="goodVO" parameterType="int">
+	<update id="goodVO" parameterType="String">
 		UPDATE B_BOARD 
 		   SET GOOD = GOOD + 1 
-		 WHERE BB_IDX = 229
+		 WHERE BB_IDX = #{bb_idx}
 	</update>
 	
-	<update id="badVO" parameterType="int">
+	<update id="badVO" parameterType="String">
 		UPDATE B_BOARD 
 		   SET BAD = BAD - 1 
-		 WHERE BB_IDX = 229
+		 WHERE BB_IDX = #{bb_idx}
 	</update>
 	
 </mapper>

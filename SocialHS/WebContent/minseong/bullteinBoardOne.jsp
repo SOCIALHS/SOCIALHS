@@ -146,7 +146,7 @@
 <%-- 댓글 출력 --%>
 <c:forEach var="CommentVO" items="${cList }">
 <div class="comment">
-	<form method="post" action="CommentController?type=cDelete">
+	<form method="post" action="Comment?type=deleteOk">
 		<p>댓글번호 : ${CommentVO.bbc_idx }</p>
 		<p>작성자 : ${CommentVO.id }</p>
 		<p>내용 : ${CommentVO.content }</p>
@@ -172,7 +172,7 @@
 	
 	
 	<%-- 댓글 입력 --%>
-	<form method="post" action="CommentController?type=cWrite">
+	<form method="post" action="Comment?type=writeOk">
 
 		<p>작성자 : <input type="text" name="id"></p>
 		<p>비밀번호 : <input type="password" name="pw"></p>
