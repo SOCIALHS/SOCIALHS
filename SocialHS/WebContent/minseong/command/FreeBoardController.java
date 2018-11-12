@@ -11,9 +11,9 @@ import com.bc.share.command.Command;
 
 
 
-@WebServlet("/BullteinController")
+@WebServlet("/FreeController")
 
-public class BullteinBoardController extends HttpServlet {
+public class FreeBoardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,20 +31,16 @@ public class BullteinBoardController extends HttpServlet {
 		String path = null;
 		Command comm = null;
 		
-		if(type.equals("bullteinList")) {
+		if(type.equals("freeList")) {
 			comm = new BullteinBoardListCommand();
-		}else if(type.equals("bullteinOne")) {
+		}else if(type.equals("freeOne")) {
 			comm = new BullteinBoardOneCommand();
-		}else if(type.equals("bullteinWrite")) {
+		}else if(type.equals("freeWrite")) {
 			comm = new BullteinBoardWriteCommand();
-		}else if(type.equals("bullteinUpdate")) {
+		}else if(type.equals("freeUpdate")) {
 			comm = new BullteinBoardUpdateCommand();
-		}else if(type.equals("bullteinDelete")) {
+		}else if(type.equals("freeDelete")) {
 			comm = new BullteinBoardDeleteCommand();
-		}else if(type.equals("bullteinGood")) {
-			comm = new BullteinBoardGoodCommand();
-		}else if(type.equals("bullteinBad")) {
-			comm = new BullteinBoardBadCommand();
 		}
 		
 		path = comm.exec(request, response);

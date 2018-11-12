@@ -39,6 +39,8 @@ public class BaseballPaging {
 	
 	private int begin;
 	private int end;
+	private int beginPage;
+	private int endPage;
 	
 	private int total;
 	private int totalPage;
@@ -57,18 +59,29 @@ public class BaseballPaging {
 		double cntPage = getCntPerPage();
 		
 		int totalP = (int)Math.ceil(tot / cntPage);
+		System.out.println("totalP: "+ totalP);
 		setTotalPage(totalP);
 	}
 	
 	public Map<String, Integer> getBeEnd() {
 		Map<String, Integer> map = new HashMap<>();
 		
-//		begin = (현재페이지 - (현재페이지 % cntPerBlock) - 1)
+//		begin = (((현재페이지 - 1) / cpb) * cpb + 1)
 		int cP = getcPage();
 		int cpb = getCntPerBlock();
 		
-		int begin = (cP - (cP % cpb) - 1);
-		int end = begin  + (cpb - 1);
+		int beginP = ((int)((cP - 1) / cpb))*cpb + 1;
+		int endP = beginP  + (cpb - 1);
+		setBeginPage(beginP);
+		if (endP > getTotalPage()) {
+			setEndPage(getTotalPage());
+		} else {
+			setEndPage(endP);
+		}
+		System.out.println("시작페이지: "+ beginP);
+		System.out.println("끝 페이지: "+ endP);
+		setEnd(cPage * cntPerPage);
+		setBegin(getEnd() - cntPerPage + 1);
 		map.put("begin", begin);
 		map.put("end", end);
 		
@@ -129,6 +142,22 @@ public class BaseballPaging {
 
 	public void setCntPerBlock(int cntPerBlock) {
 		this.cntPerBlock = cntPerBlock;
+	}
+
+	public int getBeginPage() {
+		return beginPage;
+	}
+
+	public void setBeginPage(int beginPage) {
+		this.beginPage = beginPage;
+	}
+
+	public int getEndPage() {
+		return endPage;
+	}
+
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
 	}
 	
 	

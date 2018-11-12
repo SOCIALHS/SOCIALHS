@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.bc.hobby.dao.BaseballDAO;
+import com.bc.hobby.resource.BaseballPaging;
+import com.bc.hobby.vo.BaseballBoardVO;
 import com.bc.main.dao.SubLocationDAO;
 import com.bc.main.vo.BoardVO;
 import com.bc.main.vo.LocationVO;
@@ -21,27 +24,43 @@ public class SubLocationCommand implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		
-		List<LocationVO> location = (List<LocationVO>)session.getAttribute("location");
-		
+		/*SubLocationController?type=sub&l_idx=${listSubAll.getL_idx() }&sl_idx=${listSubAll.getSl_idx()}&cPage=1*/
+		String sl_idx = request.getParameter("sl_idx");
+		String cPage = request.getParameter("cPage");
+		String cntPerPage = request.getParameter("cntPerPage");
 		String hs = (String)session.getAttribute("hs");
 		hs = hs.substring(0, 1);
-		System.out.println("나오니 hs : " + hs);
-		
-		String sl_idx = request.getParameter("sl_idx");
-		System.out.println("나오니 : " + sl_idx);
-		
-		String l_idx = location.get(0).getL_Idx();
-		List<SubLocationVO> list = SubLocationDAO.getSubLocation(l_idx);
-		session.setAttribute("SubLocation", list);
 		
 		Map<String, String> map = new HashMap<String, String>();
+		
 		map.put("hs", hs);
 		map.put("sl_idx", sl_idx);
 		
-		System.out.println("map : " + map);
-		List<BoardVO> subBoard = SubLocationDAO.getBoardAll(map);
+		int countAll = SubLocationDAO.getCountAll(map);
+		
+		Map<String, Integer> PagingMap = null;
+		if (cPage.equals("") || cntPerPage.equals("")) {
+			BaseballPaging paging = new BaseballPaging(countAll, 1, 5);
+		} else {
+			BaseballPaging paging = new BaseballPaging(countAll, Integer.parseInt(cPage), Integer.parseInt(cntPerPage));
+			PagingMap = paging.getBeEnd();
+			String begin = String.valueOf(PagingMap.get("begin"));
+			String end = String.valueOf(PagingMap.get("end"));
+			map.put("begin", begin);
+			map.put("end", end);
+			
+			request.setAttribute("pvo", paging);
+		}
+		List<BoardVO> subBoard = SubLocationDAO.getBoardCommList(map);
 		System.out.println("subBoard: "+ subBoard);
-		session.setAttribute("subBoard", subBoard);
+		request.setAttribute("subBoard", subBoard);
+		request.setAttribute("sl_idx", sl_idx);
+		
+		if (request.getParameter("l_idx") != null) {
+			HashMap testMap = SubLocationDAO.getLoName(sl_idx);
+			session.setAttribute("l_name", testMap.get("L_NAME"));
+			session.setAttribute("sl_name", testMap.get("SL_NAME"));
+		}
 		
 		return "wonho/sungbuk.jsp";
 	}

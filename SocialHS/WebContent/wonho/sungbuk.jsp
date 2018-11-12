@@ -1,6 +1,9 @@
+<%@page import="com.bc.main.dao.SubLocationDAO"%>
+<%@page import="com.bc.member.Paging"%>
+<%@page import="com.bc.member.memberVO"%>
+<%@page import="java.util.HashMap"%>
 <%@page import="com.bc.member.memberDAO"%>
 <%@page import="com.bc.main.vo.CommentVO"%>
-<%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
 <%@page import="com.bc.main.vo.SubLocationVO"%>
 <%@page import="com.bc.main.vo.LocationVO"%>
@@ -10,35 +13,20 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-	//보드
-	List<BoardVO> SubBoard = (List<BoardVO>)session.getAttribute("subBoard");
-	//현재 location 페이지
-	List<LocationVO> lo_list = (List<LocationVO>)session.getAttribute("location");
-	//sublocation 페이지
-	List<SubLocationVO> subList = (List<SubLocationVO>)session.getAttribute("SubLocation");
-	//System.out.println("SubBoard : " + SubBoard);
-	System.out.println("lo_list : " + lo_list);
-	System.out.println("subList : " + subList);
-	
-	pageContext.setAttribute("SubBoard", SubBoard);
-	pageContext.setAttribute("lo_list", lo_list);
-	pageContext.setAttribute("subList", subList);
-	
-	int sl_idx = Integer.parseInt(request.getParameter("sl_idx"));
-	pageContext.setAttribute("sl_idx", sl_idx);
-	System.out.println("sl_idx : " + sl_idx);
-	
+	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
+%>		<%@ include file="../jieun/header_head.jsp"%>
+<%
+	} else if (session.getAttribute("memberVO") != null) {
+%>		<%@ include file="../head.jsp"%>
+<%
+	} else if (session.getAttribute("AdminVO") != null) {
+%>		<%@ include file="../head.jsp"%>
+<%
+	} 
 %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>게시판</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-	crossorigin="anonymous">
+
+<link href="css/Paging.css" rel="stylesheet" type="text/css">
 <style>
 	#infohead {
 		text-align: left;
@@ -96,85 +84,26 @@
 		width : 800px;
 		margin : auto;
 	}
+	
 </style>
 </head>
-<body>
-
-	<%-- <h2>${lo_list[0].getL_Name() }  
-	<c:forEach var ="s" items="${subList }">
-		<c:if test="${s.getSl_idx()  == sl_idx }">
-			${s.getSl_name() }
-		</c:if>
-	</c:forEach>
-	</h2> --%>
-	<%-- <form class="form-inline my-3">
-	  <div class="form-group">
-	      <select class="form-control" id="select">
-	        <option>제목</option>
-	        <option>작성자</option>
-	        <option>내용</option>
-	     </select>
-	  </div>
-	  <input class="form-control mr-sm-2" type="search" placeholder="검색"
-	     style="width: 500px;" aria-label="Search">
-	     
-	  <button class="btn bg-success text-white my-2 mr-sm-2"
-	     onclick="write_go()">검색</button>
-	   <button class="btn bg-warning text-white my-2 my-sm-2" type="submit">글
-	      작성하기</button>
-	</form>
-	<table class="table">
-	  <thead class="thead-dark">
-	  		<th scope="col">BB_IDX</th>
-	  		<th scope="col">Title</th>
-	  		<th scope="col">Content</th>
-	  		<th scope="col">Time</th>
-	  		<th scope="col">Place</th>
-	    <!-- <tr>
-	      <th scope="col">#</th>
-	      <th scope="col">First</th>
-	      <th scope="col">Last</th>
-	      <th scope="col">Handle</th>
-	    </tr> -->
-	  </thead>
-	  <tbody>
-	  <c:forEach var="sbl" items="${SubBoard }">
-	  		<tr>
-	  			<td>${sbl.getBb_idx() }</td>
-	  			<td>${sbl.getTitle() }</td>
-	  			<td>${sbl.getContent() }</td>
-	  			<td>${sbl.getTime() }</td>
-	  			<td>${sbl.getPlace() }</td>
-	  		</tr>
-	  </c:forEach>
-	    <!-- <tr>
-	      <th scope="row">1</th>
-	      <td>Mark</td>
-	      <td>Otto</td>
-	      <td>@mdo</td>
-	    </tr>
-	    <tr>
-	      <th scope="row">2</th>
-	      <td>Jacob</td>
-	      <td>Thornton</td>
-	      <td>@fat</td>
-	    </tr>
-	    <tr>
-	      <th scope="row">3</th>
-	      <td>Larry</td>
-	      <td>the Bird</td>
-	      <td>@twitter</td>
-	    </tr> -->
-	  </tbody>
-	</table> --%>
+<%
+	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
+%>		<%@ include file="../jieun/header.jsp"%>
+<%
+	} else if (session.getAttribute("memberVO") != null) {
+%>		<%@ include file="../jieun/loginheader.jsp"%>
+<%
+	} else if (session.getAttribute("AdminVO") != null) {
+%>		<%@ include file="../Admin/A_loginheader.jsp"%>
+<%
+	} 
+%>
 <!-- ------------------------------------------------------------------------------------ -->
+<br><br><br>
 		<h3>
-			&lt;${lo_list[0].getL_Name() }  
-			<c:forEach var ="s" items="${subList }">
-				<c:if test="${s.getSl_idx()  == sl_idx }">
-					${s.getSl_name() }
-				</c:if>
-			</c:forEach>
+			&lt;${l_name }  
+					${sl_name }
 			&gt;
 		</h3>
 		
@@ -194,7 +123,7 @@
 		
 		<div id="allPage" class="tabcontent current">
 			<table class="table my-2 mx-auto">
-				<thead >
+				<thead>
 					<tr>
 						<th class="no">BB_IDX</th>
 						<th class="title">TITLE</th>
@@ -203,10 +132,10 @@
 						<th class="hit">Place</th>
 					</tr>
 				</thead>
-				<tbody>
+			<tbody>
 					<%-- 리스트에 데이터가 있을 때 --%>
-					<c:if test="${not empty SubBoard }">
-						<c:forEach var="sbl" items="${SubBoard }">
+					<c:if test="${not empty subBoard }">
+						<c:forEach var="sbl" items="${subBoard }">
 					  		<tr>
 					  			<td>${sbl.getBb_idx() }</td>
 					  			<td>${sbl.getTitle() }</td>
@@ -216,17 +145,67 @@
 					  		</tr>
 					  	</c:forEach>	
 					</c:if>
-					<c:if test="${empty SubBoard }">
+					<c:if test="${empty subBoard }">
 						<tr>
-							<td colspan="5" class="center">등록된 게시글이 없습니다.<br>
-								지금 바로 새로운 게시글을 등록해 보세요!</td>
+							<td colspan="5" class="center">
+								등록된 게시글이 없습니다.<br>
+								지금 바로 새로운 게시글을 등록해 보세요!
+							</td>
 						</tr>
 					</c:if>
 			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="6">
+						<ol class="paging">
+						
+						<%-- 이전페이지 사용여부 --%>
+						<c:choose>
+							<%-- 사용불가 (첫번째 블록) --%>
+							<c:when test="${pvo.beginPage < pvo.cntPerPage }">
+								<li class="disable">&lt;&nbsp;이전&nbsp;</li>
+							</c:when>
+							
+							<%-- 사용가능  --%>
+							<c:otherwise>
+								<li>
+								<a href="SubLocationController?type=sub&sl_idx=${sl_idx }&cPage=${pvo.begin-1 }&cntPerPage=${pvo.cntPerPage}">&lt;&nbsp;이전&nbsp;</a>
+								</li>
+							</c:otherwise>
+						</c:choose>
+						
+						<%-- 현재 블록의 시작페이지>끝 페이지 반복처리 --%>
+						<c:forEach var="k" begin="${pvo.beginPage }" end="${pvo.endPage }">
+						<c:choose>
+							<c:when test="${k == pvo.cPage }">
+								<li class="now">${k }</li>
+							</c:when>
+							<c:otherwise>
+								<li>
+									<a href="SubLocationController?type=sub&sl_idx=${sl_idx }&cPage=${k }&cntPerPage=${pvo.cntPerPage}">${k }</a>
+								</li>
+							</c:otherwise>
+						</c:choose>
+						</c:forEach>
+						
+						<%-- 다음페이지 --%>
+						<c:choose>
+							<%-- 사용불가 --%>
+							<c:when test="${pvo.endPage >= pvo.totalPage }">
+								<li class="disable" id="next">&nbsp;다음&nbsp;&gt;</li>
+							</c:when>
+							<c:otherwise>
+								<li>
+								<a href="SubLocationController?type=sub&sl_idx=${sl_idx }&cPage=${pvo.end+1 }&cntPerPage=${pvo.cntPerPage}">&nbsp;다음&nbsp;&gt;</a>
+									</li>
+							</c:otherwise>
+						</c:choose>
+						</ol>
+					
+					</td>
+				</tr>
+			</tfoot>
 			</table>
-		</div>
-		
-		</div>
-	</div>
-</body>
-</html>
+		</div> 
+
+<%@ include file="../jieun/footer.jsp"%>

@@ -93,10 +93,19 @@
 				<p class="lead">${viewVO.content }</p>
 
 				<!-- ----------------------------------------------------------------------------------------- -->
+				
+				<c:if test="${viewVO.id ne memberVO.id }">
+					<button type="button" class="btn btn-outline-primary" 
+					onclick = "apply()">신청하기</button>
+				</c:if>
+				
+				<c:if test="${viewVO.id eq memberVO.id }">
 				<button type="button" class="btn btn-outline-primary" 
-					onclick = "location.href = 'HobbyController?type=update'">수정</button>
-				<button type="button" class="btn btn-outline-primary" 
-				onclick = "location.href = 'HobbyController?type=deleteOk&bb_idx=${viewVO.bb_idx}'">삭제</button>
+					onclick = "update_main()">수정</button>
+					<button type="button" class="btn btn-outline-primary" 
+					onclick = "location.href = 'HobbyController?type=deleteOk&bb_idx=${viewVO.bb_idx}'">삭제</button>
+				</c:if>
+				
 				<hr>
 
 				<!-- Comments Form -->
@@ -143,6 +152,28 @@
 			</div>
 			</div>
 			</div>
+			
+			<!-- memberId 비교해서 수정 삭제하는 코드 작성 -->
+			<script>
+			function update_main(){
+				if("${viewVO.id}" == "${memberVO.id}"){
+					location.href = 'HobbyController?type=update';
+				}else{
+					alert("작성자만 수정할 수 있습니다");
+				}
+			}
+			function apply(){
+				var flag = confirm("정말 신청하시겠습니까?!");
+				if(flag){
+					location.href = "HobbyController?type=apply"
+				}
+			}
+			
+			
+			
+			
+			
+			</script>
 
 		<!-- naver map api등록 -->
 			<script>
@@ -171,4 +202,8 @@
 				
 		</script>
 
-		<%@ include file="jieun/footer.jsp"%>
+		
+		</div>
+		</div>
+<%@ include file="jieun/footer.jsp"%>
+

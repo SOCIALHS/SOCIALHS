@@ -56,7 +56,7 @@ public class joinOkCommand implements Command {
 			vo.setBirth(birthDate);
 			
 			memberDAO.join(vo);
-			session.setAttribute("joinInfo", vo);
+			request.setAttribute("joinInfo", vo);
 			session.removeAttribute("id");
 			path = "mingyeong/joinOk.jsp";
 			

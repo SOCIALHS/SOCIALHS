@@ -31,8 +31,10 @@
 		bgBtnChange(l_idx);
 	}
 
-	function check(self){		
+	function check(self){
 		document.getElementById(self.name).className = "collapse show";
+
+
 		var tempNum;
 		for(var i = 0; i < num.length; i++){
 			if(self.name == num[i]){
