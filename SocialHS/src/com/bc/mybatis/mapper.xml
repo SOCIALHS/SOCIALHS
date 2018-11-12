@@ -85,7 +85,23 @@
 	</update>
 	
 	
-
+	
+	<!-- 랭크 업 -->
+	
+	<update id="rankUpTo1" parameterType="String">
+		UPDATE MEMBER SET RANK = 1 WHERE ID = #{id}
+	</update>
+	<update id="rankUpTo2" parameterType="String">
+		UPDATE MEMBER SET RANK = 2 WHERE ID = #{id}
+	</update>
+	<update id="rankUpTo3" parameterType="String">
+		UPDATE MEMBER SET RANK = 3 WHERE ID = #{id}
+	</update>
+	<update id="rankUpTo4" parameterType="String">
+		UPDATE MEMBER SET RANK = 4 WHERE ID = #{id}
+	</update>
+	
+	
 </mapper>
 
 

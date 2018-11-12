@@ -15,6 +15,14 @@
 		update b_board set cur_member = cur_member + 1 where bb_idx = #{bb_idx}
 	</update>
 	
+	<delete id = "deleteApply" parameterType="com.bc.main.vo.ApplyVO">
+	 	delete from apply where id = #{id} and bb_idx = #{bb_idx}
+	</delete>
+	
+	<update id = "minusCurrent" parameterType="String">
+		update b_board set cur_member = cur_member - 1 where bb_idx = #{bb_idx}
+	</update>
+	
 	
 	
 </mapper>  

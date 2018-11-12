@@ -2,7 +2,7 @@ package com.bc.admin;
 
 public class A_AllBoardVO {
 	private int bb_idx, req_member, cur_member;
-	private String id, title, regdate, bbs_name, hs, rp;
+	private String id, title, content, regdate, bbs_name, hs, rp;
 	
 	public int getBb_idx() {
 		return bb_idx;
@@ -21,6 +21,12 @@ public class A_AllBoardVO {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public String getRegdate() {
 		return regdate;
@@ -61,13 +67,12 @@ public class A_AllBoardVO {
 		this.rp = rp;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "A_AllBoardVO [bb_idx=" + bb_idx + ", req_member=" + req_member + ", cur_member=" + cur_member + ", id="
-				+ id + ", title=" + title + ", regdate=" + regdate + ", bbs_name=" + bbs_name + ", hs=" + hs + ", rp="
-				+ rp + "]";
+				+ id + ", title=" + title + ", content=" + content + ", regdate=" + regdate + ", bbs_name=" + bbs_name
+				+ ", hs=" + hs + ", rp=" + rp + "]";
 	}
 	
-
+	
 }

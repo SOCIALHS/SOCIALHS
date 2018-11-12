@@ -72,6 +72,7 @@ public class MainUpdateOkCommand implements Command {
 		System.out.println("수정 완료");
 		
 		
+		
 		List<LocationVO> location = (List<LocationVO>)session.getAttribute("location");
 		System.out.println("location : "+location);
 		return "LocationController?hs="+hs+"&location="+location.get(0).getL_Idx();

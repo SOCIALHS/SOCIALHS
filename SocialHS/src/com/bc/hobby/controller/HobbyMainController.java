@@ -1,6 +1,7 @@
 package com.bc.hobby.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bc.main.command.ApplyCommand;
 import com.bc.main.command.HobbyMainCommand;
+import com.bc.main.command.MainCancelOkCommand;
 import com.bc.main.command.MainDeleteOkCommand;
 import com.bc.main.command.MainUpdateCommand;
 import com.bc.main.command.MainUpdateOkCommand;
@@ -17,12 +19,8 @@ import com.bc.main.command.MainViewCommand;
 import com.bc.main.command.MainWriteCommand;
 import com.bc.main.command.MainWriteOkCommand;
 import com.bc.mingyeong.command.PhotoBoardCommand;
-import com.bc.minseong.command.BullteinBoardListCommand;
-import com.bc.minseong.command.FreeBoardListCommand;
-
 import com.bc.share.command.Command;
 import com.bc.swan.command.BaseballBoardCommand;
-import com.sun.glass.ui.CommonDialogs.Type;
 
 
 
@@ -75,6 +73,8 @@ public class HobbyMainController extends HttpServlet {
 			comm = new MainDeleteOkCommand();
 		}else if(type.equals("apply")) {
 			comm = new ApplyCommand();
+		}else if(type.equals("cancel")) {
+			comm = new MainCancelOkCommand();
 		}
 		
 		path = comm.exec(request, response);

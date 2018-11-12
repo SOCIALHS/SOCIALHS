@@ -23,6 +23,7 @@ public class CommentDAO {
 	
 	
 	public static int insertComment(CommentVO vo) {
+		System.out.println("vo : "+vo);
 		return getSql().insert("comment.insertComment",vo);	
 	}
 	

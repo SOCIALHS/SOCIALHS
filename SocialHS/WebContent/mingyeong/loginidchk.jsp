@@ -1,3 +1,4 @@
+<%@page import="com.bc.main.dao.MainDAO"%>
 <%@page import="com.bc.admin.AdminVO"%>
 <%@page import="com.bc.member.memberVO"%>
 <%@page import="com.bc.member.memberDAO"%>
@@ -52,6 +53,21 @@
 	else {
 		memberVO vo = dao.selectId(id);
 		session.setAttribute("memberVO", vo);
+		
+		int pnt = vo.getPoint();
+		int rnk = Integer.parseInt(vo.getRank());
+		String rnkId = vo.getId();
+		
+		if (pnt >= 1000 && rnk == 3){
+			MainDAO.rankUpTo4(rnkId);
+		}else if(pnt >=600 && rnk == 2){
+			MainDAO.rankUpTo3(rnkId);
+		}else if(pnt >= 300 && rnk == 1){
+			MainDAO.rankUpTo2(rnkId);
+		}else if(pnt >= 100 && rnk == 0){
+			MainDAO.rankUpTo1(rnkId);
+		}
+			
 		msg = "index.jsp";
 		
 	}
