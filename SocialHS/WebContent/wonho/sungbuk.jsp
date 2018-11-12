@@ -138,7 +138,8 @@
 						<c:forEach var="sbl" items="${subBoard }">
 					  		<tr>
 					  			<td>${sbl.getBb_idx() }</td>
-					  			<td>${sbl.getTitle() }</td>
+					  			<td><a href="HobbyController?type=view&bb_idx=${sbl.getBb_idx() }" 
+					  			role="button"> ${sbl.getTitle() }</a></td>
 					  			<td>${sbl.getContent() }</td>
 					  			<td>${sbl.getTime() }</td>
 					  			<td>${sbl.getPlace() }</td>
