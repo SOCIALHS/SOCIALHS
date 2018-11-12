@@ -34,10 +34,10 @@
   	<mapper resource="com/bc/mybatis/memberData.xml"/>
   	<mapper resource="com/bc/mybatis/photoMapper.xml"/>
   	<mapper resource="com/bc/mybatis/SearchBoardMapper.xml"/>
-  	<!--  <mapper resource="com/bc/mybatis/StockMapper.xml"/> -->
-
+  	<mapper resource="com/bc/mybatis/StockMapper.xml"/>
   	<mapper resource="com/bc/mybatis/studyMapper.xml"/>
     <mapper resource="com/bc/mybatis/SubLocationMapper.xml"/>
+    <mapper resource="com/bc/mybatis/CommentMapper.xml"/>
     
     
   </mappers>

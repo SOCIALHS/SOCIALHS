@@ -24,7 +24,7 @@
 		SELECT * FROM (
 			SELECT ROWNUM R_NUM, T.*
 			FROM (
-				SELECT B.BB_IDX, BBS.BBS_NAME, B.TITLE, B.ID, B.REGDATE
+				SELECT B.BB_IDX, BBS.BBS_NAME, B.TITLE, B.ID, B.REGDATE, B.RP, B.CUR_MEMBER, B.REQ_MEMBER
 				FROM B_BOARD B, BBS_CODE BBS
 				ORDER BY B.REGDATE DESC) T)
 		WHERE R_NUM BETWEEN #{begin} AND #{end}
@@ -50,6 +50,50 @@
 	<select id="allMemberCount" resultType="int">
 		SELECT COUNT(*) FROM MEMBER
 	</select>
+	
+	<!-- 전체 게시글 조회(취미) -->
+	<select id="allhobbyList" resultType="com.bc.admin.A_AllBoardVO"
+		parameterType="Map">
+		SELECT * FROM (
+			SELECT ROWNUM R_NUM, H.*
+			FROM (
+				SELECT B.BB_IDX, BBS.BBS_NAME, B.TITLE, B.ID, B.REGDATE, 
+				B.HS, B.RP, B.CUR_MEMBER, B.REQ_MEMBER
+					FROM B_BOARD B, BBS_CODE BBS
+                	WHERE B.HS = 'h'
+					ORDER BY B.REGDATE DESC) H)
+			WHERE R_NUM BETWEEN #{begin} AND #{end}
+	</select>
+	
+	
+	<!-- 전체 게시글 조회(스터디) -->
+	<select id="allstudyList" resultType="com.bc.admin.A_AllBoardVO"
+		parameterType="Map">
+		SELECT * FROM (
+			SELECT ROWNUM R_NUM, S.*
+			FROM (
+				SELECT B.BB_IDX, BBS.BBS_NAME, B.TITLE, B.ID, B.REGDATE, 
+				B.HS, B.RP, B.CUR_MEMBER, B.REQ_MEMBER
+					FROM B_BOARD B, BBS_CODE BBS
+                	WHERE B.HS = 's'
+					ORDER BY B.REGDATE DESC) S)
+			WHERE R_NUM BETWEEN #{begin} AND #{end}
+	</select>
+	
+	<!-- 게시글 수 조회(취미) -->
+	<select id="allHobbyCount" resultType="int">
+		SELECT COUNT(*) FROM B_BOARD WHERE HS = 'h'
+	</select>
+	<!-- 게시글 수 조회(스터디) -->
+	<select id="allStudyCount" resultType="int">
+		SELECT COUNT(*) FROM B_BOARD  WHERE HS = 's'
+	</select>
+	
+	
+	<!-- 검색 -->
+	
+	
+	
 	
 	
 	

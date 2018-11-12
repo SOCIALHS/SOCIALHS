@@ -1,37 +1,30 @@
 package com.bc.minseong.command;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bc.main.vo.BoardVO;
 import com.bc.share.command.Command;
 
-public class BullteinBoardUpdateCommand implements Command {
+public class FreeBoardWriteCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		String bb_idx = request.getParameter("bb_idx");
 		String chk = request.getParameter("chk");
+		
+		BoardVO fvo = new BoardVO();
+		fvo.setTitle(request.getParameter("title"));
+		fvo.setContent(request.getParameter("content"));
 		String path = null;
-				
-
-				
 		if (chk == null) {
-			path = "minseong/bullteinBoardUpdate.jsp";
-			System.out.println("업데이트 널");
+			path = "minseong/freeBoardWrite.jsp";
 		} else {
-			BoardVO bbvo = new BoardVO();
-			bbvo.setTitle(request.getParameter("title"));
-			bbvo.setContent(request.getParameter("content"));
-			bbvo.setBb_idx(Integer.parseInt(bb_idx));
-			BullteinBoardDAO.update(bbvo);
-			
-			path = "/minseong/bullteinBoardOne.jsp";
+			FreeBoardDAO.insert(fvo);
+			path = "FreeController?type=freeList";
 		}
 		
 		return path;
+	}
 
-
-}}
+}

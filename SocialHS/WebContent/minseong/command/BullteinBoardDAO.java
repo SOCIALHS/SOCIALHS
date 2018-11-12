@@ -48,7 +48,7 @@ public class BullteinBoardDAO {
 	}
 	
 	
-	
+
 	//조회수 
 	public static int updateHit(BoardVO bbvo) {
 		return getSql().update("hitVO", bbvo); 
@@ -67,6 +67,6 @@ public class BullteinBoardDAO {
 	public static int updateBad(String bb_idx) {
 		return getSql().update("bulltein.badVO", bb_idx);
 	}
-
+	
 	
 }
