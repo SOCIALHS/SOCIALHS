@@ -107,6 +107,10 @@
 			&gt;
 		</h3>
 		
+		<ul id ="infohead" class="nav mx-auto my-2">
+			<li class="nav-item"><a href="javascript:history.back()">뒤로가기</a></li>
+		</ul>
+	
 		<form class="form-inline my-3">
 		  <div class="form-group">
 		      <select class="form-control" id="select">
@@ -121,10 +125,11 @@
 		  <button class="btn bg-warning text-white my-2 my-sm-2" type="submit">글작성하기</button>
 		</form>
 		
+		<form method="post">
 		<div id="allPage" class="tabcontent current">
-			<table class="table my-2 mx-auto">
-				<thead>
-					<tr>
+			<table class="table my-5 mx-auto">
+				<thead class="thead-dark">
+					<tr class="pagetitle">
 						<th class="no">BB_IDX</th>
 						<th class="title">TITLE</th>
 						<th class="writer">Content</th>
@@ -132,17 +137,17 @@
 						<th class="hit">Place</th>
 					</tr>
 				</thead>
-			<tbody>
+				<tbody>
 					<%-- 리스트에 데이터가 있을 때 --%>
 					<c:if test="${not empty subBoard }">
 						<c:forEach var="sbl" items="${subBoard }">
 					  		<tr>
-					  			<td>${sbl.getBb_idx() }</td>
-					  			<td><a href="HobbyController?type=view&bb_idx=${sbl.getBb_idx() }" 
+					  			<td class="center">${sbl.getBb_idx() }</td>
+					  			<td class="clickTitle"><a href="HobbyController?type=view&bb_idx=${sbl.getBb_idx() }" 
 					  			role="button"> ${sbl.getTitle() }</a></td>
 					  			<td>${sbl.getContent() }</td>
-					  			<td>${sbl.getTime() }</td>
-					  			<td>${sbl.getPlace() }</td>
+					  			<td class="center">${sbl.getTime() }</td>
+					  			<td class="center">${sbl.getPlace() }</td>
 					  		</tr>
 					  	</c:forEach>	
 					</c:if>
