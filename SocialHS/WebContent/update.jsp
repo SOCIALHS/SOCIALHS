@@ -141,8 +141,8 @@
             </div>
         </div>
         <div class="map container my-5" style="width: 600px; height: 600px;">
-            <div id="map" style="width:100%; height:500px;"></div>
             <div><button type="button" class="btn btn-outline-primary" onclick = "removeMark()">장소 바꾸기</button></div>
+            <div id="map" style="width:100%; height:500px;"></div>
         </div>
         <div class="form-group mx-5">
             <label for="place">장소</label>

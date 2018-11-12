@@ -38,6 +38,7 @@ public class MainViewCommand implements Command {
       List<ApplyVO> applyList = HobbyBoardDAO.getApplyVo(bb_idx);
       System.out.println("applyList : "+applyList);
       session.setAttribute("applyList", applyList);
+      System.out.println("여기 applyList가 왜 안나오니....");
       return "view.jsp";
    }
 

@@ -75,7 +75,8 @@ public class MainUpdateOkCommand implements Command {
 		
 		List<LocationVO> location = (List<LocationVO>)session.getAttribute("location");
 		System.out.println("location : "+location);
-		return "LocationController?hs="+hs+"&location="+location.get(0).getL_Idx();
+		return "HobbyController?type=view&bb_idx="+bb_idx;
+//		return "LocationController?hs="+hs+"&location="+location.get(0).getL_Idx();
 	}
 
 }

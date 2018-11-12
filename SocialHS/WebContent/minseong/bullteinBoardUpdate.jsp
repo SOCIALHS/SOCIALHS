@@ -7,7 +7,7 @@
 <title>수정</title>
 <script>
 	function save_go(frm) {
-		frm.action = "BullteinController?type=bullteinUpdate"; 
+		frm.action = "BullteinController?type=bullteinUpdateUpdate"; 
 		frm.submit();
 	}
 </script>
@@ -42,7 +42,6 @@
 				</td>
 			</tr>
 			<input type="hidden" name="bb_idx" value="${BoardVO.getBb_idx() }">
-			<input type="hidden" name="chk" value="chk">
 			
 		</tfoot>	
 		</table>

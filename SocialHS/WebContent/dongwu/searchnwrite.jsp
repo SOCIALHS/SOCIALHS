@@ -28,7 +28,4 @@
 	<input type = "button" class="btn bg-warning text-white my-2 my-sm-2"
 		onclick="write_go()" value = "글 작성하기">
 
-	<input type="button" class="btn bg-warning text-white my-2 my-sm-2"
-		onclick="write_go()" value="글 작성하기">
-
 </form>
