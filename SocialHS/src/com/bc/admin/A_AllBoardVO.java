@@ -1,8 +1,8 @@
 package com.bc.admin;
 
 public class A_AllBoardVO {
-	private int bb_idx;
-	private String id, title, regdate, bbs_name;
+	private int bb_idx, req_member, cur_member;
+	private String id, title, regdate, bbs_name, hs, rp;
 	
 	public int getBb_idx() {
 		return bb_idx;
@@ -35,12 +35,39 @@ public class A_AllBoardVO {
 		this.bbs_name = bbs_name;
 	}
 	
-	@Override
-	public String toString() {
-		return "A_AllBoardVO [bb_idx=" + bb_idx + ", id=" + id + ", title=" + title + ", regdate=" + regdate
-				+ ", bbs_name=" + bbs_name + "]";
+	public String getHs() {
+		return hs;
+	}
+	public void setHs(String hs) {
+		this.hs = hs;
 	}
 	
+	public int getReq_member() {
+		return req_member;
+	}
+	public void setReq_member(int req_member) {
+		this.req_member = req_member;
+	}
+	public int getCur_member() {
+		return cur_member;
+	}
+	public void setCur_member(int cur_member) {
+		this.cur_member = cur_member;
+	}
+	public String getRp() {
+		return rp;
+	}
+	public void setRp(String rp) {
+		this.rp = rp;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "A_AllBoardVO [bb_idx=" + bb_idx + ", req_member=" + req_member + ", cur_member=" + cur_member + ", id="
+				+ id + ", title=" + title + ", regdate=" + regdate + ", bbs_name=" + bbs_name + ", hs=" + hs + ", rp="
+				+ rp + "]";
+	}
 	
 
 }

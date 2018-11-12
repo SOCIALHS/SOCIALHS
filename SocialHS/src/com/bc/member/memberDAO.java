@@ -68,7 +68,6 @@ public class memberDAO {
 	
 	public static int adminlogin(AdminVO id, String pw) {
 		int chk = 0;
-		
 			if (id.getPw().equals(pw)) {
 				chk = 2;
 			} else {
@@ -108,7 +107,7 @@ public class memberDAO {
 	
 	//회원탈퇴
 	public static int delete(String id) {
-		return getSql().delete("memberdata.deleteMtinfo", id);
+		return getSql().delete("memberdata.deleteMyinfo", id);
 	}
 	
 	//(mypage)전체 게시글 수 조회 (B_Board) COUNT 
@@ -134,17 +133,9 @@ public class memberDAO {
 		return getSql().selectList("memberdata.myCommList", map);
 	}
 	
-	
-	
 	//(mypage)내가 쓴 글 상세보기 
 	public static BoardVO selectOne(String id) {
 		return getSql().selectOne("memberdata.myWrite", id);
 	}
-	
-	//(mypage) 내가 쓴 게시글 조회(전체)
-	public static List<BoardVO> recentWritelist() {
-		return getSql().selectList("memberdata.recentWritelist");
-	}
-	
 	
 }

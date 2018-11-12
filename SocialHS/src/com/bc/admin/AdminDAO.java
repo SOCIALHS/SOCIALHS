@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.bc.main.vo.BoardVO;
 import com.bc.member.memberVO;
 import com.bc.mybatis.DBService;
 
@@ -23,8 +24,6 @@ private static SqlSession ss;
 		return getSql().selectOne("admin.Aidchk", id);
 	}
 	
-	//로그인 시 관리자인지 확인 
-	
 	//전체 게시글 수(cnt) 조회
 	public int getWriteCount() {
 		int totalCount = getSql().selectOne("admin.allWriteCount");
@@ -33,7 +32,7 @@ private static SqlSession ss;
 	}
 	
 	//전체 게시글 조회
-	public static List<AdminVO> getAllList(Map<String, String> map) {
+	public static List<A_AllBoardVO> getAllList(Map<String, String> map) {
 		return getSql().selectList("admin.allList", map);
 	}
 	
@@ -47,5 +46,29 @@ private static SqlSession ss;
 	public static List<memberVO> getAllmemberList(Map<String, String> map) {
 		return getSql().selectList("admin.allmemberInfo", map);
 	}
+	
+	//(취미)페이지 수(cnt) 조회 
+	public int getHobbyCount() {
+		int hobbytotCnt = getSql().selectOne("admin.allHobbyCount");
+		return hobbytotCnt;
+	}
+	
+	//(취미)게시글 조회 
+	public static List<A_AllBoardVO> getAllhobbyList(Map<String, String> map) {
+		return getSql().selectList("admin.allhobbyList", map);
+	}
+	
+	//(스터디)페이지 수(cnt) 조회
+	public int getStudyCount() {
+		int studytotCnt = getSql().selectOne("admin.allStudyCount");
+		return studytotCnt;
+	}
+	
+	//(스터디)게시글 조회 
+	public static List<A_AllBoardVO> getAllstudyList(Map<String, String> map) {
+		return getSql().selectList("admin.allstudyList", map);
+	}
+	
+	
 	
 }
