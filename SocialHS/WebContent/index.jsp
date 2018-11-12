@@ -14,6 +14,7 @@
 %>
 
 <title>소셜 하비 앤 스터디</title>
+</head>
 
 <%
 	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
@@ -28,7 +29,7 @@
 	} 
 %>
 
-</head>
+
 
 <!-- body -->
 <div class="jumbotron jumbotron-fluid">

@@ -20,4 +20,4 @@
 			<button type="button" class="btn btn-light" onclick="join(this.form)">회원가입</button>
 		</form>
 	</nav>
-	<br><br>
+	<br><br><br>

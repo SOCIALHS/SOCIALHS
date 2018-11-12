@@ -13,25 +13,17 @@ public class BullteinBoardUpdateCommand implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		String bb_idx = request.getParameter("bb_idx");
-		String chk = request.getParameter("chk");
 		String path = null;
-				
 
-				
-		if (chk == null) {
-			path = "minseong/bullteinBoardUpdate.jsp";
-			System.out.println("업데이트 널");
-		} else {
-			BoardVO bbvo = new BoardVO();
-			bbvo.setTitle(request.getParameter("title"));
-			bbvo.setContent(request.getParameter("content"));
-			bbvo.setBb_idx(Integer.parseInt(bb_idx));
-			BullteinBoardDAO.update(bbvo);
-			
-			path = "/minseong/bullteinBoardOne.jsp";
-		}
-		
+		BoardVO bbvo = new BoardVO();
+		bbvo.setTitle(request.getParameter("title"));
+		bbvo.setContent(request.getParameter("content"));
+		bbvo.setBb_idx(Integer.parseInt(bb_idx));
+		BullteinBoardDAO.update(bbvo);
+
+		path = "/minseong/bullteinBoardOne.jsp";
+
 		return path;
 
-
-}}
+	}
+}
