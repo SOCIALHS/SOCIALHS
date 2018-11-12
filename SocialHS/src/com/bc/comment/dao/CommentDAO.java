@@ -32,7 +32,7 @@ public class CommentDAO {
 	}
 	
 	public static List<CommentVO> getCommList(String bb_idx) {
-		return getSql().selectList("comment.selectComment",bb_idx);
+		return getSql().selectList("comment.listComment",bb_idx);
 	}
 	
 	

@@ -38,6 +38,9 @@
     <mapper resource="com/bc/mybatis/adminMapper.xml"/>
     <mapper resource="com/bc/mybatis/CommentMapper.xml"/>
     <mapper resource="com/bc/mybatis/ApplyMapper.xml"/>
+ 
+    
+    
     
   </mappers>
 </configuration>
