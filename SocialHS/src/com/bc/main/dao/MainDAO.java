@@ -44,4 +44,15 @@ public class MainDAO {
 		return getSql().selectList("socialhs.comAlm", id);
 	}
 	
+	
+	// 알람 체크 DAO
+	public static int checkCom(String bbc_idx) {
+		return getSql().update("socialhs.checkCom", bbc_idx);
+	}
+	public static int checkMem(String bb_idx) {
+		return getSql().update("socialhs.checkMem", bb_idx);
+	}
+	
+	
+	
 }

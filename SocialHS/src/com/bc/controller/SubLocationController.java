@@ -10,18 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.bc.main.command.HobbyMainCommand;
-import com.bc.main.command.StudyMainCommand;
-import com.bc.main.dao.LocationDAO;
-import com.bc.main.dao.SubLocationDAO;
-import com.bc.main.vo.BoardVO;
-import com.bc.main.vo.LocationVO;
-import com.bc.main.vo.SubLocationVO;
-import com.bc.member.memberVO;
 import com.bc.share.command.Command;
-import com.bc.study.command.CategoryCommand;
 import com.bc.wonho.command.SubLocationCommand;
-import com.bc.wonho.command.SubLocationMoreCommand;
 
 
 
@@ -53,9 +43,6 @@ public class SubLocationController extends HttpServlet {
 		
 		if(type.equals("sub")) {
 			comm = new SubLocationCommand();
-			System.out.println("여긴 왔네?");
-		} else if (type.equals("moreComment")) {
-			comm = new SubLocationMoreCommand();
 		}
 		
 		path = comm.exec(request, response);

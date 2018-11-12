@@ -1,16 +1,15 @@
 package com.bc.main.dao;
 
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.bc.hobby.vo.BaseballBoardVO;
 import com.bc.main.vo.BoardVO;
-import com.bc.main.vo.LocationVO;
 import com.bc.main.vo.SubLocationVO;
-import com.bc.mybatis.*;
+import com.bc.mybatis.DBService;
 
 public class SubLocationDAO {
 	
@@ -45,6 +44,21 @@ public class SubLocationDAO {
 	
 	public static List<BoardVO> getBoardCommList(Map<String,String> map) {
 		return getSql().selectList("SubLocation.BoardCommList", map);
+	}
+	
+	
+	
+	/***************************************/
+	public static int getCountAll(Map<String, String> map){
+		return getSql().selectOne("SubLocation.countAll", map);
+	}
+	
+	public static List<BoardVO> getPagingAll(Map map){
+		return getSql().selectList("SubLocation.BoardCommList", map);
+	}
+	
+	public static HashMap getLoName(String sl_idx) {
+		return getSql().selectOne("SubLocation.locationName", sl_idx);
 	}
 	
 }

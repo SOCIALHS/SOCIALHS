@@ -26,16 +26,12 @@ public class StudyMainCommand implements Command {
       
       List<LocationVO> location = (List<LocationVO>)session.getAttribute("location");
       String hs = (String)session.getAttribute("hs");
+      hs = hs.substring(0, 1);
       
       String l_idx = location.get(0).getL_Idx();
       List<SubLocationVO> list = SubLocationDAO.getSubLocation(l_idx);
       
       Map<String, String> map = new HashMap<String, String>();
-      if(hs.equals("hobby")) {
-         hs = "h";
-      }else if(hs.equals("study")) {
-         hs = "s";
-      }
       
       map.put("l_idx", l_idx);
       map.put("hs", hs); 

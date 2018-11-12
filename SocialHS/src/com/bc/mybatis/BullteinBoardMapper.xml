@@ -37,7 +37,34 @@
 		DELETE FROM B_BOARD WHERE BB_IDX = #{bb_idx}
 	</delete>
 	
-</mapper>  
+	
+	<update id="hitVO" parameterType="com.bc.main.vo.BoardVO">
+		UPDATE B_BOARD 
+		   SET HIT = #{hit} + 1 
+		 WHERE BB_IDX = #{bb_idx}
+	</update>
+	
+	<update id="hit" parameterType="int">
+		UPDATE B_BOARD
+		   SET HIT = HIT + 1
+		 WHERE BB_IDX = #{bb_idx}
+	</update>
+	
+	<update id="goodVO" parameterType="int">
+		UPDATE B_BOARD 
+		   SET GOOD = GOOD + 1 
+		 WHERE BB_IDX = 229
+	</update>
+	
+	<update id="badVO" parameterType="int">
+		UPDATE B_BOARD 
+		   SET BAD = BAD - 1 
+		 WHERE BB_IDX = 229
+	</update>
+	
+</mapper>
+	
+	
 
 
 

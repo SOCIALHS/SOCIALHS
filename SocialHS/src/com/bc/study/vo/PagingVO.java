@@ -1,19 +1,20 @@
 package com.bc.study.vo;
 
 public class PagingVO {
-	private int nowPage = 1; 
-	private int nowBlock = 1;
-	private int numPerPage = 10;
-	private int pagePerBlock = 5;
-	private int totalRecord = 0;
-	private int totalPage = 0;
-	private int totalBlock = 0;
-	private int beginContent = 0; //현재 페이지 첫 글번호
-	private int endContent = 0; //현재 페이지 끝 글번호
-	private int beginPage = 0;
-	private int endPage = 0;
+	private int nowPage = 1;         //현재 페이지
+	private int nowBlock = 1; 		 //현재 블럭
+	private int numPerPage = 10;     //한 페이지에 들어갈 게시물 수
+	private int pagePerBlock = 5;    //한 블럭에 들어갈 페이지 수
+	private int totalRecord = 0;     //전체 게시물 수
+	private int totalPage = 0;       //전체 페이지 수
+	private int totalBlock = 0;      //전체 블럭 수
+	private int beginContent = 0;    //현재 페이지 첫 글번호
+	private int endContent = 0;      //현재 페이지 끝 글번호
+	private int beginPage = 0;       //현재 블럭의 시작 페이지
+	private int endPage = 0;         //현재 블럭의 마지막 페이지
 	
 	public void setTotalPage() { 
+		//전체 페이지 = 전체 게시물 수 / 페이지당 게시물 수
 		totalPage = totalRecord / numPerPage;
 		if (totalRecord % numPerPage != 0) totalPage++;
 	}

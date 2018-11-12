@@ -24,7 +24,6 @@
 <!-- jumbotron -->
 <div >
 	<div id="joinok" class="container text-center">
-	<% session.getAttribute("joinInfo"); %>
 		<h2><b>회원가입이 완료되었습니다.</b></h2>
 		<p class="lead"><font color="blue">
 			<b>${joinInfo.getName() }</b></font>&nbsp;님 가입을 축하드립니다!<br>
@@ -32,7 +31,7 @@
 		<hr>
 		
 		<form method="post">
-			<input type="hidden" name="id" value="${memberVO.getId() }">
+			<input type="hidden" name="id" value="${joinInfo.id }">
 		</form>
 		<a href="index.jsp">메인화면으로 가기</a>
 	</div>

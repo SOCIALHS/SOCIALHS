@@ -46,6 +46,12 @@ public class FreeBoardDAO {
 		int result = getSql().delete("free.FreeDelete", bb_idx);
 		return result;
 	}
+	
+	//댓글 삭제
+	public static int deleteComment(String bb_idx) {
+		int result = getSql().delete("free.FreeDeleteComment", bb_idx);
+		return result;
+	}
 
 	
 	
