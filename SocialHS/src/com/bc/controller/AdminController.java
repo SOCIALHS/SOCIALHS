@@ -9,15 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bc.admin.command.allwriteCommand;
-import com.bc.member.command.joinCommand;
-import com.bc.member.command.joinOkCommand;
-import com.bc.member.command.loginCommand;
-import com.bc.member.command.logoutCommand;
-import com.bc.mypage.command.deleteCommand;
-import com.bc.mypage.command.myPageCommand;
-import com.bc.mypage.command.updateCommand;
-import com.bc.mypage.command.updateMyinfoCommand;
+import com.bc.admin.command.allListCommand;
+import com.bc.admin.command.allmemberInfoCommand;
+import com.bc.admin.command.hobbylistCommand;
+import com.bc.admin.command.studylistCommand;
 import com.bc.share.command.Command;
 
 @WebServlet("/AdminController")
@@ -43,9 +38,16 @@ public class AdminController extends HttpServlet {
 		System.out.println("type : "+type);
 		Command comm = null;
 		
-		if (type.equals("allwrite")) {
-			comm = new allwriteCommand();
+		if (type.equals("allList")) {
+			comm = new allListCommand();
+		} else if (type.equals("hobbylist")) {
+			comm = new hobbylistCommand();
+		} else if (type.equals("studylist")) {
+			comm = new studylistCommand();
+		} else if (type.equals("allmemberInfo")) {
+			comm = new allmemberInfoCommand();
 		}
+		
 		
 		path = comm.exec(request, response);
 		request.getRequestDispatcher(path).forward(request, response);

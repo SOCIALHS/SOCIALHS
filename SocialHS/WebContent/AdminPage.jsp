@@ -205,7 +205,7 @@
 			<tfoot>
 				<tr>
 					<td colspan="7" class="right">
-						<a href="Admin/A_allwriteList.jsp"><b>더보기&gt;</b></a>
+						<a href="AdminController?type=allList"><b>더보기&gt;</b></a>
 					</td>
 				</tr>
 			</tfoot>
@@ -251,7 +251,7 @@
 			<tfoot>
 				<tr>
 					<td colspan="7" class="right">
-						<a href="Admin/A_allwriteList.jsp"><b>더보기&gt;</b></a>
+						<a href="AdminController?type=hobbylist"><b>더보기&gt;</b></a>
 					</td>
 				</tr>
 			</tfoot>
@@ -298,7 +298,7 @@
 			<tfoot>
 				<tr>
 					<td colspan="7" class="right">
-						<a href="Admin/A_allwriteList.jsp"><b>더보기&gt;</b></a>
+						<a href="AdminController?type=studylist"><b>더보기&gt;</b></a>
 					</td>
 				</tr>
 			</tfoot>
@@ -339,7 +339,7 @@
 			<tfoot>
 				<tr>
 					<td colspan="5" class="right">
-						<a href="Admin/A_allmemberList.jsp"><b>더보기&gt;</b></a>
+						<a href="AdminController?type=allmemberInfo"><b>더보기&gt;</b></a>
 					</td>
 				</tr>
 			</tfoot>

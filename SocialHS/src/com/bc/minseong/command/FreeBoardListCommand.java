@@ -14,7 +14,7 @@ public class FreeBoardListCommand implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		List<BoardVO> list = FreeBoardDAO.getList(); 
 		request.setAttribute("list", list);
-		return "minseong/freeBoard.jsp";
+		return "minseong/freeBoardList.jsp";
 	}
 
 }

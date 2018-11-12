@@ -10,21 +10,23 @@ public class FreeBoardWriteCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		String bb_idx = request.getParameter("bb_idx");
-		String chk = request.getParameter("chk");
-		
+
 		BoardVO fvo = new BoardVO();
+		String id = request.getParameter("id");
+		if(id == "") {
+			fvo.setId("ANONYMOUS");
+		} else {
+			fvo.setId(id);
+		}
 		fvo.setTitle(request.getParameter("title"));
 		fvo.setContent(request.getParameter("content"));
+		System.out.println("fvo: " + fvo);
 		String path = null;
-		if (chk == null) {
-			path = "minseong/freeBoardWrite.jsp";
-		} else {
-			FreeBoardDAO.insert(fvo);
-			path = "FreeController?type=freeList";
-		}
+		
+		FreeBoardDAO.insert(fvo);
+		path = "FreeController?type=freeList";
 		
 		return path;
-	}
 
+	}
 }

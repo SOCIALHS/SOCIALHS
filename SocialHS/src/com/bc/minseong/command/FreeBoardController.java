@@ -1,6 +1,7 @@
 package com.bc.minseong.command;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,15 +33,17 @@ public class FreeBoardController extends HttpServlet {
 		Command comm = null;
 		
 		if(type.equals("freeList")) {
-			comm = new BullteinBoardListCommand();
+			comm = new FreeBoardListCommand();
 		}else if(type.equals("freeOne")) {
-			comm = new BullteinBoardOneCommand();
+			comm = new FreeBoardOneCommand();
 		}else if(type.equals("freeWrite")) {
-			comm = new BullteinBoardWriteCommand();
+			comm = new FreeBoardWriteCommand();
 		}else if(type.equals("freeUpdate")) {
-			comm = new BullteinBoardUpdateCommand();
+			comm = new FreeBoardUpdateCommand();
+		}else if(type.equals("freeUpdateUpdate")) {
+			comm = new FreeBoardUpdateUpdateCommand();
 		}else if(type.equals("freeDelete")) {
-			comm = new BullteinBoardDeleteCommand();
+			comm = new FreeBoardDeleteCommand();
 		}
 		
 		path = comm.exec(request, response);
