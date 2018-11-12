@@ -12,8 +12,8 @@ public class FreeBoardOneCommand implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		String bb_idx = request.getParameter("bb_idx");
 		BoardVO fvo = FreeBoardDAO.selectOne(bb_idx);
-		request.getSession().setAttribute("BoardVO", fvo);
-		return "minseong/freeBoardList.jsp";
+		request.setAttribute("BoardVO", fvo);
+		return "minseong/freeBoardOne.jsp";
 	}
 
 }

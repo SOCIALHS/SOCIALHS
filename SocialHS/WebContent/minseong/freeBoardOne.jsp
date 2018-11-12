@@ -32,7 +32,7 @@
 </style>
 <script>
 	function update_go(frm) {
-		frm.action = "FreeController?type=freeUpdate";
+		frm.action = "FreeController?type=freeUpdate&bb_idx=${BoardVO.getBb_idx() }";
 		frm.submit();
 	}
 	function delete_go(frm) {
@@ -42,6 +42,7 @@
 </script>
 </head>
 <body>
+<div id="container">
 	<h2>자유 게시판</h2>
 	<hr>
 	<form method="post">

@@ -37,9 +37,9 @@
 <body>
 
 <div id="container">
-	<h2>공지사항</h2>
+	<h2>자유게시판</h2>
 	<hr>
-	<p>[<a href="FreeController?type=freeWrite&bb_idx=${vo.bb_idx }">게시물 작성</a>]</p>
+	<p>[<a href="minseong/freeBoardWrite.jsp">게시물 작성</a>]</p>
 	<table>
 		<thead>
 			<tr>
@@ -57,7 +57,7 @@
 			<c:forEach var="vo" items="${list }">
 			<tr>
 				<td>${vo.getBb_idx() }</td>
-				<td><a href="FreeController?type=bullteinOne&bb_idx=${vo.bb_idx }">${vo.getTitle() }</a></td>
+				<td><a href="FreeController?type=freeOne&bb_idx=${vo.bb_idx }">${vo.getTitle() }</a></td>
 				<td>${vo.getId() }</td>
 				<td>${vo.getHit() }</td>
 				<td>${vo.getGood() }</td>
