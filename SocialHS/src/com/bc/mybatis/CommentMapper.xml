@@ -5,8 +5,8 @@
 
 <mapper namespace="comment">
 	
-	<select id="CommentList" resultType="com.bc.main.vo.CommentVO">
-		SELECT * FROM BB_COMMENT ORDER BY BBC_IDX DESC
+	<select id="CommentList" resultType="com.bc.main.vo.CommentVO" parameterType="String">
+		SELECT * FROM BB_COMMENT WHERE BB_IDX = #{bb_idx} ORDER BY BBC_IDX DESC
 	</select>
 	
 	

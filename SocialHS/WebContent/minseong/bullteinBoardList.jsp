@@ -1,12 +1,21 @@
 <%@page import="com.bc.minseong.command.BullteinBoardDAO"%>
 <%@page import="com.bc.study.vo.PagingVO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
+%>		<%@ include file="../jieun/header_head.jsp"%>
+<%
+	} else if (session.getAttribute("memberVO") != null) {
+%>		<%@ include file="../head.jsp"%>
+<%
+	} else if (session.getAttribute("AdminVO") != null) {
+%>		<%@ include file="../head.jsp"%>
+<%
+	} 
+%>
+
 <title>공지 게시판</title>
 <style>
 	#container {
@@ -34,7 +43,21 @@
 	
 </style>
 </head>
-<body>
+
+<%
+	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
+%>		<%@ include file="../jieun/header.jsp"%>
+<%
+	} else if (session.getAttribute("memberVO") != null) {
+%>		<%@ include file="../jieun/loginheader.jsp"%>
+<%
+	} else if (session.getAttribute("AdminVO") != null) {
+%>		<%@ include file="../Admin/A_loginheader.jsp"%>
+<%
+	} 
+%>
+
+<!--  <BODY>  -->
 
 <div id="container">
 	<h2>공지사항</h2>
@@ -75,8 +98,7 @@
 	</table>
 </div>
 
-</body>
-</html>
+<%@ include file="../jieun/footer.jsp"%>
 
 
 
