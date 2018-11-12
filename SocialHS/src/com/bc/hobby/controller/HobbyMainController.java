@@ -1,6 +1,7 @@
 package com.bc.hobby.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,12 +18,8 @@ import com.bc.main.command.MainViewCommand;
 import com.bc.main.command.MainWriteCommand;
 import com.bc.main.command.MainWriteOkCommand;
 import com.bc.mingyeong.command.PhotoBoardCommand;
-import com.bc.minseong.command.BullteinBoardListCommand;
-import com.bc.minseong.command.FreeBoardListCommand;
-
 import com.bc.share.command.Command;
 import com.bc.swan.command.BaseballBoardCommand;
-import com.sun.glass.ui.CommonDialogs.Type;
 
 
 
