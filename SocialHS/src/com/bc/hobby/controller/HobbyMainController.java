@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bc.main.command.ApplyCommand;
 import com.bc.main.command.HobbyMainCommand;
+import com.bc.main.command.MainCancelOkCommand;
 import com.bc.main.command.MainDeleteOkCommand;
 import com.bc.main.command.MainUpdateCommand;
 import com.bc.main.command.MainUpdateOkCommand;
@@ -75,6 +76,8 @@ public class HobbyMainController extends HttpServlet {
 			comm = new MainDeleteOkCommand();
 		}else if(type.equals("apply")) {
 			comm = new ApplyCommand();
+		}else if(type.equals("cancel")) {
+			comm = new MainCancelOkCommand();
 		}
 		
 		path = comm.exec(request, response);
