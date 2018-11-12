@@ -1,5 +1,6 @@
 package com.bc.admin;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -67,6 +68,20 @@ private static SqlSession ss;
 	//(스터디)게시글 조회 
 	public static List<A_AllBoardVO> getAllstudyList(Map<String, String> map) {
 		return getSql().selectList("admin.allstudyList", map);
+	}
+	
+	
+	//제목/내용으로 검색 
+	public static List<A_AllBoardVO> searchlist(String search) {
+		Map<String, String> map = new HashMap<>();
+		map.put("title", search);
+		map.put("content", search);
+		return getSql().selectList("admin.searchlist", map);
+	}
+
+	//아이디로 검색 
+	public static List<memberVO> searchId(String id) {
+		return getSql().selectList("admin.searchId", id);
 	}
 	
 	
