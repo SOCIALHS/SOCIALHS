@@ -80,7 +80,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
 <meta charset="UTF-8">
-<title>[A] 전체 게시판 글 목록</title>
+<title>[A] 검색결과(제목/내용)</title>
 <style>
 
 </style>
@@ -121,7 +121,7 @@
 	}
 
 </script>
-
+<% session.getAttribute("searchlist"); %>
 
 </head>
 <body>
@@ -148,7 +148,7 @@
 	
 	<div id="allList">
 	
-	<form method="post">
+	<form>
 		<div id="searchmenu">
 			<select name="select">
 				<option value="1">제목/내용</option>
@@ -175,22 +175,22 @@
 			</thead>
 			<tbody>
 			<%-- 데이터가 있을 때 --%>
-			<c:if test="${not empty A_list}">
-			<c:forEach var="allList" items="${A_list }" varStatus="status">
+			<c:if test="${not empty searchlist}">
+			<c:forEach var="search" items="${searchlist }" varStatus="status">
 				<tr>
 					<td>${pvo.totalRecord - ((pvo.nowPage -1) * pvo.numPerpage + status.index) }</td>
-					<td>${allList.getBb_idx() }</td>
-					<td>${allList.getBbs_name() }</td>
-					<td><a href="#">${allList.getTitle() }</a></td>
-					<td>${allList.getId() }</td>
-					<td>${allList.getRegdate().substring(0, 10) }</td>
-					<td>${allList.getRp() }</td>
-					<td>${allList.getCur_member() }&nbsp;/&nbsp;${allList.getReq_member() }</td>
+					<td>${search.getBb_idx() }</td>
+					<td>${search.getBbs_name() }</td>
+					<td><a href="#">${search.getTitle() }</a></td>
+					<td>${search.getId() }</td>
+					<td>${search.getRegdate().substring(0, 10) }</td>
+					<td>${search.getRp() }</td>
+					<td>${search.getCur_member() }&nbsp;/&nbsp;${search.getReq_member() }</td>
 				</tr>
 			</c:forEach>	
 			</c:if>
 			
-			<c:if test="${empty A_list}">
+			<c:if test="${empty searchlist}">
 				<tr>
 					<td colspan="8" class="center">등록된 게시글이 없습니다.<br>
 						지금 바로 새로운 게시글을 등록해 보세요!</td>
@@ -211,7 +211,7 @@
 							
 							<%-- 사용가능 --%>
 							<c:otherwise>
-								<li><a href="AdminController?type=allList&cPage=${pvo.beginPage-1 }">
+								<li><a href="AdminController?type=search&cPage=${pvo.beginPage-1 }">
 								&lt;&nbsp;이전&nbsp;</a></li>
 							</c:otherwise>
 						</c:choose>
@@ -224,7 +224,7 @@
 							</c:when>
 							<c:otherwise>
 								<li>
-									<a href="AdminController?type=allList&cPage=${k }">${k }</a>
+									<a href="AdminController?type=search&cPage=${k }">${k }</a>
 								</li>
 							</c:otherwise>
 						</c:choose>
@@ -237,7 +237,7 @@
 								<li class="disable" id="next">&nbsp;다음&nbsp;&gt;</li>
 							</c:when>
 							<c:otherwise>
-								<li><a href="AdminController?type=allList&cPage=${pvo.endPage+1 }">
+								<li><a href="AdminController?type=search&cPage=${pvo.endPage+1 }">
 									&nbsp;다음&nbsp;&gt;</a></li>
 							</c:otherwise>
 						</c:choose>

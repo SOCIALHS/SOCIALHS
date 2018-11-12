@@ -8,7 +8,7 @@
 	
 
 	<select id="BullteinList" resultType="com.bc.main.vo.BoardVO">
-		SELECT * FROM B_BOARD ORDER BY BB_IDX DESC
+		SELECT * FROM B_BOARD WHERE BBS_IDX = 3 ORDER BY BB_IDX DESC
 	</select>
 	
 	

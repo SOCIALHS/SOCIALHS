@@ -11,9 +11,13 @@
 	pageContext.setAttribute("sub_list", sub_list);
 	pageContext.setAttribute("lo_list", lo_list);
 	pageContext.setAttribute("listAll", listAll);
+	String hs = (String)session.getAttribute("hs");
+	String location = request.getParameter("location");
 	
 	String[] num = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"};
 	pageContext.setAttribute("num", num);
+	pageContext.setAttribute("hs", hs);
+	pageContext.setAttribute("location", location);
 %>
 
 <script>
@@ -23,26 +27,39 @@
 	$(function(){
 		var l_idx = "${lo_list}";
 		var sub = l_idx.substr(19,2);
+		console.log("sub : " + sub);
 		begin(num[sub-1]);
 	})	
 	
 	function begin(l_idx){
-		document.getElementById(l_idx).className = "collapse show";
+		//document.getElementById(l_idx).className = "collapse show";
 		bgBtnChange(l_idx);
 	}
 
 	function check(self){
-		document.getElementById(self.name).className = "collapse show";
-
-
+	
 		var tempNum;
 		for(var i = 0; i < num.length; i++){
 			if(self.name == num[i]){
 				tempNum = i;
 			}
 		}
-		bgBtnChange(num[tempNum]);
-		close(tempNum);
+		
+		var l_idx = "${lo_list}";
+		var sub1 = l_idx.substr(19,2);
+		
+		for(var j=0; j < num.length; j++) {
+			if(self.name == num[j]) {
+				sub1 = j + 1;
+			}
+		}
+		
+		if("${location}" != sub1) {
+			location.href="LocationController?hs=${hs}&location=" +sub1;			
+			bgBtnChange(num[tempNum]);
+			close(tempNum);
+		}
+		
 	}
 	
 	function close(idx){
@@ -53,7 +70,7 @@
 			}
 		}
 	}
-
+	
 	function bgBtnChange(idx) {
 		document.getElementById("heading" + idx).setAttribute("class", "card-header bg-dark");
 		document.getElementById("My" + idx).setAttribute("class", "btn btn-dark");

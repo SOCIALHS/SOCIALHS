@@ -8,9 +8,10 @@
 						<h5 class="mb-0">
 							<button class="btn btn-light" type="button"
 								name="${num[idx.index] }" data-toggle="collapse"
-								data-target=${num[idx.index] } aria-expanded="false"
+								data-target="#${num[idx.index] }" aria-expanded="false"
 								aria-controls="collapseOne" onclick="check(this)"
-								id="My${num[idx.index] }">${listAll.getL_Name() }</button>
+								ondblclick="check2(this)" id="My${num[idx.index] }">
+								${listAll.getL_Name() }</button>
 						</h5>
 					</div>
 
