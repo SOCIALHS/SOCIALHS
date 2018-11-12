@@ -83,41 +83,134 @@
 <title>[A] 전체 게시판 글 목록</title>
 <style>
 	#infohead {
-		text-align: left;
-		width: 1200px; margin: auto;
+		width: 200px;
+		height: 100%;
+		background-color: #f9f9f9;
+		margin-top: -9999px;
+		margin-bottom: -9999px;
+		padding-top: 9999px;
+		padding-bottom: 9999px;
 	}
 	
+	.menu { text-indent: 10px; }
+	.topMenuLi {
+		list-style: none;
+		cursor: pointer;
+	}
+	.topMenuLi li { list-style: none; }
+	.menuLink {
+		height: 35px;
+		line-height: 35px;
+	}
+	
+	.submenuUl { display: none; }
+	.submenuUl a {
+		margin-bottom: 2px;
+		height: 35px;
+		line-height: 35px;
+		cursor: pointer;
+	}
+	
+	.submenuLink {
+		display: block;
+		height: 100%; width: 100%;
+		cursor: pointer;
+		background-color: #f1f1f1;
+		text-decoration: none;
+	}
+	.submenuLink:hover {
+		display: block;
+		background-color: gold;
+	}
+	#infohead a, #infohead a:hover { text-decoration: none; color: black; }
 	a { color: black; }
-	a:hover {
+	table a:hover {
 		text-decoration: underline;
 		color: forestgreen;
 	}
 	#adminPage table {
 		/* border: 1px lightgray solid;
 		border-collapse: collapse; */
-		width: 1200px; margin: auto; padding: 50px;
+		width: 1100px; margin: auto; padding: 50px; 
 	}
+	#allList, #hobbylist, #studylist, #allmemberInfo {
+		padding-left: 50px; }
 	#adminPage .center { text-align: center; }
 	#adminPage .right { text-align: right; }
 	#adminPage .left { text-align: left; }
-
+	#adminPage { overflow: hidden; display: flex; }
+	
+	/* 탭 스타일 */
+	.tabcontent { display: none; }
+	.tabcontent.current { display: inherit; }
+	#infohead .current { background-color: gold; } 
+	/* 탭 스타일 끝 */
+	
+	#searchmenu {
+		text-align: center; 
+		padding-bottom: 20px;
+	}
 
 
 </style>
-<link href="../css/A_Paging.css" rel="stylesheet" type="text/css">
+<link href="css/A_Paging.css" rel="stylesheet" type="text/css">
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+	//내가 쓴 게시글 / 댓글 탭 
+	$(document).ready(function() {
+		$('.tab a').click(function() {
+			var tabid = $(this).attr('data-tab');
+			
+			$('.tab a').removeClass('current');
+			$('.tabcontent').removeClass('current');
+			
+			$(this).addClass('current');
+			$("#"+tabid).addClass('current');
+		})
+	})
+	
+	//사이드바 
+	$(document).ready(function() {
+		$(".topMenuLi>a").click(function() {
+			var submenu = $(this).next("div");
+			if( submenu.is(":visible") ) {
+				submenu.slideUp();
+			} else {
+				submenu.slideDown();
+			}
+		});
+	});
+</script>
 </head>
 <body>
-<div id="adminPage" class="container  text-black mx-auto mt-5 align-middle">
-	<div id ="infohead" class="text-center">
-		<input type="text" size="50px" id="search" placeholder="검색어 입력">&nbsp;&nbsp;<button>검색</button>
-		<br>
-		<ul class="tab nav mx-auto my-2" >
-			<li class="nav-item"><a href="../AdminPage.jsp">처음으로</a></li>
-			<span>&nbsp;&nbsp;</span>
-			<li class="nav-item"><a href="javascript:history.back();">뒤로가기</a></li>
-		</ul>
+<div id="adminPage" class="jumbotron jumbotron-fluid">
 	
+	<div id="infohead">
+		<ul class="menu tab">
+			<li class="topMenuLi">
+				<a class="menuLink tablink current" data-tab="allList">전체 글목록</a>
+				<div class="submenuUl nav-item">
+					<a class="submenuLink tablink" data-tab="allList"
+					href="AdminController?type=allList">전체보기</a>
+					<a class="submenuLink tablink" data-tab="hobbylist" 
+					href="AdminController?type=hobbylist">취미</a>
+					<a class="submenuLink tablink" data-tab="studylist"
+					href="AdminController?type=studylist">스터디</a>
+				</div>
+			</li>
+			<li class="topMenuLi nav-item">
+				<a class="menuLink tablink" data-tab="allmemberInfo"
+					href="AdminController?type=allmemberInfo">회원정보보기</a></li>
+		</ul>
 	</div>
+	
+	<div id="allList">
+	
+	<div id="searchmenu">
+		<input type="text" size="50px" id="search" placeholder="검색어 입력">&nbsp;&nbsp;
+		<input type="button" value="검색" onclick="search_allwrite(this.form)">
+	</div>
+	
 	
 	<form method="post">
 		<table class="table my-2 mx-auto text-center">
@@ -129,6 +222,8 @@
 					<th class="title">제목</th>
 					<th class="writer">작성자</th>
 					<th class="date">작성일</th>
+					<th>모집여부</th>
+					<th>모집인원</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -142,20 +237,22 @@
 					<td><a href="#">${allList.getTitle() }</a></td>
 					<td>${allList.getId() }</td>
 					<td>${allList.getRegdate().substring(0, 10) }</td>
+					<td>${allList.getRp() }</td>
+					<td>${allList.getCur_member() }&nbsp;/&nbsp;${allList.getReq_member() }</td>
 				</tr>
 			</c:forEach>	
 			</c:if>
 			
 			<c:if test="${empty A_list}">
 				<tr>
-					<td colspan="6" class="center">등록된 게시글이 없습니다.<br>
+					<td colspan="8" class="center">등록된 게시글이 없습니다.<br>
 						지금 바로 새로운 게시글을 등록해 보세요!</td>
 				</tr>
 			</c:if>
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="6">
+					<td colspan="8">
 						<ol class="paging">
 						
 						<%-- 이전페이지 사용여부 --%>
@@ -167,7 +264,7 @@
 							
 							<%-- 사용가능 --%>
 							<c:otherwise>
-								<li><a href="MypageController?type=moreWrite&cPage=${pvo.beginPage-1 }">
+								<li><a href="AdminController?type=allList&cPage=${pvo.beginPage-1 }">
 								&lt;&nbsp;이전&nbsp;</a></li>
 							</c:otherwise>
 						</c:choose>
@@ -180,7 +277,7 @@
 							</c:when>
 							<c:otherwise>
 								<li>
-									<a href="MypageController?type=moreWrite&cPage=${k }">${k }</a>
+									<a href="AdminController?type=allList&cPage=${k }">${k }</a>
 								</li>
 							</c:otherwise>
 						</c:choose>
@@ -193,7 +290,7 @@
 								<li class="disable" id="next">&nbsp;다음&nbsp;&gt;</li>
 							</c:when>
 							<c:otherwise>
-								<li><a href="MypageController?type=moreWrite&cPage=${pvo.endPage+1 }">
+								<li><a href="AdminController?type=allList&cPage=${pvo.endPage+1 }">
 									&nbsp;다음&nbsp;&gt;</a></li>
 							</c:otherwise>
 						</c:choose>
@@ -205,6 +302,7 @@
 		</table>
 	
 	</form>
+	</div>
 </div>
 
 </body>

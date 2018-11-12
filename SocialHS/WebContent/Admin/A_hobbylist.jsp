@@ -1,4 +1,3 @@
-<%@page import="com.bc.member.memberVO"%>
 <%@page import="com.bc.admin.A_AllBoardVO"%>
 <%@page import="com.bc.admin.AdminDAO"%>
 <%@page import="com.bc.main.vo.BoardVO"%>
@@ -18,11 +17,12 @@
 	
 	AdminVO avo = (AdminVO) session.getAttribute("AdminVO");
 	
-	p.setTotalRecord(adao.getMemberCount());
+	p.setTotalRecord(adao.getHobbyCount());
 	p.setTotalPage(); //전체 페이지 수 구하기
 	
 	System.out.println("전체 게시글 수 : " + p.getTotalRecord());
 	System.out.println("전체 페이지 수 : " + p.getTotalPage());
+	System.out.println("adao.getHobbyCount() : " + adao.getHobbyCount() );
 	
 	//2.현재 페이지 구하기
 	String cPage = request.getParameter("cPage");
@@ -56,9 +56,8 @@
 	map.put("begin", beginNum);
 	map.put("end", endNum);
 	
-	List<memberVO> M_list = AdminDAO.getAllmemberList(map);
-	pageContext.setAttribute("M_list", M_list);
-	//System.out.println("M_list : " + A_list);
+	List<A_AllBoardVO> H_list = AdminDAO.getAllhobbyList(map);
+	pageContext.setAttribute("H_list", H_list);
 	pageContext.setAttribute("pvo", p);
 	pageContext.setAttribute("cPage", cPage);
 %>
@@ -81,7 +80,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
 <meta charset="UTF-8">
-<title>[A] 전체 회원 목록</title>
+<title>[A] 전체 게시판 글 목록</title>
 <style>
 	#infohead {
 		width: 200px;
@@ -157,7 +156,6 @@
 
 </style>
 <link href="css/A_Paging.css" rel="stylesheet" type="text/css">
-
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	//내가 쓴 게시글 / 댓글 탭 
@@ -185,21 +183,6 @@
 		});
 	});
 </script>
-
-<script>
-	//회원정보 상세보기(새창)
-	function memberInfo(frm) {
-		
-		frm.action = "";
-		frm.submit();
-	}
-	//아이디/이름으로 검색 
-	function search_allwrite(frm) {
-		frm.action = "";
-		frm.submit();
-	}
-
-</script>
 </head>
 <body>
 <div id="adminPage" class="jumbotron jumbotron-fluid">
@@ -223,7 +206,7 @@
 		</ul>
 	</div>
 	
-	<div id="allmemberInfo">
+	<div id="hobbylist">
 	
 	<div id="searchmenu">
 		<input type="text" size="50px" id="search" placeholder="검색어 입력">&nbsp;&nbsp;
@@ -236,33 +219,36 @@
 			<thead class="thead bg-success text-white">
 				<tr class="pagetitle">
 					<th>NO</th>
-					<th>아이디</th>
-					<th>이름</th>
-					<th>가입날짜</th>
-					<th>등급</th>
-					<th>포인트</th>
-					<th>회원정보</th>
+					<th class="no">게시판번호</th>
+					<th class="category">카테고리</th>
+					<th class="title">제목</th>
+					<th class="writer">작성자</th>
+					<th class="date">작성일</th>
+					<th>모집여부</th>
+					<th>모집인원</th>
 				</tr>
 			</thead>
 			<tbody>
 			<%-- 데이터가 있을 때 --%>
-			<c:if test="${not empty M_list}">
-				<c:forEach var="allMember" items="${M_list }" varStatus="status">
-					<tr>
-					<%-- 전체 레코드 수 - ( (현재 페이지 번호 - 1) * 한 페이지당 보여지는 레코드 수 + 현재 게시물 출력 순서 ) --%>
-						<td>${pvo.totalRecord - ((pvo.nowPage -1) * pvo.numPerpage + status.index) }</td>
-						<td>${allMember.getId() }</td>
-						<td>${allMember.getName() }</td>
-						<td>${allMember.getRegdate().substring(0, 10) }</td>
-						<td>${allMember.getRank() }</td>
-						<td>${allMember.getPoint() }&nbsp;Point</td>
-						<td><input type="button" value="상세보기" onclick="memberInfo(this.form)"></td>
-					</tr>
-				</c:forEach>
-			</c:if>
-			<c:if test="${empty M_list }">
+			<c:if test="${not empty H_list}">
+			<c:forEach var="hobby" items="${H_list }" varStatus="status">
 				<tr>
-					<td colspan="7" class="center">가입된 회원이 없습니다.</td>
+					<td>${pvo.totalRecord - ((pvo.nowPage -1) * pvo.numPerpage + status.index) }</td>
+					<td>${hobby.getBb_idx() }</td>
+					<td>${hobby.getBbs_name() }</td>
+					<td><a href="#">${hobby.getTitle() }</a></td>
+					<td>${hobby.getId() }</td>
+					<td>${hobby.getRegdate().substring(0, 10) }</td>
+					<td>${hobby.getRp() }</td>
+					<td>${hobby.getCur_member() }&nbsp;/&nbsp;${hobby.getReq_member() }</td>
+				</tr>
+			</c:forEach>	
+			</c:if>
+			
+			<c:if test="${empty H_list}">
+				<tr>
+					<td colspan="8" class="center">등록된 게시글이 없습니다.<br>
+						지금 바로 새로운 게시글을 등록해 보세요!</td>
 				</tr>
 			</c:if>
 			</tbody>
@@ -280,7 +266,7 @@
 							
 							<%-- 사용가능 --%>
 							<c:otherwise>
-								<li><a href="AdminController?type=allmemberInfo&cPage=${pvo.beginPage-1 }">
+								<li><a href="AdminController?type=hobbylist&cPage=${pvo.beginPage-1 }">
 								&lt;&nbsp;이전&nbsp;</a></li>
 							</c:otherwise>
 						</c:choose>
@@ -293,7 +279,7 @@
 							</c:when>
 							<c:otherwise>
 								<li>
-									<a href="AdminController?type=allmemberInfo&cPage=${k }">${k }</a>
+									<a href="AdminController?type=hobbylist&cPage=${k }">${k }</a>
 								</li>
 							</c:otherwise>
 						</c:choose>
@@ -306,7 +292,7 @@
 								<li class="disable" id="next">&nbsp;다음&nbsp;&gt;</li>
 							</c:when>
 							<c:otherwise>
-								<li><a href="AdminController?type=allmemberInfo&cPage=${pvo.endPage+1 }">
+								<li><a href="AdminController?type=hobbylist&cPage=${pvo.endPage+1 }">
 									&nbsp;다음&nbsp;&gt;</a></li>
 							</c:otherwise>
 						</c:choose>

@@ -5,12 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bc.share.command.Command;
 
-public class allwriteCommand implements Command {
+public class allListCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		
-		return "mingyeong/myPage.jsp";
+		return "Admin/A_allwriteList.jsp";
 		
 	}
 	
