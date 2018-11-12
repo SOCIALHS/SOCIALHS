@@ -15,6 +15,7 @@
 	${joinInfo.getName() }
 	<hr>
 	${mylist }
+	<hr>
 	
 </body>
 </html>
