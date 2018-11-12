@@ -54,5 +54,22 @@ public class MainDAO {
 	}
 	
 	
+	// 랭크 업 DAO
+	public static int rankUpTo1(String id) {
+		return getSql().update("socialhs.rankUpTo1", id);
+	}
+	public static int rankUpTo2(String id) {
+		return getSql().update("socialhs.rankUpTo2", id);
+	}
+	public static int rankUpTo3(String id) {
+		return getSql().update("socialhs.rankUpTo3", id);
+	}
+	public static int rankUpTo4(String id) {
+		return getSql().update("socialhs.rankUpTo4", id);
+	}
+	
+	
+	
+	
 	
 }

@@ -43,7 +43,6 @@
 			</tr>
 			<input type="hidden" name="bb_idx" value="${BoardVO.getBb_idx() }">
 			<input type="hidden" name="chk" value="chk">
-
 			
 		</tfoot>	
 		</table>
