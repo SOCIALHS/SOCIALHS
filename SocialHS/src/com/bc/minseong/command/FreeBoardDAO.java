@@ -52,6 +52,12 @@ public class FreeBoardDAO {
 		int result = getSql().delete("free.FreeDeleteComment", bb_idx);
 		return result;
 	}
+	
+	//게시물(BBS_T)의 전체 건수 조회
+	public static int getTotalCount() {
+		int totalCount = getSql().selectOne("free.totalCount");
+		return totalCount;
+	}
 
 	
 	
