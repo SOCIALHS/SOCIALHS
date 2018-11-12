@@ -115,11 +115,11 @@
 	color: black;
 }
 .ajaxTitle{
-	font-size: 1.2em;
+	font-size: 1.1em;
 	color: #7BB31A;
 }
 .ajaxId{
-	font-size: 1.2em;
+	font-size: 1.1em;
 	color: #FF9C00;
 }
 #newAlm {
