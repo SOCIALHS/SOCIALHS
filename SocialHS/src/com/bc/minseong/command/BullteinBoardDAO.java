@@ -49,11 +49,24 @@ public class BullteinBoardDAO {
 	
 	
 	
+	//조회수 
+	public static int updateHit(BoardVO bbvo) {
+		return getSql().update("hitVO", bbvo); 
+	}
 	
-//	public static int getTotalCount() {
-//		int totalCount = getSql().selectOne("totalCount");
-//		return totalCount;
-//	}
+	public static int updateHit(int bb_idx) {
+		return getSql().update("hit", bb_idx);
+	}
+
 	
+	//좋아요
+	public static int updateGood(String bb_idx) {
+		return getSql().update("bulltein.goodVO", bb_idx);
+	}
+	
+	public static int updateBad(String bb_idx) {
+		return getSql().update("bulltein.badVO", bb_idx);
+	}
+
 	
 }

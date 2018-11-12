@@ -71,8 +71,9 @@ public class AlarmCommand implements Command {
 			sumCom += Integer.parseInt(com.getChk());
 			result += "{";
 			result += "\"title\" : \""+ com.getTitle() +"\",";
-			result += "\"id\" : \""+ com.getId() +"\",";
-			result += "\"bbc_idx\" : \""+ com.getBbc_idx() +"\"";
+			result += "\"id\" : \""+ com.getId() +"\",";	// 댓글 쓴 사람 id
+			result += "\"bbc_idx\" : \""+ com.getBbc_idx() +"\",";
+			result += "\"bb_idx\" : \""+ com.getBb_idx() +"\"";
 			result += "},";
 		}
 			result = result.substring(0, result.length() - 1);

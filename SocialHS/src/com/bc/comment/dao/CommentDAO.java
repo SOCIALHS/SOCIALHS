@@ -23,6 +23,7 @@ public class CommentDAO {
 	
 	
 	public static int insertComment(CommentVO vo) {
+		System.out.println("vo : "+vo);
 		return getSql().insert("comment.insertComment",vo);	
 	}
 	
@@ -30,7 +31,9 @@ public class CommentDAO {
 		return getSql().delete("comment.deleteComment",bbc_idx);	
 	}
 	
-	
+	public static List<CommentVO> getCommList(String bb_idx) {
+		return getSql().selectList("comment.selectComment",bb_idx);
+	}
 	
 	
 	
