@@ -108,22 +108,11 @@
 		SELECT * FROM MEMBER WHERE UPPER(ID) LIKE '%'||UPPER (#{id}) ||'%'
 	</select>
 	
-	<!-- 검색된 게시글 수 조회 -->
-	<select id="searchlistCnt" resultType="int" parameterType="Map">
-		SELECT COUNT(*)
-		FROM (
-			SELECT B.*, BBS.* FROM B_BOARD B, BBS_CODE BBS
-			WHERE B.BBS_IDX = BBS.BBS_IDX
-				AND UPPER(TITLE) LIKE '%'||UPPER (#{search}) ||'%'
-				OR UPPER(CONTENT) LIKE '%'||UPPER (#{search}) ||'%') 
-	</select>
-	
-	
 	<!-- 검색된 아이디 수 조회 -->
-	<select id="searchIdCnt" resultType="int" parameterType="String">
+	<!-- <select id="searchIdCnt" resultType="int" parameterType="String">
 		SELECT COUNT(*)
 			FROM (SELECT * FROM MEMBER WHERE UPPER(ID) LIKE '%'||UPPER (#{id}) ||'%')
-	</select>
+	</select> -->
 	
 	
 	
