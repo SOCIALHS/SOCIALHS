@@ -45,19 +45,25 @@
 		style="width: 800px;" data-ride="carousel" data-interval="3000">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img class="d-block w-100" src="imgs/index01.jpg" alt="First slide">
+				<img class="d-block w-100" src="imgs/index1.jpg" alt="Second slide">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" src="imgs/index02.jpg" alt="Second slide">
+				<img class="d-block w-100" src="imgs/index2.jpg" alt="Third slide">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" src="imgs/index03.jpg" alt="Third slide">
+				<img class="d-block w-100" src="imgs/index3.jpg" alt="Fourth slide">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" src="imgs/index04.jpg" alt="Fourth slide">
+				<img class="d-block w-100" src="imgs/index4.jpg" alt="Fifth slide">
 			</div>
-			<div class="carousel-item">
-				<img class="d-block w-100" src="imgs/index05.jpg" alt="Fifth slide">
+						<div class="carousel-item">
+				<img class="d-block w-100" src="imgs/index5.jpg" alt="Fifth slide">
+			</div>
+						<div class="carousel-item">
+				<img class="d-block w-100" src="imgs/index6.jpg" alt="Fifth slide">
+			</div>
+						<div class="carousel-item">
+				<img class="d-block w-100" src="imgs/index7.jpg" alt="Fifth slide">
 			</div>
 		</div>
 	</div>

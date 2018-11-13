@@ -3,7 +3,7 @@
 <body>
 	<nav class="navbar navbar-dark bg-dark fixed-top">
 		<a class="navbar-brand" href="index.jsp">
-			소셜 하비 앤 스터디
+			<img src="imgs/github-sign.png">
 		</a>
 		<form class="form-inline my-2" method="post">
 			<div class="form-group mx-sm-3">

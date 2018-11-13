@@ -17,8 +17,8 @@
 
 			<!-- Grid column -->
 			<div class="col-md-2 mb-3">
-				<h6 class="text-uppercase font-weight-bold">
-					<a href="#"
+				<h6 class="text-uppercase font-weight-bold text-dark">
+					<a href="#" class="text-dark"
 						onClick="window.open('dongwu/aboutus.jsp','소개창', 'width=600px, height=320px, scrollbars=yes')">
 						About us</a>
 				</h6>
@@ -27,8 +27,8 @@
 
 			<!-- Grid column -->
 			<div class="col-md-2 mb-3">
-				<h6 class="text-uppercase font-weight-bold">
-					<a href="#"
+				<h6 class="text-uppercase font-weight-bold text-dark">
+					<a href="#" class="text-dark"
 						onClick="window.open('dongwu/projects.jsp','소개창', 'width=600px, height=320px, scrollbars=yes')">
 						Projects</a>
 				</h6>
@@ -37,24 +37,24 @@
 
 			<!-- Grid column -->
 			<div class="col-md-2 mb-3">
-				<h6 class="text-uppercase font-weight-bold">
-					<a href="#">Awards</a>
+				<h6 class="text-uppercase font-weight-bold text-dark">
+					<a href="#" class="text-dark">Awards</a>
 				</h6>
 			</div>
 			<!-- Grid column -->
 
 			<!-- Grid column -->
 			<div class="col-md-2 mb-3">
-				<h6 class="text-uppercase font-weight-bold">
-					<a href="#">Help</a>
+				<h6 class="text-uppercase font-weight-bold text-dark">
+					<a href="#" class="text-dark">Help</a>
 				</h6>
 			</div>
 			<!-- Grid column -->
 
 			<!-- Grid column -->
 			<div class="col-md-2 mb-3">
-				<h6 class="text-uppercase font-weight-bold">
-					<a href="#">Contact</a>
+				<h6 class="text-uppercase font-weight-bold text-dark">
+					<a href="#" class="text-dark">Contact</a>
 				</h6>
 			</div>
 			<!-- Grid column -->
@@ -85,7 +85,7 @@
 	<!-- Footer Links -->
 	<!-- Copyright -->
 	<div class="footer-copyright text-center py-3">
-		© 2018 Copyright: <a
+		© 2018 Copyright: <a class="text-dark"
 			href="http://sc.bitcamp.co.kr/index.php?main_page=home"> 비트캠프
 			신촌센터</a>
 	</div>
