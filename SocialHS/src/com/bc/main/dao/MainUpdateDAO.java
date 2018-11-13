@@ -26,7 +26,7 @@ public class MainUpdateDAO {
 	
 	public static int updateB_Board(HobbyBoardVO vo){
 		System.out.println("check1 updateB_Board 전");
-		return getSql().insert("mainwrite.insert",vo);
+		return getSql().update("mainupdate.update",vo);
 	}
 	
 

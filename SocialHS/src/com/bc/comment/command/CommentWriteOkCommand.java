@@ -32,7 +32,8 @@ public class CommentWriteOkCommand implements Command {
 		System.out.println("====comment 입력 완료====");
 		
 		//return "HobbyController?type=view&bb_idx="+bb_idx;
-		return "minseong/bullteinBoardOne.jsp";
+		//return "minseong/bullteinBoardOne.jsp";
+		return "BullteinController?type=bullteinOne&bb_idx="+bb_idx;
 	}
 	
 

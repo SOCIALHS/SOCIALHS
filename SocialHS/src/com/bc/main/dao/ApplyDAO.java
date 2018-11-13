@@ -35,6 +35,19 @@ public class ApplyDAO {
 		return getSql().update("apply.updateCurrent", bb_idx);
 	}
 	
+	public static int cancel(ApplyVO vo) {
+		System.out.println("check cancel");
+		System.out.println("cancel vo : "+vo);
+		return getSql().delete("apply.deleteApply",vo);
+	}
+	
+	public static int minusCurrent(String bb_idx) {
+		System.out.println("check minusCurrent");
+		return getSql().update("apply.minusCurrent", bb_idx);
+	}
+	
+	
+	
 
 	
 }

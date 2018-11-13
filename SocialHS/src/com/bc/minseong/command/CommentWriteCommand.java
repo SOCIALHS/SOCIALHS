@@ -11,20 +11,26 @@ public class CommentWriteCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		String bbc_idx = request.getParameter("bbc_idx");
+		String id = request.getParameter("id");
+		
+		if(id == "") {
+			id = "ANONYMOUS";
+		}
+		System.out.println("id: " + id);
+		
 		String bb_idx = request.getParameter("bb_idx");
 		String cPage = request.getParameter("cPage");
-		//String chk = request.getParameter("chk");
 		System.out.println("댓글 입력 처리1");
+		System.out.println("bb_idx : " + bb_idx);
 		
 		CommentVO cvo = new CommentVO();
-		cvo.setId(request.getParameter("id"));
-		cvo.setPw(request.getParameter("pw"));
+		cvo.setId(id);
+		cvo.setBb_idx(bb_idx);
 		cvo.setContent(request.getParameter("content"));
 		System.out.println("cvo :" + cvo);
 		CommentDAO.insertComment(cvo);
 		System.out.println("댓글 입력 처리2");
-		return "minseong/bullteinBoardOne.jsp";
+		return "BullteinController?type=bullteinOne&bb_idx="+bb_idx;
 		
 
 	}

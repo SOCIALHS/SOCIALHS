@@ -10,30 +10,36 @@ import com.bc.hobby.dao.BasketballDAO;
 import com.bc.hobby.dao.HobbyBoardDAO;
 import com.bc.hobby.vo.BasketballBoardVO;
 import com.bc.hobby.vo.HobbyBoardVO;
+import com.bc.main.vo.ApplyVO;
 import com.bc.main.vo.CommentVO;
 import com.bc.share.command.Command;
 
 
 public class MainViewCommand implements Command {
 
-	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
-		System.out.println("check MainViewCommand");
-		String bb_idx = request.getParameter("bb_idx");
-		
-		System.out.println("bb_idx : "+bb_idx);
-		HobbyBoardVO viewVO = HobbyBoardDAO.getViewVo(bb_idx);
-		System.out.println("viewVO"+viewVO);
-		//이것도 main으로 공용으로 사용함 getOne은 어차피 bb_idx로 구분하기 때문
-		session.setAttribute("viewVO", viewVO);
-		
-		//===============댓글 가져오기 ===================================
-		List<CommentVO> commentList = HobbyBoardDAO.getCommentVo(bb_idx);
-		System.out.println("commentList : "+commentList);
-		request.setAttribute("commentList", commentList);
-		return "view.jsp";
-	}
+   @Override
+   public String exec(HttpServletRequest request, HttpServletResponse response) {
+      // TODO Auto-generated method stub
+      HttpSession session = request.getSession();
+      System.out.println("check MainViewCommand");
+      String bb_idx = request.getParameter("bb_idx");
+      
+      System.out.println("bb_idx : "+bb_idx);
+      HobbyBoardVO viewVO = HobbyBoardDAO.getViewVo(bb_idx);
+      System.out.println("viewVO"+viewVO);
+      //이것도 main으로 공용으로 사용함 getOne은 어차피 bb_idx로 구분하기 때문
+      session.setAttribute("viewVO", viewVO);
+      
+      //===============댓글 가져오기 ===================================
+      List<CommentVO> commentList = HobbyBoardDAO.getCommentVo(bb_idx);
+      System.out.println("commentList : "+commentList);
+      request.setAttribute("commentList", commentList);
+      
+      List<ApplyVO> applyList = HobbyBoardDAO.getApplyVo(bb_idx);
+      System.out.println("applyList : "+applyList);
+      session.setAttribute("applyList", applyList);
+      System.out.println("여기 applyList가 왜 안나오니....");
+      return "view.jsp";
+   }
 
 }

@@ -1,5 +1,7 @@
 package com.bc.main.command;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -8,6 +10,7 @@ import com.bc.hobby.dao.HobbyBoardDAO;
 import com.bc.hobby.vo.HobbyBoardVO;
 import com.bc.main.dao.ApplyDAO;
 import com.bc.main.vo.ApplyVO;
+import com.bc.main.vo.CommentVO;
 import com.bc.member.memberVO;
 import com.bc.share.command.Command;
 
@@ -47,6 +50,15 @@ public class ApplyCommand implements Command {
 		
 		System.out.println("===========================bb_idx check ========================");
 		System.out.println("bb_idx : "+bb_idx);
+		
+		//===============댓글 가져오기 ===================================
+	      List<CommentVO> commentList = HobbyBoardDAO.getCommentVo(bb_idx);
+	      System.out.println("commentList : "+commentList);
+	      request.setAttribute("commentList", commentList);
+	      
+	      List<ApplyVO> applyList = HobbyBoardDAO.getApplyVo(bb_idx);
+	      System.out.println("applyList : "+applyList);
+	      session.setAttribute("applyList", applyList);
 		
 		return "view.jsp";
 	}
