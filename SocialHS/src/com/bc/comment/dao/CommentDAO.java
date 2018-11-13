@@ -35,7 +35,9 @@ public class CommentDAO {
 		return getSql().selectList("comment.listComment",bb_idx);
 	}
 	
-	
+	public static int deleteComBb_idx(String bb_idx) {
+		return getSql().delete("comment.delBb_idx", bb_idx);
+	}
 	
 	
 }

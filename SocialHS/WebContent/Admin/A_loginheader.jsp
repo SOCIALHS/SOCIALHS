@@ -12,8 +12,9 @@
         <input type="hidden">
         <div id="almOutter">
         <button id="almBtn" type="button" class="btn btn-success">
+<!--         <button id="almBtn" type="button" class="btn btn-light">
             알림<span id="almCnt" class="badge badge-light">0</span>
-        </button>
+        </button> -->
         <div id="newAlm">
         	
         </div>
