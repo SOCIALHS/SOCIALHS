@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bc.admin.command.a_delCommand;
 import com.bc.admin.command.allListCommand;
 import com.bc.admin.command.allmemberInfoCommand;
 import com.bc.admin.command.hobbylistCommand;
@@ -53,7 +54,9 @@ public class AdminController extends HttpServlet {
 			comm = new searchCommand();
 		} else if (type.equals("info")) {
 			comm = new infoCommand();
-		} 
+		} else if (type.equals("del")) {
+			comm = new a_delCommand();
+		}
 		
 		
 		path = comm.exec(request, response);
