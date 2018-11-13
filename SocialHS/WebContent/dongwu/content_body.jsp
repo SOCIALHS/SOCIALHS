@@ -9,8 +9,8 @@
 			<h5 class="card-title">${list.title }</h5>
 			<p class="card-text">${list.id }</p>
 			<hr>
-			<p class="card-text">${list.req_member }</p>
-			<p class="card-text">${list.cur_member }</p>
+			<p class="d-inline card-text">${list.cur_member }&nbsp;[현재인원]&nbsp;</p>&nbsp;/&nbsp;
+			<p class="d-inline card-text">${list.req_member }&nbsp;[모집인원]&nbsp;</p>
 			<hr>
 			<p class="card-text">${list.place }</p>
 			<p class="card-text">${list.time }</p>
