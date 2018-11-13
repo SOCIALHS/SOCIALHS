@@ -147,6 +147,7 @@ h3 {
 			<option value="0">제목</option>
 			<option value="1">작성자</option>
 			<option value="2">내용</option>
+			<option value="3">제목 + 내용</option>
 		</select> <input class="form-control mr-sm-2" type="search" placeholder="검색"
 			style="width: 500px;" aria-label="Search" name="keyword">
 		<button class="btn bg-success text-white my-2 mr-sm-2"

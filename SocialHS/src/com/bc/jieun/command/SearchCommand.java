@@ -69,9 +69,15 @@ public class SearchCommand implements Command {
 					session.setAttribute("s_list", c2_list);
 				}
 				break;
-			case 3 :
-				List<BoardVO> ic_list = BoardSearchDAO.getIdContent(hs, keyword);
-				session.setAttribute("s_list", ic_list);
+			case 3:
+				if (sl_idx == null) {
+					List<BoardVO> ic_list = BoardSearchDAO.getIdContent(hs, keyword);
+					session.setAttribute("s_list", ic_list);
+				} else {
+					List<BoardVO> ic2_list = BoardSearchDAO.getIdContent2(hs, keyword, sl_idx);
+					session.setAttribute("s_list", ic2_list);
+				}
+
 				break;
 			}
 
