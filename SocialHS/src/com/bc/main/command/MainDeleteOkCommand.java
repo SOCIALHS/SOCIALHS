@@ -26,9 +26,6 @@ public class MainDeleteOkCommand implements Command {
 		
 		String bb_idx = (String)request.getParameter("bb_idx");
 		
-		
-		
-		
 		String hs = (String)session.getAttribute("hs");
 		String hs_idx = "";
 		System.out.println("hs : "+hs);
@@ -38,11 +35,17 @@ public class MainDeleteOkCommand implements Command {
 			hs_idx = "s";
 		}
 		
-		System.out.println("===========================bb_idx check ========================");
+		System.out.println("==============마지막 삭제 테스트!!!!!================");
 		System.out.println("bb_idx : "+bb_idx);
-		
+		System.out.println("1.댓글 먼저 삭제 전");
+		MainDeleteDAO.deleteComment(bb_idx);
+		System.out.println("1.댓글 삭제 완료");
+		System.out.println("2.신청자 삭제 전");
+		MainDeleteDAO.deleteComment(bb_idx);
+		System.out.println("2.신청자 삭제 완료");
+		System.out.println("3.메인 삭제 전");
 		MainDeleteDAO.deleteB_board(bb_idx);
-		System.out.println("삭제완료!!!");
+		System.out.println("3.메인 삭제 완료");
 		List<LocationVO> location = (List<LocationVO>)session.getAttribute("location");
 		System.out.println("location : "+location);
 		return "LocationController?hs="+hs+"&location="+location.get(0).getL_Idx();

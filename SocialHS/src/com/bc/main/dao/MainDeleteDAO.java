@@ -28,6 +28,17 @@ public class MainDeleteDAO {
 		return getSql().delete("maindelete.delete",bb_idx);
 	}
 	
+	public static int deleteComment(String bb_idx){
+		return getSql().delete("maindelete.deleteComment",bb_idx);
+	}
+	
+	public static int deleteApply(String bb_idx){
+		return getSql().delete("maindelete.deleteAppy",bb_idx);
+	}
+	
+	
+	
+	
 
 	
 }

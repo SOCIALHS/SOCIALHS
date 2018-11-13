@@ -1,3 +1,4 @@
+<%@page import="com.bc.main.vo.PopUpVO"%>
 <%@page import="com.bc.main.vo.ApplyVO"%>
 <%@page import="com.bc.hobby.vo.HobbyBoardVO"%>
 <%@page import="com.bc.main.vo.CommentVO"%>
@@ -119,7 +120,7 @@
             	System.out.println("===================================");
             %>
             <c:if test="${viewVO.id ne memberVO.id }">
-            <%! boolean flag; %>
+            <%! boolean flag = true; %>
             <% 	
             		for(int i = 0; i < applyList.size(); i++){
             			System.out.println("applyList.get(i).getId() : "+applyList.get(i).getId());
@@ -131,6 +132,13 @@
             				 flag = true;
             			}
             		}
+            if(applyList.size() == 0){
+            	flag = true;
+            }
+            System.out.println("applyList.size() : "+applyList.size());
+            System.out.println("flag 찍어보자!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            System.out.println("Flag : "+flag);
+            System.out.println("flag 찍어보자!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             if(flag == false)
             {
             %> 	    
@@ -151,9 +159,10 @@
 	            <button type="button" class="btn btn-outline-primary" 
 	               onclick = "update_main()">수정</button>
 	            <button type="button" class="btn btn-outline-danger" 
-	            onclick = "location.href = 'HobbyController?type=deleteOk&bb_idx=${viewVO.bb_idx}'">삭제</button>
-	            <button type="button" class="btn btn-outline-info" 
-	            onclick = "popUp()'">인원보기</button>
+	            onclick = "delete_main()">삭제</button>
+	            <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal" onclick = "popUp()">
+				  	인원보기 	
+				</button>
             </c:if>
             <%
                }
@@ -203,6 +212,24 @@
                   <input type="button" class="btn btn-outline-secondary"  name = "${commentList.id }" id = "${commentList.bbc_idx }"onclick="delete_comment(this)" value = "삭제">
                </div>
             </c:forEach>
+            
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                  <h4 class="modal-title" id="myModalLabel">인원보기</h4>
+               	 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+      
+                  </div>
+                  <div class="modal-body" id = "modal-body">
+               		 	인원 현황
+                  </div>
+                  <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
          </div>
          </div>
@@ -210,7 +237,12 @@
          
          <!-- memberId 비교해서 수정 삭제하는 코드 작성 -->
          <script>
-      
+      		function delete_main(){
+      			var flag = confirm("정말 삭제 하시겠습니까?!");
+                if(flag){
+                	location.href = 'HobbyController?type=deleteOk&bb_idx=${viewVO.bb_idx}';
+                }
+      		}
             function update_main(){
                location.href = 'HobbyController?type=update';
             }
@@ -244,8 +276,6 @@
            		}else{
             %>
              function delete_comment(self){
-                alert(self);
-                alert(self.name);
                 if(self.name == "${memberVO.id}"){
                    var flag = confirm("정말 댓글을 삭제 하시겠습니까?!");
                   if(flag){
@@ -257,6 +287,55 @@
              }
              <%
             }
+             %>
+             <%
+             	List<PopUpVO> popupList = (List<PopUpVO>)request.getAttribute("popupList");
+             	pageContext.setAttribute("popupList", popupList);
+             %>
+             <%
+             	if(popupList == null){
+             			
+             	}else {
+             %>
+             function popUp(){
+            	 var writer = "";
+            	 var obj2 = new Array();
+            	 <c:forEach var = "popupList" items = "${popupList}">
+            	 	var id = "${popupList.id}";
+            	 	var name = "${popupList.name}";
+            	 	var phone = "${popupList.phone}";
+            	 	var email = "${popupList.email}";
+            	 	var regdate = "${popupList.regdate}";
+            	 	var bb_idx = "${popupList.bb_idx}";
+            	 	var infoSave = {"id" : id,
+            	 					"name" : name,
+            	 					"phone" : phone,
+            	 					"email" : email,
+            	 					"regdate" : regdate,
+            	 					"bb_idx" : bb_idx};
+            	 	obj2.push(infoSave);
+            	 </c:forEach>
+            	 console.log(obj2);
+            	 writer += "<table class='table table-hover'>";
+            	 writer += "<thead class = 'bg-dark' style='color : white;'><tr><th scope='col'>id</th><th scope='col'>name</th><th scope='col'>phone</th>";
+            	 writer += "<th scope='col'>email</th><th scope='col'>regdate</th></thead>";
+            	 writer += "<tbody>";
+            	 for(var i = 0; i < obj2.length; i++){
+            		 writer += "<tr>";
+            		 writer += "<th scope='row'>"+obj2[i]["id"]+"</th>";
+            		 writer += "<td>"+obj2[i]["name"]+"</td>";
+            		 writer += "<td>"+obj2[i]["phone"]+"</td>";
+            		 writer += "<td>"+obj2[i]["email"]+"</td>";
+            		 writer += "<td>"+obj2[i]["regdate"]+"</td>";
+            		 writer += "</tr>";
+            	 }
+            	 writer += "</tbody></table>";
+            	 
+            	 console.log(writer);
+            	 document.getElementById("modal-body").innerHTML = writer;
+             }
+             <%
+             	}
              %>
 
          

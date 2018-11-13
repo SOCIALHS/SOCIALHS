@@ -40,9 +40,13 @@ public class HobbyMainCommand implements Command {
 		map.put("hs",hs); 
 		
 		
+		System.out.println("===================bbs_idx================");
+		System.out.println("bbs_idx : "+bbs_idx);
+		System.out.println("===================bbs_idx================");
 		if (bbs_idx == null) {					// 일반적인 경우
 			List<HobbyBoardVO> HobbyList = HobbyBoardDAO.getMainCategoryList(map);
 			request.setAttribute("MainList", HobbyList); //HobbyList는 HobbyMain에쓸 리스트를 저장한 객체 
+			
 			//MainList는 공용으로 사용하는 것이고 Main에서 사용할 객체들의 집합을 의미
 		}else {									// 카테고리에서 넘어왔을 경우
 			map.put("bbs_idx", bbs_idx);
