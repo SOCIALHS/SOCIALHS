@@ -57,12 +57,7 @@
 	Map<String, String> map = new HashMap<>();
 	String beginNum = String.valueOf(p.getBegin());
 	String endNum = String.valueOf(p.getEnd());
-	map.put("begin", beginNum);
-	map.put("end", endNum);
 	
-	List<memberVO> M_list = AdminDAO.getAllmemberList(map);
-	pageContext.setAttribute("M_list", M_list);
-	//System.out.println("M_list : " + A_list);
 	pageContext.setAttribute("pvo", p);
 	pageContext.setAttribute("cPage", cPage);
 %>

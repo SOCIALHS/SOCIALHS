@@ -44,6 +44,9 @@
 	System.out.println("=============================");
 	System.out.println("시작 페이지번호 : " + p.getBeginPage());
 	System.out.println("끝 페이지번호 : " + p.getEndPage());
+	System.out.println("시작 : " + p.getBegin());
+	System.out.println("끝 : " + p.getEnd());
+	
 	System.out.println("=============================");
 	
 	if (p.getEndPage() > p.getTotalPage()) {
@@ -54,14 +57,13 @@
 <%	// ***** ***** ***** ***** ***** ***** ***** *****
 	//5.현재 페이지 기준 게시글 가져오기
 	Map<String, String> map = new HashMap<>();
+	
 	String beginNum = String.valueOf(p.getBegin());
 	String endNum = String.valueOf(p.getEnd());
+	
 	map.put("begin", beginNum);
 	map.put("end", endNum);
 	
-	List<A_AllBoardVO> A_list = AdminDAO.getAllList(map);
-	pageContext.setAttribute("A_list", A_list);
-	//System.out.println("A_list : " + A_list);
 	pageContext.setAttribute("pvo", p);
 	pageContext.setAttribute("cPage", cPage);
 %>

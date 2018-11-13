@@ -79,18 +79,8 @@ private static SqlSession ss;
 		return getSql().selectList("admin.searchlist", map);
 	}
 	
-	//내용
-
 	//아이디로 검색 
 	public static List<memberVO> searchId(String id) {
 		return getSql().selectList("admin.searchId", id);
 	}
-	
-	
-	//아이디로 검색 (count)
-//	public int getsearchIdCnt(String id) {
-//		int cnt = getSql().selectOne("admin.searchIdCnt", id);
-//		return cnt;
-//	}
-	
 }
