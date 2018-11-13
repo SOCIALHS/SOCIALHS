@@ -51,6 +51,10 @@ public class SearchCommand implements Command {
 				List<BoardVO> c_list = BoardSearchDAO.getContent(hs, keyword);
 				session.setAttribute("s_list", c_list);
 				break;
+			case 3 :
+				List<BoardVO> ic_list = BoardSearchDAO.getIdContent(hs, keyword);
+				session.setAttribute("s_list", ic_list);
+				break;
 			}
 			
 			path = "jieun/search.jsp";
