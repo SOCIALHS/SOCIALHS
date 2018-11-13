@@ -9,7 +9,7 @@
 			if (request.readyState == 4 && request.status == 200) {
 				var json = JSON.parse(request.responseText);
 				/* alert("json check");
-				alert(json); */
+				alert(json); */ 
 				console.log(json);
 				var output = "<br>";
 				console.log("asdfadsf");

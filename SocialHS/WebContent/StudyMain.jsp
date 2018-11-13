@@ -15,7 +15,6 @@
 %>
 
 <%@ include file="wonho/sidebar_head.jsp"%>
-<%@ include file="dongwu/category_head.jsp"%>
 <%@ include file="dongwu/content_head.jsp"%>
 
 <title>소셜 하비 앤 스터디</title>
@@ -47,8 +46,7 @@
 		<!-- 이 밑에 DIV에 카테고리 출력 -->
 		<div class="row d-flex justify-content-center">
 			<!-- sub nav -->
-			<div id="category" style="width: 100%; margin-right: 40px"></div>
-			<%-- <%@ include file="dongwu/category.jsp" %> --%>
+			<%@ include file="dongwu/category_body.jsp" %>
 		</div>
 
 		<div class="row d-flex justify-content-center" style="width: 100%;">
