@@ -168,6 +168,7 @@
 					<th class="date">작성일</th>
 					<th>모집여부</th>
 					<th>모집인원</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -184,6 +185,7 @@
 					<td>${study.getRegdate().substring(0, 10) }</td>
 					<td>${study.getRp() }</td>
 					<td>${study.getCur_member() }&nbsp;/&nbsp;${study.getReq_member() }</td>
+					<td><input type="button" class="delBtn" value="삭제" onClick="location.href='AdminController?type=del&path=stu&bb_idx=${study.bb_idx}'"></td>
 				</tr>
 			</c:forEach>	
 			</c:if>

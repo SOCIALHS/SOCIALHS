@@ -31,6 +31,10 @@
    <select id = "listComment" parameterType="String" resultType="com.bc.main.vo.CommentVO">
          select * from bb_comment where bb_idx = #{bb_idx} order by regdate desc
    </select>
+   
+   <delete id="delBb_idx">
+   		DELETE FROM BB_COMMENT WHERE BB_IDX = #{bb_idx}
+   </delete>
 	
 	
 </mapper>  

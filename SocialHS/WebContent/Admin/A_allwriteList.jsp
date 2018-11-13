@@ -82,7 +82,7 @@
 <meta charset="UTF-8">
 <title>[A] 전체 게시판 글 목록</title>
 <style>
-
+	
 </style>
 <link href="css/A_Paging.css" rel="stylesheet" type="text/css">
 <link href="css/A_morepage.css" rel="stylesheet" type="text/css">
@@ -99,8 +99,8 @@
 			
 			$(this).addClass('current');
 			$("#"+tabid).addClass('current');
-		})
-	})
+		});
+	});
 	
 	//사이드바 
 	$(document).ready(function() {
@@ -113,6 +113,7 @@
 			}
 		});
 	});
+
 </script>
 <script>
 	function search_go(frm) {
@@ -171,6 +172,7 @@
 					<th class="date">작성일</th>
 					<th>모집여부</th>
 					<th>모집인원</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -187,8 +189,9 @@
 					<td>${allList.getRegdate().substring(0, 10) }</td>
 					<td>${allList.getRp() }</td>
 					<td>${allList.getCur_member() }&nbsp;/&nbsp;${allList.getReq_member() }</td>
+					<td><input type="button" class="delBtn" value="삭제" onClick="location.href='AdminController?type=del&path=all&bb_idx=${allList.bb_idx}'"></td>
 				</tr>
-			</c:forEach>	
+			</c:forEach>
 			</c:if>
 			
 			<c:if test="${empty A_list}">
