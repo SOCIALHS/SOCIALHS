@@ -39,9 +39,6 @@
 		style="width: 800px;" data-ride="carousel" data-interval="3000">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img class="d-block w-100" src="imgs/index0.jpg" alt="First slide">
-			</div>
-			<div class="carousel-item">
 				<img class="d-block w-100" src="imgs/index1.jpg" alt="Second slide">
 			</div>
 			<div class="carousel-item">
