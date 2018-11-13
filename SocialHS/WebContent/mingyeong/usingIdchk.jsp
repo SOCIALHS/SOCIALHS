@@ -26,15 +26,16 @@
 	}
 </script>
 <style type="text/css">
-	#center {
-		width: 300px;
-		margin: auto;
-		margin-top: 50px;
-	}
-	.blue {
-		font-size: 1.5em;
-		color: blue;
-	}
+.center {
+	width: 300px;
+	margin: auto;
+	margin-top: 25px;
+}
+
+.blue {
+	font-size: 1.5em;
+	color: blue;
+}
 </style>
 </head>
 <body>
@@ -46,18 +47,25 @@
 
 				if (usingid == true) {
 			%>
-			<p>${id }
-				는 사용중인 아이디입니다.<br> 다시 입력해주세요.
-			</p>
-			<br> <input type="submit" value="닫기" onclick="self.close(); ">
+			<div class="center">
+				<p class="lead text-center">
+					<b>"${id }" </b>는 <br>사용중인 아이디입니다.<br>다시 입력해 주세요.
+				</p>
+				<div class="d-flex justify-content-center">
+					<button type="button" class="btn btn-secondary mb-5"
+						onclick="self.close();">닫기</button>
+				</div>
+			</div>
 			<!-- 아이디 <input type="text" name="checkid">
 		<input type="button" value="중복체크" onclick="checkfrm(this.form)"> -->
 
 			<%
 				} else {
 			%>
-			<div id="center">
-				"<b><span class="blue">${id }</span></b>" 는 사용가능한 아이디입니다.<br>
+			<div class="center">
+				<p class="lead text-center">
+					<b>"${id }" </b>는 <br>사용가능한 아이디입니다.
+				</p>
 				<button type="button" class="btn btn-secondary"
 					onclick="self.close();">다른 아이디 사용</button>
 				<button type="button" class="btn btn-danger" onclick="selectOk();">현재

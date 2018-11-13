@@ -78,6 +78,8 @@ private static SqlSession ss;
 		map.put("content", search);
 		return getSql().selectList("admin.searchlist", map);
 	}
+	
+	//내용
 
 	//아이디로 검색 
 	public static List<memberVO> searchId(String id) {
@@ -85,5 +87,10 @@ private static SqlSession ss;
 	}
 	
 	
+	//아이디로 검색 (count)
+//	public int getsearchIdCnt(String id) {
+//		int cnt = getSql().selectOne("admin.searchIdCnt", id);
+//		return cnt;
+//	}
 	
 }

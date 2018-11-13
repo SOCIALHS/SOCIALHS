@@ -35,6 +35,8 @@ public class SearchCommand implements Command {
 			
 			switch(v) {
 			case 0 : //제목 title
+				System.out.println("hs: "+ hs);
+				System.out.println("keyword: "+ keyword);
 				List<BoardVO> t_list = BoardSearchDAO.getTitle(hs, keyword);
 				session.setAttribute("s_list", t_list);
 				System.out.println(">>리스트 받아옴");
@@ -48,6 +50,10 @@ public class SearchCommand implements Command {
 			case 2 : //내용 content
 				List<BoardVO> c_list = BoardSearchDAO.getContent(hs, keyword);
 				session.setAttribute("s_list", c_list);
+				break;
+			case 3 :
+				List<BoardVO> ic_list = BoardSearchDAO.getIdContent(hs, keyword);
+				session.setAttribute("s_list", ic_list);
 				break;
 			}
 			

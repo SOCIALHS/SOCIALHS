@@ -2,15 +2,18 @@
 	pageEncoding="UTF-8"%>
 <%
 	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
-%>		<%@ include file="jieun/header_head.jsp"%>
+%>
+<%@ include file="jieun/header_head.jsp"%>
 <%
 	} else if (session.getAttribute("memberVO") != null) {
-%>		<%@ include file="head.jsp"%>
+%>
+<%@ include file="head.jsp"%>
 <%
 	} else if (session.getAttribute("AdminVO") != null) {
-%>		<%@ include file="head.jsp"%>
+%>
+<%@ include file="head.jsp"%>
 <%
-	} 
+	}
 %>
 
 <title>소셜 하비 앤 스터디</title>
@@ -18,15 +21,18 @@
 
 <%
 	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
-%>		<%@ include file="jieun/header.jsp"%>
+%>
+<%@ include file="jieun/header.jsp"%>
 <%
 	} else if (session.getAttribute("memberVO") != null) {
-%>		<%@ include file="jieun/loginheader.jsp"%>
+%>
+<%@ include file="jieun/loginheader.jsp"%>
 <%
 	} else if (session.getAttribute("AdminVO") != null) {
-%>		<%@ include file="Admin/A_loginheader.jsp"%>
+%>
+<%@ include file="Admin/A_loginheader.jsp"%>
 <%
-	} 
+	}
 %>
 
 
@@ -39,23 +45,29 @@
 		style="width: 800px;" data-ride="carousel" data-interval="3000">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img class="d-block w-100" src="imgs/index01.jpg" alt="First slide">
+				<img class="d-block w-100" src="imgs/index1.jpg" alt="Second slide">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" src="imgs/index02.jpg" alt="Second slide">
+				<img class="d-block w-100" src="imgs/index2.jpg" alt="Third slide">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" src="imgs/index03.jpg" alt="Third slide">
+				<img class="d-block w-100" src="imgs/index3.jpg" alt="Fourth slide">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" src="imgs/index04.jpg" alt="Fourth slide">
+				<img class="d-block w-100" src="imgs/index4.jpg" alt="Fifth slide">
 			</div>
-			<div class="carousel-item">
-				<img class="d-block w-100" src="imgs/index05.jpg" alt="Fifth slide">
+						<div class="carousel-item">
+				<img class="d-block w-100" src="imgs/index5.jpg" alt="Fifth slide">
+			</div>
+						<div class="carousel-item">
+				<img class="d-block w-100" src="imgs/index6.jpg" alt="Fifth slide">
+			</div>
+						<div class="carousel-item">
+				<img class="d-block w-100" src="imgs/index7.jpg" alt="Fifth slide">
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- jumbotron -->
 	<div class="container text-center mt-3">
 		<h1 class="display-3">소셜 하비 앤 스터디</h1>
@@ -64,7 +76,8 @@
 		<p class="lead">참여하고 싶으시면 아래 버튼 중 하나를 클릭해 주세요.</p>
 		<a class="btn btn-danger btn-lg mx-3 my-4"
 			href="MainController?type=hobby" style="padding: 25px 100px;"
-			role="button">취미</a> <a class="btn btn-danger btn-lg mx-3 my-4"
+			role="button">취미</a> 
+		<a class="btn btn-danger btn-lg mx-3 my-4"
 			href="MainController?type=study" role="button"
 			style="padding: 25px 100px;">스터디</a>
 	</div>

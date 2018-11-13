@@ -168,6 +168,7 @@
 					<th class="date">작성일</th>
 					<th>모집여부</th>
 					<th>모집인원</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -178,11 +179,13 @@
 					<td>${pvo.totalRecord - ((pvo.nowPage -1) * pvo.numPerpage + status.index) }</td>
 					<td>${study.getBb_idx() }</td>
 					<td>${study.getBbs_name() }</td>
-					<td><a href="#">${study.getTitle() }</a></td>
+					<td><a href="BullteinController?type=bullteinOne&bb_idx=${study.getBb_idx() }">
+					${study.getTitle() }</a></td>
 					<td>${study.getId() }</td>
 					<td>${study.getRegdate().substring(0, 10) }</td>
 					<td>${study.getRp() }</td>
 					<td>${study.getCur_member() }&nbsp;/&nbsp;${study.getReq_member() }</td>
+					<td><input type="button" class="delBtn" value="삭제" onClick="location.href='AdminController?type=del&path=stu&bb_idx=${study.bb_idx}'"></td>
 				</tr>
 			</c:forEach>	
 			</c:if>

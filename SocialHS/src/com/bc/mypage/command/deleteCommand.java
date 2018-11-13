@@ -21,7 +21,6 @@ public class deleteCommand implements Command {
 		memberDAO.delete(id);
 			
 		System.out.println("회원탈퇴가 되었습니다!");
-		JOptionPane.showMessageDialog(null, id + "회원탈퇴가 되었습니다!");
 		
 		return "memberController?type=logout";
 		

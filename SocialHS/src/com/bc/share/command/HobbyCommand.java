@@ -12,7 +12,6 @@ public class HobbyCommand implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
-		// TODO Auto-generated method stub
 		session.setAttribute("hs", "hobby");
 		return "Location.jsp";
 	}

@@ -7,8 +7,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import com.bc.main.command.ListCommand;
 import com.bc.share.command.Command;
 import com.bc.share.command.HobbyCommand;
 import com.bc.share.command.StudyCommand;
@@ -44,6 +44,15 @@ public class MainController extends HttpServlet {
 		}
 		
 		path = comm.exec(request, response);
+		
+		// 카테고리 출력
+		System.out.println("메인컨트롤러에서 받은 세션: "+ request.getSession().getAttribute("hs"));
+		Command ListComm = new ListCommand();
+		ListComm.exec(request, response);
+		System.out.println("hsList: "+ request.getSession().getAttribute("hsList"));
+		
+		
+		
 		request.getRequestDispatcher(path).forward(request, response);
 		
 		

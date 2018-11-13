@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.bc.admin.A_AllBoardVO"%>
 <%@page import="com.bc.admin.AdminDAO"%>
 <%@page import="com.bc.main.vo.BoardVO"%>
@@ -16,8 +17,11 @@
 	AdminDAO adao = new AdminDAO();
 	
 	AdminVO avo = (AdminVO) session.getAttribute("AdminVO");
+	ArrayList<String> list = (ArrayList) session.getAttribute("searchlist");
+	int num = list.size();
+	System.out.println("!!! 오류 : " + list.size() + ", num 확인 : " + num);
 	
-	p.setTotalRecord(adao.getWriteCount());
+	p.setTotalRecord(num);
 	p.setTotalPage(); //전체 페이지 수 구하기
 	
 	System.out.println("전체 게시글 수 : " + p.getTotalRecord());
@@ -156,10 +160,12 @@
 			</select>
 			<input type="text" size="50px" name="search" placeholder="검색어 입력">&nbsp;&nbsp;
 			<input type="button" value="검색" onclick="search_go(this.form)">
+			<input type="button" value="뒤로가기" onclick="history.back()">
 		</div>
 	</form>
 	
 	<form method="post">
+		<p class="text-center">총 <font style="color: forestgreen"><b><%=num %></b></font> 건 검색되었습니다.</p>
 		<table class="table my-2 mx-auto text-center">
 			<thead class="thead bg-success text-white">
 				<tr class="pagetitle">
@@ -181,7 +187,8 @@
 					<td>${pvo.totalRecord - ((pvo.nowPage -1) * pvo.numPerpage + status.index) }</td>
 					<td>${search.getBb_idx() }</td>
 					<td>${search.getBbs_name() }</td>
-					<td><a href="#">${search.getTitle() }</a></td>
+					<td><a href="BullteinController?type=bullteinOne&bb_idx=${search.getBb_idx() }">
+					${search.getTitle() }</a></td>
 					<td>${search.getId() }</td>
 					<td>${search.getRegdate().substring(0, 10) }</td>
 					<td>${search.getRp() }</td>
