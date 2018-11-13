@@ -86,6 +86,16 @@
 	}
 	
 </style>
+<script>
+	function write_go() {
+		location.href = "Search?type=write";
+	}
+	
+	function search_go(frm){
+		frm.action = "Search?type=search";
+		frm.submit();
+	}
+</script>
 </head>
 <%
 	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
