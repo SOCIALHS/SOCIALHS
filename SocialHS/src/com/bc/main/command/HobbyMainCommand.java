@@ -22,7 +22,7 @@ public class HobbyMainCommand implements Command {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		
-		String bbs_idx = request.getParameter("bbs_idx");
+		String bbs_idx = request.getParameter("bbs_idx2");
 		
 		
 		List<LocationVO> location = (List<LocationVO>)session.getAttribute("location");	
