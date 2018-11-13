@@ -94,7 +94,7 @@
 	a { color: black; }
 	a:hover {
 		text-decoration: underline;
-		color: orangered;
+		color: #b30000;
 	}
 	#mypage table {
 		/* border: 1px lightgray solid;
@@ -122,7 +122,7 @@
 		color: black;
 	}
 	.paging li a:hover {
-		color: orangered;
+		color: #b30000;
 		font-weight: bold;
 	}
 	
@@ -131,7 +131,7 @@
 	}
 	.paging .now {
 		font-weight: bold;
-		color: orangered;
+		color: #b30000;
 		text-decoration: underline;
 	}
 

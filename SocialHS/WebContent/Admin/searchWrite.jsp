@@ -17,8 +17,8 @@
 	
 	AdminVO avo = (AdminVO) session.getAttribute("AdminVO");
 	
-	p.setTotalRecord(adao.getWriteCount());
-	p.setTotalPage(); //전체 페이지 수 구하기
+	//p.setTotalRecord(adao.getWriteCount());
+	//p.setTotalPage(); //전체 페이지 수 구하기
 	
 	System.out.println("전체 게시글 수 : " + p.getTotalRecord());
 	System.out.println("전체 페이지 수 : " + p.getTotalPage());

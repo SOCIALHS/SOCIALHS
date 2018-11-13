@@ -1,3 +1,4 @@
+<%@page import="com.bc.member.memberDAO"%>
 <%@page import="com.bc.member.memberVO"%>
 <%@page import="com.bc.admin.A_AllBoardVO"%>
 <%@page import="com.bc.admin.AdminDAO"%>
@@ -58,9 +59,10 @@
 	
 	List<memberVO> M_list = AdminDAO.getAllmemberList(map);
 	pageContext.setAttribute("M_list", M_list);
-	//System.out.println("M_list : " + A_list);
+	System.out.println("M_list : " + M_list);
 	pageContext.setAttribute("pvo", p);
 	pageContext.setAttribute("cPage", cPage);
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -117,18 +119,11 @@
 </script>
 
 <script>
-	//회원정보 상세보기(새창)
-	function memberInfo(frm) {
-		
-		frm.action = "";
-		frm.submit();
-	}
 	//아이디/이름으로 검색 
 	function search_go(frm) {
 		frm.action = "AdminController?type=search";
 		frm.submit();
 	}
-
 </script>
 </head>
 <body>
@@ -158,7 +153,6 @@
 	<form method="post">
 		<div id="searchmenu">
 			<select name="select">
-				<option value="1">제목/내용</option>
 				<option value="2">아이디</option>
 			</select>
 			<input type="text" size="50px" name="search" placeholder="검색어 입력">&nbsp;&nbsp;
@@ -189,9 +183,11 @@
 						<td>${allMember.getId() }</td>
 						<td>${allMember.getName() }</td>
 						<td>${allMember.getRegdate().substring(0, 10) }</td>
-						<td>${allMember.getRank() }</td>
+						<td>${allMember.getRank() }&nbsp;등급</td>
 						<td>${allMember.getPoint() }&nbsp;Point</td>
-						<td><input type="button" value="상세보기" onclick="memberInfo(this.form)"></td>
+						<td><input type="button" value="상세보기"
+							onclick="window.open('AdminController?type=info&id=${allMember.getId() }')">
+							<input type="hidden" name="id" value="${allMember.getId() }"></td>
 					</tr>
 				</c:forEach>
 			</c:if>
