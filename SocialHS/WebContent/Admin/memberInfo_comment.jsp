@@ -24,10 +24,9 @@
 	Paging p = new Paging();
 	memberDAO mdao = new memberDAO();
 	
-	p.setTotalRecord(mdao.getTotalCount(id));
+	p.setTotalRecord(mdao.getTotCommentCnt(id));
 	p.setTotalPage(); //전체 페이지 수 구하기
-	System.out.println("전체 게시글 수 : " + p.getTotalRecord());
-	System.out.println("전체 댓글 수 : " + mdao.getTotCommentCnt(id));
+	System.out.println("전체 댓글 수 : " + p.getTotalRecord());
 	System.out.println("전체 페이지 수 : " + p.getTotalPage());
 	
 	//2.현재 페이지 구하기
@@ -132,7 +131,7 @@
 	}
 	
 </style>
-<link href="css/Paging.css" rel="stylesheet" type="text/css">
+<link href="../css/Paging.css" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
 	function messengerGo(frm) {
@@ -148,6 +147,11 @@
 		} else {
 			return;
 		}
+	}
+	//등급수정 
+	function adminEdit(frm) {
+		frm.action = "";
+		frm.submit();
 	}
 </script>
 
@@ -192,7 +196,17 @@
 				<tr>
 					<td class="center">${mvo.getId() }</td>
 					<td class="center">${mvo.getName() }</td>
-					<td class="center">${mvo.getRank() } 등급</td>
+					<td class="center">
+						<select name="select">
+								<option value="0">${mvo.getRank() }</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+							<input type="button" value="수정" onclick="adminEdit(this.form)">
+					</td>
 					<td class="center">${mvo.getPoint() } point</td>
 					<td class="center">${mvo.getRegdate().substring(0, 10) }</td>
 				</tr>
@@ -215,49 +229,38 @@
 	<%-- 내가 쓴 게시글 / 내가 쓴 댓글 /  카페 활동 알림 --%>
 		<div id ="infohead">
 			<ul class="tab nav mx-auto my-2" >
-				<li class="tablink current nav-item" data-tab="allPage">작성한 게시글</li>
+				<li class="tablink nav-item" data-tab="allPage">
+				<a href="../AdminController?type=info&id=${mvo.getId() }">작성한 게시글</a></li>
 				<span>&nbsp;&nbsp;</span>
-				<li class="tablink nav-item" data-tab="allComment">
-				<a href="Admin/memberInfo_comment.jsp?id=${mvo.getId() }">작성한 댓글</a></li>
+				<li class="tablink current nav-item" data-tab="allComment">작성한 댓글</li>
 			</ul>
 		</div>
 		
-		<div id="allPage" class="tabcontent current">
-			<p>전체 게시글 : ${pvo.getTotalRecord() } 개</p>
+		<%-- 댓글 --%>
+		<div id="allComment" class="tabcontent current">
+			<p>전체 댓글 : ${pvo.getTotalRecord() } 개</p>
 			<table class="table my-2 mx-auto">
-				<thead class="bg-dark text-white">
-					<tr>
-						<th class="no">글번호</th>
-						<th class="title">제목</th>
-						<th class="writer">글쓴이</th>
-						<th class="date">작성일</th>
-						<th class="hit">조회</th>
-					</tr>
-				</thead>
 				<tbody>
-					<%-- 리스트에 데이터가 있을 때 --%>
-					<c:if test="${not empty list }">
-						<c:forEach var="vo" items="${list }">
-							<tr>
-								<td class="center">${vo.getBb_idx() }</td>
-								<td class="clickTitle">
-									<a href="BullteinController?type=bullteinOne&bb_idx=${vo.getBb_idx() }">
-									${vo.getTitle() }</a>
-								</td>
-								<td>${vo.getId() }</td>
-								<td class="center">${vo.getRegdate().substring(0, 10) }</td>
-								<td class="center">${vo.getHit() }</td>
-							</tr>
-						</c:forEach>
-					</c:if>
-					<c:if test="${empty list }">
+				<%-- 데이터가 있을 때 --%>
+				<c:if test="${not empty commList }">
+					<c:forEach var="cvo" items="${commList }">
 						<tr>
-							<td colspan="5" class="center">등록된 게시글이 없습니다.<br>
-								지금 바로 새로운 게시글을 등록해 보세요!</td>
+							<td colspan="2" class="left"><b>${cvo.getId() }</b>
+								&nbsp;&nbsp;&nbsp;<font>${cvo.getRegdate() }</font></td>
 						</tr>
-					</c:if>
-			</tbody>
-			<tfoot>
+						<tr>
+							<td class="left">${cvo.getContent() }</td>
+							<td class="left">${cvo.getTitle() }</td>
+						</tr>
+					</c:forEach>
+				</c:if>
+				<c:if test="${empty commList }">
+					<tr>
+						<th colspan="5">등록된 댓글이 없습니다.</th>
+					</tr>
+				</c:if>
+				</tbody>
+				<tfoot>
 				<tr>
 					<td colspan="5">
 						<ol class="paging">
@@ -271,8 +274,8 @@
 							
 							<%-- 사용가능 --%>
 							<c:otherwise>
-								<li><a href="AdminController?type=info&id=${mvo.getId() }&
-										cPage=${pvo.beginPage-1 }">
+								<li><a href="AdminController?type=info&id=${mvo.getId() }
+										&cPage=${pvo.beginPage-1 }">
 								&lt;&nbsp;이전&nbsp;</a></li>
 							</c:otherwise>
 						</c:choose>
@@ -311,7 +314,6 @@
 			</tfoot>
 			</table>
 		</div>
-		<%-- 댓글 -> 페이지 이동처리 --%>		
 		
 	</div>
 </div>

@@ -17,6 +17,7 @@
 	AdminDAO adao = new AdminDAO();
 	
 	AdminVO avo = (AdminVO) session.getAttribute("AdminVO");
+	session.getAttribute("searchlist");
 	
 	p.setTotalRecord(adao.getMemberCount());
 	p.setTotalPage(); //전체 페이지 수 구하기
@@ -193,7 +194,8 @@
 						<td>${search.getRegdate().substring(0, 10) }</td>
 						<td>${search.getRank() }</td>
 						<td>${search.getPoint() }&nbsp;Point</td>
-						<td><input type="button" value="상세보기" onclick="memberInfo(this.form)"></td>
+						<td><input type="button" value="상세보기"
+							onclick="window.open('AdminController?type=info&id=${search.getId() }')"></td>
 					</tr>
 				</c:forEach>
 			</c:if>

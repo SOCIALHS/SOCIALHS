@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.bc.admin.command.allListCommand;
 import com.bc.admin.command.allmemberInfoCommand;
 import com.bc.admin.command.hobbylistCommand;
+import com.bc.admin.command.infoCommand;
 import com.bc.admin.command.searchCommand;
 import com.bc.admin.command.studylistCommand;
 import com.bc.share.command.Command;
@@ -50,7 +51,9 @@ public class AdminController extends HttpServlet {
 		} 
 		else if (type.equals("search")) {
 			comm = new searchCommand();
-		}
+		} else if (type.equals("info")) {
+			comm = new infoCommand();
+		} 
 		
 		
 		path = comm.exec(request, response);

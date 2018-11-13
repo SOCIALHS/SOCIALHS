@@ -78,12 +78,27 @@ private static SqlSession ss;
 		map.put("content", search);
 		return getSql().selectList("admin.searchlist", map);
 	}
+	
+	//내용
 
 	//아이디로 검색 
 	public static List<memberVO> searchId(String id) {
 		return getSql().selectList("admin.searchId", id);
 	}
 	
+	//제목/내용으로 검색 (count)
+	public int getsearchlistCnt(String search) {
+		Map<String, String> map = new HashMap<>();
+		map.put("title", search);
+		map.put("content", search);
+		int cnt = getSql().selectOne("admin.searchlistCnt", map);
+		return cnt;
+	}
 	
+	//아이디로 검색 (count)
+	public int getsearchIdCnt(String id) {
+		int cnt = getSql().selectOne("admin.searchIdCnt", id);
+		return cnt;
+	}
 	
 }
