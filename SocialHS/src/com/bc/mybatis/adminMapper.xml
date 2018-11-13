@@ -26,6 +26,7 @@
 			FROM (
 				SELECT B.BB_IDX, BBS.BBS_NAME, B.TITLE, B.ID, B.REGDATE, B.RP, B.CUR_MEMBER, B.REQ_MEMBER
 				FROM B_BOARD B, BBS_CODE BBS
+				WHERE B.BBS_IDX = BBS.BBS_IDX
 				ORDER BY B.REGDATE DESC) T)
 		WHERE R_NUM BETWEEN #{begin} AND #{end}
 	</select>
@@ -60,7 +61,8 @@
 				SELECT B.BB_IDX, BBS.BBS_NAME, B.TITLE, B.ID, B.REGDATE, 
 				B.HS, B.RP, B.CUR_MEMBER, B.REQ_MEMBER
 					FROM B_BOARD B, BBS_CODE BBS
-                	WHERE B.HS = 'h'
+					WHERE B.BBS_IDX = BBS.BBS_IDX
+                	AND B.HS = 'h'
 					ORDER BY B.REGDATE DESC) H)
 			WHERE R_NUM BETWEEN #{begin} AND #{end}
 	</select>
@@ -75,7 +77,8 @@
 				SELECT B.BB_IDX, BBS.BBS_NAME, B.TITLE, B.ID, B.REGDATE, 
 				B.HS, B.RP, B.CUR_MEMBER, B.REQ_MEMBER
 					FROM B_BOARD B, BBS_CODE BBS
-                	WHERE B.HS = 's'
+                	WHERE B.BBS_IDX = BBS.BBS_IDX
+                	AND B.HS = 's'
 					ORDER BY B.REGDATE DESC) S)
 			WHERE R_NUM BETWEEN #{begin} AND #{end}
 	</select>
@@ -94,8 +97,9 @@
 	<select id="searchlist" resultType="com.bc.admin.A_AllBoardVO"
 		parameterType="Map">
 		SELECT B.*, BBS.* FROM B_BOARD B, BBS_CODE BBS
-			WHERE UPPER(TITLE) LIKE '%'||UPPER (#{title}) ||'%'
-			OR UPPER(CONTENT) LIKE '%'||UPPER (#{content}) ||'%'
+				WHERE B.BBS_IDX = BBS.BBS_IDX
+					AND (UPPER(TITLE) LIKE '%'||UPPER (#{title}) ||'%'
+					OR UPPER(CONTENT) LIKE '%'||UPPER (#{content}) ||'%')
 	</select>
 	
 	<!-- 아이디로 검색 -->
@@ -103,14 +107,6 @@
 		parameterType="String">
 		SELECT * FROM MEMBER WHERE UPPER(ID) LIKE '%'||UPPER (#{id}) ||'%'
 	</select>
-	
-	<!-- 검색된 게시글 수 조회 -->
-	
-	
-	<!-- 검색된 아이디 수 조회 -->
-	
-	
-	
 	
 	
 </mapper>  

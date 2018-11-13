@@ -78,12 +78,9 @@ private static SqlSession ss;
 		map.put("content", search);
 		return getSql().selectList("admin.searchlist", map);
 	}
-
+	
 	//아이디로 검색 
 	public static List<memberVO> searchId(String id) {
 		return getSql().selectList("admin.searchId", id);
 	}
-	
-	
-	
 }

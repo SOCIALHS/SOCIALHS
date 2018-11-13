@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.bc.member.memberVO"%>
 <%@page import="com.bc.admin.A_AllBoardVO"%>
 <%@page import="com.bc.admin.AdminDAO"%>
@@ -17,8 +18,11 @@
 	AdminDAO adao = new AdminDAO();
 	
 	AdminVO avo = (AdminVO) session.getAttribute("AdminVO");
+	ArrayList<String> list = (ArrayList) session.getAttribute("searchlist");
+	int num = list.size();
+	System.out.println("!!! 오류 : " + list.size() + ", num 확인 : " + num);
 	
-	p.setTotalRecord(adao.getMemberCount());
+	p.setTotalRecord(num);
 	p.setTotalPage(); //전체 페이지 수 구하기
 	
 	System.out.println("전체 게시글 수 : " + p.getTotalRecord());
@@ -53,12 +57,7 @@
 	Map<String, String> map = new HashMap<>();
 	String beginNum = String.valueOf(p.getBegin());
 	String endNum = String.valueOf(p.getEnd());
-	map.put("begin", beginNum);
-	map.put("end", endNum);
 	
-	List<memberVO> M_list = AdminDAO.getAllmemberList(map);
-	pageContext.setAttribute("M_list", M_list);
-	//System.out.println("M_list : " + A_list);
 	pageContext.setAttribute("pvo", p);
 	pageContext.setAttribute("cPage", cPage);
 %>
@@ -160,15 +159,16 @@
 	<form method="post">
 		<div id="searchmenu">
 			<select name="select">
-				<option value="1">제목/내용</option>
 				<option value="2">아이디</option>
 			</select>
 			<input type="text" size="50px" name="search" placeholder="검색어 입력">&nbsp;&nbsp;
 			<input type="button" value="검색" onclick="search_go(this.form)">
+			<input type="button" value="뒤로가기" onclick="history.back()">
 		</div>
 	</form>
 	
 	<form method="post">
+		<p class="text-center">총 <font style="color: forestgreen"><b><%=num %></b></font> 건 검색되었습니다.</p>
 		<table class="table my-2 mx-auto text-center">
 			<thead class="thead bg-success text-white">
 				<tr class="pagetitle">
@@ -193,7 +193,8 @@
 						<td>${search.getRegdate().substring(0, 10) }</td>
 						<td>${search.getRank() }</td>
 						<td>${search.getPoint() }&nbsp;Point</td>
-						<td><input type="button" value="상세보기" onclick="memberInfo(this.form)"></td>
+						<td><input type="button" value="상세보기"
+							onclick="window.open('AdminController?type=info&id=${search.getId() }')"></td>
 					</tr>
 				</c:forEach>
 			</c:if>
