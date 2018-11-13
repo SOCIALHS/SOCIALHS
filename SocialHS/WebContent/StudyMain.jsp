@@ -46,7 +46,7 @@
 		<!-- 이 밑에 DIV에 카테고리 출력 -->
 		<div class="row d-flex justify-content-center">
 			<!-- sub nav -->
-			<%@ include file="dongwu/content_body.jsp"%>
+			<%@ include file="dongwu/category_body.jsp" %>
 		</div>
 
 		<div class="row d-flex justify-content-center" style="width: 100%;">
