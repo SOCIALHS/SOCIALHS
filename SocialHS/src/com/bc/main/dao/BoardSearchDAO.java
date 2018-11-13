@@ -52,4 +52,15 @@ public class BoardSearchDAO {
 		return c_list;
 	}
 	
+	public static List<BoardVO> getIdContent(String hs, String keyword){
+		Map<String, String> map = new HashMap<>();
+		map.put("hs", hs);
+		map.put("keyword", keyword);
+		
+		System.out.println("getIdContent map: " + map);
+		List<BoardVO> ic_list = getSql().selectList("search.idContent", map);
+		
+		return ic_list;
+	}
+	
 }
