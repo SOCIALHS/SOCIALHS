@@ -29,9 +29,9 @@
 			return false;
 		}
 
-		if (!frm.address.value) {
+		if (!frm.addr.value) {
 			alert("주소를 입력하세요.");
-			frm.address.focus();
+			frm.addr.focus();
 			return false;
 		}
 
