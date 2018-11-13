@@ -180,7 +180,8 @@
 					<td>${pvo.totalRecord - ((pvo.nowPage -1) * pvo.numPerpage + status.index) }</td>
 					<td>${hobby.getBb_idx() }</td>
 					<td>${hobby.getBbs_name() }</td>
-					<td><a href="#">${hobby.getTitle() }</a></td>
+					<td><a href="BullteinController?type=bullteinOne&bb_idx=${hobby.getBb_idx() }">
+					${hobby.getTitle() }</a></td>
 					<td>${hobby.getId() }</td>
 					<td>${hobby.getRegdate().substring(0, 10) }</td>
 					<td>${hobby.getRp() }</td>

@@ -179,7 +179,8 @@
 					<td>${pvo.totalRecord - ((pvo.nowPage -1) * pvo.numPerpage + status.index) }</td>
 					<td>${study.getBb_idx() }</td>
 					<td>${study.getBbs_name() }</td>
-					<td><a href="#">${study.getTitle() }</a></td>
+					<td><a href="BullteinController?type=bullteinOne&bb_idx=${study.getBb_idx() }">
+					${study.getTitle() }</a></td>
 					<td>${study.getId() }</td>
 					<td>${study.getRegdate().substring(0, 10) }</td>
 					<td>${study.getRp() }</td>

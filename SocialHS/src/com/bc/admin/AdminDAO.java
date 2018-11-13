@@ -86,19 +86,11 @@ private static SqlSession ss;
 		return getSql().selectList("admin.searchId", id);
 	}
 	
-	//제목/내용으로 검색 (count)
-	public int getsearchlistCnt(String search) {
-		Map<String, String> map = new HashMap<>();
-		map.put("title", search);
-		map.put("content", search);
-		int cnt = getSql().selectOne("admin.searchlistCnt", map);
-		return cnt;
-	}
 	
 	//아이디로 검색 (count)
-	public int getsearchIdCnt(String id) {
-		int cnt = getSql().selectOne("admin.searchIdCnt", id);
-		return cnt;
-	}
+//	public int getsearchIdCnt(String id) {
+//		int cnt = getSql().selectOne("admin.searchIdCnt", id);
+//		return cnt;
+//	}
 	
 }
