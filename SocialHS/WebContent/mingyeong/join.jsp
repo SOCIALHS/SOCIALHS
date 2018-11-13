@@ -17,6 +17,18 @@
 		var pw1 = frm.pw.value;
 		var pw2 = frm.pwchk.value;
 
+		if (!frm.id.value) {
+			alert("아이디를 입력하세요.");
+			frm.id.focus();
+			return false;
+		}
+
+		if (!frm.pw.value) {
+			alert("비밀번호를 입력하세요.");
+			frm.pw.focus();
+			return false;
+		}
+
 		if (pw1 != pw2) {
 			alert("암호가 일치하지 않습니다.");
 			frm.pw.value = "";
@@ -187,13 +199,13 @@
 					size="50">
 			</div>
 		</div>
-		<div class="row" style="margin-left: 290px" >
+		<div class="row" style="margin-left: 290px">
 			<div class="col">
 				<input type="button" class="btn btn-danger mb-2 mx-2" value="가입하기"
-					onclick="joinOk(this.form)">
-				<input type="hidden" name="joinchk" value="chk">
-				<input type="reset" class="btn btn-danger mb-2 mx-2" value="취소">
-				<input type="button" class="btn btn-danger mb-2 mx-2" value="메인화면"
+					onclick="joinOk(this.form)"> <input type="hidden"
+					name="joinchk" value="chk"> <input type="reset"
+					class="btn btn-danger mb-2 mx-2" value="취소"> <input
+					type="button" class="btn btn-danger mb-2 mx-2" value="메인화면"
 					onclick="main(this.form)">
 			</div>
 		</div>

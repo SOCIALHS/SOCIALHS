@@ -27,7 +27,7 @@ public class updateMyinfoCommand implements Command {
 			String email = request.getParameter("email");
 			String com = request.getParameter("com");
 			String phone = request.getParameter("phone");
-			String address = request.getParameter("address");
+			String address = request.getParameter("addr");
 			
 			memberVO vo = new memberVO();
 			vo.setId(id);

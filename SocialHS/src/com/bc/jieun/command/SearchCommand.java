@@ -35,6 +35,8 @@ public class SearchCommand implements Command {
 			
 			switch(v) {
 			case 0 : //제목 title
+				System.out.println("hs: "+ hs);
+				System.out.println("keyword: "+ keyword);
 				List<BoardVO> t_list = BoardSearchDAO.getTitle(hs, keyword);
 				session.setAttribute("s_list", t_list);
 				System.out.println(">>리스트 받아옴");
