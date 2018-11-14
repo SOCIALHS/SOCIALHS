@@ -39,6 +39,7 @@ public class AdminController extends HttpServlet {
 		String type = request.getParameter("type");
 		String path = null;
 		System.out.println("type : "+type);
+		System.out.println("검색어: "+ request.getParameter("search"));
 		Command comm = null;
 		
 		if (type.equals("allList")) {

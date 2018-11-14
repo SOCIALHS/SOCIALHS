@@ -33,7 +33,7 @@ public class searchCommand implements Command {
 				List<A_AllBoardVO> searchlist = AdminDAO.searchlist(search);
 				System.out.println("검색 제목/내용 searchlist : " + searchlist);
 				System.out.println("!!! 확인 : " + searchlist.size());
-				session.setAttribute("searchlist", searchlist);
+				request.setAttribute("searchlist", searchlist);
 				
 				path = "Admin/searchWrite.jsp";
 				break;
@@ -41,7 +41,7 @@ public class searchCommand implements Command {
 			case 2: //아이디
 				List<memberVO> searchId = AdminDAO.searchId(search);
 				System.out.println("검색 아이디 search : " + searchId);
-				session.setAttribute("searchlist", searchId);
+				request.setAttribute("searchlist", searchId);
 				path="Admin/searchMember.jsp";
 				break;
 			}
