@@ -23,16 +23,22 @@ public class CommentDAO {
 	
 	
 	public static int insertComment(CommentVO vo) {
-		System.out.println("vo : "+vo);
-		return getSql().insert("comment.insertComment",vo);	
+		return getSql().insert("comment.CommentWrite",vo);	
 	}
 	
 	public static int deleteComment(String bbc_idx) {
-		return getSql().delete("comment.deleteComment",bbc_idx);	
+		return getSql().delete("comment.CommentDelete",bbc_idx);	
 	}
 	
 	public static List<CommentVO> getCommList(String bb_idx) {
 		return getSql().selectList("comment.listComment",bb_idx);
+	}
+	
+	public static int b_deleteComment(String bb_idx) {
+		return getSql().delete("comment.b_deleteComment",bb_idx);	
+	}
+	public static int q_deleteComment(String bb_idx) {
+		return getSql().delete("comment.q_deleteComment", bb_idx);
 	}
 	
 	public static int deleteComBb_idx(String bb_idx) {

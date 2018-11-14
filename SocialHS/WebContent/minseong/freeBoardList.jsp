@@ -5,6 +5,18 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
+	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
+%>		<%@ include file="../jieun/header_head.jsp"%>
+<%
+	} else if (session.getAttribute("memberVO") != null) {
+%>		<%@ include file="../head.jsp"%>
+<%
+	} else if (session.getAttribute("AdminVO") != null) {
+%>		<%@ include file="../head.jsp"%>
+<%
+	} 
+%>
+<% 
 	System.out.println("-----------------------------");
 
 	//페이징 처리를 위한 객체 생성
@@ -60,11 +72,25 @@
 
 	//현재페이지 기준 게시글 가져오기
 %>
+
+
 <%
+	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
+%>		<%@ include file="../jieun/header.jsp"%>
+<%
+	} else if (session.getAttribute("memberVO") != null) {
+%>		<%@ include file="../jieun/loginheader.jsp"%>
+<%
+	} else if (session.getAttribute("AdminVO") != null) {
+%>		<%@ include file="../Admin/A_loginheader.jsp"%>
+<%
+	} 
+%>
+<%--
 	//EL사용을 위해 scope에 데이타 등록(page 영역)
 	pageContext.setAttribute("pvo", p);
 	pageContext.setAttribute("cPage", cPage);
-%>
+--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -245,6 +271,8 @@
 
 
 
+
+<%@ include file="../jieun/footer.jsp"%>
 
 
 
