@@ -10,8 +10,6 @@ public class QNAwriteCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		String bb_idx = request.getParameter("bb_idx");
-		System.out.println("QNAwrite 커멘드까지 오자너?");
 		
 		BoardVO qvo = new BoardVO();
 		String id = request.getParameter("id");

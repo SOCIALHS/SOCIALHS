@@ -20,7 +20,7 @@
 	
 	<insert id="QNAwrite" parameterType="com.bc.main.vo.BoardVO">
 		 INSERT INTO B_BOARD (BB_IDX, ID, TITLE, CONTENT, L_IDX, BBS_IDX)
-					VALUES(BB_SEQ.NEXTVAL, 'test', #{title}, #{content}, 1, 5) 
+					VALUES(BB_SEQ.NEXTVAL, #{id}, #{title}, #{content}, 1, 5) 
 	</insert>
 	
 	
