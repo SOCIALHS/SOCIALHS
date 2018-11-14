@@ -168,6 +168,9 @@
                }
             %>
             
+            <button type="button" class="btn btn-outline-info" onclick = "back()">
+				  	뒤로가기 	
+				</button>
             <hr>
 
             <!-- Comments Form -->
@@ -237,6 +240,14 @@
          
          <!-- memberId 비교해서 수정 삭제하는 코드 작성 -->
          <script>
+         	function back(){
+         		var hs = "${hs}".toString().substring(0,1);
+         		var flag = confirm("뒤로 이동 하시겠습니까?!");
+         		var locat = "${location.get(0).getL_Idx()}";
+                if(flag){
+                	location.href = 'LocationController?hs='+hs+"&location="+locat;
+                }		
+         	}
       		function delete_main(){
       			var flag = confirm("정말 삭제 하시겠습니까?!");
                 if(flag){
