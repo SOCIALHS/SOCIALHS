@@ -32,7 +32,6 @@
 	})	
 	
 	function begin(l_idx){
-		//document.getElementById(l_idx).className = "collapse show";
 		bgBtnChange(l_idx);
 	}
 

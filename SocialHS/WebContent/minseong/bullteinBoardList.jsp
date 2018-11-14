@@ -28,10 +28,7 @@
 		border: 1px solid black;
 		border-collapse: collapse;
 	}
-	#container th, td { border: 1px solid black; }
-	#container table th {
-		background-color: #9cf;
-	}
+	#container th, td { border: 1px solid gray; }
 	#container table td {
 		text-align: left;
 	}
@@ -63,15 +60,15 @@
 	<h2>공지사항</h2>
 	<hr>
 	<p>[<a href="BullteinController?type=bullteinWrite&bb_idx=${vo.bb_idx }">게시물 작성</a>]</p>
-	<table>
-		<thead>
+	<table class="table table-hover">
+		<thead class="thead-dark">
 			<tr>
-				<th>글번호</th>
-				<th>제목</th>
-				<th>작성자</th>
-				<th>조회수</th>
-				<th>GOOD</th>
-				<th>BAD</th>
+				<th scope="col">글번호</th>
+				<th scope="col">제목</th>
+				<th scope="col">작성자</th>
+				<th scope="col">조회수</th>
+				<th scope="col">GOOD</th>
+				<th scope="col">BAD</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -79,8 +76,8 @@
 		<c:if test="${not empty list }">	
 			<c:forEach var="vo" items="${list }">
 			<tr>
-				<td>${vo.getBb_idx() }</td>
-				<td><a href="BullteinController?type=bullteinOne&bb_idx=${vo.bb_idx }">${vo.getTitle() }</a></td>
+				<td scope="row">${vo.getBb_idx() }</td>
+				<td><a href="BullteinController?type=bullteinOne&bb_idx=${vo.bb_idx }" role="button">${vo.getTitle() }</a></td>
 				<td>${vo.getId() }</td>
 				<td>${vo.getHit() }</td>
 				<td>${vo.getGood() }</td>

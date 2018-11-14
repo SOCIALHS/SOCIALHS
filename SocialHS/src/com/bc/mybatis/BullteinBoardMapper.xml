@@ -21,7 +21,7 @@
 	
 	<insert id="BullteinWrite" parameterType="com.bc.main.vo.BoardVO">
 		 INSERT INTO B_BOARD (BB_IDX, ID, TITLE, CONTENT, L_IDX, BBS_IDX)
-					VALUES(BB_SEQ.NEXTVAL, 'test', #{title}, #{content}, 1, 301) 
+					VALUES(BB_SEQ.NEXTVAL, 'test', #{title}, #{content}, 1, 3) 
 	</insert>
 	
 	
