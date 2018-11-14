@@ -22,9 +22,7 @@ td {
 }
 </style>
 <%
-	String
-
-	bb_idx
+	String bb_idx
 
 			= request.getParameter("bb_idx");
 
@@ -47,19 +45,19 @@ td {
 </style>
 <script>
 	function update_go(frm) {
-		frm.action = "FreeController?type=freeUpdate&bb_idx=${BoardVO.getBb_idx() }";
+		frm.action = "../FreeController?type=freeUpdate&bb_idx=${BoardVO.getBb_idx() }";
 		frm.submit();
 	}
 	function delete_go(frm) {
-		frm.action = "FreeController?type=freeDelete&bb_idx=${BoardVO.getBb_idx() }";
+		frm.action = "../FreeController?type=freeDelete&bb_idx=${BoardVO.getBb_idx() }";
 		frm.submit();
 	}
 	function good(frm) {
-		frm.action = "FreeController?type=freeGood&bb_idx=${BoardVO.getBb_idx() }"
+		frm.action = "../FreeController?type=freeGood&bb_idx=${BoardVO.getBb_idx() }"
 		frm.submit();
 	}
 	function bad(frm) {
-		frm.action = "FreeController?type=freeBad&bb_idx=${BoardVO.getBb_idx() }"
+		frm.action = "../FreeController?type=freeBad&bb_idx=${BoardVO.getBb_idx() }"
 		frm.submit();
 	}
 </script>

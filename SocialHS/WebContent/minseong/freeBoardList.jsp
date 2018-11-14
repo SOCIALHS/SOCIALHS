@@ -28,7 +28,7 @@
 		<hr>
 		<p>
 			<button type="button" class="btn btn-info"
-				style="margin-left: 1100px;"
+				style="margin-left: 1300px;"
 				onclick="location.href='minseong/freeBoardWrite.jsp'">게시물
 				작성하기</button>
 		</p>
@@ -67,18 +67,6 @@
 			</tbody>
 		</table>
 	</div>
-	<nav aria-label="..." style="margin-left: 640px; margin-top: 50px;">
-		<ul class="pagination">
-			<li class="page-item disabled"><span class="page-link">Previous</span>
-			</li>
-			<li class="page-item"><a class="page-link" href="#">1</a></li>
-			<li class="page-item active"><span class="page-link"> 2 <span
-					class="sr-only">(current)</span>
-			</span></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#">Next</a></li>
-		</ul>
-	</nav>
 </body>
 </html>
 
