@@ -50,6 +50,13 @@
       select * from apply where bb_idx = #{bb_idx} order by a_idx
    </select>
 
+	<select id="getPopupList" resultType="com.bc.main.vo.PopUpVO"
+      parameterType="String">
+      select a.id, a.regdate, b.name, b.phone, b.email, a.bb_idx 
+     		 from apply a , member b 
+     		 where a.id = b.id and bb_idx = #{bb_idx}
+   </select>
+
    
    
 </mapper>  

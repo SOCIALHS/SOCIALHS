@@ -41,7 +41,9 @@ public class CommentDAO {
 		return getSql().delete("comment.q_deleteComment", bb_idx);
 	}
 	
-	
+	public static int deleteComBb_idx(String bb_idx) {
+		return getSql().delete("comment.delBb_idx", bb_idx);
+	}
 	
 	
 }

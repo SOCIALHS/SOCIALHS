@@ -1,16 +1,24 @@
+<%@page import="javax.naming.Context"%>
+<%@page import="javax.naming.InitialContext"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="javax.sql.DataSource"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <%
 	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
-%>		<%@ include file="jieun/header_head.jsp"%>
+%>
+<%@ include file="jieun/header_head.jsp"%>
 <%
 	} else if (session.getAttribute("memberVO") != null) {
-%>		<%@ include file="head.jsp"%>
+%>
+<%@ include file="head.jsp"%>
 <%
 	} else if (session.getAttribute("AdminVO") != null) {
-%>		<%@ include file="head.jsp"%>
+%>
+<%@ include file="head.jsp"%>
 <%
-	} 
+	}
 %>
 
 <title>소셜 하비 앤 스터디</title>
@@ -18,15 +26,18 @@
 
 <%
 	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
-%>		<%@ include file="jieun/header.jsp"%>
+%>
+<%@ include file="jieun/header.jsp"%>
 <%
 	} else if (session.getAttribute("memberVO") != null) {
-%>		<%@ include file="jieun/loginheader.jsp"%>
+%>
+<%@ include file="jieun/loginheader.jsp"%>
 <%
 	} else if (session.getAttribute("AdminVO") != null) {
-%>		<%@ include file="Admin/A_loginheader.jsp"%>
+%>
+<%@ include file="Admin/A_loginheader.jsp"%>
 <%
-	} 
+	}
 %>
 
 
@@ -61,7 +72,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- jumbotron -->
 	<div class="container text-center mt-3">
 		<h1 class="display-3">소셜 하비 앤 스터디</h1>
@@ -70,7 +81,8 @@
 		<p class="lead">참여하고 싶으시면 아래 버튼 중 하나를 클릭해 주세요.</p>
 		<a class="btn btn-danger btn-lg mx-3 my-4"
 			href="MainController?type=hobby" style="padding: 25px 100px;"
-			role="button">취미</a> <a class="btn btn-danger btn-lg mx-3 my-4"
+			role="button">취미</a> 
+		<a class="btn btn-danger btn-lg mx-3 my-4"
 			href="MainController?type=study" role="button"
 			style="padding: 25px 100px;">스터디</a>
 	</div>

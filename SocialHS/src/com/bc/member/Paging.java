@@ -1,5 +1,8 @@
 package com.bc.member;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Paging {
 	private int nowPage = 1; //현재 페이지
 	private int nowBlock = 1; //현재 블록 
@@ -23,9 +26,8 @@ public class Paging {
 		if (totalRecord % numPerpage != 0) {
 			totalPage++;
 		}
-		
 	}
-
+	
 	public int getNowPage() {
 		return nowPage;
 	}

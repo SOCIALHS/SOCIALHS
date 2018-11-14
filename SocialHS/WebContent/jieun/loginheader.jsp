@@ -4,7 +4,7 @@
 
     <nav class="navbar navbar-dark bg-dark py-3">
 		<a class="navbar-brand" href="index.jsp">
-			소셜 하비 앤 스터디
+			<img src="imgs/github-sign.png">
 		</a>
         <span class="text-light bg-dark ml-auto mx-2">
         	<b>${memberVO.id }</b>&nbsp;님 환영합니다.
@@ -27,4 +27,3 @@
             </li>
         </ul>
     </nav>
-    <br><br><br>

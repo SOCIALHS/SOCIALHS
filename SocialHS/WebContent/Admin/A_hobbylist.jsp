@@ -169,6 +169,7 @@
 					<th class="date">작성일</th>
 					<th>모집여부</th>
 					<th>모집인원</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -179,25 +180,27 @@
 					<td>${pvo.totalRecord - ((pvo.nowPage -1) * pvo.numPerpage + status.index) }</td>
 					<td>${hobby.getBb_idx() }</td>
 					<td>${hobby.getBbs_name() }</td>
-					<td><a href="#">${hobby.getTitle() }</a></td>
+					<td><a href="BullteinController?type=bullteinOne&bb_idx=${hobby.getBb_idx() }">
+					${hobby.getTitle() }</a></td>
 					<td>${hobby.getId() }</td>
 					<td>${hobby.getRegdate().substring(0, 10) }</td>
 					<td>${hobby.getRp() }</td>
 					<td>${hobby.getCur_member() }&nbsp;/&nbsp;${hobby.getReq_member() }</td>
+					<td><input type="button" class="delBtn" value="삭제" onClick="location.href='AdminController?type=del&path=hob&bb_idx=${hobby.bb_idx}'"></td>
 				</tr>
 			</c:forEach>	
 			</c:if>
 			
 			<c:if test="${empty H_list}">
 				<tr>
-					<td colspan="8" class="center">등록된 게시글이 없습니다.<br>
+					<td colspan="9" class="center">등록된 게시글이 없습니다.<br>
 						지금 바로 새로운 게시글을 등록해 보세요!</td>
 				</tr>
 			</c:if>
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="8">
+					<td colspan="9">
 						<ol class="paging">
 						
 						<%-- 이전페이지 사용여부 --%>

@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bc.admin.command.a_delCommand;
 import com.bc.admin.command.allListCommand;
 import com.bc.admin.command.allmemberInfoCommand;
 import com.bc.admin.command.hobbylistCommand;
+import com.bc.admin.command.infoCommand;
 import com.bc.admin.command.searchCommand;
 import com.bc.admin.command.studylistCommand;
 import com.bc.share.command.Command;
@@ -37,6 +39,7 @@ public class AdminController extends HttpServlet {
 		String type = request.getParameter("type");
 		String path = null;
 		System.out.println("type : "+type);
+		System.out.println("검색어: "+ request.getParameter("search"));
 		Command comm = null;
 		
 		if (type.equals("allList")) {
@@ -50,6 +53,10 @@ public class AdminController extends HttpServlet {
 		} 
 		else if (type.equals("search")) {
 			comm = new searchCommand();
+		} else if (type.equals("info")) {
+			comm = new infoCommand();
+		} else if (type.equals("del")) {
+			comm = new a_delCommand();
 		}
 		
 		

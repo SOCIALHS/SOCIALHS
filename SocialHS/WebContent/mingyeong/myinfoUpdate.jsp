@@ -6,6 +6,12 @@
 <title>내 정보 수정</title>
 <script>
 	function update(frm) {
+		
+		if (!frm.pw.value) {
+			alert("비밀번호를 입력하세요.");
+			frm.pw.focus();
+			return false;
+		}
 
 		var pw1 = frm.pw.value;
 		var pw2 = frm.pwchk.value;
@@ -29,9 +35,9 @@
 			return false;
 		}
 
-		if (!frm.address.value) {
+		if (!frm.addr.value) {
 			alert("주소를 입력하세요.");
-			frm.address.focus();
+			frm.addr.focus();
 			return false;
 		}
 
@@ -83,10 +89,17 @@
 							class="form-control mb-2 mr-sm-2" placeholder="비밀번호 확인">
 						</td>
 					</tr>
-
+					
+					
+					<%
+						memberVO vo = (memberVO)session.getAttribute("memberVO");
+						String[] email = vo.getEmail().split("@");
+						System.out.println(email[0]);
+					%>
+	
 					<tr class="form-inline">
 						<td><input type="text" class="form-control mb-2 mr-sm-2"
-							placeholder="이메일" name="email" style="width: 420px;" maxlength="50">&nbsp;@&nbsp;
+							value="<%=email[0] %>" style="width: 420px;" maxlength="50">&nbsp;@&nbsp;
 							<select name="com" class="custom-select mr-sm-2 mb-2">
 								<option>naver.com</option>
 								<option>daum.com</option>
@@ -96,11 +109,11 @@
 					</tr>
 					<tr class="form-group">
 						<td><input type="text" class="form-control mb-2 mr-sm-2"
-							placeholder="휴대전화번호" name="phone"></td>
+							value="${memberVO.getPhone() }" name="phone"></td>
 					</tr>
 					<tr class="form-group">
 						<td><input type="text" class="form-control mb-2 mr-sm-2"
-							placeholder="주소" name="addr" size="50"></td>
+							value="${memberVO.getAddr() }" name="addr" size="50"></td>
 					</tr>
 				</tbody>
 			</table>
