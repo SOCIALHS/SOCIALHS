@@ -38,68 +38,22 @@
 <link href="css/A_Paging.css" rel="stylesheet" type="text/css">
 <link href="css/A_morepage.css" rel="stylesheet" type="text/css">
 
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript">
-	//내가 쓴 게시글 / 댓글 탭 
-	$(document).ready(function() {
-		$('.tab a').click(function() {
-			var tabid = $(this).attr('data-tab');
-			
-			$('.tab a').removeClass('current');
-			$('.tabcontent').removeClass('current');
-			
-			$(this).addClass('current');
-			$("#"+tabid).addClass('current');
-		})
-	})
-	
-	//사이드바 
-	$(document).ready(function() {
-		$(".topMenuLi>a").click(function() {
-			var submenu = $(this).next("div");
-			if( submenu.is(":visible") ) {
-				submenu.slideUp();
-			} else {
-				submenu.slideDown();
-			}
-		});
-	});
-</script>
 
 <script>
-	
 	//아이디/이름으로 검색 
 	function search_go(frm) {
 		frm.action = "AdminController?type=search";
 		frm.submit();
 	}
-
 </script>
+	<jsp:include page="function.jsp"></jsp:include>
 <% session.getAttribute("searchlist"); %>
 
 </head>
 <body>
 <div id="adminPage" class="jumbotron jumbotron-fluid">
 	
-	<div id="infohead">
-		<ul class="menu tab">
-			<li class="topMenuLi">
-				<a class="menuLink tablink current" data-tab="allList">전체 글목록</a>
-				<div class="submenuUl nav-item">
-					<a class="submenuLink tablink" data-tab="allList"
-					href="AdminController?type=allList">전체보기</a>
-					<a class="submenuLink tablink" data-tab="hobbylist" 
-					href="AdminController?type=hobbylist">취미</a>
-					<a class="submenuLink tablink" data-tab="studylist"
-					href="AdminController?type=studylist">스터디</a>
-				</div>
-			</li>
-			<li class="topMenuLi nav-item">
-				<a class="menuLink tablink" data-tab="allmemberInfo"
-				href="AdminController?type=allmemberInfo">회원정보보기</a></li>
-			
-		</ul>
-	</div>
+	<jsp:include page="infohead.jsp"></jsp:include>
 	
 	<div id="allmemberInfo">
 	

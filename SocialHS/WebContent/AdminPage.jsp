@@ -174,6 +174,8 @@
 			}
 		});
 	});
+	
+	//카테고리 추가 
 	function file_up(form){
 		alert(form);
 		form.action = 'AdminController?type=categoryAdd';
@@ -200,7 +202,8 @@
 			</li>
 			<li class="topMenuLi nav-item">
 				<a class="menuLink tablink" data-tab="allmemberInfo">회원정보보기</a></li>
-			<li class="topMenuLi nav-item"><a class="menuLink tablink" data-tab="categoryAdd">카테고리추가</a></li>
+			<li class="topMenuLi nav-item">
+				<a class="menuLink tablink" data-tab="categoryAdd">카테고리추가</a></li>
 		</ul>
 		
 	</div>
