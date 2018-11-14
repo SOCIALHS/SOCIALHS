@@ -24,6 +24,7 @@ public class FreeBoardWriteCommand implements Command {
 		String path = null;
 		
 		FreeBoardDAO.insert(fvo);
+		
 		path = "FreeController?type=freeList";
 		
 		return path;

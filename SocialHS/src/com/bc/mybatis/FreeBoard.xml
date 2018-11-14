@@ -5,6 +5,18 @@
 
 <mapper namespace="free">
 
+
+	<select id="f_Maplist" resultType="com.bc.main.vo.BoardVO" parameterType="Map">
+		SELECT * FROM (
+		SELECT ROWNUM R_NUM, P.*
+		  FROM (SELECT *
+		          FROM B_BOARD
+		         ORDER BY BB_IDX DESC
+		        ) P)
+		 WHERE R_NUM BETWEEN #{beginPage} AND #{endPage}
+	</select>
+	
+	
 	<select id="FreeList" resultType="com.bc.main.vo.BoardVO">
 		SELECT * FROM B_BOARD WHERE
 		BBS_IDX = 4 

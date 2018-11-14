@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지 작성</title>
+<title>Q&A 작성</title>
 <script>
 	function write_go(frm) {
-		frm.action = "QNA?type=QNAwrite";
+		frm.action = "../QNA?type=QNAwrite";
 		frm.submit();
 	}
 </script>
@@ -38,7 +38,7 @@
 				<td colspan="2">
 					<input type="button" value="작성 완료" onclick="write_go(this.form)">
 					<input type="reset" value="초기화">
-					<!--  <input type="hidden" name="id" value="${memberid }"> -->
+					<input type="hidden" name="id" value="${memberVO.id }">
 					<input type="hidden" name="chk" value="1">
 				</td>
 			</tr>

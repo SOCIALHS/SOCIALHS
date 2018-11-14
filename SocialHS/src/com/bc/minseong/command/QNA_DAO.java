@@ -1,5 +1,6 @@
 package com.bc.minseong.command;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -12,6 +13,10 @@ public class QNA_DAO {
 	private synchronized static SqlSession getSql() {
 		ss = DBService.getFactory().openSession(true);
 		return ss;
+	}
+	
+	public static List<BoardVO> getMaplist(Map<String, Integer> map) {
+		return getSql().selectList("QNA.q_Maplist", map);
 	}
 	
 	public static List<BoardVO> getList() {
