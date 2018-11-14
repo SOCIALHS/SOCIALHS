@@ -1,5 +1,6 @@
 package com.bc.minseong.command;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -13,6 +14,11 @@ public class BullteinBoardDAO {
 		ss = DBService.getFactory().openSession(true);
 		return ss;
 	}
+	
+	public static List<BoardVO> getMaplist(Map<String, Integer> map) {
+		return getSql().selectList("bulltein.Maplist", map);
+	}
+	
 	
 	//공지 게시판 리스트
 	public static List<BoardVO> getList() {
@@ -67,6 +73,11 @@ public class BullteinBoardDAO {
 	public static int updateBad(String bb_idx) {
 		return getSql().update("bulltein.badVO", bb_idx);
 	}
-
+	
+	//페이징
+	public static int getTotalCount() {
+		int totalCount = getSql().selectOne("bulltein.totalCount");
+		return totalCount;
+	}
 	
 }

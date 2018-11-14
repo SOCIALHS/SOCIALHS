@@ -1,5 +1,10 @@
+<%@page import="javax.naming.Context"%>
+<%@page import="javax.naming.InitialContext"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="javax.sql.DataSource"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <%
 	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
 %>

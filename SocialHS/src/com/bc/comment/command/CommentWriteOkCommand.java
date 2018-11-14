@@ -18,17 +18,22 @@ public class CommentWriteOkCommand implements Command {
 		String content = request.getParameter("content");
 		String bb_idx = request.getParameter("bb_idx");
 		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
 		
+	
 		
 		CommentVO vo = new CommentVO();
 		vo.setBb_idx(bb_idx);
 		vo.setContent(content);
 		vo.setId(id);
+		vo.setPw(pw);
 		System.out.println("comment vo : "+vo);
 		CommentDAO.insertComment(vo);
 		System.out.println("====comment 입력 완료====");
 		
-		return "HobbyController?type=view&bb_idx="+bb_idx;
+		//return "HobbyController?type=view&bb_idx="+bb_idx;
+		//return "minseong/bullteinBoardOne.jsp";
+		return "BullteinController?type=bullteinOne&bb_idx="+bb_idx;
 	}
 	
 

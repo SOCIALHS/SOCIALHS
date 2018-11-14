@@ -141,9 +141,9 @@
 	}
 	
 	function deleteInfo(frm) {
-		if (confirm("회원 탈퇴를 하시겠습니까?") == true) {
+		if (confirm("회원을 탈퇴 시키겠습니까?") == true) {
 			
-			frm.action = "MypageController?type=delete";
+			frm.action = "MypageController?type=delete&from=admin";
 			frm.submit();
 		} else {
 			return;
@@ -174,7 +174,7 @@
 	<div class="container text-center">
 		<ul id ="infohead" class="nav mx-auto my-2">
 			<li class="nav-item" style="font-weight: bold">회원정보</li>&nbsp;|&nbsp;
-			<li class="nav-item"><a href="index.jsp">home</a></li>
+			<li class="nav-item"><a href="AdminPage.jsp">home</a></li>
 		</ul>
 	
 	<form method="post">
