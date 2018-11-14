@@ -8,6 +8,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="../head.jsp"%>
+
 <%
 	Paging p = new Paging();
 
@@ -81,11 +83,6 @@
 <%
 	} 
 %>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
 <title>자유 게시판</title>
 <style>
 #container {
@@ -166,20 +163,23 @@
 <body>
 
 	<div id="container">
-		<h2>자유게시판</h2>
+		<h1 class="display-4 my-5 text-center">자유게시판</h1>
 		<hr>
 		<p>
-			[<a href="minseong/freeBoardWrite.jsp">게시물 작성</a>]
+			<button type="button" class="btn btn-info"
+				style="margin-left: 1100px;"
+				onclick="location.href='minseong/freeBoardWrite.jsp'">게시물
+				작성하기</button>
 		</p>
-		<table>
+		<table class="table mx-auto" style="width: 1000px;">
 			<thead>
 				<tr>
-					<th>글번호</th>
-					<th>제목</th>
-					<th>작성자</th>
-					<th>조회수</th>
-					<th>GOOD</th>
-					<th>BAD</th>
+					<th scope="col">글번호</th>
+					<th scope="col">제목</th>
+					<th scope="col">작성자</th>
+					<th scope="col">조회수</th>
+					<th scope="col">GOOD</th>
+					<th scope="col">BAD</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -187,7 +187,7 @@
 				<c:if test="${not empty list }">
 					<c:forEach var="vo" items="${list }">
 						<tr>
-							<td>${vo.getBb_idx() }</td>
+							<td scope="row">${vo.getBb_idx() }</td>
 							<td><a
 								href="FreeController?type=freeOne&bb_idx=${vo.bb_idx }">${vo.getTitle() }</a></td>
 							<td>${vo.getId() }</td>
@@ -199,12 +199,12 @@
 				</c:if>
 
 				<c:if test="${empty list }">
-					<tr>
-						<td colspan="7">입력된 자료가 없습니다</td>
+					<tr scope="row">
+						<td colspan="6">입력된 자료가 없습니다</td>
 					</tr>
 				</c:if>
 			</tbody>
-			<!-- 페이징  -->
+			<!-- 페이징 
 		<tfoot>
 			<tr>
 				<td colspan="6">
@@ -249,15 +249,59 @@
 					</ol>
 				</td>
 			</tr>
-		</tfoot>
+		</tfoot> -->
 		</table>
 	</div>
+				
+	<nav aria-label="..." style="margin-left: 640px; margin-top: 50px;">
+		<ul class="pagination">
+		
+		
+		<%-- 이전으로(←) --%>
+			<c:choose>
+				<c:when test="${pvo.beginPage < pvo.pagePerBlock }">
+					<li class="page-item disabled"><span class="page-link">이전</span></li>
+				</c:when>
+				<c:otherwise>
+					<li class="page-item"><a class="page-link" href="/SocialHS/minseong/freeBoardList.jsp?cPage=${pvo.beginPage - 1 }">이전</a></li>
+				</c:otherwise>
+			</c:choose>		
 
-</body>
-</html>
-
-
-
+			
+			
+			
+					<%-- 블록내 페이지 반복 --%>
+					
+			<c:forEach var="p" begin="${pvo.beginPage }" end="${pvo.endPage }">				<c:choose>
+			<c:when test="${p == pvo.nowPage }">
+				<li class="page-item active"><span class="page-link">${p }<span
+						class="sr-only">(current)</span>
+				</span></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item"><a class="page-link" href="/SocialHS/minseong/freeBoardList.jsp?cPage=${p }">${p }</a></li>
+			</c:otherwise>
+			</c:choose>
+			</c:forEach>			
+			
+			
+			
+			
+					<%-- 이전으로(←) --%>
+			<c:choose>
+				<c:when test="${pvo.endPage >= pvo.totalPage }">
+					<li class="page-item disabled"><span class="page-link">다음</span></li>
+				</c:when>
+				<c:otherwise>
+					<li class="page-item"><a class="page-link" href="/SocialHS/minseong/freeBoardList.jsp?cPage=${pvo.beginPage + 1 }">다음</a></li>
+				</c:otherwise>
+			</c:choose>		
+			
+			
+			
+			
+		</ul>
+	</nav>
 
 <%@ include file="../jieun/footer.jsp"%>
 

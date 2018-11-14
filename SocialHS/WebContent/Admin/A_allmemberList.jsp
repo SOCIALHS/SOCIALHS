@@ -94,6 +94,9 @@
 <link href="css/A_Paging.css" rel="stylesheet" type="text/css">
 <link href="css/A_morepage.css" rel="stylesheet" type="text/css">
 
+<<<<<<< HEAD
+<script>
+=======
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	//내가 쓴 게시글 / 댓글 탭 
@@ -120,37 +123,21 @@
 			}
 		});
 	});
-</script>
-
-<script>
+	
+>>>>>>> refs/remotes/origin/master
 	//아이디/이름으로 검색 
 	function search_go(frm) {
 		frm.action = "AdminController?type=search";
 		frm.submit();
 	}
+	
 </script>
+	<jsp:include page="function.jsp"></jsp:include>
 </head>
 <body>
 <div id="adminPage" class="jumbotron jumbotron-fluid">
 	
-	<div id="infohead">
-		<ul class="menu tab">
-			<li class="topMenuLi">
-				<a class="menuLink tablink current" data-tab="allList">전체 글목록</a>
-				<div class="submenuUl nav-item">
-					<a class="submenuLink tablink" data-tab="allList"
-					href="AdminController?type=allList">전체보기</a>
-					<a class="submenuLink tablink" data-tab="hobbylist" 
-					href="AdminController?type=hobbylist">취미</a>
-					<a class="submenuLink tablink" data-tab="studylist"
-					href="AdminController?type=studylist">스터디</a>
-				</div>
-			</li>
-			<li class="topMenuLi nav-item">
-				<a class="menuLink tablink" data-tab="allmemberInfo"
-				href="AdminController?type=allmemberInfo">회원정보보기</a></li>
-		</ul>
-	</div>
+	<jsp:include page="infohead.jsp"></jsp:include>
 	
 	<div id="allmemberInfo">
 	
@@ -178,6 +165,7 @@
 				</tr>
 			</thead>
 			<tbody>
+
 			<%-- 데이터가 있을 때 --%>
 			<c:if test="${not empty M_list}">
 				<c:forEach var="allMember" items="${M_list }" varStatus="status">
@@ -190,8 +178,7 @@
 						<td>${allMember.getRank() }&nbsp;등급</td>
 						<td>${allMember.getPoint() }&nbsp;Point</td>
 						<td><input type="button" value="상세보기"
-							onclick="window.open('AdminController?type=info&id=${allMember.getId() }')">
-							<input type="hidden" name="id" value="${allMember.getId() }"></td>
+							onclick="window.location.href='AdminController?type=info&id=${allMember.getId() }'">
 					</tr>
 				</c:forEach>
 			</c:if>
@@ -254,6 +241,7 @@
 	
 	</form>
 	</div>
+	
 </div>
 
 </body>
