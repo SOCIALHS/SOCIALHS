@@ -62,7 +62,7 @@
 <div id="container">
 	<h2>Q & A</h2>
 	<hr>
-	<p>[<a href="QNA?type=QNAwrite&bb_idx=${vo.bb_idx }">게시물 작성</a>]</p>
+	<p>[<a href="QNA?type=QNAwrite">게시물 작성</a>]</p>
 	<table>
 		<thead>
 			<tr>

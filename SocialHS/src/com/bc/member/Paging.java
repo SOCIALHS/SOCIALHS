@@ -113,5 +113,5 @@ public class Paging {
 	public void setEndPage(int endPage) {
 		this.endPage = endPage;
 	}
-	
+
 }

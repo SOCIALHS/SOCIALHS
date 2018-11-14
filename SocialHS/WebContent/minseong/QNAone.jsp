@@ -84,7 +84,7 @@
 		frm.submit();
 	}
 	function delete_go(frm) {
-		frm.action = "BQNA?type=QNAdelete&bb_idx=${BoardVO.getBb_idx() }";
+		frm.action = "QNA?type=QNAdelete&bb_idx=${BoardVO.getBb_idx() }";
 		frm.submit();
 	}
 	function good(frm) {
@@ -117,7 +117,7 @@
 <!--  <BODY>  -->
 
 <div id="container">
-	<h2>공지 사항</h2>
+	<h2>Q&A</h2>
 	<hr>
 
 	<form method="post">

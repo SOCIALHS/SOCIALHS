@@ -15,13 +15,10 @@ public class BullteinBoardWriteCommand implements Command {
 		String chk = request.getParameter("chk");
 		
 //		BoardVO bbvo = BullteinBoardDAO.selectOne(bb_idx);
-		
 //		request.setAttribute("bbvo", bbvo);
 		BoardVO bbvo = new BoardVO();
 		bbvo.setTitle(request.getParameter("title"));
 		bbvo.setContent(request.getParameter("content"));
-		System.out.println("check3");
-		System.out.println("chk : "+ chk);
 		String path = null;
 		if (chk == null) {
 			System.out.println("널");

@@ -37,6 +37,8 @@ public class QNAcontroller extends HttpServlet {
 			System.out.println("QNAone 컨트롤러");
 		}else if(type.equals("QNAupdate")) {
 			comm = new QNAupdateCommand();
+		}else if(type.equals("QNAupdateOK")) {
+			comm = new QNAupdateOkCommand();
 		}else if(type.equals("QNAwrite")) {
 			comm = new QNAwriteCommand();
 		}else if(type.equals("QNAdelete")) {
@@ -52,6 +54,7 @@ public class QNAcontroller extends HttpServlet {
 		}
 		
 		path = comm.exec(request, response);
+		System.out.println("path: "+ path);
 		request.getRequestDispatcher(path).forward(request, response);
 		
 	}

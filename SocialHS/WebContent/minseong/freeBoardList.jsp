@@ -72,6 +72,20 @@
 
 	//현재페이지 기준 게시글 가져오기
 %>
+
+
+<%
+	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
+%>		<%@ include file="../jieun/header.jsp"%>
+<%
+	} else if (session.getAttribute("memberVO") != null) {
+%>		<%@ include file="../jieun/loginheader.jsp"%>
+<%
+	} else if (session.getAttribute("AdminVO") != null) {
+%>		<%@ include file="../Admin/A_loginheader.jsp"%>
+<%
+	} 
+%>
 <%--
 	//EL사용을 위해 scope에 데이타 등록(page 영역)
 	pageContext.setAttribute("pvo", p);

@@ -37,6 +37,10 @@
 	<delete id="b_deleteComment" parameterType="String">
 		delete from bb_comment where bb_idx = #{bb_idx}
 	</delete>
+	
+	<delete id="q_deleteComment" parameterType="String">
+		delete from bb_comment where bb_idx = #{bb_idx}
+	</delete>
 
 	<select id="listComment" parameterType="String"
 		resultType="com.bc.main.vo.CommentVO">

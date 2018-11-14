@@ -17,8 +17,7 @@ public class QNAlistCommand implements Command {
 		request.setAttribute("list", list);
 		System.out.println("list : " + list);
 		
-		return "../minseong/QNAlist.jsp";
-		//return "QNA?type=QNAlist";
+		return "minseong/QNAlist.jsp";
 	}
 
 }

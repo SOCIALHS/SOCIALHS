@@ -32,6 +32,7 @@ public class BullteinBoardController extends HttpServlet {
 		
 		if(type.equals("bullteinList")) {
 			comm = new BullteinBoardListCommand();
+			System.out.println("bullteinList 컨트롤러");
 		}else if(type.equals("bullteinOne")) {
 			comm = new BullteinBoardOneCommand();
 		}else if(type.equals("bullteinWrite")) {
