@@ -1,6 +1,8 @@
 package com.bc.minseong.command;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +16,9 @@ public class BullteinBoardListCommand implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		List<BoardVO> list = BullteinBoardDAO.getList();
 		request.setAttribute("list", list);
+		System.out.println("BullteinBoardList : " + list);
+		
+		
 		return "minseong/bullteinBoardList.jsp";
 	}
 

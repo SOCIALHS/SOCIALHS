@@ -9,13 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bc.share.command.Command;
 
-
-
-@WebServlet("/BullteinController")
-
-public class BullteinBoardController extends HttpServlet {
+@WebServlet("/QNA")
+public class QNAcontroller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		process(request, response);
 	}
@@ -24,33 +22,40 @@ public class BullteinBoardController extends HttpServlet {
 		process(request, response);
 	}
 	
+	
 	private void process (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String type = request.getParameter("type");
-		String bb_idx = request.getParameter("bb_idx");
 		String path = null;
 		Command comm = null;
 		
-		if(type.equals("bullteinList")) {
-			comm = new BullteinBoardListCommand();
-		}else if(type.equals("bullteinOne")) {
-			comm = new BullteinBoardOneCommand();
-		}else if(type.equals("bullteinWrite")) {
-			comm = new BullteinBoardWriteCommand();
-		}else if(type.equals("bullteinUpdate")) {
-			comm = new BullteinBoardUpdateCommand();
-		}else if(type.equals("bullteinDelete")) {
-			comm = new BullteinBoardDeleteCommand();
-		}else if(type.equals("bullteinGood")) {
-			comm = new BullteinBoardGoodCommand();
-		}else if(type.equals("bullteinBad")) {
-			comm = new BullteinBoardBadCommand();
+		if(type.equals("QNAlist")) {
+			comm = new QNAlistCommand();
+			System.out.println("QNAlist");
+		}else if(type.equals("QNAone")) {
+			comm = new QNAoneCommand();
+			System.out.println("QNAone 컨트롤러");
+		}else if(type.equals("QNAupdate")) {
+			comm = new QNAupdateCommand();
+		}else if(type.equals("QNAupdateOK")) {
+			comm = new QNAupdateOkCommand();
+		}else if(type.equals("QNAwrite")) {
+			comm = new QNAwriteCommand();
+		}else if(type.equals("QNAdelete")) {
+			comm = new QNAdeleteCommand();
+		}else if(type.equals("QNAgood")) {
+			comm = new QNAgoodCommand();
+		}else if(type.equals("QNAbad")) {
+			comm = new QNAbadCommand();
+		}else if(type.equals("q_writeOk")) {
+			comm = new q_CommentWriteCommand();
+		}else if(type.equals("q_dlelteOk")) {
+			comm = new q_CommentDeleteCommand();
 		}
 		
 		path = comm.exec(request, response);
+		System.out.println("path: "+ path);
 		request.getRequestDispatcher(path).forward(request, response);
 		
-		
 	}
-
 }

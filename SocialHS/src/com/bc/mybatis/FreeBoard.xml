@@ -7,7 +7,8 @@
 
 	<select id="FreeList" resultType="com.bc.main.vo.BoardVO">
 		SELECT * FROM B_BOARD WHERE
-		BBS_IDX = 4 ORDER BY BB_IDX DESC
+		BBS_IDX = 4 
+		ORDER BY BB_IDX DESC
 	</select>
 
 	<select id="FreeOne" resultType="com.bc.main.vo.BoardVO"
@@ -47,7 +48,30 @@
 	<select id="totalCount" resultType="int">
 		SELECT COUNT(BB_IDX) FROM B_BOARD WHERE BBS_IDX = 4
 	</select>
-
+	
+	<update id="f_hitVO" parameterType="com.bc.main.vo.BoardVO">
+		UPDATE B_BOARD 
+		   SET HIT = #{hit} + 1 
+		 WHERE BB_IDX = #{bb_idx}
+	</update>
+	
+	<update id="f_hit" parameterType="int">
+		UPDATE B_BOARD
+		   SET HIT = HIT + 1
+		 WHERE BB_IDX = #{bb_idx}
+	</update>
+	
+	<update id="f_goodVO" parameterType="String">
+		UPDATE B_BOARD 
+		   SET GOOD = GOOD + 1 
+		 WHERE BB_IDX = #{bb_idx}
+	</update>
+	
+	<update id="f_badVO" parameterType="String">
+		UPDATE B_BOARD 
+		   SET BAD = BAD - 1 
+		 WHERE BB_IDX = #{bb_idx}
+	</update>
 </mapper>  
 
 

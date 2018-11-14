@@ -1,10 +1,5 @@
-<%@page import="javax.naming.Context"%>
-<%@page import="javax.naming.InitialContext"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="javax.sql.DataSource"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
 <%
 	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
 %>
@@ -22,6 +17,12 @@
 %>
 
 <title>소셜 하비 앤 스터디</title>
+<style>
+	.title { font-family: 'Nanum Gothic', sans-serif; }
+	.sub { font-family: 'Nanum Gothic', sans-serif; }
+	.carousel-item img { max-width: 100%; height: auto; }
+
+</style>
 </head>
 
 <%
@@ -44,7 +45,7 @@
 
 <!-- body -->
 <div class="jumbotron jumbotron-fluid">
-
+	
 	<!-- picture slide -->
 	<div id="carouselExampleSlidesOnly" class="carousel slide mx-auto"
 		style="width: 800px;" data-ride="carousel" data-interval="3000">
@@ -72,20 +73,23 @@
 			</div>
 		</div>
 	</div>
-
+	
 	<!-- jumbotron -->
 	<div class="container text-center mt-3">
-		<h1 class="display-3">소셜 하비 앤 스터디</h1>
-		<p class="lead">원하는 취미 모임, 필요한 스터디 모임이 여기에 있습니다.</p>
+		<h1 class="display-4 title"><b>소셜 하비 앤 스터디</b></h1>
+		
 		<hr class="my-4">
-		<p class="lead">참여하고 싶으시면 아래 버튼 중 하나를 클릭해 주세요.</p>
-		<a class="btn btn-danger btn-lg mx-3 my-4"
-			href="MainController?type=hobby" style="padding: 25px 100px;"
-			role="button">취미</a> 
-		<a class="btn btn-danger btn-lg mx-3 my-4"
-			href="MainController?type=study" role="button"
-			style="padding: 25px 100px;">스터디</a>
+		<p class="lead sub">원하는 취미 모임, 필요한 스터디 모임이 여기에 있습니다.<br>
+							참여하고 싶으시면 아래 버튼 중 하나를 클릭해 주세요.</p>
+		<a class="mx-3 my-4"
+			href="MainController?type=hobby">
+			<img src="imgs/hobby-02.png" alt="취미" height="150" width="150"></a> 
+		<a class="mx-3 my-4"
+			href="MainController?type=study">
+			<img src="imgs/study-01.png" alt="스터디" height="150" width="150"></a>
 	</div>
+
+	
 </div>
 
 <%@ include file="jieun/footer.jsp"%>
