@@ -57,9 +57,13 @@
 	map.put("begin", beginNum);
 	map.put("end", endNum);
 	
+	System.out.println("beginNum : " + beginNum + "endNum : " + endNum);
+	
 	List<memberVO> M_list = AdminDAO.getAllmemberList(map);
 	pageContext.setAttribute("M_list", M_list);
 	System.out.println("M_list : " + M_list);
+	System.out.println("확인 !! : " + M_list.size());
+	
 	pageContext.setAttribute("pvo", p);
 	pageContext.setAttribute("cPage", cPage);
 	
