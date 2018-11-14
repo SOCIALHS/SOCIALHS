@@ -23,7 +23,7 @@
 						output += "<nav class=\"nav nav-pills nav-fill mb-1\">";
 					}
 					/* 링크  */
-					output += "<a class=\"nav-item nav-link bg-danger m-1 active\" href=\"LocationController?location=${l_idx}&bbs_idx="+list[i].h_idx+"\">";
+					output += "<a class=\"nav-item nav-link bg-danger m-1 active\" href=\"LocationController?location=${l_idx}&bbs_idx2="+list[i].h_idx+"\">";
 
 						output += list[i].h_name + "&nbsp;";
 
