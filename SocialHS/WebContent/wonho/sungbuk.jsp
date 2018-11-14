@@ -135,8 +135,12 @@ h3 {
 <br>
 <br>
 <br>
+
 <h3>&lt;${l_name } ${sl_name } &gt;</h3>
 
+<%-- <div class="row d-flex justify-content-center">
+	<%@ include file="../dongwu/category_body.jsp"%>
+</div> --%>
 <ul id="infohead" class="nav mx-auto my-2">
 	<li class="nav-item"><a href="javascript:history.back()">뒤로가기</a></li>
 </ul>
