@@ -149,6 +149,8 @@
 			<li class="topMenuLi nav-item">
 				<a class="menuLink tablink" data-tab="allmemberInfo"
 				href="AdminController?type=allmemberInfo">회원정보보기</a></li>
+			<li class="topMenuLi nav-item">
+		
 		</ul>
 	</div>
 	
@@ -254,6 +256,7 @@
 	
 	</form>
 	</div>
+	
 </div>
 
 </body>
