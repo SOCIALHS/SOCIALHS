@@ -13,8 +13,13 @@ public class QNAwriteCommand implements Command {
 		
 		BoardVO qvo = new BoardVO();
 		String id = request.getParameter("id");
-		if (id == "") { qvo.setId("ANONYMOUS"); } 
-		else { qvo.setId(id); }
+		System.out.println("id: " + id);
+		
+		if (id == "") { 
+			qvo.setId("ANONYMOUS"); 
+		} else { 
+				qvo.setId(id); 
+				}
 		
 		qvo.setTitle(request.getParameter("title"));
 		qvo.setContent(request.getParameter("content"));
