@@ -64,8 +64,8 @@ public class MainWriteOkCommand implements Command {
 		
 		MainWriteDAO.insertB_Board(vo);
 		System.out.println("입력 완료");
-		
 		List<LocationVO> location = (List<LocationVO>)session.getAttribute("location");
+		System.out.println("LocationIdx : "+location.get(0).getL_Idx());
 		System.out.println("location : "+location);
 		return "LocationController?hs="+hs+"&location="+location.get(0).getL_Idx();
 	}

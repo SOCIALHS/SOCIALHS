@@ -9,6 +9,15 @@
 	<delete id = "delete" parameterType="String">
 		delete from b_board where bb_idx = #{bb_idx}
 	</delete>
+	
+	<delete id = "deleteComment" parameterType="String">
+		delete from bb_comment where bb_idx = #{bb_idx}
+	</delete>
+	
+	<delete id = "deleteAppy" parameterType="String">
+		delete from apply where bb_idx = #{bb_idx}
+	</delete>
+
 </mapper>  
 
 

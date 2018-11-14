@@ -11,6 +11,7 @@ import com.bc.hobby.vo.BasketballBoardVO;
 import com.bc.hobby.vo.HobbyBoardVO;
 import com.bc.main.vo.ApplyVO;
 import com.bc.main.vo.CommentVO;
+import com.bc.main.vo.PopUpVO;
 import com.bc.mybatis.*;
 
 
@@ -60,6 +61,10 @@ public class HobbyBoardDAO {
       return getSql().selectList("hobbyboard.get_getApplyVo", bb_idx);
    }
    
+   public static List<PopUpVO> getPopupList(String bb_idx) {
+	      System.out.println("popup dao check ");
+	      return getSql().selectList("hobbyboard.getPopupList", bb_idx);
+   }
    
    
    

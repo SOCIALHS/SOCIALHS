@@ -50,15 +50,14 @@
     		var target = document.getElementById("sl_idx");
     		var temp_idx = target.value;
     		var setname;
-    		alert(temp_idx);
-    		alert(subLocation);
+    		
     		for(var i = 0; i < subLocation.length; i++){
     			if(temp_idx == subLocation[i]["sl_idx"]){
     				setname = subLocation[i]["serverName"];
     			}
     		}
     		console.log(setname);
-    		alert(setname);
+    		
     		var tempName = "["+setname+"]";
     		
     		document.getElementById("title").value = tempName;

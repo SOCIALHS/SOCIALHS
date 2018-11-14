@@ -64,7 +64,6 @@ public class MainCancelOkCommand implements Command {
 	      System.out.println("applyList : "+applyList);
 	      session.setAttribute("applyList", applyList);
       
-    
       return "view.jsp";
    }
 

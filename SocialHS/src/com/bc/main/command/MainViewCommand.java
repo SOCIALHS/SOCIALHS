@@ -12,6 +12,7 @@ import com.bc.hobby.vo.BasketballBoardVO;
 import com.bc.hobby.vo.HobbyBoardVO;
 import com.bc.main.vo.ApplyVO;
 import com.bc.main.vo.CommentVO;
+import com.bc.main.vo.PopUpVO;
 import com.bc.share.command.Command;
 
 
@@ -38,7 +39,13 @@ public class MainViewCommand implements Command {
       List<ApplyVO> applyList = HobbyBoardDAO.getApplyVo(bb_idx);
       System.out.println("applyList : "+applyList);
       session.setAttribute("applyList", applyList);
-      System.out.println("여기 applyList가 왜 안나오니....");
+      
+      //====================popUp() 인원보기에 쓸 데이터 가져오기=======================
+      List<PopUpVO> popupList = HobbyBoardDAO.getPopupList(bb_idx);
+      System.out.println("popupList : "+popupList);
+      request.setAttribute("popupList", popupList);
+      
+      
       return "view.jsp";
    }
 
