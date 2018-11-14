@@ -120,14 +120,13 @@
 			}
 		});
 	});
-</script>
-
-<script>
+	
 	//아이디/이름으로 검색 
 	function search_go(frm) {
 		frm.action = "AdminController?type=search";
 		frm.submit();
 	}
+	
 </script>
 </head>
 <body>
@@ -178,6 +177,7 @@
 				</tr>
 			</thead>
 			<tbody>
+
 			<%-- 데이터가 있을 때 --%>
 			<c:if test="${not empty M_list}">
 				<c:forEach var="allMember" items="${M_list }" varStatus="status">
@@ -190,8 +190,7 @@
 						<td>${allMember.getRank() }&nbsp;등급</td>
 						<td>${allMember.getPoint() }&nbsp;Point</td>
 						<td><input type="button" value="상세보기"
-							onclick="window.open('AdminController?type=info&id=${allMember.getId() }')">
-							<input type="hidden" name="id" value="${allMember.getId() }"></td>
+							onclick="window.location.href='AdminController?type=info&id=${allMember.getId() }'">
 					</tr>
 				</c:forEach>
 			</c:if>
