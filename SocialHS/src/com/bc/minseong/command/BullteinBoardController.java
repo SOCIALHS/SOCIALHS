@@ -9,50 +9,50 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bc.share.command.Command;
 
+
+
 @WebServlet("/BullteinController")
 
 public class BullteinBoardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		process(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		process(request, response);
 	}
-
-	private void process(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	
+	private void process (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String type = request.getParameter("type");
-		String bb_idx = request.getParameter("bb_idx");
 		String path = null;
 		Command comm = null;
-
-		if (type.equals("bullteinList")) {
+		
+		if(type.equals("bullteinList")) {
 			comm = new BullteinBoardListCommand();
-		} else if (type.equals("bullteinOne")) {
+			System.out.println("bullteinList 컨트롤러");
+		}else if(type.equals("bullteinOne")) {
 			comm = new BullteinBoardOneCommand();
-		} else if (type.equals("bullteinWrite")) {
+		}else if(type.equals("bullteinWrite")) {
 			comm = new BullteinBoardWriteCommand();
-		} else if (type.equals("bullteinUpdate")) {
+		}else if(type.equals("bullteinUpdate")) {
 			comm = new BullteinBoardUpdate();
-		} else if (type.equals("bullteinUpdateUpdate")) {
+		}else if(type.equals("bullteinUpdateUpdate")) {
 			comm = new BullteinBoardUpdateCommand();
-		} else if (type.equals("bullteinDelete")) {
+		}else if(type.equals("bullteinDelete")) {
 			comm = new BullteinBoardDeleteCommand();
-		} else if (type.equals("bullteinGood")) {
+		}else if(type.equals("bullteinGood")) {
 			comm = new BullteinBoardGoodCommand();
-		} else if (type.equals("bullteinBad")) {
+		}else if(type.equals("bullteinBad")) {
 			comm = new BullteinBoardBadCommand();
 		}
-
+		
 		path = comm.exec(request, response);
 		request.getRequestDispatcher(path).forward(request, response);
-
+		
+		
 	}
 
 }

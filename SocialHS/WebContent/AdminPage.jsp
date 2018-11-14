@@ -70,6 +70,7 @@
 	pageContext.setAttribute("S_list", S_list);
 	//System.out.println("S_list : " + S_list);
 	
+	
 %>
 
 <title>[A] 소셜 하비 앤 스터디</title>
@@ -174,7 +175,14 @@
 		});
 	});
 	
+	//카테고리 추가 
+	function file_up(form){
+		alert(form);
+		form.action = 'AdminController?type=categoryAdd';
+		form.submit(); 
+	}	
 </script>
+
 
 </head>
 
@@ -194,7 +202,10 @@
 			</li>
 			<li class="topMenuLi nav-item">
 				<a class="menuLink tablink" data-tab="allmemberInfo">회원정보보기</a></li>
+			<li class="topMenuLi nav-item">
+				<a class="menuLink tablink" data-tab="categoryAdd">카테고리추가</a></li>
 		</ul>
+		
 	</div>
 	
 	<%-- 글목록 --%>
@@ -376,6 +387,34 @@
 			</tfoot>
 		</table>
 	</div> <%-- 회원정보 보기 끝 --%>
+	
+	<%--카테고리 추가 --%>
+	<div id="categoryAdd" class="tabcontent">
+		<form method="post" class="form-horizontal" enctype="multipart/form-data">
+			<table class="table my-2 mx-auto">
+				<tr>
+					<td>
+						<select name = "bbs_type" id = "hobbyStudy" >
+							<option value = "300">hobby</option>
+							<option value = "700">study</option>
+						</select>
+						<input type="text" name="bbs_name" id = "bbs_name" placeholder="카테고리 이름">
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan="2">사진파일 선택 <input type="file" name="f_name" id= "f_name"></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<input type="button" class="btn btn-primary" value="카테고리 추가" onclick="file_up(this.form)">
+					</td>
+				</tr>
+			</table>
+	
+		</form>
+	
+	</div>
 	
 </div>
 

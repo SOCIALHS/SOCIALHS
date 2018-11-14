@@ -6,11 +6,24 @@
 <!-- mapper 태그의 namespace 속성 필수 작성  -->  
 <mapper namespace="bulltein">
 	
-
-	<select id="BullteinList" resultType="com.bc.main.vo.BoardVO">
-		SELECT * FROM B_BOARD WHERE BBS_IDX = 3 ORDER BY BB_IDX DESC
+	<select id="Maplist" resultType="com.bc.main.vo.BoardVO" parameterType="Map">
+		SELECT * FROM (
+		SELECT ROWNUM R_NUM, P.*
+		  FROM (SELECT *
+		          FROM B_BOARD
+		         ORDER BY BB_IDX DESC
+		        ) P)
+		 WHERE R_NUM BETWEEN #{beginPage} AND #{endPage}
 	</select>
-	
+	 
+	<select id="BullteinList" resultType="com.bc.main.vo.BoardVO">
+		SELECT * FROM B_BOARD
+	</select>
+
+	<select id="totalCount" resultType="int">
+		SELECT COUNT(BB_IDX) FROM B_BOARD
+	</select>
+
 	
 	
 	<select id="BullteinOne" resultType="com.bc.main.vo.BoardVO" parameterType="String">
@@ -33,6 +46,8 @@
 		 	WHERE BB_IDX = #{bb_idx}
 	</update>
 	
+	
+	
 	<delete id="BullteinDelete" parameterType="String">
 		DELETE FROM B_BOARD WHERE BB_IDX = #{bb_idx}
 	</delete>
@@ -50,16 +65,16 @@
 		 WHERE BB_IDX = #{bb_idx}
 	</update>
 	
-	<update id="goodVO" parameterType="int">
+	<update id="goodVO" parameterType="String">
 		UPDATE B_BOARD 
 		   SET GOOD = GOOD + 1 
-		 WHERE BB_IDX = 229
+		 WHERE BB_IDX = #{bb_idx}
 	</update>
 	
-	<update id="badVO" parameterType="int">
+	<update id="badVO" parameterType="String">
 		UPDATE B_BOARD 
 		   SET BAD = BAD - 1 
-		 WHERE BB_IDX = 229
+		 WHERE BB_IDX = #{bb_idx}
 	</update>
 	
 </mapper>

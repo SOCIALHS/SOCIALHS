@@ -34,6 +34,12 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 
 <script>
+	function enter(frm){
+		var kc = window.event.keyCode;
+		if (kc == 13){
+			login(frm);
+		}
+	};
 	function login(frm) {
 		
 		var id1 = frm.id.value;

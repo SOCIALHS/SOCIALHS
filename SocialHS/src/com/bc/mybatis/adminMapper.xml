@@ -127,5 +127,14 @@
 		parameterType="String">
 		SELECT * FROM MEMBER WHERE UPPER(ID) LIKE '%'||UPPER (#{id}) ||'%'
 	</select>
+	<!-- category 구하는 부분 -->
+	<select id="getBBS_IDX" resultType="int"
+		parameterType="String">
+		select count(*) from bbs_code where bbs_type = #{bbs_type}
+	</select>
+
+	<insert id="insertCategory" parameterType="com.bc.main.vo.BbsCodeVO">
+		insert into bbs_code(bbs_idx, bbs_name, bbs_type) values (#{bbs_idx}, #{bbs_name}, #{bbs_type})
+	</insert>
 	
 </mapper>  

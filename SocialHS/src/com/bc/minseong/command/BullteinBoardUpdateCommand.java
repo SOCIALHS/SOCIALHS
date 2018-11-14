@@ -14,14 +14,15 @@ public class BullteinBoardUpdateCommand implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		String bb_idx = request.getParameter("bb_idx");
 		String path = null;
-		System.out.println("ok");
+
 		BoardVO bbvo = new BoardVO();
 		bbvo.setTitle(request.getParameter("title"));
 		bbvo.setContent(request.getParameter("content"));
 		bbvo.setBb_idx(Integer.parseInt(bb_idx));
-		BullteinBoardDAO.update(bbvo);
-
-		path = "minseong/bullteinBoardOne.jsp";
+		int result = BullteinBoardDAO.update(bbvo);
+		System.out.println("처리건수: " + result);
+ 
+		path = "BullteinController?type=bullteinOne&bb_idx="+bb_idx;
 
 		return path;
 

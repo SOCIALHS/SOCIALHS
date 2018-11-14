@@ -18,6 +18,10 @@ import com.bc.main.dao.LocationDAO;
 import com.bc.main.dao.SubLocationDAO;
 import com.bc.main.vo.LocationVO;
 import com.bc.main.vo.SubLocationVO;
+import com.bc.minseong.command.CommentDeleteCommand;
+import com.bc.minseong.command.CommentWriteCommand;
+import com.bc.minseong.command.FreeCommentDelete;
+import com.bc.minseong.command.FreeCommentWrite;
 import com.bc.share.command.Command;
 import com.bc.study.command.CategoryCommand;
 
@@ -30,14 +34,13 @@ public class CommentController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		process(request, response);
 	}
 	
 	private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		
-		System.out.println("Comment까지왔음");
+		System.out.println("Comment controller까지왔음");
 		request.setCharacterEncoding("UTF-8");
 		
 		String type = request.getParameter("type");
@@ -48,6 +51,14 @@ public class CommentController extends HttpServlet {
 			comm = new CommentWriteOkCommand();
 		}else if(type.equals("deleteOk")) {
 			comm = new CommentDeleteOkCommand();
+		}else if(type.equals("b_writeOk")) {
+			comm = new CommentWriteCommand();
+		}else if(type.equals("b_deleteOk")) {
+			comm = new CommentDeleteCommand();
+		}else if(type.equals("f_writeOk")) {
+			comm = new FreeCommentWrite();
+		}else if(type.equals("f_deleteOk")) {
+			comm = new FreeCommentDelete();
 		}
 	
 		

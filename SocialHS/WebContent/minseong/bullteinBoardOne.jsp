@@ -22,12 +22,10 @@
 	}
 
 	String bb_idx = request.getParameter("bb_idx");
+	BoardVO bbvo = BullteinBoardDAO.selectOne(bb_idx);
 	System.out.println("bb_idx : " + bb_idx);
 
-	BoardVO bbvo = BullteinBoardDAO.selectOne(bb_idx);
-
 	List<CommentVO> cList = CommentDAO.getCommList(bb_idx);
-
 	System.out.println("CommentDAO.getCommList(bb_idx) : " + bb_idx);
 	System.out.println("cList : " + cList);
 
@@ -52,16 +50,17 @@
 	text-align: center;
 }
 
-/* #container table {
+#container table {
 	width: 500px;
 	padding: 0 5px;
 	border: 1px solid black;
 	border-collapse: collapse;
-} */
+}
 
-/* #container th, td {
+#container th, td {
 	border: 1px solid black;
-} */
+}
+
 #container table th {
 	background-color: #9cf;
 }
@@ -85,6 +84,7 @@
 		frm.submit();
 	}
 	function delete_go(frm) {
+		//frm.action = "Comment?type=b_deleteOk&bb_idx=${BoardVO.getBb_idx() }"
 		frm.action = "BullteinController?type=bullteinDelete&bb_idx=${BoardVO.getBb_idx() }";
 		frm.submit();
 	}
@@ -122,24 +122,27 @@
 	<hr>
 
 	<form method="post">
-		<table class="table table-hover table-bordered">
+		<table>
 			<tbody>
 				<tr>
-					<th scope="row" class="bg-dark text-white">글번호</th>
+					<th>글번호</th>
 					<td>${BoardVO.getBb_idx() }</td>
 				</tr>
 				<tr>
-					<th scope="row" class="bg-dark text-white">작성자</th>
+					<th>제목</th>
+					<td>${BoardVO.getTitle() }</td>
+				</tr>
+				<tr>
+					<th>작성자</th>
 					<td>${BoardVO.getId() }</td>
 				</tr>
 				<tr>
-					<th scope="row" class="bg-dark text-white">조회수</th>
+					<th>조회수</th>
 					<td>${BoardVO.getHit() }</td>
 				</tr>
 				<tr>
-					<th scope="row" class="bg-dark text-white">내용</th>
-					<td><textarea readonly rows="4" cols="50" style="border: none">${BoardVO.getContent() }</textarea>
-					</td>
+					<th>내용</th>
+					<td style="height: 200px">${BoardVO.getContent() }</td>
 				</tr>
 				<tr>
 			</tbody>
@@ -147,27 +150,25 @@
 
 
 
+			<tfoot>
+				<tr>
+					<td><input type="button" value="GOOD"
+						onclick="good(this.form)"></td>
+					<td>${BoardVO.getGood() }</td>
+				</tr>
+				<tr>
+					<td><input type="button" value="BAD" onclick="bad(this.form)">
+					</td>
+					<td>${BoardVO.getBad() }</td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="button" value="수정 "
+						onclick="update_go(this.form)"> <input type="button"
+						value="삭제" onclick="delete_go(this.form)"> <input
+						type="hidden" name="cPage" value="${cPage }"></td>
+				</tr>
+			</tfoot>
 		</table>
-		<div class="d-block float-right">
-			<tr>
-				<td><input type="button" class="btn btn-info" value="GOOD"
-					onclick="good(this.form)"></td>
-				<td>${BoardVO.getGood() }</td>
-			</tr>
-			<tr>
-				<td><input type="button" class="btn btn-danger" value="BAD"
-					onclick="bad(this.form)"></td>
-				<td>${BoardVO.getBad() }</td>
-			</tr>
-		</div>
-		<div style="margin-left:200px">
-			<tr>
-				<td colspan="2">
-				<input type="button" value="수정 " onclick="update_go(this.form)" class="btn btn-light"> 
-				<input type="button" value="삭제" onclick="delete_go(this.form)" class="btn btn-light"> 
-				<input type="hidden" name="cPage" value="${cPage }"></td>
-			</tr>
-		</div>
 	</form>
 </div>
 <div>
@@ -191,7 +192,7 @@
 		<c:otherwise>
 			<c:forEach var="CommentVO" items="${cList }">
 				<div class="comment">
-					<form method="post" action="CommentController?type=cDelete">
+					<form method="post" action="Comment?type=b_deleteOk">
 						<p>댓글번호 : ${CommentVO.bbc_idx }</p>
 						<p>작성자 : ${CommentVO.id }</p>
 						<p>내용 : ${CommentVO.content }</p>
@@ -213,22 +214,31 @@
 
 	<hr>
 
-
-
 	<%-- 댓글 입력 --%>
-	<form method="post" action="CommentController?type=cWrite">
+	<form method="post" action="Comment?type=b_writeOk">
+		<%
+			if (session.getAttribute("memberVO") == null) {
+		%>
 
-		<p>
-			작성자 : <input type="text" name="id">
-		</p>
-		<p>
-			비밀번호 : <input type="password" name="pw">
-		</p>
+		<p>작성자: </p>
+		<input type="hidden" name="id" value="">
+
+		<%
+			} else {
+		%>
+		
+		<p>작성자: ${memberVO.getId() }</p>
+		<input type="hidden" name="id" value="${memberVO.getId() }">
+		
+		<%
+			}
+		%>
+
 		<p>
 			내용 :
 			<textarea name="content" rows="4" cols="55"></textarea>
 		</p>
-		<input type="submit" value="댓글 저장"> <input type="hidden"
+		<input type="submit" value="댓글 저장"><input type="hidden"
 			name="bb_idx" value="${bbvo.bb_idx }">
 		<!-- <input type="hidden" name="cPage" value="${cPage }"> -->
 	</form>

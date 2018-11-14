@@ -8,12 +8,12 @@
 		<form class="form-inline my-2" method="post">
 			<div class="form-group mx-sm-3">
 				<label for="inputId" class="sr-only">Id</label> <input type="text"
-					class="form-control" id="inputId" name="id" placeholder="아이디">
+					class="form-control" id="inputId" name="id" placeholder="아이디" onkeypress="enter(this.form)">
 			</div>
 			<div class="form-group mx-sm-3">
 				<label for="inputPassword" class="sr-only">Password</label> <input
 					type="password" class="form-control" id="inputPassword" name="pw"
-					placeholder="비밀번호">
+					placeholder="비밀번호" onkeypress="enter(this.form)">
 			</div>
 			<button type="button" class="btn btn-light mr-3"
 				onclick="login(this.form)">로그인</button>

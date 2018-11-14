@@ -1,5 +1,6 @@
 package com.bc.minseong.command;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -13,6 +14,12 @@ public class FreeBoardDAO {
 		ss = DBService.getFactory().openSession(true);
 		return ss;
 	}
+	
+	
+	public static List<BoardVO> getMaplist(Map<String, Integer> map) {
+		return getSql().selectList("free.f_Maplist", map);
+	}
+	
 	
 	//공지 게시판 리스트
 	public static List<BoardVO> getList() {
@@ -52,6 +59,29 @@ public class FreeBoardDAO {
 		int result = getSql().delete("free.FreeDeleteComment", bb_idx);
 		return result;
 	}
+	
+	//조회수 
+	public static int updateHit(BoardVO bbvo) {
+		return getSql().update("f_hitVO", bbvo); 
+	}
+	
+	public static int updateHit(int bb_idx) {
+		return getSql().update("f_hit", bb_idx);
+	}
+
+	
+	//좋아요
+	public static int updateGood(String bb_idx) {
+		return getSql().update("free.f_goodVO", bb_idx);
+	}
+	
+	public static int updateBad(String bb_idx) {
+		return getSql().update("free.f_badVO", bb_idx);
+	}
+	
+	
+	
+	
 	
 	//게시물(BBS_T)의 전체 건수 조회
 	public static int getTotalCount() {
