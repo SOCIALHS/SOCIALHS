@@ -149,7 +149,7 @@
 	
 	<div id="allList">
 	
-	<form>
+	<form method="post">
 		<div id="searchmenu">
 			<select name="select">
 				<option value="1">제목/내용</option>

@@ -173,7 +173,7 @@
 	<div class="container text-center">
 		<ul id ="infohead" class="nav mx-auto my-2">
 			<li class="nav-item" style="font-weight: bold">회원정보</li>&nbsp;|&nbsp;
-			<li class="nav-item"><a href="index.jsp">home</a></li>
+			<li class="nav-item"><a href="../AdminPage.jsp">home</a></li>
 		</ul>
 	
 	<form method="post">
