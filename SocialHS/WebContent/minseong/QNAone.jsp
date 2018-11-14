@@ -1,7 +1,7 @@
+<%@page import="com.bc.minseong.command.QNA_DAO"%>
 <%@page import="com.bc.main.dao.CommentDAO"%>
 <%@page import="com.bc.main.vo.CommentVO"%>
 <%@page import="java.util.List"%>
-<%@page import="com.bc.minseong.command.BullteinBoardDAO"%>
 <%@page import="com.bc.main.vo.BoardVO"%>%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -22,7 +22,7 @@
 	}
 
 	String bb_idx = request.getParameter("bb_idx");
-	BoardVO bbvo = BullteinBoardDAO.selectOne(bb_idx);
+	BoardVO bbvo = QNA_DAO.selectOne(bb_idx);
 	System.out.println("bb_idx : " + bb_idx);
 
 	List<CommentVO> cList = CommentDAO.getCommList(bb_idx);
@@ -32,10 +32,10 @@
 	pageContext.setAttribute("cList", cList);
 	session.setAttribute("bbvo", bbvo);
 
-	BullteinBoardDAO.updateHit(Integer.parseInt(bb_idx));
+	QNA_DAO.updateHit(Integer.parseInt(bb_idx));
 %>
 
-<title>공지 사항</title>
+<title>Q&A</title>
 <style>
 #container {
 	width: 512px;
@@ -80,20 +80,19 @@
 </style>
 <script>
 	function update_go(frm) {
-		frm.action = "BullteinController?type=bullteinUpdate&bb_idx=${BoardVO.getBb_idx() }";
+		frm.action = "QNA?type=QNAupdate&bb_idx=${BoardVO.getBb_idx() }";
 		frm.submit();
 	}
 	function delete_go(frm) {
-		//frm.action = "Comment?type=b_deleteOk&bb_idx=${BoardVO.getBb_idx() }"
-		frm.action = "BullteinController?type=bullteinDelete&bb_idx=${BoardVO.getBb_idx() }";
+		frm.action = "QNA?type=QNAdelete&bb_idx=${BoardVO.getBb_idx() }";
 		frm.submit();
 	}
 	function good(frm) {
-		frm.action = "BullteinController?type=bullteinGood&bb_idx=${BoardVO.getBb_idx() }"
+		frm.action = "QNA?type=QNAgood&bb_idx=${BoardVO.getBb_idx() }"
 		frm.submit();
 	}
 	function bad(frm) {
-		frm.action = "BullteinController?type=bullteinBad&bb_idx=${BoardVO.getBb_idx() }"
+		frm.action = "QNA?type=QNAbad&bb_idx=${BoardVO.getBb_idx() }"
 		frm.submit();
 	}
 </script>
@@ -118,7 +117,7 @@
 <!--  <BODY>  -->
 
 <div id="container">
-	<h2>공지 사항</h2>
+	<h2>Q&A</h2>
 	<hr>
 
 	<form method="post">
@@ -192,7 +191,7 @@
 		<c:otherwise>
 			<c:forEach var="CommentVO" items="${cList }">
 				<div class="comment">
-					<form method="post" action="Comment?type=b_deleteOk">
+					<form method="post" action="QNA?type=q_deleteOk">
 						<p>댓글번호 : ${CommentVO.bbc_idx }</p>
 						<p>작성자 : ${CommentVO.id }</p>
 						<p>내용 : ${CommentVO.content }</p>
@@ -215,7 +214,7 @@
 	<hr>
 
 	<%-- 댓글 입력 --%>
-	<form method="post" action="Comment?type=b_writeOk">
+	<form method="post" action="QNA?type=q_writeOk">
 		<%
 			if (session.getAttribute("memberVO") == null) {
 		%>

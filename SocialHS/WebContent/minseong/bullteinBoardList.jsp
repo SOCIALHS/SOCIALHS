@@ -1,8 +1,49 @@
+<%@page import="com.bc.main.vo.BoardVO"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="com.bc.member.Paging"%>
 <%@page import="com.bc.minseong.command.BullteinBoardDAO"%>
-<%@page import="com.bc.study.vo.PagingVO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%
+	Paging p = new Paging();
+
+	p.setTotalRecord(BullteinBoardDAO.getTotalCount());
+	p.setTotalPage();
+	
+	String cPage = request.getParameter("cPage");
+	if(cPage != null) {
+		p.setNowPage(Integer.parseInt(cPage));
+	}
+	p.setEnd(p.getNowPage() * p.getNumPerpage());
+	p.setBegin(p.getEnd() - p.getNumPerpage() + 1);
+	
+	
+	int nowPage = p.getNowPage();
+	p.setBeginPage((nowPage - 1) / p.getPagePerBlock() * p.getPagePerBlock() + 1);
+	p.setEndPage(p.getBeginPage() + p.getPagePerBlock() - 1);
+	
+	if (p.getEndPage() > p.getTotalPage()) {
+		p.setEndPage(p.getTotalPage());
+	}
+%>
+<%
+	Map<String, Integer> map = new HashMap<>();
+	map.put("beginPage", p.getBegin());
+	map.put("endPage", p.getEnd());
+	System.out.println("map : "+ map);
+	
+	List<BoardVO> list = BullteinBoardDAO.getMaplist(map);
+	
+	pageContext.setAttribute("list", list);
+	pageContext.setAttribute("pvo", p);
+	
+%>
+
+	
 <%
 	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
 %>		<%@ include file="../jieun/header_head.jsp"%>
@@ -40,6 +81,37 @@
 		font-weight: bold;
 	}
 	#container .center { text-align: center; }
+	.paging {
+		list-style: none; 
+	}
+	.paging li {
+		float:left;
+		margin-right: 8px;
+	}
+	.paging li a {
+		text-decoration: none;
+		display: block;
+		padding: 3px 7px;
+		border: 1px solid black;
+		font-weight: bold;
+		color: black;
+	}
+	.paging li a:hover {
+		background-color: grey;
+		color: black;
+	}
+	.paging .disable {
+		padding: 3px 7px;
+		border: 1px solid silver;
+		color: silver;
+	}
+	.paging .now {
+		padding: 3px 7px;
+		border: 1px solid #9cf;
+		background-color: #9cf;
+		color: white;
+		font-weight: bold;
+	}
 	
 </style>
 </head>
@@ -95,8 +167,53 @@
 			</tr>
 		</c:if>		
 		</tbody>
+		
+		<!-- 페이징  -->
+		<tfoot>
+			<tr>
+				<td colspan="6">
+					<ol class="paging">
+					<c:choose>
+						<c:when test="${pvo.beginPage == 1}">
+							<li class="disable"> ← </li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="minseong/bullteinBoardList.jsp?cPage=${pvo.beginPage - 1 }"> ← </li>
+							<%-- <li><a href="BullteinController?type=bullteinList"> ← </li>--%>
+							 
+						</c:otherwise>
+					</c:choose>
+					
+					<%-- 블록내 페이지 반복 --%>
+					<c:forEach var="p" begin="${pvo.beginPage }" end="${pvo.endPage }">
+					<c:choose>
+					<c:when test="${p == pvo.nowPage }">
+						<li class="now">${p }</li>
+					</c:when>
+					<c:otherwise>
+						<li><a href="minseong/bullteinBoardList.jsp?cPage=${p }">${p }</li>
+					</c:otherwise>
+					</c:choose>
+					</c:forEach>
+					
+					<%-- 다음으로 --%>
+					
+					<c:choose>
+						<c:when test="${pvo.endPage >= pvo.totalPage }">
+							<li class="disable"> → </li>
+						</c:when>
+						<c:otherwise>	
+							<li><a href="minseong/bullteinBoardList.jsp?cPage=${pvo.endPage + 1 }"> → </li>
+						</c:otherwise>
+					</c:choose>
+					</ol>
+				</td>
+			</tr>
+		</tfoot>
 	</table>
 </div>
+</tbody>
+</html>
 
 <%@ include file="../jieun/footer.jsp"%>
 

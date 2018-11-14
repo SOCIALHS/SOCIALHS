@@ -14,16 +14,16 @@ public class BullteinBoardWriteCommand implements Command {
 		String bb_idx = request.getParameter("bb_idx");
 		String chk = request.getParameter("chk");
 		
-		System.out.println("bb_idx : " + bb_idx);
+//		BoardVO bbvo = BullteinBoardDAO.selectOne(bb_idx);
+//		request.setAttribute("bbvo", bbvo);
 		BoardVO bbvo = new BoardVO();
 		bbvo.setTitle(request.getParameter("title"));
 		bbvo.setContent(request.getParameter("content"));
-		System.out.println("check3");
-		System.out.println("chk : "+ chk);
 		String path = null;
 		if (chk == null) {
 			System.out.println("널");
 			path = "minseong/bullteinBoardWrite.jsp";
+			System.out.println(path);
 		} else {
 			System.out.println("널 아님");
 			System.out.println(bbvo);
