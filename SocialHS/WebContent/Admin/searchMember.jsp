@@ -67,12 +67,7 @@
 </script>
 
 <script>
-	//회원정보 상세보기(새창)
-	function memberInfo(frm) {
-		
-		frm.action = "";
-		frm.submit();
-	}
+	
 	//아이디/이름으로 검색 
 	function search_go(frm) {
 		frm.action = "AdminController?type=search";
@@ -119,7 +114,7 @@
 	</form>
 	
 	<form method="post">
-		<p class="text-center">총 <font style="color: forestgreen"><b>${idcnt }</b></font> 건 검색되었습니다.</p>
+		<p class="text-center">총 <font style="color: forestgreen"><b>${idcnt.size() }</b></font> 건 검색되었습니다.</p>
 		<table class="table my-2 mx-auto text-center">
 			<thead class="thead bg-success text-white">
 				<tr class="pagetitle">

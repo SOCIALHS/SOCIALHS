@@ -149,7 +149,7 @@
 	
 	<div id="allList">
 	
-	<form>
+	<form method="post">
 		<div id="searchmenu">
 			<select name="select">
 				<option value="1">제목/내용</option>
@@ -196,14 +196,14 @@
 			
 			<c:if test="${empty A_list}">
 				<tr>
-					<td colspan="8" class="center">등록된 게시글이 없습니다.<br>
+					<td colspan="9" class="center">등록된 게시글이 없습니다.<br>
 						지금 바로 새로운 게시글을 등록해 보세요!</td>
 				</tr>
 			</c:if>
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="8">
+					<td colspan="9">
 						<ol class="paging">
 						
 						<%-- 이전페이지 사용여부 --%>

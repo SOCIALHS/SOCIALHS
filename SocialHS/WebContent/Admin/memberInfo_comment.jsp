@@ -148,11 +148,6 @@
 			return;
 		}
 	}
-	//등급수정 
-	function adminEdit(frm) {
-		frm.action = "";
-		frm.submit();
-	}
 </script>
 
 <script type="text/javascript">
@@ -178,7 +173,7 @@
 	<div class="container text-center">
 		<ul id ="infohead" class="nav mx-auto my-2">
 			<li class="nav-item" style="font-weight: bold">회원정보</li>&nbsp;|&nbsp;
-			<li class="nav-item"><a href="index.jsp">home</a></li>
+			<li class="nav-item"><a href="../AdminPage.jsp">home</a></li>
 		</ul>
 	
 	<form method="post">
@@ -196,17 +191,7 @@
 				<tr>
 					<td class="center">${mvo.getId() }</td>
 					<td class="center">${mvo.getName() }</td>
-					<td class="center">
-						<select name="select">
-								<option value="0">${mvo.getRank() }</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-							<input type="button" value="수정" onclick="adminEdit(this.form)">
-					</td>
+					<td class="center">${mvo.getRank() } 등급</td>
 					<td class="center">${mvo.getPoint() } point</td>
 					<td class="center">${mvo.getRegdate().substring(0, 10) }</td>
 				</tr>
