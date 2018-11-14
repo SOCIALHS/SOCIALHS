@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.bc.main.vo.BoardVO;
 import com.bc.mybatis.DBService;
 
-public class BullteinBoardDAO {
+public class QNA_DAO {
 	private static SqlSession ss;
 	
 	private synchronized static SqlSession getSql() {
@@ -14,59 +14,51 @@ public class BullteinBoardDAO {
 		return ss;
 	}
 	
-	//공지 게시판 리스트
 	public static List<BoardVO> getList() {
-		List<BoardVO> list = getSql().selectList("bulltein.BullteinList");
+		List<BoardVO> list = getSql().selectList("QNA.QNAlist");
 		return list;
 		
 	}
-
-	//게시글 상세페이지
 	public static BoardVO selectOne(String bb_idx) {
-		BoardVO bbvo = getSql().selectOne("bulltein.BullteinOne", bb_idx);
+		BoardVO bbvo = getSql().selectOne("QNA.QNAone", bb_idx);
 		return bbvo;
 	}
 	
-	
-	//게시글 작성
 	public static int insert(BoardVO bbvo) {
-		int result = getSql().insert("bulltein.BullteinWrite", bbvo);
+		int result = getSql().insert("QNA.QNAwrite", bbvo);
 		return result;
 	}
 	
-	
-	//게시글 수정
 	public static int update(BoardVO bbvo) {
-		int result = getSql().update("bulltein.BullteinUpdate", bbvo);
+		int result = getSql().update("QNA.QNAupdate", bbvo);
 		return result;
 	}
 	
-	//게시글 삭제
 	public static int delete(String bb_idx) {
-		int result = getSql().delete("bulltein.BullteinDelete", bb_idx);
+		int result = getSql().delete("QNA.QNAdelete", bb_idx);
 		return result;
 	}
 	
 	
-
+	
 	//조회수 
 	public static int updateHit(BoardVO bbvo) {
-		return getSql().update("hitVO", bbvo); 
+		return getSql().update("QNA.QNAhitVO", bbvo); 
 	}
 	
 	public static int updateHit(int bb_idx) {
-		return getSql().update("hit", bb_idx);
+		return getSql().update("QNA.QNAhit", bb_idx);
 	}
 
 	
 	//좋아요
 	public static int updateGood(String bb_idx) {
-		return getSql().update("bulltein.goodVO", bb_idx);
+		return getSql().update("QNA.q_goodVO", bb_idx);
 	}
 	
 	public static int updateBad(String bb_idx) {
-		return getSql().update("bulltein.badVO", bb_idx);
+		return getSql().update("QNA.q_badVO", bb_idx);
 	}
-	
+
 	
 }

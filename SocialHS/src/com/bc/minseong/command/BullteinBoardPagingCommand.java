@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bc.share.command.Command;
 
-public class cListCommand implements Command {
+public class BullteinBoardPagingCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {

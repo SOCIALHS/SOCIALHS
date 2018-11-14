@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.bc.main.vo.BbsCodeVO;
 import com.bc.main.vo.BoardVO;
 import com.bc.member.memberVO;
 import com.bc.mybatis.DBService;
@@ -91,6 +92,15 @@ private static SqlSession ss;
 	//아이디로 검색 
 	public static List<memberVO> getsearchId(Map<String, String> mapid) {
 		return getSql().selectList("admin.searchId", mapid);
+	}
+	
+	//---------------------------category추가부분-------------------
+	public static int getBBS_IDX(String bbs_type) {
+		return getSql().selectOne("admin.getBBS_IDX",bbs_type);
+	}
+	
+	public static int insertCategory(BbsCodeVO bbscodeVO) {
+		return getSql().insert("admin.insertCategory", bbscodeVO);
 	}
 	
 }
