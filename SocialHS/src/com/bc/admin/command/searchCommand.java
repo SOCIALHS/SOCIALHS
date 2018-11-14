@@ -132,7 +132,7 @@ public class searchCommand implements Command {
 				List<memberVO> searchId = AdminDAO.getsearchId(mapid);
 				System.out.println("검색 아이디 search : " + searchId);
 				session.setAttribute("searchlist", searchId);
-				request.setAttribute("idcnt", cnt);
+				request.setAttribute("idcnt", idcnt);
 				request.setAttribute("pvo", p);
 				request.setAttribute("cPage", cPage);
 				request.setAttribute("search", search);
