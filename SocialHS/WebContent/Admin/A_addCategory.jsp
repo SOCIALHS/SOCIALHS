@@ -47,28 +47,30 @@
 
    <%--카테고리 추가 --%>
 	<div id="categoryAdd">
-		<form method="post" class="form-horizontal" enctype="multipart/form-data">
-			<div class="form-group">
-         	<label for="hobbyStudy" class="col-sm-2 control-label">HobbyStudy</label>
-           		<select name = "bbs_type" id = "hobbyStudy" class="form-control">
-                  <option value = "300">hobby</option>
-                  <option value = "700">study</option>
-               </select>
-         	</div>
-      		
-      		<div class="form-group">
-         	<label for="bbs_name">카테고리 이름</label>
-         		<input type="text" name="bbs_name" id = "bbs_name">
-      		</div>
-      		
-      		<div class="form-group">
-         	<label for="f_name">카테고리 사진파일</label>
-         		<input type="file" name="f_name" id= "f_name">
-       		</div>
-      			<input type="button" class="btn btn-primary" value="카테고리 추가"
-         				onclick="file_up(this.form)">
-      </form>
-      
+	<form method="post" class="form-horizontal" enctype="multipart/form-data">
+		<table class="table my-2 mx-auto">
+			<tr>
+				<td>
+					<select name = "bbs_type" id = "hobbyStudy" >
+						<option value = "300">hobby</option>
+						<option value = "700">study</option>
+					</select>
+					<input type="text" name="bbs_name" id = "bbs_name" placeholder="카테고리 이름">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="2">사진파일 선택 <input type="file" name="f_name" id= "f_name"></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+				<input type="button" class="btn btn-primary" value="카테고리 추가" onclick="file_up(this.form)">
+				</td>
+			</tr>
+		</table>
+
+	</form>
+	
 	</div>
 	
 </div>

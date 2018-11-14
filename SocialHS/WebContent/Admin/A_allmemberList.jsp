@@ -94,43 +94,12 @@
 <link href="css/A_Paging.css" rel="stylesheet" type="text/css">
 <link href="css/A_morepage.css" rel="stylesheet" type="text/css">
 
-<<<<<<< HEAD
 <script>
-=======
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript">
-	//내가 쓴 게시글 / 댓글 탭 
-	$(document).ready(function() {
-		$('.tab a').click(function() {
-			var tabid = $(this).attr('data-tab');
-			
-			$('.tab a').removeClass('current');
-			$('.tabcontent').removeClass('current');
-			
-			$(this).addClass('current');
-			$("#"+tabid).addClass('current');
-		})
-	})
-	
-	//사이드바 
-	$(document).ready(function() {
-		$(".topMenuLi>a").click(function() {
-			var submenu = $(this).next("div");
-			if( submenu.is(":visible") ) {
-				submenu.slideUp();
-			} else {
-				submenu.slideDown();
-			}
-		});
-	});
-	
->>>>>>> refs/remotes/origin/master
 	//아이디/이름으로 검색 
 	function search_go(frm) {
 		frm.action = "AdminController?type=search";
 		frm.submit();
 	}
-	
 </script>
 	<jsp:include page="function.jsp"></jsp:include>
 </head>
