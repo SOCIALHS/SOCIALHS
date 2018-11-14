@@ -141,9 +141,9 @@
 	}
 	
 	function deleteInfo(frm) {
-		if (confirm("회원 탈퇴를 하시겠습니까?") == true) {
+		if (confirm("회원을 탈퇴 시키겠습니까?") == true) {
 			
-			frm.action = "MypageController?type=delete";
+			frm.action = "MypageController?type=delete&from=admin";
 			frm.submit();
 		} else {
 			return;

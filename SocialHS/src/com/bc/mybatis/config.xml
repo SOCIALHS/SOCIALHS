@@ -39,8 +39,6 @@
     <mapper resource="com/bc/mybatis/CommentMapper.xml"/>
     <mapper resource="com/bc/mybatis/ApplyMapper.xml"/>
     <mapper resource="com/bc/mybatis/SearchBoardMapper.xml"/>
- 
-    
     
     
   </mappers>

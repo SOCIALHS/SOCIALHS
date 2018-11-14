@@ -15,14 +15,20 @@ public class deleteCommand implements Command {
 		
 		String chk = request.getParameter("infochk");
 		String id = request.getParameter("id");
-		
+		String from = request.getParameter("from");
+		String path = "";
 //		HttpSession session = request.getSession();
 //		session.removeAttribute("memberVO");
 		memberDAO.delete(id);
 			
 		System.out.println("회원탈퇴가 되었습니다!");
-		
-		return "memberController?type=logout";
+		if (from.equals("admin")) {
+			path = "AdminPage.jsp";
+		} else {
+			path = "memberController?type=logout";
+		}
+		System.out.println(path);
+		return path;
 		
 	}
 	
