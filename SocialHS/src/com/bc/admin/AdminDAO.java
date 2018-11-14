@@ -79,8 +79,18 @@ private static SqlSession ss;
 		return getSql().selectList("admin.searchlist", map);
 	}
 	
-	//아이디로 검색 
-	public static List<memberVO> searchId(String id) {
-		return getSql().selectList("admin.searchId", id);
+	//제목/내용으로 검색 rownum
+	public static List<A_AllBoardVO> getSearchWrite(Map<String, String> map) {
+		return getSql().selectList("admin.searchWrite", map);
 	}
+	
+	public static List<memberVO> searchId(String id) {
+		return getSql().selectList("admin.idcnt", id);
+	}
+	
+	//아이디로 검색 
+	public static List<memberVO> getsearchId(Map<String, String> mapid) {
+		return getSql().selectList("admin.searchId", mapid);
+	}
+	
 }

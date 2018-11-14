@@ -9,7 +9,7 @@
 	<c:if test="${status.index % 5 == 0 }">
 		<nav class="nav nav-pills nav-fill mb-1">
 	</c:if>
-		<a class="nav-item nav-link bg-danger m-1 active" href="LocationController?location=${l_idx}&bbs_idx=${list.bbs_idx }">
+		<a class="nav-item nav-link bg-danger m-1 active" href="LocationController?location=${l_idx}&bbs_idx2=${list.bbs_idx }">
 		${list.bbs_name }&nbsp;
 		</a>
 	<c:if test="${(status.index+1) % 5 == 0 }">

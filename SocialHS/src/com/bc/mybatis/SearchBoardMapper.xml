@@ -126,22 +126,6 @@
 		ORDER BY BB_IDX DESC
 	</select>
 	
-	<select id="idContent" resultType="com.bc.main.vo.BoardVO" parameterType="Map">
-		SELECT *
-		FROM B_BOARD
-		<choose>
-			<when test='hs == "hobby"'>
-				WHERE UPPER(HS) = UPPER('h')
-			</when>
-			<when test='hs == "study"'>
-				WHERE UPPER(HS) = UPPER('s')
-			</when>
-		</choose>
-		AND UPPER(TITLE) LIKE UPPER('%' || #{keyword} || '%')
-		OR UPPER(CONTENT)
-		LIKE UPPER('%' || #{keyword} || '%')
-		ORDER BY BB_IDX DESC
-	</select>
 	
 	<select id="idContent2" resultType="com.bc.main.vo.BoardVO" parameterType="Map">
 		SELECT *
