@@ -15,6 +15,7 @@ public class BullteinBoardUpdate  implements Command{
 		BoardVO bvo = BullteinBoardDAO.selectOne(bb_idx);
 		request.setAttribute("BoardVO", bvo);
 		
+		System.out.println("확인");
 		String path = "minseong/bullteinBoardUpdate.jsp";
 		
 		return path;

@@ -14,9 +14,7 @@ public class BullteinBoardWriteCommand implements Command {
 		String bb_idx = request.getParameter("bb_idx");
 		String chk = request.getParameter("chk");
 		
-//		BoardVO bbvo = BullteinBoardDAO.selectOne(bb_idx);
-		
-//		request.setAttribute("bbvo", bbvo);
+		System.out.println("bb_idx : " + bb_idx);
 		BoardVO bbvo = new BoardVO();
 		bbvo.setTitle(request.getParameter("title"));
 		bbvo.setContent(request.getParameter("content"));
@@ -26,7 +24,6 @@ public class BullteinBoardWriteCommand implements Command {
 		if (chk == null) {
 			System.out.println("널");
 			path = "minseong/bullteinBoardWrite.jsp";
-			System.out.println(path);
 		} else {
 			System.out.println("널 아님");
 			System.out.println(bbvo);

@@ -22,10 +22,12 @@
 	}
 
 	String bb_idx = request.getParameter("bb_idx");
-	BoardVO bbvo = BullteinBoardDAO.selectOne(bb_idx);
 	System.out.println("bb_idx : " + bb_idx);
+	
+	BoardVO bbvo = BullteinBoardDAO.selectOne(bb_idx);
 
 	List<CommentVO> cList = CommentDAO.getCommList(bb_idx);
+	
 	System.out.println("CommentDAO.getCommList(bb_idx) : " + bb_idx);
 	System.out.println("cList : " + cList);
 
@@ -137,7 +139,9 @@
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td style="height: 200px">${BoardVO.getContent() }</td>
+					<td>
+						<textarea readonly rows="4" cols="50" style="board:none">${BoardVO.getContent() }</textarea>
+					</td>
 				</tr>
 				<tr>
 			</tbody>
@@ -157,11 +161,10 @@
 					<td>${BoardVO.getBad() }</td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="button" value="수정 "
-						onclick="update_go(this.form)"> 
-						<input type="button"
-						value="삭제" onclick="delete_go(this.form)"> <input
-						type="hidden" name="cPage" value="${cPage }"></td>
+					<td colspan="2"><input type="button" value="수정 " onclick="update_go(this.form)"> 
+						<input type="button" value="삭제" onclick="delete_go(this.form)"> 
+						<input type="hidden" name="cPage" value="${cPage }">
+					</td>
 				</tr>
 			</tfoot>
 		</table>
