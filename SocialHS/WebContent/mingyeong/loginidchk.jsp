@@ -24,33 +24,36 @@
 %>
 		<script>
 			alert("비밀번호를 확인해주세요.");
+			location.href = "index.jsp";
 		</script>
 <%
 		
-		msg = "index.jsp";
+
 	} else if (chk == -1) {
 		//아이디가 없을 경우->로그인 화면 이동
 		System.out.println("존재하지 않는 아이디입니다.");
 %>
 		<script>
 			alert("존재하지 않는 아이디입니다.");
-			
+			location.href = "index.jsp";
 		</script>
 <%		
-		msg = "index.jsp";
 	} else if (chk == 2) {
+		AdminVO avo = dao.selectAid(id);
+		session.setAttribute("AdminVO", avo);
+		
 		//관리자 화면으로 이동
 %>
 		<script>
 			alert("안녕하세요. 관리자 페이지 입니다");
+			location.href = "AdminPage.jsp";
 		</script>
 <%
-		AdminVO avo = dao.selectAid(id);
-		session.setAttribute("AdminVO", avo);
-		msg = "AdminPage.jsp";
+		
 	}
 	
 	else {
+		
 		memberVO vo = dao.selectId(id);
 		session.setAttribute("memberVO", vo);
 		
@@ -67,11 +70,11 @@
 		}else if(pnt >= 100 && rnk == 0){
 			MainDAO.rankUpTo1(rnkId);
 		}
-			
+
 		msg = "index.jsp";
+		response.sendRedirect(msg);
 		
 	}
-	response.sendRedirect(msg);
 	
 %>
 </head>

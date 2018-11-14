@@ -5,6 +5,8 @@ public class AdminVO {
 	private int a_idx, age;
 	private String name, id, pw, phone, email, addr, rank;
 	
+	
+
 	public int getA_idx() {
 		return a_idx;
 	}

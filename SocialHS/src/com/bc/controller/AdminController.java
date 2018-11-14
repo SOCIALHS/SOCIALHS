@@ -13,6 +13,7 @@ import com.bc.admin.command.CategoryAddCommand;
 import com.bc.admin.command.a_delCommand;
 import com.bc.admin.command.allListCommand;
 import com.bc.admin.command.allmemberInfoCommand;
+import com.bc.admin.command.categoryAddPageCommand;
 import com.bc.admin.command.hobbylistCommand;
 import com.bc.admin.command.infoCommand;
 import com.bc.admin.command.searchCommand;
@@ -40,7 +41,8 @@ public class AdminController extends HttpServlet {
 		String type = request.getParameter("type");
 		String path = null;
 		System.out.println("type : "+type);
-		System.out.println("검색어: "+ request.getParameter("search"));
+		System.out.println("검색어: " + request.getParameter("search"));
+		System.out.println("controller id : " + request.getParameter("id"));
 		Command comm = null;
 		
 		if (type.equals("allList")) {
@@ -58,8 +60,11 @@ public class AdminController extends HttpServlet {
 			comm = new infoCommand();
 		} else if (type.equals("del")) {
 			comm = new a_delCommand();
-		}else if(type.equals("categoryAdd")) {
+		} else if (type.equals("categoryAdd")) {
 			comm = new CategoryAddCommand();
+		} else if (type.equals("categoryAddPage")) {
+			//카테고리 추가 페이지 이동처리
+			comm = new categoryAddPageCommand();
 		}
 		
 		

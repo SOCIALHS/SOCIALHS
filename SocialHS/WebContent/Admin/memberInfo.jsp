@@ -178,7 +178,7 @@
 		</ul>
 	
 	<form method="post">
-		<table class="table my-2 mx-auto">
+		<table class="table my-2 mx-auto center">
 			<thead class="thead bg-dark text-white">
 				<tr>
 					<th>아이디</th>
@@ -190,11 +190,11 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td class="center">${mvo.getId() }</td>
-					<td class="center">${mvo.getName() }</td>
-					<td class="center">${mvo.getRank() } 등급</td>
-					<td class="center">${mvo.getPoint() } point</td>
-					<td class="center">${mvo.getRegdate().substring(0, 10) }</td>
+					<td>${mvo.getId() }</td>
+					<td>${mvo.getName() }</td>
+					<td>${mvo.getRank() } 등급</td>
+					<td>${mvo.getPoint() } point</td>
+					<td>${mvo.getRegdate().substring(0, 10) }</td>
 				</tr>
 				<tr>
 					<td colspan="5" class="right">
