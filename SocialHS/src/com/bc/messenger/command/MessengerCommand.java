@@ -17,14 +17,22 @@ public class MessengerCommand implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		
 		HttpSession session = request.getSession();
-		memberVO vo = (memberVO)session.getAttribute("memberVO");
-		String id = vo.getId();
-		
-		List<MessengerVO> list = MessengerDAO.getList(id);
-		request.setAttribute("msnList", list);
+
+		String id = "";
+		String path = "";
 		
 		
-		return "swan/messenger.jsp";
+		if(session.getAttribute("memberVO")==null) {
+			id = request.getParameter("id");
+			path = "swan/admin_msnWrite.jsp?id=" + id;
+		}else {
+			memberVO vo = (memberVO) session.getAttribute("memberVO");
+			id = vo.getId();
+			List<MessengerVO> list = MessengerDAO.getList(id);
+			request.setAttribute("msnList", list);
+			path = "swan/messenger.jsp";
+		}
+			return path;
 	}
 
 }

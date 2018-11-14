@@ -3,6 +3,8 @@ package com.bc.member;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.bc.admin.AdminVO;
@@ -55,6 +57,7 @@ public class memberDAO {
 		}
 		
 	}
+
 	
 	public static int memberlogin(memberVO id, String pw) {
 		int chk = 0;
