@@ -2,16 +2,16 @@
     pageEncoding="UTF-8"%>
 <body class="bg-light text-dark">
 
-    <nav class="navbar navbar-dark bg-dark py-3">
+    <nav class="navbar navbar-dark py-3" style="background-color: #00AA7F">
 		<a class="navbar-brand" href="index.jsp">
 			<img src="imgs/github-sign.png">
 		</a>
-        <span class="text-light bg-dark ml-auto mx-2">
+        <span class="text-light ml-auto mx-2">
         	<b>${memberVO.id }</b>&nbsp;님 환영합니다.
         </span>
         <input type="hidden">
         <div id="almOutter">
-        <button id="almBtn" type="button" class="btn btn-dark">
+        <button id="almBtn" type="button" class="btn" style="background-color: #00AA7F">
             알림<span id="almCnt" class="badge badge-dark">0</span>
         </button>
         <div id="newAlm">

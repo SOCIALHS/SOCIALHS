@@ -7,7 +7,7 @@
 <title>수정</title>
 <script>
 	function save_go(frm) {
-		frm.action = "BullteinController?type=bullteinUpdateUpdate"; 
+		frm.action = "/SocialHS/BullteinController?type=bullteinUpdate"; 
 		frm.submit();
 	}
 </script>

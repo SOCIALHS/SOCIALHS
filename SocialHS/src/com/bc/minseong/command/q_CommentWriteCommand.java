@@ -19,11 +19,11 @@ public class q_CommentWriteCommand implements Command {
 		String bb_idx = request.getParameter("bb_idx");
 		String cPage = request.getParameter("cPage");
 		
-		CommentVO cvo = new CommentVO();
-		cvo.setId(id);
-		cvo.setBb_idx(bb_idx);
-		cvo.setContent(request.getParameter("content"));
-		CommentDAO.insertComment(cvo);
+		CommentVO vo = new CommentVO();
+		vo.setId(id);
+		vo.setBb_idx(bb_idx);
+		vo.setContent(request.getParameter("content"));
+		CommentDAO.insertComment(vo);
 		
 		return "QNA?type=QNAone&bb_idx"+bb_idx;
 	}

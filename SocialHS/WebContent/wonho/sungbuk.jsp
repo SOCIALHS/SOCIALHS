@@ -44,7 +44,7 @@ a {
 
 a:hover {
 	text-decoration: underline;
-	color: orangered;
+	color: #b30000;
 }
 
 #mypage table {
@@ -84,7 +84,7 @@ ul.tab li {
 
 ul.tab li.current {
 	text-decoration: underline;
-	color: orangered;
+	color: #b30000;
 }
 
 .tabcontent {
@@ -129,16 +129,16 @@ h3 {
 	}
 %>
 <!-- ------------------------------------------------------------------------------------ -->
-<br>
-<br>
-<br>
+<!-- <body> -->
+<%@ include file="../dongwu/subnav.jsp"%>
+
 <div class="row">
 	<div class="col-2" style="width: 100%;">
 		<!-- aside -->
 		<%@ include file="../wonho/sidebar_body.jsp"%>
 	</div>
 	<div class="col-10">
-		<h3>&lt;${l_name } ${sl_name } &gt;</h3>
+		<h1 class="display-4 my-4 text-center">${l_name } ${sl_name }</h1>
 
 		<%-- <div class="row d-flex justify-content-center">
 	<%@ include file="../dongwu/category_body.jsp"%>
@@ -147,16 +147,16 @@ h3 {
 			<li class="nav-item"><a href="javascript:history.back()">뒤로가기</a></li>
 		</ul>
 
-		<form class="form-inline my-3" method="post">
+		<form class="form-inline my-2" method="post">
 			<div class="form-group">
-				<select class="form-control" name="select">
+				<select class="form-control mr-3" name="select">
 					<option value="t">제목</option>
 					<option value="w">작성자</option>
 					<option value="c">내용</option>
 					<option value="tc">제목 + 내용</option>
 				</select> 
 				<input class="form-control mr-sm-2" type="search" placeholder="검색"
-					style="width: 500px;" aria-label="Search" name="keyword">
+					style="width: 600px;" aria-label="Search" name="keyword">
 				<button class="btn bg-success text-white my-2 mr-sm-2"
 					onclick="search_go(this.form)">검색</button>
 				<input type="hidden" name="sl_idx" value="${sl_idx}">
@@ -168,7 +168,7 @@ h3 {
 		<form method="post">
 			<div id="allPage" class="tabcontent current">
 				<table class="table my-5 mx-auto">
-					<thead class="thead-dark">
+					<thead class="thead bg-dark text-white">
 						<tr class="pagetitle">
 							<th class="no">BB_IDX</th>
 							<th class="title">TITLE</th>

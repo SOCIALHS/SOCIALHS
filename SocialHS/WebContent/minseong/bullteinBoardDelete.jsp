@@ -6,13 +6,13 @@
 <meta charset="UTF-8">
 <title>delete</title>
 <script>
-function delete() {
+function b_delete() {
 	location.href = "../BullteinController?type=bullteinDelete&bb_idx=${BoardVO.getBb_idx() }";
 	
 }
 </script>	
 </head>
-<body onload="delete()">
+<body onload="b_delete()">
 	<h3>delete</h3>
 </body>
 </html>
