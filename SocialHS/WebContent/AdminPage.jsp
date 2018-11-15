@@ -201,9 +201,9 @@
 			<li class="topMenuLi nav-item">
 				<a class="menuLink tablink" data-tab="allmemberInfo">회원정보보기</a></li>
 			<li class="topMenuLi nav-item"><a class="menuLink tablink" data-tab="categoryAdd">카테고리추가</a></li>
-			<li class="topMenuLi nav-item"><a class="menuLink tablink" href="AdminController?type=googleChart">차트 보기</a></li>
+			<li class="topMenuLi nav-item"><a class="menuLink tablink" data-tab="chartpage"
+				href="AdminController?type=googleChart">차트보기</a></li>
 		</ul>
-		
 	</div>
 	
 	<%-- 글목록 --%>
@@ -298,7 +298,6 @@
 		</table>
 	</div> <%-- 취미목록 끝 --%>
 	
-	
 	<%-- 스터디 --%>
 	<div id="studylist" class="tabcontent">
 		<table class="table my-2 mx-auto text-center">
@@ -344,7 +343,6 @@
 			</tfoot>
 		</table>
 	</div> <%-- 스터디 목록 끝 --%>
-	
 	
 	<%-- 회원정보 --%>
 	<div id="allmemberInfo" class="tabcontent">
@@ -412,7 +410,6 @@
 			</table>
 		</form>
 	</div>
-	
 	
 	
 </div>
