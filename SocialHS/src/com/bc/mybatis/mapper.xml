@@ -8,13 +8,13 @@
 
 	<select id="hobbyList" resultType="com.bc.main.vo.BbsCodeVO">
 		SELECT * FROM BBS_CODE WHERE 
-		BBS_IDX BETWEEN 300 AND 500 ORDER BY BBS_NAME
+		BBS_IDX BETWEEN 300 AND 500 ORDER BY BBS_IDX
 	</select>
 
 
 	<select id="studyList" resultType="com.bc.main.vo.BbsCodeVO">
 		SELECT * FROM BBS_CODE WHERE 
-		BBS_IDX BETWEEN 700 AND 999 ORDER BY BBS_NAME
+		BBS_IDX BETWEEN 700 AND 999 ORDER BY BBS_IDX
 	</select>
 
 

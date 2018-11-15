@@ -22,6 +22,7 @@ public class slSearchCommand implements Command {
 		Map<String, String> map = new HashMap<>();
 		
 		String sl_idx = request.getParameter("sl_idx");
+		request.setAttribute("sl_idx", sl_idx);
 		String keyword = request.getParameter("keyword");
 		String cat = request.getParameter("select");
 		
@@ -29,6 +30,16 @@ public class slSearchCommand implements Command {
 		String cntPerPage = request.getParameter("cntPerPage");
 		String hs = (String)session.getAttribute("hs");
 		hs = hs.substring(0, 1);
+		
+		System.out.println("sl_idx: "+ sl_idx );
+		System.out.println("keyword: "+ keyword);
+		System.out.println("cat: "+ cat);
+		System.out.println("cPage: "+ cPage);
+		System.out.println("cntPerPage: "+ cntPerPage);
+		System.out.println("hs: "+ hs);
+		
+		
+		
 		
 		if (cPage == null) {
 			cPage = "1";
