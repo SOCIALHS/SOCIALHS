@@ -7,7 +7,7 @@
 <title>수정</title>
 <script>
 	function save_go(frm) {
-		frm.action = "../FreeController?type=freeUpdate&bb_idx=${BoardVO.getBb_idx() }"; 
+		frm.action = "/SocialHS/FreeController?type=freeUpdate"; 
 		frm.submit();
 	}
 </script>
@@ -23,13 +23,13 @@
 			<tr>
 				<th>제목</th>
 				<td>
-					<input type="text" name="title" value="${BoardVO.getTitle() }">
+					<input type="text" name="title" value="${bbvo.getTitle() }">
 				</td>
 			</tr>
 			<tr>
 				<td>내용</td>
 				<td>
-					<textarea name="content" rows="5" cols="60">${BoardVO.getContent() }</textarea>
+					<textarea name="content" rows="5" cols="60">${bbvo.getContent() }</textarea>
 				</td>
 			</tr>
 		</tbody>
@@ -38,7 +38,8 @@
 				<td colspan="2">
 					<input type="button" value="수정 완료" onclick="save_go(this.form)">
 					<input type="reset" value="초기화">
-					<input type="hidden" name="bb_idx" value="${BoardVO.getBb_idx() }">
+					<input type="hidden" name="bb_idx" value="${bbvo.getBb_idx() }">
+						
 				</td>
 			</tr>
 

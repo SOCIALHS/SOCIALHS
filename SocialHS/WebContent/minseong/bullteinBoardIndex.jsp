@@ -12,6 +12,5 @@
 </script>	
 </head>
 <body onload="start()">
-	<h3>start</h3>
 </body>
 </html>

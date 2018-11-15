@@ -8,7 +8,7 @@
 </head>
 <body> -->
 <!-- Footer -->
-<footer class="page-footer font-small indigo bg-light">
+<footer class="page-footer font-small indigo">
 	<!-- Footer Links -->
 	<div class="container">
 
