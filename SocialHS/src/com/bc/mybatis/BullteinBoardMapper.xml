@@ -52,6 +52,11 @@
 		DELETE FROM B_BOARD WHERE BB_IDX = #{bb_idx}
 	</delete>
 	
+	<delete id="BullteinDeleteComment" parameterType="String">
+		DELETE FROM BB_COMMENT 
+		 WHERE BB_IDX = #{bb_idx} 
+	</delete>
+	
 	
 	<update id="hitVO" parameterType="com.bc.main.vo.BoardVO">
 		UPDATE B_BOARD 

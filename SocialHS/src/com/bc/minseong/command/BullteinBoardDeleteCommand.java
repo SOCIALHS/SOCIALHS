@@ -16,7 +16,7 @@ public class BullteinBoardDeleteCommand implements Command {
 		CommentDAO.b_deleteComment(bb_idx);
 		BullteinBoardDAO.delete(bb_idx);
 		
-		System.out.println("bb_idx :" + bb_idx);
+		System.out.println("공지 삭제는 되는데");
 		return "BullteinController?type=bullteinList";
 		
 	}

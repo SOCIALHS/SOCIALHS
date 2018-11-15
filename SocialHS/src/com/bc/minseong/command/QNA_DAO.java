@@ -5,6 +5,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 
 import com.bc.main.vo.BoardVO;
+import com.bc.main.vo.CommentVO;
 import com.bc.mybatis.DBService;
 
 public class QNA_DAO {
@@ -41,6 +42,16 @@ public class QNA_DAO {
 	
 	public static int delete(String bb_idx) {
 		int result = getSql().delete("QNA.QNAdelete", bb_idx);
+		return result;
+	}
+	
+	public static int writeComment(BoardVO vo) {
+		int result = getSql().insert("QNA.QNAwriteComment", vo);
+		return result;
+	}
+	
+	public static int deleteComment(String bb_idx) {
+		int result = getSql().delete("QNA.QNAdeleteComment", bb_idx);
 		return result;
 	}
 	

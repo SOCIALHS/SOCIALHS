@@ -6,12 +6,13 @@
 <meta charset="UTF-8">
 <title>delete</title>
 <script>
-function f_delete() {
-	location.href = "../FreeController?type=freeDelete&bb_idx=${BoardVO.getBb_idx() }";
+function q_delete() {
+	location.href = "../QNA?type=QNAdelete&bb_idx=${BoardVO.getBb_idx() }";
+	
 }
 </script>	
 </head>
-<body onload="f_delete()">
+<body onload="q_delete()">
 	<h3>delete</h3>
 </body>
 </html>

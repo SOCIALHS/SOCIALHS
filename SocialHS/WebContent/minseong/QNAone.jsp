@@ -84,7 +84,8 @@
 		frm.submit();
 	}
 	function delete_go(frm) {
-		frm.action = "QNA?type=QNAdelete&bb_idx=${BoardVO.getBb_idx() }";
+		//frm.action = "QNA?type=QNAdelete&bb_idx=${BoardVO.getBb_idx() }";
+		frm.action = "minseong/QNAdelete.jsp";
 		frm.submit();
 	}
 	function good(frm) {
@@ -157,11 +158,9 @@
 		</div>
 
 		<div class="form-group">
-			<input type="submit" class="btn btn-dark"
-				onclick="update_go(this.form)" value="수정하기"> <input
-				type="submit" class="btn btn-dark" onclick="delete_go(this.form)"
-				value="삭제하기"> <input type="hidden" name="cPage"
-				value="${cPage }">
+			<input class="btn btn-dark" type="button" value="수정하기" onclick="update_go(this.form)" > 
+			<input class="btn btn-dark" type="button" value="삭제하기" onclick="delete_go(this.form)" > 
+			<input type="hidden" name="cPage" value="${cPage }">
 		</div>
 	</form>
 </div>
@@ -170,7 +169,7 @@
 <div class="card my-4">
 	<h5 class="card-header">댓글 달기</h5>
 	<div class="card-body">
-		<form method="post" action="Comment?type=f_writeOk">
+		<form method="post" action="Comment?type=q_writeOk">
 			<%
 				if (session.getAttribute("memberVO") == null) {
 			%>
@@ -214,7 +213,7 @@
 			<div class="card my-4">
 				<h5 class="card-header">Leave a Comment:</h5>
 				<div class="card-body">
-					<form method="post" action="Comment?type=f_deleteOk">
+					<form method="post" action="Comment?type=q_deleteOk">
 						<p class="lead">댓글번호 : ${CommentVO.bbc_idx }</p>
 						<p class="lead">작성자 : ${CommentVO.id }</p>
 						<p class="lead">내용 : ${CommentVO.content }</p>

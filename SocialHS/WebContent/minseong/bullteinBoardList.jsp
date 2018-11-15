@@ -143,7 +143,7 @@ System.out.println("end : "+ p.getEnd());
 <div id="container">
 	<h2>공지사항</h2>
 	<hr>
-	<p>[<a href="BullteinController?type=bullteinWrite&bb_idx=${vo.bb_idx }">게시물 작성</a>]</p>
+	<p>[<a href="/SocialHS/BullteinController?type=bullteinWrite&bb_idx=${vo.bb_idx }">게시물 작성</a>]</p>
 	<table>
 		<thead>
 			<tr>
