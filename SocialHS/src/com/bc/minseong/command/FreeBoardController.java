@@ -40,8 +40,6 @@ public class FreeBoardController extends HttpServlet {
 			comm = new FreeBoardWriteCommand();
 		}else if(type.equals("freeUpdate")) {
 			comm = new FreeBoardUpdateCommand();
-		}else if(type.equals("freeUpdateUpdate")) {
-			comm = new FreeBoardUpdateUpdateCommand();
 		}else if(type.equals("freeDelete")) {
 			comm = new FreeBoardDeleteCommand();
 		}else if(type.equals("freeGood")) {

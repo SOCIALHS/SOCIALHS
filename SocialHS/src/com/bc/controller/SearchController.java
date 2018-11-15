@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import com.bc.jieun.command.SearchCommand;
 import com.bc.main.command.MainWriteCommand;
+import com.bc.main.command.slSearchCommand;
 import com.bc.main.dao.BoardSearchDAO;
 import com.bc.main.vo.BoardVO;
 import com.bc.share.command.Command;
@@ -46,6 +47,8 @@ public class SearchController extends HttpServlet {
 			
 		}else if(type.equals("write")) {
 			comm = new MainWriteCommand();
+		}else if(type.equals("sl_search")) {
+			comm = new slSearchCommand();
 		}
 		
 		path = comm.exec(request, response);

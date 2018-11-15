@@ -61,4 +61,23 @@ public class SubLocationDAO {
 		return getSql().selectOne("SubLocation.locationName", sl_idx);
 	}
 	
+	
+	// 서브로케이션 선택 후 검색 관력 DAO
+	public static List<BoardVO> sl_searchList(Map<String, String> map){
+		return getSql().selectList("SubLocation.sl_search", map);
+	}
+	
+	public static int sl_searchCnt(Map<String, String> map) {
+		return getSql().selectOne("SubLocation.sl_searchCnt", map);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

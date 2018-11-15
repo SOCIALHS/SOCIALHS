@@ -22,6 +22,8 @@ import com.bc.minseong.command.CommentDeleteCommand;
 import com.bc.minseong.command.CommentWriteCommand;
 import com.bc.minseong.command.FreeCommentDelete;
 import com.bc.minseong.command.FreeCommentWrite;
+import com.bc.minseong.command.q_CommentDeleteCommand;
+import com.bc.minseong.command.q_CommentWriteCommand;
 import com.bc.share.command.Command;
 import com.bc.study.command.CategoryCommand;
 
@@ -59,6 +61,10 @@ public class CommentController extends HttpServlet {
 			comm = new FreeCommentWrite();
 		}else if(type.equals("f_deleteOk")) {
 			comm = new FreeCommentDelete();
+		}else if(type.equals("q_writeOk")) {
+			comm = new q_CommentWriteCommand();
+		}else if(type.equals("q_deleteOk")) {
+			comm = new q_CommentDeleteCommand();
 		}
 	
 		

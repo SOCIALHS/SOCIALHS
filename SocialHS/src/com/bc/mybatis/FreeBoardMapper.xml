@@ -40,8 +40,7 @@
 
 	<update id="FreeUpdate" parameterType="com.bc.main.vo.BoardVO">
 		UPDATE B_BOARD
-		SET TITLE =
-		#{title},
+		SET TITLE = #{title},
 		CONTENT = #{content}
 		WHERE BB_IDX = #{bb_idx}
 	</update>

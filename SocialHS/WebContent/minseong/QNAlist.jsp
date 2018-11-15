@@ -85,7 +85,7 @@
 <div id="container">
 	<h1 class="display-4 my-5 text-center">Q&A</h1>
 	<hr>
-	<a href="minseong/QNAwrite.jsp"><p class="lead text-center">게시물 작성하기</p></a>
+	<a href="/SocialHS/minseong/QNAwrite.jsp"><p class="lead text-center">게시물 작성하기</p></a>
 	<table class="table mx-auto" style="width: 1000px;">
 		<thead>
 			<tr>

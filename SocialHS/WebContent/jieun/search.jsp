@@ -83,7 +83,7 @@ a {
 
 a:hover {
 	text-decoration: underline;
-	color: orangered;
+	color: #b30000;
 }
 
 #mypage table {
@@ -121,7 +121,7 @@ a:hover {
 }
 
 .paging li a:hover {
-	color: orangered;
+	color: #b30000;
 	font-weight: bold;
 }
 
@@ -131,7 +131,7 @@ a:hover {
 
 .paging .now {
 	font-weight: bold;
-	color: orangered;
+	color: #b30000;
 	text-decoration: underline;
 }
 
@@ -170,10 +170,10 @@ a:hover {
 
 				<form method="post">
 
-					<h5>검색 결과</h5>
+					<h2 class="display-4">검색 결과</h2>
 
 					<table class="table my-5 mx-auto">
-						<thead class="thead-dark">
+						<thead class="thead bg-dark text-white">
 							<tr class="pagetitle">
 								<th class="no">글번호</th>
 								<th class="title">제목</th>
