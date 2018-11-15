@@ -64,6 +64,12 @@ public class MainWriteOkCommand implements Command {
 		
 		MainWriteDAO.insertB_Board(vo);
 		System.out.println("입력 완료");
+		
+		System.out.println("=================글작성 10점 주는곳====================");
+		MainWriteDAO.updatePoint(id);
+		System.out.println("10점 줌");
+		System.out.println("=================글작성 10점 주는곳====================");
+		
 		List<LocationVO> location = (List<LocationVO>)session.getAttribute("location");
 		System.out.println("LocationIdx : "+location.get(0).getL_Idx());
 		System.out.println("location : "+location);

@@ -135,14 +135,14 @@
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
 	function messengerGo(frm) {
-		frm.action = "MessengerController?type=msnList";
+		frm.action = "../MessengerController?type=msnList";
 		frm.submit();
 	}
 	
 	function deleteInfo(frm) {
 		if (confirm("회원 탈퇴를 하시겠습니까?") == true) {
 			
-			frm.action = "MypageController?type=delete";
+			frm.action = "../MypageController?type=delete";
 			frm.submit();
 		} else {
 			return;

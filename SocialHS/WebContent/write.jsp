@@ -177,7 +177,7 @@
         </div>
         <input type = "hidden" name = "latitude" id = "latitude" value="0">
         <input type = "hidden" name = "longitude" id = "longitude" value="0">
-        <input type = "hidden" name = "id" value = "test">
+        <input type = "hidden" name = "id" value = "${memberVO.id }">
     </form>
 
     <!-- Optional JavaScript -->

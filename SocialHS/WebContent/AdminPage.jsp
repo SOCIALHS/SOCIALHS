@@ -174,8 +174,6 @@
 			}
 		});
 	});
-	
-	//카테고리 추가 
 	function file_up(form){
 		alert(form);
 		form.action = 'AdminController?type=categoryAdd';
@@ -202,8 +200,8 @@
 			</li>
 			<li class="topMenuLi nav-item">
 				<a class="menuLink tablink" data-tab="allmemberInfo">회원정보보기</a></li>
-			<li class="topMenuLi nav-item">
-				<a class="menuLink tablink" data-tab="categoryAdd">카테고리추가</a></li>
+			<li class="topMenuLi nav-item"><a class="menuLink tablink" data-tab="categoryAdd">카테고리추가</a></li>
+			<li class="topMenuLi nav-item"><a class="menuLink tablink" href="AdminController?type=googleChart">차트 보기</a></li>
 		</ul>
 		
 	</div>
@@ -390,8 +388,9 @@
 	
 	<%--카테고리 추가 --%>
 	<div id="categoryAdd" class="tabcontent">
+		
 		<form method="post" class="form-horizontal" enctype="multipart/form-data">
-			<table class="table my-2 mx-auto">
+		 <table class="table my-2 mx-auto">
 				<tr>
 					<td>
 						<select name = "bbs_type" id = "hobbyStudy" >
@@ -411,10 +410,10 @@
 					</td>
 				</tr>
 			</table>
-	
 		</form>
-	
 	</div>
+	
+	
 	
 </div>
 
