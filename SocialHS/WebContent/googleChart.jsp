@@ -23,7 +23,7 @@
 </head>
 <body>
 
-	<input type = "button" class = "btn btn-primary" id = "btn" onclick = "drawChart()" value = "chart">
+	
 				  
 	
 				
@@ -64,43 +64,55 @@
     		  
     		  console.log(hobbyObj);
 	    	  console.log(hobbyObj.toString());
-	      }  
+	    	  
+	    	 
+	    	  
+	    	  
+	      } 
+	    google.charts.load('current', {'packages':['bar']});
 	    
+	    function drawChart() {
+	   	       
+  			var data = google.visualization.arrayToDataTable(hobbyObj);
+  	        var options = {
+  	          chart: {
+  	            title: '비트주세요 호스팅 차트',
+  	            subtitle: 'Location, Hobby, and Study: 2018-2019',
+  	            animation:{
+  	                duration: 1000,
+  	                easing: 'out',
+                	}       
+  	          }
+  	        };
+  	
+  	        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+  	        google.visualization.events.addListener(chart, 'ready',
+  	                function() {
+  	                  //alert("animation");
+  	                });
+  	        
+  	       
+  	        setTimeout(function(){
+  	        	data.setValue(0,1,3);
+  	        	data.setValue(1,1,4);
+  	        	data.setValue(2,1,5);
+  	        	console.log(data);
+  	        	chart.draw(data, google.charts.Bar.convertOptions(options));
+  	        },1000)
+  	        
+  	         setTimeout(function(){
+  	        	data.setValue(0,0,0);
+  	        	data.setValue(1,0,0);
+  	        	data.setValue(2,0,0);
+  	        	chart.draw(data, google.charts.Bar.convertOptions(options));
+  	        },1000)
+  	       
+  	        
+  	        
+  	      }
 	    
-	      google.charts.load('current', {'packages':['bar']});
-	      
-		//하비와 스터디 구분
-	      
-	      function drawChart() {
-	       
-			var data = google.visualization.arrayToDataTable(hobbyObj);
-	        var options = {
-	          chart: {
-	            title: '비트주세요 호스팅 차트',
-	            subtitle: 'Location, Hobby, and Study: 2018-2019',
-	            animation:{
-	                duration: 1000,
-	                easing: 'out',
-              	}       
-	          }
-	        };
-	
-	        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-	        google.visualization.events.addListener(chart, 'ready',
-	                function() {
-	                  //alert("animation");
-	                });
-	        chart.draw(data, google.charts.Bar.convertOptions(options));
-	        
-	        var btn = document.getElementById("btn");
-	        btn.onclick = function(){
-	        	
-	        }
-	        
-	        
-	      }
 	    </script>
-
+	<input type = "button" class = "btn btn-primary" id = "btn" onclick = "drawChart()" value = "chart">
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
