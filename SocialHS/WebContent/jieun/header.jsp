@@ -15,9 +15,9 @@
 					type="password" class="form-control" id="inputPassword" name="pw"
 					placeholder="비밀번호" onkeypress="enter(this.form)">
 			</div>
-			<button type="button" class="btn btn-light mr-3"
+			<button type="button" class="btn btn-light mr-3 border-0"
 				onclick="login(this.form)">로그인</button>
-			<button type="button" class="btn btn-light" onclick="join(this.form)">회원가입</button>
+			<button type="button" class="btn btn-light border-0" onclick="join(this.form)">회원가입</button>
 		</form>
 	</nav>
 	<br><br><br>
