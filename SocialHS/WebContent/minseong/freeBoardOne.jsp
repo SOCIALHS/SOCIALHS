@@ -45,32 +45,35 @@ td {
 </style>
 <script>
 	function update_go(frm) {
-		frm.action = "../FreeController?type=freeUpdate&bb_idx=${BoardVO.getBb_idx() }";
+		frm.action = "minseong/freeBoardUpdate.jsp";
+		//frm.action = "FreeController?type=freeUpdate&bb_idx=${BoardVO.getBb_idx() }";
+		//frm.action = "FreeController?type=freeUpdate";
 		frm.submit();
 	}
 	function delete_go(frm) {
-		frm.action = "../FreeController?type=freeDelete&bb_idx=${BoardVO.getBb_idx() }";
+		frm.action = "FreeController?type=freeDelete&bb_idx=${BoardVO.getBb_idx() }";
 		frm.submit();
 	}
 	function good(frm) {
-		frm.action = "../FreeController?type=freeGood&bb_idx=${BoardVO.getBb_idx() }"
+		frm.action = "FreeController?type=freeGood&bb_idx=${BoardVO.getBb_idx() }"
 		frm.submit();
 	}
 	function bad(frm) {
-		frm.action = "../FreeController?type=freeBad&bb_idx=${BoardVO.getBb_idx() }"
+		frm.action = "FreeController?type=freeBad&bb_idx=${BoardVO.getBb_idx() }"
 		frm.submit();
 	}
 </script>
 </head>
 <body>
-	<div id="container" class="mx-auto" style="width: 1000px">
-		<h1 class="display-3 my-5 text-center">자유 게시판</h1>
-		<hr>
+<div id="container" class="mx-auto" style="width: 1000px">
+	<h1 class="display-3 my-5 text-center">자유 게시판</h1>
+	<hr>
+	<form method="post">
 		<table class="table">
 			<tr>
 				<th scope="col" class="bg-light"><p class="lead text-center">글번호</p></th>
-				<td scope="row"><p class="lead">${BoardVO.getBb_idx() }</p>
-				</th>
+				<td scope="row"><p class="lead">${BoardVO.getBb_idx() }</p></td>
+				
 			</tr>
 			<tr>
 				<th scope="col" class="bg-light"><p class="lead text-center">제목</p></th>
@@ -89,24 +92,20 @@ td {
 				<td><p class="lead">${BoardVO.getContent() }</p></td>
 			</tr>
 		</table>
-
+	
 		<div class="form-group">
 			<div class="row">
-				<input type="submit" class="btn btn-info mx-2 ml-auto"
-					onclick="good(this.form)" value="좋아요">
+				<input type="submit" class="btn btn-info mx-2 ml-auto" onclick="good(this.form)" value="좋아요">
 				<p class="lead mx-2">${BoardVO.getGood() }</p>
-				<input type="submit" class="btn btn-danger mx-2"
-					onclick="bad(this.form)" value="별로에요">
+				<input type="submit" class="btn btn-danger mx-2" onclick="bad(this.form)" value="별로에요">
 				<p class="lead mx-2">${BoardVO.getBad() }</p>
 			</div>
 		</div>
-
 		<div class="form-group">
-			<input type="submit" class="btn btn-dark"
-				onclick="update_go(this.form)" value="수정하기"> <input
-				type="submit" class="btn btn-dark" onclick="delete_go(this.form)"
-				value="삭제하기">
+			<input class="btn btn-dark" type="button" onclick="update_go(this.form)" value="수정하기"> 
+			<input class="btn btn-dark" type="button" onclick="delete_go(this.form)" value="삭제하기">
 		</div>
+	</form>
 
 		<%-- 댓글 입력 --%>
 		<div class="card my-4">
@@ -135,7 +134,8 @@ td {
 						<textarea class="form-control" rows="3" name="content"></textarea>
 					</div>
 					<input type="hidden" name="bb_idx" value="${bbvo.bb_idx }">
-					<!-- <input type="hidden" name="cPage" value="${cPage }"> -->
+					<input type="hidden" name="bb_idx" value="${BoardVO.bb_idx }">
+					<input type="hidden" name="cPage" value="${cPage }">
 					<input type="submit" class="btn btn-dark" value="댓글 저장하기">
 				</form>
 			</div>

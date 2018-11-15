@@ -12,10 +12,11 @@ public class q_CommentDeleteCommand implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		String bbc_idx = request.getParameter("bbc_idx");
-		
+		String bb_idx = request.getParameter("bb_idx");
+		System.out.println("이까지만 오시죠");
 		CommentVO cvo = new CommentVO();
 		CommentDAO.deleteComment(bbc_idx);
-		return "minseong/QNAone.jsp";
+		return "QNA?type=QNAone&bb_idx"+bb_idx;
 	}
 
 }

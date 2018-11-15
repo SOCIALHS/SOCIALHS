@@ -36,6 +36,7 @@
 %>
 
 <title>공지 사항</title>
+
 <style>
 #container {
 	width: 512px;
@@ -78,14 +79,17 @@
 	text-align: center;
 }
 </style>
+
 <script>
 	function update_go(frm) {
-		frm.action = "BullteinController?type=bullteinUpdate&bb_idx=${BoardVO.getBb_idx() }";
+		//frm.action = "BullteinController?type=bullteinUpdate&bb_idx=${BoardVO.getBb_idx() }";
+		frm.action = "minseong/bullteinBoardUpdate.jsp";
 		frm.submit();
 	}
 	function delete_go(frm) {
-		//frm.action = "Comment?type=b_deleteOk&bb_idx=${BoardVO.getBb_idx() }"
-		frm.action = "BullteinController?type=bullteinDelete&bb_idx=${BoardVO.getBb_idx() }";
+		//frm.action = "BullteinController?type=bullteinDelete&bb_idx=${BoardVO.getBb_idx() }";
+		//frm.action = "BullteinController?type=bullteinDelete";
+		frm.action = "minseong/bullteinBoardDelete.jsp";
 		frm.submit();
 	}
 	function good(frm) {
@@ -162,10 +166,10 @@
 					<td>${BoardVO.getBad() }</td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="button" value="수정 "
-						onclick="update_go(this.form)"> <input type="button"
-						value="삭제" onclick="delete_go(this.form)"> <input
-						type="hidden" name="cPage" value="${cPage }"></td>
+					<td colspan="2">
+					<input type="button" value="수정 " onclick="update_go(this.form)"> 
+					<input type="button" value="삭제" onclick="delete_go(this.form)"> 
+					<input type="hidden" name="cPage" value="${cPage }"></td>
 				</tr>
 			</tfoot>
 		</table>

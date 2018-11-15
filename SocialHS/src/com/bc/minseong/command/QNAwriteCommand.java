@@ -11,22 +11,23 @@ public class QNAwriteCommand implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		
-		BoardVO qvo = new BoardVO();
+		BoardVO vo = new BoardVO();
 		String id = request.getParameter("id");
 		System.out.println("id: " + id);
 		
 		if (id == "") { 
-			qvo.setId("ANONYMOUS"); 
+			vo.setId("ANONYMOUS"); 
 		} else { 
-				qvo.setId(id); 
+				vo.setId(id); 
 				}
 		
-		qvo.setTitle(request.getParameter("title"));
-		qvo.setContent(request.getParameter("content"));
+		vo.setTitle(request.getParameter("title"));
+		vo.setContent(request.getParameter("content"));
 		
-		QNA_DAO.insert(qvo);
+		QNA_DAO.writeComment(vo);
 		
-		return "QNA?type=QNAlist";
+		//return "QNA?type=QNAlist";
+		return "minseong/QNAlist.jsp";
 		
 	}
 

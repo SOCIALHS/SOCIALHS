@@ -67,62 +67,6 @@ System.out.println("end : "+ p.getEnd());
 %>
 
 <title>공지 게시판</title>
-<style>
-	#container {
-		width: 512px; margin: auto;
-	}
-	#container h2 { text-align: center; }
-	#container p { text-align: center; }
-	#container table {
-		width: 500px; padding: 0 5px;
-		border: 1px solid black;
-		border-collapse: collapse;
-	}
-	#container th, td { border: 1px solid black; }
-	#container table th {
-		background-color: #9cf;
-	}
-	#container table td {
-		text-align: left;
-	}
-	#container p > a {
-		text-decoration: none;
-		font-weight: bold;
-	}
-	#container .center { text-align: center; }
-	.paging {
-		list-style: none; 
-	}
-	.paging li {
-		float:left;
-		margin-right: 8px;
-	}
-	.paging li a {
-		text-decoration: none;
-		display: block;
-		padding: 3px 7px;
-		border: 1px solid black;
-		font-weight: bold;
-		color: black;
-	}
-	.paging li a:hover {
-		background-color: grey;
-		color: black;
-	}
-	.paging .disable {
-		padding: 3px 7px;
-		border: 1px solid silver;
-		color: silver;
-	}
-	.paging .now {
-		padding: 3px 7px;
-		border: 1px solid #9cf;
-		background-color: #9cf;
-		color: white;
-		font-weight: bold;
-	}
-	
-</style>
 </head>
 
 <%
@@ -141,18 +85,18 @@ System.out.println("end : "+ p.getEnd());
 <!--  <BODY>  -->
 
 <div id="container">
-	<h2>공지사항</h2>
+	<h1 class="display-4 text-center my-4">공지사항</h1>
 	<hr>
-	<p>[<a href="BullteinController?type=bullteinWrite&bb_idx=${vo.bb_idx }">게시물 작성</a>]</p>
-	<table>
-		<thead>
-			<tr>
-				<th>글번호</th>
-				<th>제목</th>
-				<th>작성자</th>
-				<th>조회수</th>
-				<th>GOOD</th>
-				<th>BAD</th>
+	<p class="lead text-center my-4"><a href="/SocialHS/BullteinController?type=bullteinWrite&bb_idx=${vo.bb_idx }">게시물 작성하기</a></p>
+	<table class="table mx-auto" style="width: 1200px;">
+		<thead class="thead">
+			<tr class="bg-light">
+				<th class="col">글번호</th>
+				<th class="col">제목</th>
+				<th class="col">작성자</th>
+				<th class="col">조회수</th>
+				<th class="col">GOOD</th>
+				<th class="col">BAD</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -160,19 +104,18 @@ System.out.println("end : "+ p.getEnd());
 		<c:if test="${not empty list }">	
 			<c:forEach var="vo" items="${list }">
 			<tr>
-				<td>${vo.getBb_idx() }</td>
-				<td><a href="/SocialHS/BullteinController?type=bullteinOne&bb_idx=${vo.bb_idx }">${vo.getTitle() }</a></td>
-				<td>${vo.getId() }</td>
-				<td>${vo.getHit() }</td>
-				<td>${vo.getGood() }</td>
-				<td>${vo.getBad() }</td>
+				<td class="col">${vo.getBb_idx() }</td>
+				<td class="col"><a href="/SocialHS/BullteinController?type=bullteinOne&bb_idx=${vo.bb_idx }">${vo.getTitle() }</a></td>
+				<td class="col">${vo.getId() }</td>
+				<td class="col">${vo.getHit() }</td>
+				<td class="col">${vo.getGood() }</td>
+				<td class="col">${vo.getBad() }</td>
 			</tr>
 			</c:forEach>
 		</c:if>			
 	
 		<c:if test="${empty list }">		
-			<tr>
-				<td colspan="6">입력된 자료가 없습니다</td>
+			<tr colspan="6">입력된 자료가 없습니다</td>
 			</tr>
 		</c:if>		
 		</tbody>
@@ -181,12 +124,12 @@ System.out.println("end : "+ p.getEnd());
 		<tfoot>
 			<tr>
 				<td colspan="6">
-					<ol class="paging">
+					<ul class="paging">
 					
 					<%-- 이전으로(←) --%>
 					<c:choose>
 						<c:when test="${pvo.beginPage < pvo.pagePerBlock }">
-							<li class="disable"> ← </li>
+							<li class="float-left disable"> ← </li>
 						</c:when>
 						<c:otherwise>
 							<li><a href="/SocialHS/minseong/bullteinBoardList.jsp?cPage=${pvo.beginPage - 1 }"> ← </a></li>
@@ -219,7 +162,7 @@ System.out.println("end : "+ p.getEnd());
 					</c:choose>
 					
 					
-					</ol>
+					</ul>
 				</td>
 			</tr>
 		</tfoot>

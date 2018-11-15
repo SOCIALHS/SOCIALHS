@@ -30,10 +30,10 @@
 	
 	
     <!-- jumbotron -->
-    <style>
-.location {
-	margin: 10px;
-}
+<style>
+	.location {
+		 margin: 10px;
+	}
 </style>
 </head>
 
@@ -45,49 +45,49 @@
 		<p class="lead">해당 지역에 개설되어 있는 스터디 또는 취미 모임을 보실 수 있습니다.</p>
 		<hr class="my-4">
 		<div class="row">
-			<div class="col">
+			<div class="col px-0">
 				<span class="align-text-bottom">
-				<a class="btn btn-danger btn-lg btn-block location"
-					href="LocationController?hs=${hs }&location=01" role="button">서울</a>
+				<a class="location" href="LocationController?hs=${hs }&location=01">
+					<img src="imgs/locationIcon-01.png" alt="서울" height="150" width="150"></a>
 					</span>
 			</div>
-			<div class="col">
-				<a class="btn btn-danger btn-lg btn-block location"
-					href="LocationController?hs=${hs }&location=02" role="button">경기</a>
+			<div class="col px-0">
+				<a class="location" href="LocationController?hs=${hs }&location=02">
+					<img src="imgs/locationIcon-02.png" alt="경기" height="150" width="150"></a>
 			</div>
-			<div class="col">
-				<a class="btn btn-danger btn-lg btn-block location"
-					href="LocationController?hs=${hs }&location=03" role="button">강원</a>
+			<div class="col px-0">
+				<a class="location" href="LocationController?hs=${hs }&location=03">
+					<img src="imgs/locationIcon-03.png" alt="강원" height="150" width="150"></a>
 			</div>
-			<div class="col">
-				<a class="btn btn-danger btn-lg btn-block location"
-					href="LocationController?hs=${hs }&location=04" role="button">충북</a>
+			<div class="col px-0">
+				<a class="location" href="LocationController?hs=${hs }&location=04">
+					<img src="imgs/locationIcon-04.png" alt="충북" height="150" width="150"></a>
 			</div>
-			<div class="col">
-				<a class="btn btn-danger btn-lg btn-block location"
-					href="LocationController?hs=${hs }&location=05" role="button">충남</a>
+			<div class="col px-0">
+				<a class="location" href="LocationController?hs=${hs }&location=05">
+					<img src="imgs/locationIcon-05.png" alt="충남" height="150" width="150"></a>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col">
-				<a class="btn btn-danger btn-lg btn-block location"
-					href="LocationController?hs=${hs }&location=06" role="button">전북</a>
+			<div class="col px-0">
+				<a class="location" href="LocationController?hs=${hs }&location=06">
+					<img src="imgs/locationIcon-06.png" alt="전북" height="150" width="150"></a>
 			</div>
-			<div class="col">
-				<a class="btn btn-danger btn-lg btn-block location"
-					href="LocationController?hs=${hs }&location=07" role="button">전남</a>
+			<div class="col px-0">
+				<a class="location" href="LocationController?hs=${hs }&location=07">
+					<img src="imgs/locationIcon-07.png" alt="전남" height="150" width="150"></a>
 			</div>
-			<div class="col">
-				<a class="btn btn-danger btn-lg btn-block location"
-					href="LocationController?hs=${hs }&location=08" role="button">경북</a>
+			<div class="col px-0">
+				<a class="location" href="LocationController?hs=${hs }&location=08">
+					<img src="imgs/locationIcon-08.png" alt="경북" height="150" width="150"></a>
 			</div>
-			<div class="col">
-				<a class="btn btn-danger btn-lg btn-block location"
-					href="LocationController?hs=${hs }&location=09" role="button">경남</a>
+			<div class="col px-0">
+				<a class="blocation" href="LocationController?hs=${hs }&location=09">
+				<img src="imgs/locationIcon-09.png" alt="경남" height="150" width="150"></a>
 			</div>
-			<div class="col">
-				<a class="btn btn-danger btn-lg btn-block location"
-					href="LocationController?hs=${hs }&location=10" role="button">제주</a>
+			<div class="col px-0">
+				<a class="location" href="LocationController?hs=${hs }&location=10">
+					<img src="imgs/locationIcon-10.png" alt="제주" height="150" width="150"></a>
 			</div>
 		</div>
 	</div>

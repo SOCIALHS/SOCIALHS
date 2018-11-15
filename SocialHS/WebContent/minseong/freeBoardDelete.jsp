@@ -6,12 +6,12 @@
 <meta charset="UTF-8">
 <title>delete</title>
 <script>
-function delete() {
+function f_delete() {
 	location.href = "../FreeController?type=freeDelete&bb_idx=${BoardVO.getBb_idx() }";
 }
 </script>	
 </head>
-<body onload="delete()">
+<body onload="f_delete()">
 	<h3>delete</h3>
 </body>
 </html>

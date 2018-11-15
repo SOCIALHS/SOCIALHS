@@ -4,13 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>start</title>
+<title>delete</title>
 <script>
-	function start() {
-		location.href = "../BullteinController?type=bullteinList"
-	}
+function q_delete() {
+	location.href = "../QNA?type=QNAdelete&bb_idx=${BoardVO.getBb_idx() }";
+	
+}
 </script>	
 </head>
-<body onload="start()">
+<body onload="q_delete()">
+	<h3>delete</h3>
 </body>
 </html>
