@@ -13,6 +13,5 @@ function b_delete() {
 </script>	
 </head>
 <body onload="b_delete()">
-	<h3>delete</h3>
 </body>
 </html>

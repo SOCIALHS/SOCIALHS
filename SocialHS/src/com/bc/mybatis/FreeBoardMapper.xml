@@ -11,6 +11,7 @@
 		SELECT ROWNUM R_NUM, P.*
 		  FROM (SELECT *
 		          FROM B_BOARD
+		          WHERE BBS_IDX = 4
 		         ORDER BY BB_IDX DESC
 		        ) P)
 		 WHERE R_NUM BETWEEN #{beginPage} AND #{endPage}

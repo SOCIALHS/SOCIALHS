@@ -23,11 +23,12 @@ public class QNAwriteCommand implements Command {
 		
 		vo.setTitle(request.getParameter("title"));
 		vo.setContent(request.getParameter("content"));
+		System.out.println("vo: " + vo);
 		
-		QNA_DAO.writeComment(vo);
+		QNA_DAO.insert(vo);
 		
 		//return "QNA?type=QNAlist";
-		return "minseong/QNAlist.jsp";
+		return "/minseong/QNAlist.jsp";
 		
 	}
 

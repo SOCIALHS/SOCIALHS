@@ -8,29 +8,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="../head.jsp"%>
 
 <%
 	Paging p = new Paging();
 
 	p.setTotalRecord(FreeBoardDAO.getTotalCount());
 	p.setTotalPage();
-	
+
 	System.out.println("FreeBoardDAO.getTotalCount() : " + FreeBoardDAO.getTotalCount());
 	System.out.println("전체 페이지 수 : " + p.getTotalPage());
-	
+
 	String cPage = request.getParameter("cPage");
-	System.out.println("cPage: "+ cPage);
-	if(cPage != null) {
+	System.out.println("cPage: " + cPage);
+	if (cPage != null) {
 		p.setNowPage(Integer.parseInt(cPage));
 	}
 	p.setEnd(p.getNowPage() * p.getNumPerpage());
 	p.setBegin(p.getEnd() - p.getNumPerpage() + 1);
-	
-	
+
 	p.setBeginPage((p.getNowPage() - 1) / p.getPagePerBlock() * p.getPagePerBlock() + 1);
 	p.setEndPage(p.getBeginPage() + p.getPagePerBlock() - 1);
-	
+
 	if (p.getEndPage() > p.getTotalPage()) {
 		p.setEndPage(p.getTotalPage());
 	}
@@ -38,19 +36,19 @@
 <%
 	Map<String, Integer> map = new HashMap<>();
 
-	System.out.println("begin : "+ p.getBegin());
-	System.out.println("end : "+ p.getEnd());
-	
+	System.out.println("begin : " + p.getBegin());
+	System.out.println("end : " + p.getEnd());
+
 	map.put("beginPage", p.getBegin());
 	map.put("endPage", p.getEnd());
-	System.out.println("map : "+ map);
-	
+	System.out.println("map : " + map);
+
 	List<BoardVO> list = FreeBoardDAO.getMaplist(map);
 	System.out.println("list : " + list);
 
 	pageContext.setAttribute("list", list);
 	System.out.println("list2 : " + list);
-	
+
 	pageContext.setAttribute("pvo", p);
 	pageContext.setAttribute("cPage", cPage);
 %>
@@ -58,45 +56,98 @@
 
 <%
 	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
-%>		<%@ include file="../jieun/header_head.jsp"%>
+%>
+<%@ include file="../jieun/header_head.jsp"%>
 <%
 	} else if (session.getAttribute("memberVO") != null) {
-%>		<%@ include file="../head.jsp"%>
+%>
+<%@ include file="../head.jsp"%>
 <%
 	} else if (session.getAttribute("AdminVO") != null) {
-%>		<%@ include file="../head.jsp"%>
+%>
+<%@ include file="../head.jsp"%>
 <%
-	} 
+	}
 %>
 
 
 
 <%
 	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
-%>		<%@ include file="../jieun/header.jsp"%>
+%>
+<%@ include file="../jieun/header.jsp"%>
 <%
 	} else if (session.getAttribute("memberVO") != null) {
-%>		<%@ include file="../jieun/loginheader.jsp"%>
+%>
+<%@ include file="../jieun/loginheader.jsp"%>
 <%
 	} else if (session.getAttribute("AdminVO") != null) {
-%>		<%@ include file="../Admin/A_loginheader.jsp"%>
+%>
+<%@ include file="../Admin/A_loginheader.jsp"%>
 <%
-	} 
+	}
 %>
 <title>자유 게시판</title>
+<style>
+.paging li {
+	float: left;
+	margin-right: 8px;
+}
+
+.paging li a {
+	text-decoration: none;
+	display: block;
+	padding: 3px 7px;
+	border: 1px solid black;
+	font-weight: bold;
+	color: black;
+}
+
+.paging li a:hover {
+	background-color: grey;
+	color: black;
+}
+
+.paging .disable {
+	padding: 3px 7px;
+	border: 1px solid silver;
+	color: silver;
+}
+
+.paging .now {
+	padding: 3px 7px;
+	border: 1px solid #9cf;
+	background-color: #9cf;
+	color: white;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #b30000;
+}
+
+#infohead {
+	text-align: left;
+	width: 1200px;
+}
+</style>
 </head>
 <body>
 
 	<div id="container">
-		<h1 class="display-4 my-5 text-center">자유게시판</h1>
+		<ul id="infohead" class="nav mx-auto my-4">
+			<li class="nav-item"><a href="javascript:history.back()">뒤로가기</a></li>
+		</ul>
+		<h1 class="display-4 my-4 text-center">자유게시판</h1>
 		<hr>
 		<p>
-			<button type="button" class="btn btn-info"
-				style="margin-left: 1300px;"
+			<button type="button" class="btn btn-success"
+				style="margin-left: 1400px;"
 				onclick="location.href='minseong/freeBoardWrite.jsp'">게시물
 				작성하기</button>
 		</p>
-		<table class="table mx-auto" style="width: 1000px;">
+		<table class="table mx-auto" style="width: 1200px;">
 			<thead>
 				<tr>
 					<th scope="col">글번호</th>
@@ -129,61 +180,52 @@
 					</tr>
 				</c:if>
 			</tbody>
-			<!-- 페이징 
-		<tfoot>
-			<tr>
-				<td colspan="6">
-					<ol class="paging">
-					
+			</table>
+
+			<table class="table mx-auto" style="width: 300px;">
+				<tr>
 					<%-- 이전으로(←) --%>
 					<c:choose>
 						<c:when test="${pvo.beginPage < pvo.pagePerBlock }">
-							<li class="disable"> ← </li>
+							<td class="disable">←</td>
 						</c:when>
 						<c:otherwise>
-							<li><a href="/SocialHS/minseong/freeBoardList.jsp?cPage=${pvo.beginPage - 1 }"> ← </a></li>
+							<td><a
+								href="/SocialHS/minseong/freeBoardList.jsp?cPage=${pvo.beginPage - 1 }">
+									← </a></td>
 						</c:otherwise>
 					</c:choose>
-					
-					
+
+
 					<%-- 블록내 페이지 반복 --%>
-					
+
 					<c:forEach var="p" begin="${pvo.beginPage }" end="${pvo.endPage }">
-					<c:choose>
-					<c:when test="${p == pvo.nowPage }">
-						<li class="now">${p }</li>
-					</c:when>
-					<c:otherwise>
-						<li><a href="/SocialHS/minseong/freeBoardList.jsp?cPage=${p }">${p }</a></li>
-					</c:otherwise>
-					</c:choose>
+						<c:choose>
+							<c:when test="${p == pvo.nowPage }">
+								<td class="now">${p }</td>
+							</c:when>
+							<c:otherwise>
+								<td><a
+									href="/SocialHS/minseong/freeBoardList.jsp?cPage=${p }">${p }</a></td>
+							</c:otherwise>
+						</c:choose>
 					</c:forEach>
-					
+
 					<%-- 다음으로(→) --%>
-					
+
 					<c:choose>
 						<c:when test="${pvo.endPage >= pvo.totalPage }">
-							<li class="disable"> → </li>
+							<td class="disable">→</td>
 						</c:when>
-						<c:otherwise>	
-							<li><a href="/SocialHS/minseong/freeBoardList.jsp?cPage=${pvo.endPage + 1 }"> → </a></li>
+						<c:otherwise>
+							<td><a
+								href="/SocialHS/minseong/freeBoardList.jsp?cPage=${pvo.endPage + 1 }">
+									→ </a></td>
 						</c:otherwise>
 					</c:choose>
-					
-					
-					</ol>
-				</td>
-			</tr>
-		</tfoot> -->
-		</table>
+				</tr>
+			</table>
 	</div>
 
 
-<%@ include file="../jieun/footer.jsp"%>
-
-
-
-
-
-
-
+	<%@ include file="../jieun/footer.jsp"%>
