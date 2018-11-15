@@ -170,7 +170,7 @@ a:hover {
 
 				<form method="post">
 
-					<h1 class="display-4">검색 결과</h1>
+					<h2 class="display-4">검색 결과</h2>
 
 					<table class="table my-5 mx-auto">
 						<thead class="thead bg-dark text-white">

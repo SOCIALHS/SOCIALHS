@@ -12,6 +12,12 @@
 </script>
 <form class="form-inline my-3" method="post">
 	<div class="form-group">
+		<select class="form-control mr-2" name="category">
+			<option value="0">전체</option>
+		<c:forEach var="cat" items="${hsList }" varStatus="status">
+			<option value="${cat.bbs_idx }">${cat.bbs_name }</option>
+		</c:forEach>
+		</select> 
 		<select class="form-control mr-2" name="select">
 			<option value="0">제목</option>
 			<option value="1">작성자</option>
