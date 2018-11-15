@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bc.admin.command.CategoryAddCommand;
+import com.bc.admin.command.GoogleChartCommand;
 import com.bc.admin.command.a_delCommand;
 import com.bc.admin.command.allListCommand;
 import com.bc.admin.command.allmemberInfoCommand;
@@ -60,6 +61,8 @@ public class AdminController extends HttpServlet {
 			comm = new a_delCommand();
 		}else if(type.equals("categoryAdd")) {
 			comm = new CategoryAddCommand();
+		}else if(type.equals("googleChart")) {
+			comm = new GoogleChartCommand();
 		}
 		
 		

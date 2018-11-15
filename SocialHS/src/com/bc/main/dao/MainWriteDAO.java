@@ -33,6 +33,10 @@ public class MainWriteDAO {
 		return getSql().insert("mainwrite.insert",vo);
 	}
 	
+	public static int updatePoint(String id) {
+		return getSql().update("mainwrite.updatePoint", id);
+	}
+	
 
 	
 }

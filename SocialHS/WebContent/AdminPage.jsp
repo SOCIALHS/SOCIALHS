@@ -201,6 +201,7 @@
 			<li class="topMenuLi nav-item">
 				<a class="menuLink tablink" data-tab="allmemberInfo">회원정보보기</a></li>
 			<li class="topMenuLi nav-item"><a class="menuLink tablink" data-tab="categoryAdd">카테고리추가</a></li>
+			<li class="topMenuLi nav-item"><a class="menuLink tablink" href="AdminController?type=googleChart">차트 보기</a></li>
 		</ul>
 		
 	</div>
@@ -408,6 +409,8 @@
 			onclick="file_up(this.form)">
 		</form>
 	</div>
+	
+	
 	
 </div>
 
