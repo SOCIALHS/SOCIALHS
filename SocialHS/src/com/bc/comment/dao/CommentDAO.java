@@ -60,6 +60,9 @@ public class CommentDAO {
 	public static int deleteComBb_idx(String bb_idx) {
 		return getSql().delete("comment.delBb_idx", bb_idx);
 	}
+	public static int updatePoint(String id) {
+		return getSql().update("comment.updatePoint", id);
+	}
 	
 	
 }

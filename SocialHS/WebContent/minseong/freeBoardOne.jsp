@@ -22,9 +22,7 @@ td {
 }
 </style>
 <%
-	String
-
-	bb_idx
+	String bb_idx
 
 			= request.getParameter("bb_idx");
 
@@ -44,7 +42,7 @@ td {
 
 	FreeBoardDAO.updateHit(Integer.parseInt(bb_idx));
 %>
-
+</style>
 <script>
 	function update_go(frm) {
 		//frm.action = "FreeController?type=freeUpdate&bb_idx=${BoardVO.getBb_idx() }";
@@ -73,7 +71,7 @@ td {
 		<table class="table">
 			<tr>
 				<th scope="col" class="bg-light"><p class="lead text-center">글번호</p></th>
-				<td scope="row"><p class="lead">${BoardVO.getBb_idx() }</p>
+				<td scope="row"><p class="lead">${BoardVO.getBb_idx() }</p></td>
 				
 			</tr>
 			<tr>

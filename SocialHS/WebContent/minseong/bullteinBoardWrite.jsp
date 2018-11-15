@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
-<!DOCTYPE html>
-<html>
-<head>
+<%@ include file="../head.jsp"%>
 <meta charset="UTF-8">
-<title>공지 작성</title>
+<title>공지사항 작성</title>
 <script>
 	function write_go(frm) {
 		frm.action = "BullteinController?type=bullteinWrite";
@@ -13,39 +11,36 @@
 	}
 </script>
 </head>
-<body>
 
-<div>
-	<h2>게시물 작성</h2>
-	<hr>
-	<form method="post">
-		<table>
-		<tbody>
-			<tr>	
-				<th>제목</th>
-				<td><input type="text" name="title"></td>
-			</tr>
-			
-			<tr>
-			<th>내용</th>
-				<td>
-					<textarea name="content" rows="5" cols="60"></textarea>
-				</td>
-			</tr>
-		</tbody>
-		<tfoot>
-			<tr>
-				<td colspan="2">
-					<input type="button" value="작성 완료" onclick="write_go(this.form)">
-					<input type="reset" value="초기화">
-					<!--  <input type="hidden" name="id" value="${memberid }"> -->
-					<input type="hidden" name="chk" value="1">
-				</td>
-			</tr>
-		</tfoot>	
-		</table>
+<%@ include file="../jieun/header.jsp"%>
+
+
+<div id="join" style="padding: 20px;" class="my-2 pt-5 bg-light">
+	<form method="post" style="width: 600px;" class="mx-auto" border="1">
+		<h3 class="display-5 text-center mb-5">공지사항 작성</h3>
+		<div class="col mb-4">
+			<div class="row">
+				<h4>제목</h4>
+				<input type="text" class="form-control" name="title" maxlength="50">
+			</div>
+
+			<div class="row">
+				<h4>내용</h4>
+				<textarea class="form-control" name="content" rows="5" cols="60"></textarea>
+			</div>
+
+
+		</div>
+		<div class="row" style="margin-left: 290px">
+			<div class="col">
+				<input type="button" class="btn btn-danger mb-2 mx-2" value="작성 완료" onclick="write_go(this.form)"> 
+				<input type="reset" class="btn btn-danger mb-2 mx-2" value="초기화">
+				<input type="hidden" name="chk" value="1">
+			</div>
+		</div>
 	</form>
 </div>
 
-</body>
-</html>
+
+
+<%@ include file="../jieun/footer.jsp"%>

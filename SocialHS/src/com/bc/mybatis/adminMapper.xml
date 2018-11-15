@@ -137,4 +137,13 @@
 		insert into bbs_code(bbs_idx, bbs_name, bbs_type) values (#{bbs_idx}, #{bbs_name}, #{bbs_type})
 	</insert>
 	
+	<select id="googleChartVO" resultType="com.bc.main.vo.googleChartVO">
+		select b.l_name as "l_name", b.l_idx as "l_idx", 
+      		  nvl(count(a.l_idx),0) as "number"
+    			from b_board a, location b 
+        		where a.l_idx(+) = b.l_idx
+        		group by b.l_name, b.l_idx
+	</select>
+	
+	
 </mapper>  

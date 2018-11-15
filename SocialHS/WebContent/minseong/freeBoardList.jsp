@@ -84,81 +84,6 @@
 	} 
 %>
 <title>자유 게시판</title>
-<style>
-#container {
-	width: 512px;
-	margin: auto;
-}
-
-#container h2 {
-	text-align: center;
-}
-
-#container p {
-	text-align: center;
-}
-
-#container table {
-	width: 500px;
-	padding: 0 5px;
-	border: 1px solid black;
-	border-collapse: collapse;
-}
-
-#container th, td {
-	border: 1px solid black;
-}
-
-#container table th {
-	background-color: #9cf;
-}
-
-#container table td {
-	text-align: left;
-}
-
-#container p>a {
-	text-decoration: none;
-	font-weight: bold;
-}
-
-#container .center {
-	text-align: center;
-}
-
-	.paging {
-		list-style: none; 
-	}
-	.paging li {
-		float:left;
-		margin-right: 8px;
-	}
-	.paging li a {
-		text-decoration: none;
-		display: block;
-		padding: 3px 7px;
-		border: 1px solid black;
-		font-weight: bold;
-		color: black;
-	}
-	.paging li a:hover {
-		background-color: grey;
-		color: black;
-	}
-	.paging .disable {
-		padding: 3px 7px;
-		border: 1px solid silver;
-		color: silver;
-	}
-	.paging .now {
-		padding: 3px 7px;
-		border: 1px solid #9cf;
-		background-color: #9cf;
-		color: white;
-		font-weight: bold;
-	}
-	
-</style>
 </head>
 <body>
 
@@ -167,7 +92,7 @@
 		<hr>
 		<p>
 			<button type="button" class="btn btn-info"
-				style="margin-left: 1100px;"
+				style="margin-left: 1300px;"
 				onclick="location.href='minseong/freeBoardWrite.jsp'">게시물
 				작성하기</button>
 		</p>
@@ -252,56 +177,7 @@
 		</tfoot> -->
 		</table>
 	</div>
-				
-	<nav aria-label="..." style="margin-left: 640px; margin-top: 50px;">
-		<ul class="pagination">
-		
-		
-		<%-- 이전으로(←) --%>
-			<c:choose>
-				<c:when test="${pvo.beginPage < pvo.pagePerBlock }">
-					<li class="page-item disabled"><span class="page-link">이전</span></li>
-				</c:when>
-				<c:otherwise>
-					<li class="page-item"><a class="page-link" href="/SocialHS/minseong/freeBoardList.jsp?cPage=${pvo.beginPage - 1 }">이전</a></li>
-				</c:otherwise>
-			</c:choose>		
 
-			
-			
-			
-					<%-- 블록내 페이지 반복 --%>
-					
-			<c:forEach var="p" begin="${pvo.beginPage }" end="${pvo.endPage }">				<c:choose>
-			<c:when test="${p == pvo.nowPage }">
-				<li class="page-item active"><span class="page-link">${p }<span
-						class="sr-only">(current)</span>
-				</span></li>
-			</c:when>
-			<c:otherwise>
-				<li class="page-item"><a class="page-link" href="/SocialHS/minseong/freeBoardList.jsp?cPage=${p }">${p }</a></li>
-			</c:otherwise>
-			</c:choose>
-			</c:forEach>			
-			
-			
-			
-			
-					<%-- 이전으로(←) --%>
-			<c:choose>
-				<c:when test="${pvo.endPage >= pvo.totalPage }">
-					<li class="page-item disabled"><span class="page-link">다음</span></li>
-				</c:when>
-				<c:otherwise>
-					<li class="page-item"><a class="page-link" href="/SocialHS/minseong/freeBoardList.jsp?cPage=${pvo.beginPage + 1 }">다음</a></li>
-				</c:otherwise>
-			</c:choose>		
-			
-			
-			
-			
-		</ul>
-	</nav>
 
 <%@ include file="../jieun/footer.jsp"%>
 

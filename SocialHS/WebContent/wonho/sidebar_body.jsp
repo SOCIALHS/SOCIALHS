@@ -22,7 +22,7 @@
 								<c:if test="${listSubAll.getL_idx() == listAll.getL_Idx() }">
 									<button type="button"
 										class="list-group-item list-group-item-action btn-block"
-										style="border: none" onclick="location.href='SubLocationController?type=sub&l_idx=${listSubAll.getL_idx() }&sl_idx=${listSubAll.getSl_idx()}&cPage=1&cntPerPage=5'">
+										style="border: none" onclick="location.href='SubLocationController?type=sub&location=${location }&l_idx=${listSubAll.getL_idx() }&sl_idx=${listSubAll.getSl_idx()}&cPage=1&cntPerPage=5'">
 										${listSubAll.getSl_name() }</button>
 								</c:if>
 							</c:forEach>
