@@ -45,8 +45,9 @@ td {
 </style>
 <script>
 	function update_go(frm) {
-		//frm.action = "FreeController?type=freeUpdate&bb_idx=${BoardVO.getBb_idx() }";
 		frm.action = "minseong/freeBoardUpdate.jsp";
+		//frm.action = "FreeController?type=freeUpdate&bb_idx=${BoardVO.getBb_idx() }";
+		//frm.action = "FreeController?type=freeUpdate";
 		frm.submit();
 	}
 	function delete_go(frm) {
@@ -132,7 +133,7 @@ td {
 					<div class="form-group">
 						<textarea class="form-control" rows="3" name="content"></textarea>
 					</div>
-				<%--<input type="hidden" name="bb_idx" value="${bbvo.bb_idx }">--%>
+					<input type="hidden" name="bb_idx" value="${bbvo.bb_idx }">
 					<input type="hidden" name="bb_idx" value="${BoardVO.bb_idx }">
 					<input type="hidden" name="cPage" value="${cPage }">
 					<input type="submit" class="btn btn-dark" value="댓글 저장하기">
