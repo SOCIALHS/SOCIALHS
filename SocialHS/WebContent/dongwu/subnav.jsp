@@ -9,11 +9,7 @@
 	pageContext.setAttribute("list", list);
 %>
 
-<!DOCTYPE html>
-<html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	function roll() {
@@ -26,20 +22,19 @@
 	}, 3000);
 </script>
 <style>
-
-.notice {
-	height: 30px;
-	overflow: hidden;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	/* border: 1px solid black; */
-}
-
-.notice li {
-	padding: 5px;
-	margin: 0px;
-}
+	.notice {
+		height: 30px;
+		overflow: hidden;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		/* border: 1px solid black; */
+	}
+	
+	.notice li {
+		padding: 5px;
+		margin: 0px;
+	}
 </style>
 </head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
