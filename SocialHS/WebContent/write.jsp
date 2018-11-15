@@ -132,7 +132,7 @@
                     </c:forEach>
                 </select>
             </div>
-            <div class="col ml-4">
+            <div class="col mx-4">
                 <label for="sl_idx">서브지역</label>
                 <select class="form-control" id="sl_idx" name = "sl_idx" onchange = "setName()">
                     <c:forEach var = "SubLocationVO" items = "${SubLocationAll }">
@@ -171,7 +171,7 @@
             <textarea class="form-control" id="content" name = "content" rows="30"></textarea>
         </div>
         
-        <div class="form-group" style="margin-left: 1200px;">
+        <div class="form-group" style="margin-left: 1600px;">
              <button type="reset" class="btn btn-danger">다시 작성하기</button>
              <button type="button" class="btn btn-danger" onclick = "send_go(this.form)">작성 완료</button>
         </div>

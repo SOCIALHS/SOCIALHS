@@ -44,7 +44,7 @@ a {
 
 a:hover {
 	text-decoration: underline;
-	color: orangered;
+	color: #b30000;
 }
 
 #mypage table {
@@ -138,7 +138,7 @@ h3 {
 		<%@ include file="../wonho/sidebar_body.jsp"%>
 	</div>
 	<div class="col-10">
-		<h3>&lt;${l_name } ${sl_name } &gt;</h3>
+		<h1 class="display-4 my-4">${l_name } ${sl_name }</h1>
 
 		<%-- <div class="row d-flex justify-content-center">
 	<%@ include file="../dongwu/category_body.jsp"%>
@@ -147,7 +147,7 @@ h3 {
 			<li class="nav-item"><a href="javascript:history.back()">뒤로가기</a></li>
 		</ul>
 
-		<form class="form-inline my-3" method="post">
+		<form class="form-inline my-2" method="post">
 			<div class="form-group">
 				<select class="form-control mr-3" name="select">
 					<option value="0">제목</option>
@@ -167,7 +167,7 @@ h3 {
 		<form method="post">
 			<div id="allPage" class="tabcontent current">
 				<table class="table my-5 mx-auto">
-					<thead class="thead-dark">
+					<thead class="thead bg-dark text-white">
 						<tr class="pagetitle">
 							<th class="no">BB_IDX</th>
 							<th class="title">TITLE</th>
