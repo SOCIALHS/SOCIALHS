@@ -26,7 +26,8 @@ public class QNAwriteCommand implements Command {
 		
 		QNA_DAO.writeComment(vo);
 		
-		return "QNA?type=QNAlist";
+		//return "QNA?type=QNAlist";
+		return "minseong/QNAlist.jsp";
 		
 	}
 
