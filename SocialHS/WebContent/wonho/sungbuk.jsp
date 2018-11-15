@@ -138,7 +138,7 @@ h3 {
 		<%@ include file="../wonho/sidebar_body.jsp"%>
 	</div>
 	<div class="col-10">
-		<h1 class="display-4 my-4">${l_name } ${sl_name }</h1>
+		<h1 class="display-4 my-4 text-center">${l_name } ${sl_name }</h1>
 
 		<%-- <div class="row d-flex justify-content-center">
 	<%@ include file="../dongwu/category_body.jsp"%>
