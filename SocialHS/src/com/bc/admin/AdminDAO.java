@@ -106,8 +106,12 @@ private static SqlSession ss;
 	
 	//------------------------------googleChart-------------
 	
-	public static List<googleChartVO> getGoogleVO(){
-		return getSql().selectList("admin.googleChartVO");
+	public static List<googleChartVO> getGoogleHobbyVO(){
+		return getSql().selectList("admin.googleChartHobbyVO");
+	}
+	
+	public static List<googleChartVO> getGoogleStudyVO(){
+		return getSql().selectList("admin.googleChartStudyVO");
 	}
 	
 }

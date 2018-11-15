@@ -16,10 +16,14 @@ public class GoogleChartCommand implements Command {
 		// TODO Auto-generated method stub
 		System.out.println("여기까지옴");
 		
-		List<googleChartVO> googleList = AdminDAO.getGoogleVO();
-		System.out.println("googleList : "+googleList);
+		List<googleChartVO> googleHobbyList = AdminDAO.getGoogleHobbyVO();
+		List<googleChartVO> googleStudyList = AdminDAO.getGoogleStudyVO();
 		
-		request.setAttribute("googleList", googleList);
+		System.out.println("googleHobbyList : "+googleHobbyList);
+		System.out.println("googleStudyList : "+googleStudyList);
+		
+		request.setAttribute("googleHobbyList", googleHobbyList);
+		request.setAttribute("googleStudyList", googleStudyList);
 		
 		
 		return "googleChart.jsp";
