@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.bc.main.vo.BbsCodeVO;
 import com.bc.main.vo.BoardVO;
+import com.bc.main.vo.googleChartVO;
 import com.bc.member.memberVO;
 import com.bc.mybatis.DBService;
 
@@ -101,6 +102,12 @@ private static SqlSession ss;
 	
 	public static int insertCategory(BbsCodeVO bbscodeVO) {
 		return getSql().insert("admin.insertCategory", bbscodeVO);
+	}
+	
+	//------------------------------googleChart-------------
+	
+	public static List<googleChartVO> getGoogleVO(){
+		return getSql().selectList("admin.googleChartVO");
 	}
 	
 }

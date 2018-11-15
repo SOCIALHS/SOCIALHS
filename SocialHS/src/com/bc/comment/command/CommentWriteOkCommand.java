@@ -20,7 +20,6 @@ public class CommentWriteOkCommand implements Command {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		
-	
 		
 		CommentVO vo = new CommentVO();
 		vo.setBb_idx(bb_idx);
@@ -31,9 +30,12 @@ public class CommentWriteOkCommand implements Command {
 		CommentDAO.insertComment(vo);
 		System.out.println("====comment 입력 완료====");
 		
-		//return "HobbyController?type=view&bb_idx="+bb_idx;
-		//return "minseong/bullteinBoardOne.jsp";
-		return "BullteinController?type=bullteinOne&bb_idx="+bb_idx;
+		System.out.println("=====comment 5점 주기 =========");
+		CommentDAO.updatePoint(id);
+		System.out.println("완료");
+		System.out.println("=====comment 5점 주기 =========");
+		
+		return "HobbyController?type=view&bb_idx="+bb_idx;
 	}
 	
 

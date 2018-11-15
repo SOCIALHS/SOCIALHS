@@ -128,7 +128,6 @@
 	<div class="container text-center">
 		<ul id ="infohead" class="nav mx-auto my-2">
 			<li class="nav-item" style="font-weight: bold">내 정보</li>&nbsp;|&nbsp;
-			<li class="nav-item"><a href="">Q&A</a>&nbsp;|&nbsp;</li>
 			<li class="nav-item"><a href="index.jsp">home</a></li>
 		</ul>
 	

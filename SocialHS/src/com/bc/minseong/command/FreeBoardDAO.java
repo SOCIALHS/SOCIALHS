@@ -1,5 +1,6 @@
 package com.bc.minseong.command;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -13,6 +14,12 @@ public class FreeBoardDAO {
 		ss = DBService.getFactory().openSession(true);
 		return ss;
 	}
+	
+	
+	public static List<BoardVO> getMaplist(Map<String, Integer> map) {
+		return getSql().selectList("free.f_Maplist", map);
+	}
+	
 	
 	//공지 게시판 리스트
 	public static List<BoardVO> getList() {
