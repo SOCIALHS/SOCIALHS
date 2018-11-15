@@ -84,7 +84,7 @@ ul.tab li {
 
 ul.tab li.current {
 	text-decoration: underline;
-	color: orangered;
+	color: #b30000;
 }
 
 .tabcontent {
@@ -129,9 +129,9 @@ h3 {
 	}
 %>
 <!-- ------------------------------------------------------------------------------------ -->
-<br>
-<br>
-<br>
+<!-- <body> -->
+<%@ include file="../dongwu/subnav.jsp"%>
+
 <div class="row">
 	<div class="col-2" style="width: 100%;">
 		<!-- aside -->
@@ -149,13 +149,13 @@ h3 {
 
 		<form class="form-inline my-3" method="post">
 			<div class="form-group">
-				<select class="form-control" name="select">
+				<select class="form-control mr-3" name="select">
 					<option value="0">제목</option>
 					<option value="1">작성자</option>
 					<option value="2">내용</option>
 					<option value="3">제목 + 내용</option>
 				</select> <input class="form-control mr-sm-2" type="search" placeholder="검색"
-					style="width: 500px;" aria-label="Search" name="keyword">
+					style="width: 600px;" aria-label="Search" name="keyword">
 				<button class="btn bg-success text-white my-2 mr-sm-2"
 					onclick="search_go(this.form)">검색</button>
 				<input type="hidden" name="sl_idx" value="${sl_idx}">
