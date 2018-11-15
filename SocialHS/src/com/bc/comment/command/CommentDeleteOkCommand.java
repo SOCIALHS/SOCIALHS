@@ -24,7 +24,6 @@ public class CommentDeleteOkCommand implements Command {
 		CommentDAO.deleteComment(bbc_idx);
 		System.out.println("댓글 삭제 완료");
 		return "HobbyController?type=view&bb_idx="+bb_idx;
-
 	}
 	
 

@@ -14,7 +14,11 @@
 	p.setTotalRecord(BullteinBoardDAO.getTotalCount());
 	p.setTotalPage();
 	
+	System.out.println("BullteinBoardDAO.getTotalCount() : " + BullteinBoardDAO.getTotalCount());
+	System.out.println("전체 페이지 수 : " + p.getTotalPage());
+	
 	String cPage = request.getParameter("cPage");
+	System.out.println("cPage: "+ cPage);
 	if(cPage != null) {
 		p.setNowPage(Integer.parseInt(cPage));
 	}
@@ -22,8 +26,8 @@
 	p.setBegin(p.getEnd() - p.getNumPerpage() + 1);
 	
 	
-	int nowPage = p.getNowPage();
-	p.setBeginPage((nowPage - 1) / p.getPagePerBlock() * p.getPagePerBlock() + 1);
+	//int nowPage = p.getNowPage();
+	p.setBeginPage((p.getNowPage() - 1) / p.getPagePerBlock() * p.getPagePerBlock() + 1);
 	p.setEndPage(p.getBeginPage() + p.getPagePerBlock() - 1);
 	
 	if (p.getEndPage() > p.getTotalPage()) {
@@ -32,15 +36,20 @@
 %>
 <%
 	Map<String, Integer> map = new HashMap<>();
+System.out.println("begin : "+ p.getBegin());
+System.out.println("end : "+ p.getEnd());
 	map.put("beginPage", p.getBegin());
 	map.put("endPage", p.getEnd());
 	System.out.println("map : "+ map);
 	
 	List<BoardVO> list = BullteinBoardDAO.getMaplist(map);
-	
+	System.out.println("list : " + list);
+
 	pageContext.setAttribute("list", list);
-	pageContext.setAttribute("pvo", p);
+	System.out.println("list2 : " + list);
 	
+	pageContext.setAttribute("pvo", p);
+	pageContext.setAttribute("cPage", cPage);
 %>
 
 	
@@ -152,7 +161,7 @@
 			<c:forEach var="vo" items="${list }">
 			<tr>
 				<td>${vo.getBb_idx() }</td>
-				<td><a href="BullteinController?type=bullteinOne&bb_idx=${vo.bb_idx }">${vo.getTitle() }</a></td>
+				<td><a href="/SocialHS/BullteinController?type=bullteinOne&bb_idx=${vo.bb_idx }">${vo.getTitle() }</a></td>
 				<td>${vo.getId() }</td>
 				<td>${vo.getHit() }</td>
 				<td>${vo.getGood() }</td>
@@ -163,7 +172,7 @@
 	
 		<c:if test="${empty list }">		
 			<tr>
-				<td colspan="7">입력된 자료가 없습니다</td>
+				<td colspan="6">입력된 자료가 없습니다</td>
 			</tr>
 		</c:if>		
 		</tbody>
@@ -173,39 +182,43 @@
 			<tr>
 				<td colspan="6">
 					<ol class="paging">
+					
+					<%-- 이전으로(←) --%>
 					<c:choose>
-						<c:when test="${pvo.beginPage == 1}">
+						<c:when test="${pvo.beginPage < pvo.pagePerBlock }">
 							<li class="disable"> ← </li>
 						</c:when>
 						<c:otherwise>
-							<li><a href="minseong/bullteinBoardList.jsp?cPage=${pvo.beginPage - 1 }"> ← </li>
-							<%-- <li><a href="BullteinController?type=bullteinList"> ← </li>--%>
-							 
+							<li><a href="/SocialHS/minseong/bullteinBoardList.jsp?cPage=${pvo.beginPage - 1 }"> ← </a></li>
 						</c:otherwise>
 					</c:choose>
 					
+					
 					<%-- 블록내 페이지 반복 --%>
+					
 					<c:forEach var="p" begin="${pvo.beginPage }" end="${pvo.endPage }">
 					<c:choose>
 					<c:when test="${p == pvo.nowPage }">
 						<li class="now">${p }</li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="minseong/bullteinBoardList.jsp?cPage=${p }">${p }</li>
+						<li><a href="/SocialHS/minseong/bullteinBoardList.jsp?cPage=${p }">${p }</a></li>
 					</c:otherwise>
 					</c:choose>
 					</c:forEach>
 					
-					<%-- 다음으로 --%>
+					<%-- 다음으로(→) --%>
 					
 					<c:choose>
 						<c:when test="${pvo.endPage >= pvo.totalPage }">
 							<li class="disable"> → </li>
 						</c:when>
 						<c:otherwise>	
-							<li><a href="minseong/bullteinBoardList.jsp?cPage=${pvo.endPage + 1 }"> → </li>
+							<li><a href="/SocialHS/minseong/bullteinBoardList.jsp?cPage=${pvo.endPage + 1 }"> → </a></li>
 						</c:otherwise>
 					</c:choose>
+					
+					
 					</ol>
 				</td>
 			</tr>

@@ -53,7 +53,7 @@
 		border-collapse: collapse; */
 		width: 1100px; margin: auto; padding: 50px; 
 	}
-	#allList, #hobbylist, #studylist, #allmemberInfo #categoryAdd {
+	#allList, #hobbylist, #studylist, #allmemberInfo, #categoryAdd {
 		padding-left: 50px; }
 	#adminPage .center { text-align: center; }
 	#adminPage .right { text-align: right; }
@@ -62,7 +62,7 @@
 	
 	/* 탭 스타일 */
 	.tabcontent { display: none; }
-	.tabcontent.current { display: inherit; }
+	.tabcontent .current { display: inherit; }
 	#infohead .current { background-color: gold; } 
 	/* 탭 스타일 끝 */
 	

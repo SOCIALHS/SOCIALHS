@@ -117,134 +117,118 @@
 <!--  <BODY>  -->
 
 <div id="container">
-	<h2>Q&A</h2>
+	<h1 class="display-4 my-5 text-center">Q&A</h1>
 	<hr>
 
 	<form method="post">
-		<table>
-			<tbody>
-				<tr>
-					<th>글번호</th>
-					<td>${BoardVO.getBb_idx() }</td>
-				</tr>
-				<tr>
-					<th>제목</th>
-					<td>${BoardVO.getTitle() }</td>
-				</tr>
-				<tr>
-					<th>작성자</th>
-					<td>${BoardVO.getId() }</td>
-				</tr>
-				<tr>
-					<th>조회수</th>
-					<td>${BoardVO.getHit() }</td>
-				</tr>
-				<tr>
-					<th>내용</th>
-					<td style="height: 200px">${BoardVO.getContent() }</td>
-				</tr>
-				<tr>
-			</tbody>
-
-
-
-
-			<tfoot>
-				<tr>
-					<td><input type="button" value="GOOD"
-						onclick="good(this.form)"></td>
-					<td>${BoardVO.getGood() }</td>
-				</tr>
-				<tr>
-					<td><input type="button" value="BAD" onclick="bad(this.form)">
-					</td>
-					<td>${BoardVO.getBad() }</td>
-				</tr>
-				<tr>
-					<td colspan="2"><input type="button" value="수정 "
-						onclick="update_go(this.form)"> <input type="button"
-						value="삭제" onclick="delete_go(this.form)"> <input
-						type="hidden" name="cPage" value="${cPage }"></td>
-				</tr>
-			</tfoot>
+		<table class="table">
+			<tr>
+				<th scope="col" class="bg-light"><p class="lead text-center">글번호</p></th>
+				<td scope="row"><p class="lead">${BoardVO.getBb_idx() }</p>
+				</th>
+			</tr>
+			<tr>
+				<th scope="col" class="bg-light"><p class="lead text-center">제목</p></th>
+				<td><p class="lead">${BoardVO.getTitle() }</p></td>
+			</tr>
+			<tr>
+				<th scope="col" class="bg-light"><p class="lead text-center">작성자</p></th>
+				<td><p class="lead">${BoardVO.getId() }</p></td>
+			</tr>
+			<tr>
+				<th scope="col" class="bg-light"><p class="lead text-center">조회수</p></th>
+				<td><p class="lead">${BoardVO.getHit() }</p></td>
+			</tr>
+			<tr>
+				<th scope="col" class="bg-light"><p class="lead text-center">내용</p></th>
+				<td><p class="lead">${BoardVO.getContent() }</p></td>
+			</tr>
 		</table>
+
+		<div class="form-group">
+			<div class="row">
+				<input type="submit" class="btn btn-info mx-2 ml-auto"
+					onclick="good(this.form)" value="좋아요">
+				<p class="lead mx-2">${BoardVO.getGood() }</p>
+				<input type="submit" class="btn btn-danger mx-2"
+					onclick="bad(this.form)" value="별로에요">
+				<p class="lead mx-2">${BoardVO.getBad() }</p>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<input type="submit" class="btn btn-dark"
+				onclick="update_go(this.form)" value="수정하기"> <input
+				type="submit" class="btn btn-dark" onclick="delete_go(this.form)"
+				value="삭제하기"> <input type="hidden" name="cPage"
+				value="${cPage }">
+		</div>
 	</form>
 </div>
-<div>
 
-	<hr>
+<%-- 댓글 입력 --%>
+<div class="card my-4">
+	<h5 class="card-header">댓글 달기</h5>
+	<div class="card-body">
+		<form method="post" action="Comment?type=f_writeOk">
+			<%
+				if (session.getAttribute("memberVO") == null) {
+			%>
 
-	댓글 목록
+			<p class="lead">작성자:</p>
+			<input type="hidden" name="id" value="">
 
-	<hr>
+			<%
+				} else {
+			%>
+
+			<p class="lead">작성자: ${memberVO.getId() }</p>
+			<input type="hidden" name="id" value="${memberVO.getId() }">
+
+			<%
+				}
+			%>
+
+			<div class="form-group">
+				<textarea class="form-control" rows="3" name="content"></textarea>
+			</div>
+			<input type="hidden" name="bb_idx" value="${bbvo.bb_idx }">
+			<!-- <input type="hidden" name="cPage" value="${cPage }"> -->
+			<input type="submit" class="btn btn-dark" value="댓글 저장하기">
+		</form>
+	</div>
+</div>
 
 
-	<%-- 댓글 출력 --%>
-	<c:choose>
-		<c:when test="${empty cList}">
-			<tr>
-				<td colspan="5">
-					<h3>현재 등록된 댓글이 없습니다.</h3>
-				</td>
-			</tr>
-		</c:when>
-		<c:otherwise>
-			<c:forEach var="CommentVO" items="${cList }">
-				<div class="comment">
-					<form method="post" action="QNA?type=q_deleteOk">
-						<p>댓글번호 : ${CommentVO.bbc_idx }</p>
-						<p>작성자 : ${CommentVO.id }</p>
-						<p>내용 : ${CommentVO.content }</p>
-						<p>작성일 : ${CommentVO.regdate}</p>
-						<input type="submit" value="삭제"> <input type="hidden"
-							name="bbc_idx" value="${CommentVO.bbc_idx }"> <input
-							type="hidden" name="content" value="${CommentVO.content }">
+<hr>
+<p class="lead">댓글 보기</p>
+<hr>
+
+<%-- 댓글 출력 --%>
+<c:choose>
+	<c:when test="${empty cList}">
+		<p class="lead">현재 등록된 댓글이 없습니다.</p>
+	</c:when>
+	<c:otherwise>
+		<c:forEach var="CommentVO" items="${cList }">
+			<div class="card my-4">
+				<h5 class="card-header">Leave a Comment:</h5>
+				<div class="card-body">
+					<form method="post" action="Comment?type=f_deleteOk">
+						<p class="lead">댓글번호 : ${CommentVO.bbc_idx }</p>
+						<p class="lead">작성자 : ${CommentVO.id }</p>
+						<p class="lead">내용 : ${CommentVO.content }</p>
+						<p class="lead">작성일 : ${CommentVO.regdate}</p>
+						<button type="submit" class="btn btn-danger">삭제</button>
+						<input type="hidden" name="bbc_idx" value="${CommentVO.bbc_idx }">
+						<input type="hidden" name="content" value="${CommentVO.content }">
 						<input type="hidden" name="bb_idx" value="${CommentVO.bb_idx }">
 					</form>
 				</div>
-			</c:forEach>
-		</c:otherwise>
-	</c:choose>
-
-
-	<hr>
-
-	댓글 작성
-
-	<hr>
-
-	<%-- 댓글 입력 --%>
-	<form method="post" action="QNA?type=q_writeOk">
-		<%
-			if (session.getAttribute("memberVO") == null) {
-		%>
-
-		<p>작성자: </p>
-		<input type="hidden" name="id" value="">
-
-		<%
-			} else {
-		%>
-		
-		<p>작성자: ${memberVO.getId() }</p>
-		<input type="hidden" name="id" value="${memberVO.getId() }">
-		
-		<%
-			}
-		%>
-
-		<p>
-			내용 :
-			<textarea name="content" rows="4" cols="55"></textarea>
-		</p>
-		<input type="submit" value="댓글 저장"><input type="hidden"
-			name="bb_idx" value="${bbvo.bb_idx }">
-		<!-- <input type="hidden" name="cPage" value="${cPage }"> -->
-	</form>
-
-
-
+			</div>
+		</c:forEach>
+	</c:otherwise>
+</c:choose>
 </div>
 
 <%@ include file="../jieun/footer.jsp"%>
-
