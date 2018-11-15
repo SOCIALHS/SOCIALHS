@@ -11,17 +11,18 @@
 		SELECT ROWNUM R_NUM, P.*
 		  FROM (SELECT *
 		          FROM B_BOARD
+		          WHERE BBS_IDX = 3
 		         ORDER BY BB_IDX DESC
 		        ) P)
 		 WHERE R_NUM BETWEEN #{beginPage} AND #{endPage}
 	</select>
 	 
 	<select id="BullteinList" resultType="com.bc.main.vo.BoardVO">
-		SELECT * FROM B_BOARD
+		SELECT * FROM B_BOARD WHERE BBS_IDX = 3
 	</select>
 
 	<select id="totalCount" resultType="int">
-		SELECT COUNT(BB_IDX) FROM B_BOARD
+		SELECT COUNT(BB_IDX) FROM B_BOARD WHERE BBS_IDX = 3
 	</select>
 
 	

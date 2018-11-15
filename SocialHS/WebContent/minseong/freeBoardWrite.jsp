@@ -21,10 +21,23 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
+<style>
+a:hover {
+	text-decoration: underline;
+	color: #b30000;
+}
 
+#infohead {
+	text-align: left;
+	width: 1000px;
+}
+</style>
 </head>
 <body>
-	<div>
+	<div class="bg-light p-4">
+		<ul id="infohead" class="nav mx-auto my-2">
+			<li class="nav-item"><a href="javascript:history.back()">뒤로가기</a></li>
+		</ul>
 		<h1 class="display-4 my-5 text-center">게시물 작성</h1>
 		<hr>
 		<form method="post" class="mx-auto" style="width: 1000px;">
@@ -54,9 +67,9 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="2"><input class="btn btn-dark" type="button"
+						<td colspan="2"><input class="btn btn-success" type="button"
 							value="작성 완료" onclick="write_go(this.form)"> <input
-							class="btn btn-dark" type="reset" value="초기화"> <!--  <input type="hidden" name="id" value="${memberid }"> -->
+							class="btn btn-success" type="reset" value="초기화"> <!--  <input type="hidden" name="id" value="${memberid }"> -->
 							<input type="hidden" name="chk" value="1"></td>
 					</tr>
 				</tfoot>
@@ -76,6 +89,5 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
-</body>
 </body>
 </html>
