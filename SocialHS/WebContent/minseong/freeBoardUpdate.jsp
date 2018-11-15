@@ -7,7 +7,7 @@
 <title>수정</title>
 <script>
 	function save_go(frm) {
-		frm.action = "FreeController?type=freeUpdateUpdate"; 
+		frm.action = "../FreeController?type=freeUpdate&bb_idx=${BoardVO.getBb_idx() }"; 
 		frm.submit();
 	}
 </script>
@@ -36,12 +36,11 @@
 		<tfoot>
 			<tr>
 				<td colspan="2">
-					<input type="button" value="수정 완료"
-						onclick="save_go(this.form)">
+					<input type="button" value="수정 완료" onclick="save_go(this.form)">
 					<input type="reset" value="초기화">
+					<input type="hidden" name="bb_idx" value="${BoardVO.getBb_idx() }">
 				</td>
 			</tr>
-			<input type="hidden" name="bb_idx" value="${BoardVO.getBb_idx() }">
 
 		</tfoot>	
 		</table>

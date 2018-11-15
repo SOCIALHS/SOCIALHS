@@ -53,6 +53,12 @@ public class BullteinBoardDAO {
 		return result;
 	}
 	
+	//게시글에 딸린 댓글 삭제
+	public static int deleteComment(String bb_idx) {
+		int result = getSql().delete("BullteinDeleteComment", bb_idx);
+		return result;
+	}
+	
 	
 	
 	//조회수 

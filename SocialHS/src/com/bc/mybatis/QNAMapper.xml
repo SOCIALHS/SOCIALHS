@@ -47,6 +47,14 @@
 	</delete>
 	
 	
+	
+	<delete id="QNAdeleteComment" parameterType="String">
+		DELETE FROM
+		BB_COMMENT WHERE
+		BB_IDX = #{bb_idx}
+	</delete>
+	
+	
 	<update id="QNAhitVO" parameterType="com.bc.main.vo.BoardVO">
 		UPDATE B_BOARD 
 		   SET HIT = #{hit} + 1 
@@ -71,6 +79,11 @@
 		 WHERE BB_IDX = #{bb_idx}
 	</update>
 	
+	
+	<insert id="QNAwriteComment" parameterType="com.bc.main.vo.CommentVO">
+		INSERT INTO BB_COMMENT (BBC_IDX, ID, CONTENT, REGDATE, BB_IDX)
+		VALUES(BBC_SEQ.NEXTVAL, #{id}, #{content}, SYSDATE, #{bb_idx})
+	</insert>
 </mapper>
 	
 	

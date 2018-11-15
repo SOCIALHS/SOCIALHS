@@ -29,7 +29,7 @@ public class CommentDAO {
 		int result = getSql().delete("comment.CommentDelete", bbc_idx);
 		return result;
 	}
-
+	
 
 	
 }
