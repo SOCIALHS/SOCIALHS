@@ -162,13 +162,13 @@ a:hover {
 				<c:if test="${not empty list }">
 					<c:forEach var="vo" items="${list }">
 						<tr>
-							<td class="col">${vo.getBb_idx() }</td>
-							<td class="col"><a
+							<td>${vo.getBb_idx() }</td>
+							<td><a
 								href="/SocialHS/BullteinController?type=bullteinOne&bb_idx=${vo.bb_idx }">${vo.getTitle() }</a></td>
-							<td class="col">${vo.getId() }</td>
-							<td class="col">${vo.getHit() }</td>
-							<td class="col">${vo.getGood() }</td>
-							<td class="col">${vo.getBad() }</td>
+							<td>${vo.getId() }</td>
+							<td>${vo.getHit() }</td>
+							<td>${vo.getGood() }</td>
+							<td>${vo.getBad() }</td>
 						</tr>
 					</c:forEach>
 				</c:if>
