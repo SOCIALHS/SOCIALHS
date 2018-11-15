@@ -55,7 +55,7 @@
 						<option value = "300">hobby</option>
 						<option value = "700">study</option>
 					</select>
-					<input type="text" name="bbs_name" id = "bbs_name" placeholder="카테고리 이름">
+					<input type="text" name="bbs_name" id = "bbs_name" size="25" placeholder="카테고리 이름">
 				</td>
 				<td></td>
 			</tr>
