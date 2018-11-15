@@ -100,7 +100,8 @@
 	
 	<jsp:include page="infohead.jsp"></jsp:include>
 	
-	<div id="hobbylist">
+	<div class="container">
+	<div id="hobbylist" class="center-block">
 	
 	<form method="post">
 		<div id="searchmenu">
@@ -206,6 +207,8 @@
 		</table>
 	
 	</form>
+	</div>
+
 	</div>
 </div>
 

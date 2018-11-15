@@ -206,8 +206,9 @@
 		</ul>
 	</div>
 	
+	<div class="container">
 	<%-- 글목록 --%>
-	<div id="allList" class="tabcontent current">
+	<div id="allList" class="tabcontent current center-block">
 		<table class="table my-2 mx-auto text-center">
 			<thead>
 				<tr>
@@ -253,7 +254,7 @@
 	</div> <%-- 전체 글목록 끝 --%>
 	
 	<%-- 취미 --%>
-	<div id="hobbylist" class="tabcontent">
+	<div id="hobbylist" class="tabcontent center-block">
 		<table class="table my-2 mx-auto text-center">
 			<thead>
 				<tr>
@@ -299,7 +300,7 @@
 	</div> <%-- 취미목록 끝 --%>
 	
 	<%-- 스터디 --%>
-	<div id="studylist" class="tabcontent">
+	<div id="studylist" class="tabcontent center-block">
 		<table class="table my-2 mx-auto text-center">
 			<thead>
 				<tr>
@@ -345,7 +346,7 @@
 	</div> <%-- 스터디 목록 끝 --%>
 	
 	<%-- 회원정보 --%>
-	<div id="allmemberInfo" class="tabcontent">
+	<div id="allmemberInfo" class="tabcontent center-block">
 		<table class="table my-2 mx-auto text-center">
 			<thead>
 				<tr>
@@ -411,7 +412,7 @@
 		</form>
 	</div>
 	
-	
+	</div>
 </div>
 
 <%@ include file="jieun/footer.jsp"%>

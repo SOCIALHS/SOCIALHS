@@ -130,7 +130,8 @@
 		</ul>
 	</div>
 	
-	<div id="allmemberInfo">
+	<div class="container">
+	<div id="allmemberInfo" class="center-block">
 	
 	<form method="post">
 		<div id="searchmenu">
@@ -233,6 +234,7 @@
 	</form>
 	</div>
 	
+	</div>
 </div>
 
 </body>

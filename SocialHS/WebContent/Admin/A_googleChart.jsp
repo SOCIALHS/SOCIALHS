@@ -137,16 +137,17 @@
 				href="AdminController?type=googleChart">차트보기</a></li>
 		</ul>
 	</div>
-	
-   <%-- 구글차트 --%>
-   <div id="chartpage">
-	   <input type = "button" class = "btn btn-primary" id = "btn" onclick = "drawChart()" value = "chart">
-	   <br>
-	   <div id="columnchart_material" style="width: 1100px; height: 500px;"></div>
-   		
-   </div>
-	
-</div>
+
+	<div class="container">
+		<%-- 구글차트 --%>
+		<div id="chartpage" class="center-block">
+			<input type="button" class="btn btn-primary" id="btn"
+				onclick="drawChart()" value="chart"> <br>
+			<div id="columnchart_material" style="width: 1100px; height: 500px;"></div>
+
+		</div>
+	</div>
+	</div>
 
 </body>
 </html>
