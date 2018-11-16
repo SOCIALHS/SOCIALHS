@@ -53,6 +53,18 @@ public class MainDAO {
 		return getSql().update("socialhs.checkMem", bb_idx);
 	}
 	
+	// 알람 전체 삭제
+	public static int clearMem(String id) {
+		return getSql().update("socialhs.clearMem", id);
+	}
+	public static int clearCom(String id) {
+		return getSql().update("socialhs.clearCom", id);
+	}
+	public static int clearMsn(String id) {
+		return getSql().update("socialhs.clearMsn", id);
+	}
+	
+	
 	
 	// 랭크 업 DAO
 	public static int rankUpTo1(String id) {

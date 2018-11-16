@@ -189,7 +189,7 @@ a:hover {
 								<c:forEach var="e" items="${s_list }">
 									<tr>
 										<td class="center">${e.bb_idx }</td>
-										<td class="clickTitle">${e.title }</td>
+										<td class="clickTitle"><a href="HobbyController?type=view&bb_idx=${e.bb_idx }">${e.title }</a></td>
 										<td>${e.id }</td>
 										<td class="center">${e.regdate.substring(0, 10) }</td>
 										<td class="center">${e.hit }</td>

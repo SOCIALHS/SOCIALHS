@@ -47,7 +47,10 @@ public class ApplyDAO {
 	}
 	
 	
-	
+	// 신청시 chk+1
+	public static int updateChk(String bb_idx) {
+		return getSql().update("apply.updateChk", bb_idx);
+	}
 
 	
 }

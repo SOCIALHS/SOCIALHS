@@ -43,6 +43,8 @@ public class ApplyCommand implements Command {
 		int cnt = ApplyDAO.updateCurrent(bb_idx);
 		System.out.println("cnt : "+cnt);
 		System.out.println("인원 변경 완료 완료");
+		ApplyDAO.updateChk(bb_idx);
+		System.out.println("chk+1 완료");
 		
 		HobbyBoardVO new_viewVO = HobbyBoardDAO.getViewVo(bb_idx);
 		

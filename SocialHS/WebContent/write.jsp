@@ -119,7 +119,7 @@
             <div class="col ml-4">
                 <label for="bbs_idx">카테고리</label>
                 <select class="form-control" id="bbs_idx" name = "bbs_idx">
-                    <c:forEach var = "bbsCodeVO" items = "${bbs_code_list }">
+                    <c:forEach var = "bbsCodeVO" items = "${hsList }">
                     	<option value = "${bbsCodeVO.bbs_idx }">${bbsCodeVO.bbs_name }</option>
                     </c:forEach>
                 </select>

@@ -84,6 +84,24 @@
 		UPDATE B_BOARD SET CHK = 0 WHERE BB_IDX = #{bb_idx}
 	</update>
 	
+	<update id="clearMem" parameterType="String">
+		UPDATE B_BOARD SET CHK = 0 WHERE ID = #{id} AND CHK != 0
+	</update>
+	
+	<update id="clearCom" parameterType="String">
+		UPDATE BB_COMMENT SET CHK = 0 
+		WHERE (SELECT DISTINCT B.ID
+				FROM B_BOARD B, BB_COMMENT C 
+				WHERE B.BB_IDX = C.BB_IDX
+				AND B.ID = 'test' 
+				AND C.CHK != 0
+				) = #{id}
+	</update>
+	
+	<update id="clearMsn" parameterType="String">
+		UPDATE MESSENGER SET CHK = 0 WHERE RECV_ID = #{id} AND CHK != 0
+	</update>
+	
 	
 	
 	<!-- 랭크 업 -->

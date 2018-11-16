@@ -25,4 +25,10 @@
 	
 	
 	
+	<update id="updateChk" parameterType="String">
+		UPDATE B_BOARD SET CHK = CHK+1 WHERE BB_IDX = #{bb_idx}
+	</update>
+	
+	
+	
 </mapper>  

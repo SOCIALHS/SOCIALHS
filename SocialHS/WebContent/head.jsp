@@ -77,16 +77,17 @@
 						newAlm += '"<span class="ajaxTitle">' + this.title + '</span>"';
 						newAlm += "글에 \"<span class='ajaxId'>"+this.id+"</span>\"님이 댓글을 달았습니다.<br><br></a>";
 					});
-					newAlm += "<br><br>";
+					newAlm += "";
 				}
+				newAlm += "<div id='rightdiv'><a id='delAll' href='AlarmCheck?type=delAll'>전체 삭제</a></div>";
 
-				$("#newAlm").html(newAlm);
 				if (data.almCnt == '0') {
 					$("#almCnt").attr("class", "badge badge-dark");
 					$("#almCnt").html(data.almCnt);
 				} else {
 					$("#almCnt").attr("class", "badge badge-danger");
 					$("#almCnt").html(data.almCnt);
+				$("#newAlm").html(newAlm);
 				}
 
 				var btnChk = true;
@@ -121,6 +122,13 @@
 .ajaxId{
 	font-size: 1.1em;
 	color: #FF9C00;
+}
+#rightdiv{
+	text-align: right;
+}
+#delAll{
+	text-decoration: none;
+	color: red
 }
 #newAlm {
 	display: none;
