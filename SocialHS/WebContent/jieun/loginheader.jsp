@@ -11,8 +11,8 @@
         </span>
         <input type="hidden">
         <div id="almOutter">
-        <button id="almBtn" type="button" class="btn" style="background-color: #00AA7F">
-            알림<span id="almCnt" class="badge badge-dark">0</span>
+        <button id="almBtn" type="button" class="btn text-white" style="background-color: #00AA7F">
+            알림 <span id="almCnt" class="badge badge-dark">0</span>
         </button>
         <div id="newAlm">
         	

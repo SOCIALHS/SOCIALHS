@@ -24,6 +24,6 @@
 			<a href="HobbyController?type=view&bb_idx=${list.bb_idx }"
 				class="btn btn-secondary">상세보기</a>
 		</div>
-		<div class="card-footer bg-light">2 days ago</div>
+		<div class="card-footer bg-light"></div>
 	</div>
 </c:forEach>

@@ -74,11 +74,11 @@
 			<table class="mx-auto" style="width: 600px">
 				<tbody>
 					<tr class="form-inline">
-						<td id="title"><p class="lead">이름&nbsp;|&nbsp;</p></td>
+						<td id="title" style="width: 60px"><p class="lead">이름</p></td>
 						<td><p class="lead">${memberVO.getName() }</p></td>
 					</tr>
 					<tr class="form-inline">
-						<td id="title"><p class="lead">아이디&nbsp;|&nbsp;</p></td>
+						<td id="title" style="width: 60px"><p class="lead">아이디</p></td>
 						<td><p class="lead">${memberVO.getId() }</p></td>
 					</tr>
 
@@ -98,7 +98,7 @@
 					%>
 	
 					<tr class="form-inline">
-						<td><input type="text" class="form-control mb-2 mr-sm-2"
+						<td><input type="text" name="email" class="form-control mb-2 mr-sm-2"
 							value="<%=email[0] %>" style="width: 420px;" maxlength="50">&nbsp;@&nbsp;
 							<select name="com" class="custom-select mr-sm-2 mb-2">
 								<option>naver.com</option>

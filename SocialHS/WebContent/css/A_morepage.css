@@ -53,8 +53,10 @@
 		border-collapse: collapse; */
 		width: 1100px; margin: auto; padding: 50px; 
 	}
-	#allList, #hobbylist, #studylist, #allmemberInfo, #categoryAdd {
-		padding-left: 50px; }
+	/* #allList, #hobbylist, #studylist, #allmemberInfo, #categoryAdd */
+	
+	#chartpage { padding-left: 50px; padding-right: 50px; }
+		
 	#adminPage .center { text-align: center; }
 	#adminPage .right { text-align: right; }
 	#adminPage .left { text-align: left; }

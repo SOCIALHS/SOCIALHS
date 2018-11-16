@@ -201,13 +201,14 @@
 			<li class="topMenuLi nav-item">
 				<a class="menuLink tablink" data-tab="allmemberInfo">회원정보보기</a></li>
 			<li class="topMenuLi nav-item"><a class="menuLink tablink" data-tab="categoryAdd">카테고리추가</a></li>
-			<li class="topMenuLi nav-item"><a class="menuLink tablink" href="AdminController?type=googleChart">차트 보기</a></li>
+			<li class="topMenuLi nav-item"><a class="menuLink tablink" data-tab="chartpage"
+				href="AdminController?type=googleChart">차트보기</a></li>
 		</ul>
-		
 	</div>
 	
+	<div class="container">
 	<%-- 글목록 --%>
-	<div id="allList" class="tabcontent current">
+	<div id="allList" class="tabcontent current center-block">
 		<table class="table my-2 mx-auto text-center">
 			<thead>
 				<tr>
@@ -253,7 +254,7 @@
 	</div> <%-- 전체 글목록 끝 --%>
 	
 	<%-- 취미 --%>
-	<div id="hobbylist" class="tabcontent">
+	<div id="hobbylist" class="tabcontent center-block">
 		<table class="table my-2 mx-auto text-center">
 			<thead>
 				<tr>
@@ -298,9 +299,8 @@
 		</table>
 	</div> <%-- 취미목록 끝 --%>
 	
-	
 	<%-- 스터디 --%>
-	<div id="studylist" class="tabcontent">
+	<div id="studylist" class="tabcontent center-block">
 		<table class="table my-2 mx-auto text-center">
 			<thead>
 				<tr>
@@ -345,9 +345,8 @@
 		</table>
 	</div> <%-- 스터디 목록 끝 --%>
 	
-	
 	<%-- 회원정보 --%>
-	<div id="allmemberInfo" class="tabcontent">
+	<div id="allmemberInfo" class="tabcontent center-block">
 		<table class="table my-2 mx-auto text-center">
 			<thead>
 				<tr>
@@ -413,8 +412,7 @@
 		</form>
 	</div>
 	
-	
-	
+	</div>
 </div>
 
 <%@ include file="jieun/footer.jsp"%>

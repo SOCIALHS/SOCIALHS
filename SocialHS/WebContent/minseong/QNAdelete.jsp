@@ -13,6 +13,5 @@ function q_delete() {
 </script>	
 </head>
 <body onload="q_delete()">
-	<h3>delete</h3>
 </body>
 </html>

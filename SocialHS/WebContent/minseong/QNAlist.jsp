@@ -6,7 +6,7 @@
 <%@page import="java.util.Map"%>
 <%@page import="com.bc.minseong.command.BullteinBoardDAO"%>
 <%@page import="com.bc.study.vo.PagingVO"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -14,19 +14,17 @@
 
 	p.setTotalRecord(BullteinBoardDAO.getTotalCount());
 	p.setTotalPage();
-	
-	
+
 	String cPage = request.getParameter("cPage");
-	if(cPage != null) {
+	if (cPage != null) {
 		p.setNowPage(Integer.parseInt(cPage));
 	}
 	p.setEnd(p.getNowPage() * p.getNumPerpage());
 	p.setBegin(p.getEnd() - p.getNumPerpage() + 1);
-	
-	
+
 	p.setBeginPage((p.getNowPage() - 1) / p.getPagePerBlock() * p.getPagePerBlock() + 1);
 	p.setEndPage(p.getBeginPage() + p.getPagePerBlock() - 1);
-	
+
 	if (p.getEndPage() > p.getTotalPage()) {
 		p.setEndPage(p.getTotalPage());
 	}
@@ -35,15 +33,15 @@
 	Map<String, Integer> map = new HashMap<>();
 	map.put("beginPage", p.getBegin());
 	map.put("endPage", p.getEnd());
-	System.out.println("map : "+ map);
-	
+	System.out.println("map : " + map);
+
 	List<BoardVO> list = QNA_DAO.getMaplist(map);
 
 	pageContext.setAttribute("list", list);
 	pageContext.setAttribute("pvo", p);
 	pageContext.setAttribute("cPage", cPage);
-%>	
-	
+%>
+
 <%
 	if (session.getAttribute("memberVO") == null && session.getAttribute("AdminVO") == null) {
 %>
@@ -61,7 +59,50 @@
 %>
 
 <title>Q&A 게시판</title>
+<style>
+.paging li {
+	float: left;
+	margin-right: 8px;
+}
 
+.paging li a {
+	text-decoration: none;
+	display: block;
+	padding: 3px 7px;
+	border: 1px solid black;
+	font-weight: bold;
+	color: black;
+}
+
+.paging li a:hover {
+	background-color: grey;
+	color: black;
+}
+
+.paging .disable {
+	padding: 3px 7px;
+	border: 1px solid silver;
+	color: silver;
+}
+
+.paging .now {
+	padding: 3px 7px;
+	border: 1px solid #9cf;
+	background-color: #9cf;
+	color: white;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #b30000;
+}
+
+#infohead {
+	text-align: left;
+	width: 1200px;
+}
+</style>
 </head>
 
 <%
@@ -83,10 +124,18 @@
 <!--  <BODY>  -->
 
 <div id="container">
-	<h1 class="display-4 my-5 text-center">Q&A</h1>
+	<ul id="infohead" class="nav mx-auto my-4">
+		<li class="nav-item"><a href="javascript:history.back()">뒤로가기</a></li>
+	</ul>
+	<h1 class="display-4 my-4 text-center">Q&A</h1>
 	<hr>
-	<a href="/SocialHS/minseong/QNAwrite.jsp"><p class="lead text-center">게시물 작성하기</p></a>
-	<table class="table mx-auto" style="width: 1000px;">
+	<p>
+		<button type="button" class="btn btn-info"
+			style="margin-left: 1400px;"
+			onclick="location.href='/SocialHS/minseong/QNAwrite.jsp'">게시물
+			작성하기</button>
+	</p>
+	<table class="table mx-auto" style="width: 1200px;">
 		<thead>
 			<tr>
 				<th scope="col">글번호</th>
@@ -118,33 +167,36 @@
 				</tr>
 			</c:if>
 		</tbody>
-		<!-- 페이징  -->
-		<tfoot>
-			<tr>
-				<td colspan="6">
-					<ol class="paging">
-					
-					<%-- 이전으로(←) --%>
-					<c:choose>
-						<c:when test="${pvo.beginPage < pvo.pagePerBlock }">
-							<li class="disable"> ← </li>
-						</c:when>
-						<c:otherwise>
-							<li><a href="/SocialHS/minseong/QNAlist.jsp?cPage=${pvo.beginPage - 1 }"> ← </a></li>
-						</c:otherwise>
-					</c:choose>
-					
-					
-					<%-- 블록내 페이지 반복 --%>
-					
-					<c:forEach var="p" begin="${pvo.beginPage }" end="${pvo.endPage }">
-					<c:choose>
+	</table>
+	
+	
+	<!-- 페이징  -->
+	<table class="table mx-auto" style="width: 300px;">
+		<tr>
+			<%-- 이전으로(←) --%>
+			<c:choose>
+				<c:when test="${pvo.beginPage < pvo.pagePerBlock }">
+					<td class="disable">←</td>
+				</c:when>
+				<c:otherwise>
+					<td><a
+						href="/SocialHS/minseong/QNAlist.jsp?cPage=${pvo.beginPage - 1 }">
+							← </a></td>
+				</c:otherwise>
+			</c:choose>
+
+
+			<%-- 블록내 페이지 반복 --%>
+
+			<c:forEach var="p" begin="${pvo.beginPage }" end="${pvo.endPage }">
+				<c:choose>
 					<c:when test="${p == pvo.nowPage }">
-						<li class="now">${p }</li>
+						<td class="now">${p }</td>
 					</c:when>
 					<c:otherwise>
-						<li><a href="/SocialHS/minseong/QNAlist.jsp?cPage=${p }">${p }</a></li>
-					</c:otherwise>
+						<td><a href="/SocialHS/minseong/QNAlist.jsp?cPage=${p }">${p }</a></td>
+					
+						</c:otherwise>
 					</c:choose>
 					</c:forEach>
 					
@@ -152,20 +204,17 @@
 					
 					<c:choose>
 						<c:when test="${pvo.endPage >= pvo.totalPage }">
-							<li class="disable"> → </li>
+							<td class="disable"> → </td>
 						</c:when>
 						<c:otherwise>	
-							<li><a href="/SocialHS/minseong/QNAlist.jsp?cPage=${pvo.endPage + 1 }"> → </a></li>
+							<td><a
+						href="/SocialHS/minseong/QNAlist.jsp?cPage=${pvo.endPage + 1 }"> → </a></td>
 						</c:otherwise>
 					</c:choose>
-					
-					
-					</ol>
-				</td>
 			</tr>
-		</tfoot>
 	</table>
 </div>
+
 
 <%@ include file="../jieun/footer.jsp"%>
 

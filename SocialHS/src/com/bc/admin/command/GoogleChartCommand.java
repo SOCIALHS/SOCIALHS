@@ -26,7 +26,7 @@ public class GoogleChartCommand implements Command {
 		request.setAttribute("googleStudyList", googleStudyList);
 		
 		
-		return "googleChart.jsp";
+		return "Admin/A_googleChart.jsp";
 	}
 
 }

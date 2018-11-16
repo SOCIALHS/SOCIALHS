@@ -20,5 +20,7 @@
 			<li class="topMenuLi nav-item">
 				<a class="menuLink tablink" data-tab="categoryAdd"
 				href="AdminController?type=categoryAddPage">카테고리추가</a></li>
+			<li class="topMenuLi nav-item"><a class="menuLink tablink" data-tab="chartpage"
+				href="AdminController?type=googleChart">차트보기</a></li>
 		</ul>
 </div>
