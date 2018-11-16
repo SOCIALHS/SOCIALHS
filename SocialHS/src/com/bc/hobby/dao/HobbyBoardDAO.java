@@ -65,6 +65,10 @@ public class HobbyBoardDAO {
 	      System.out.println("popup dao check ");
 	      return getSql().selectList("hobbyboard.getPopupList", bb_idx);
    }
+   public static int updateHit(String bb_idx) {
+	      return getSql().update("hobbyboard.updateHit", bb_idx);
+}
+   
    
    
    

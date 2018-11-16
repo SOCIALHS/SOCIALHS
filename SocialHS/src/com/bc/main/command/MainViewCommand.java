@@ -31,6 +31,8 @@ public class MainViewCommand implements Command {
       //이것도 main으로 공용으로 사용함 getOne은 어차피 bb_idx로 구분하기 때문
       session.setAttribute("viewVO", viewVO);
       
+      
+      
       //===============댓글 가져오기 ===================================
       List<CommentVO> commentList = HobbyBoardDAO.getCommentVo(bb_idx);
       System.out.println("commentList : "+commentList);
@@ -44,6 +46,9 @@ public class MainViewCommand implements Command {
       List<PopUpVO> popupList = HobbyBoardDAO.getPopupList(bb_idx);
       System.out.println("popupList : "+popupList);
       request.setAttribute("popupList", popupList);
+      
+      //==========================조회수 늘리기==============================
+      HobbyBoardDAO.updateHit(bb_idx);
       
       
       return "view.jsp";

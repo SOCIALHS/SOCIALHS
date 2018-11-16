@@ -57,7 +57,10 @@
      		 where a.id = b.id and bb_idx = #{bb_idx}
    </select>
 
-   
+	<update id="updateHit" parameterType="String">
+		update b_board set hit = hit+1 where bb_idx = #{bb_idx}
+	</update>
+
    
 </mapper>  
 
