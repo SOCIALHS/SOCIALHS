@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bc.main.command.memInfoCommand;
+import com.bc.main.command.memWriteCommand;
 import com.bc.messenger.command.MessengerCommand;
 import com.bc.messenger.command.MsnDelCommand;
 import com.bc.messenger.command.MsnDetailCommand;
@@ -49,6 +51,10 @@ public class MessengerController extends HttpServlet {
 			comm = new MsnWriteCommand();
 		} else if (type.equals("writeOk")) {
 			comm = new MsnInsCommand();
+		} else if (type.equals("memInfo")) {
+			comm = new memInfoCommand();
+		} else if (type.equals("memWrite")) {
+			comm = new memWriteCommand();
 		}
 
 		path = comm.exec(request, response);

@@ -63,7 +63,9 @@
 
             <!-- Author -->
             <p class="lead">
-               by <a href="#">${viewVO.id }</a>
+               by <a href="#"
+               onClick="window.open('MessengerController?type=memInfo&writer=${viewVO.id }','쪽지창', 'width=600px, height=670px, scrollbars=no')"
+               >${viewVO.id }</a>
             </p>
 
             <hr>
